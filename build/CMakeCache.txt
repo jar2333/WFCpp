@@ -209,6 +209,12 @@ DOXYGEN_DOT_EXECUTABLE:FILEPATH=/usr/bin/dot
 //Doxygen documentation generation tool (http://www.doxygen.org)
 DOXYGEN_EXECUTABLE:FILEPATH=/usr/local/bin/doxygen
 
+//Path to a program.
+GENHTML:FILEPATH=/usr/local/bin/genhtml
+
+//Path to a program.
+LCOV:FILEPATH=/usr/local/bin/lcov
+
 //Value Computed by CMake
 wfcpp-project_BINARY_DIR:STATIC=/home/elaine/cpp/WFCpp/build
 

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/elaine/cpp/WFCpp/test/src/TestApp.cpp" "test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o" "gcc" "test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o.d"
+  "/home/elaine/cpp/WFCpp/test/src/main.cpp" "test/CMakeFiles/wfcpp-test.dir/src/main.cpp.o" "gcc" "test/CMakeFiles/wfcpp-test.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links.

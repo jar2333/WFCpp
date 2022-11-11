@@ -1,8 +1,8 @@
 [
 {
   "directory": "/home/elaine/cpp/WFCpp/build/test",
-  "command": "/usr/bin/g++  -I/home/elaine/cpp/WFCpp/test/wfcpp -I/home/elaine/cpp/WFCpp/library/include -O2 -g -std=gnu++2a -o CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o -c /home/elaine/cpp/WFCpp/test/src/TestApp.cpp",
-  "file": "/home/elaine/cpp/WFCpp/test/src/TestApp.cpp"
+  "command": "/usr/bin/g++  -I/home/elaine/cpp/WFCpp/test/wfcpp -I/home/elaine/cpp/WFCpp/library/include -O0 -coverage -Wall -g -std=gnu++2a -o CMakeFiles/main.exe.dir/src/main.cpp.o -c /home/elaine/cpp/WFCpp/test/src/main.cpp",
+  "file": "/home/elaine/cpp/WFCpp/test/src/main.cpp"
 },
 {
   "directory": "/home/elaine/cpp/WFCpp/build/library",

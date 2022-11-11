@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/elaine/cpp/WFCpp/test/wfcpp -I/home/elaine/cpp/WFCpp/library/include
 
-CXX_FLAGS = -O2 -g -std=gnu++2a
+CXX_FLAGS = -O0 -coverage -Wall -g -std=gnu++2a
 

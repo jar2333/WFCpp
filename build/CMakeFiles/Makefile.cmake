@@ -48,7 +48,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "test/CMakeFiles/wfcpp-test.dir/DependInfo.cmake"
+  "test/CMakeFiles/coverage.dir/DependInfo.cmake"
+  "test/CMakeFiles/main.exe.dir/DependInfo.cmake"
   "library/CMakeFiles/doc.dir/DependInfo.cmake"
   "library/CMakeFiles/wfcpp.dir/DependInfo.cmake"
   )

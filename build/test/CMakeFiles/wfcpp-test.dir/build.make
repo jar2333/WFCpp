@@ -69,28 +69,28 @@ include test/CMakeFiles/wfcpp-test.dir/progress.make
 # Include the compile flags for this target's objects.
 include test/CMakeFiles/wfcpp-test.dir/flags.make
 
-test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o: test/CMakeFiles/wfcpp-test.dir/flags.make
-test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o: /home/elaine/cpp/WFCpp/test/src/TestApp.cpp
-test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o: test/CMakeFiles/wfcpp-test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/elaine/cpp/WFCpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o"
-	cd /home/elaine/cpp/WFCpp/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o -MF CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o.d -o CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o -c /home/elaine/cpp/WFCpp/test/src/TestApp.cpp
+test/CMakeFiles/wfcpp-test.dir/src/main.cpp.o: test/CMakeFiles/wfcpp-test.dir/flags.make
+test/CMakeFiles/wfcpp-test.dir/src/main.cpp.o: /home/elaine/cpp/WFCpp/test/src/main.cpp
+test/CMakeFiles/wfcpp-test.dir/src/main.cpp.o: test/CMakeFiles/wfcpp-test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/elaine/cpp/WFCpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/wfcpp-test.dir/src/main.cpp.o"
+	cd /home/elaine/cpp/WFCpp/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT test/CMakeFiles/wfcpp-test.dir/src/main.cpp.o -MF CMakeFiles/wfcpp-test.dir/src/main.cpp.o.d -o CMakeFiles/wfcpp-test.dir/src/main.cpp.o -c /home/elaine/cpp/WFCpp/test/src/main.cpp
 
-test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.i"
-	cd /home/elaine/cpp/WFCpp/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/elaine/cpp/WFCpp/test/src/TestApp.cpp > CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.i
+test/CMakeFiles/wfcpp-test.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/wfcpp-test.dir/src/main.cpp.i"
+	cd /home/elaine/cpp/WFCpp/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/elaine/cpp/WFCpp/test/src/main.cpp > CMakeFiles/wfcpp-test.dir/src/main.cpp.i
 
-test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.s"
-	cd /home/elaine/cpp/WFCpp/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/elaine/cpp/WFCpp/test/src/TestApp.cpp -o CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.s
+test/CMakeFiles/wfcpp-test.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/wfcpp-test.dir/src/main.cpp.s"
+	cd /home/elaine/cpp/WFCpp/build/test && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/elaine/cpp/WFCpp/test/src/main.cpp -o CMakeFiles/wfcpp-test.dir/src/main.cpp.s
 
 # Object files for target wfcpp-test
 wfcpp__test_OBJECTS = \
-"CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o"
+"CMakeFiles/wfcpp-test.dir/src/main.cpp.o"
 
 # External object files for target wfcpp-test
 wfcpp__test_EXTERNAL_OBJECTS =
 
-test/wfcpp-test: test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o
+test/wfcpp-test: test/CMakeFiles/wfcpp-test.dir/src/main.cpp.o
 test/wfcpp-test: test/CMakeFiles/wfcpp-test.dir/build.make
 test/wfcpp-test: library/libwfcpp.a
 test/wfcpp-test: test/CMakeFiles/wfcpp-test.dir/link.txt

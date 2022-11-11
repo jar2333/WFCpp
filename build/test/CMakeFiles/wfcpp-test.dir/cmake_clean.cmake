@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o"
-  "CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o.d"
+  "CMakeFiles/wfcpp-test.dir/src/main.cpp.o"
+  "CMakeFiles/wfcpp-test.dir/src/main.cpp.o.d"
   "wfcpp-test"
   "wfcpp-test.pdb"
 )

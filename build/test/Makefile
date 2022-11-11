@@ -117,42 +117,56 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-test/CMakeFiles/wfcpp-test.dir/rule:
-	cd /home/elaine/cpp/WFCpp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/wfcpp-test.dir/rule
-.PHONY : test/CMakeFiles/wfcpp-test.dir/rule
+test/CMakeFiles/coverage.dir/rule:
+	cd /home/elaine/cpp/WFCpp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/coverage.dir/rule
+.PHONY : test/CMakeFiles/coverage.dir/rule
 
 # Convenience name for target.
-wfcpp-test: test/CMakeFiles/wfcpp-test.dir/rule
-.PHONY : wfcpp-test
+coverage: test/CMakeFiles/coverage.dir/rule
+.PHONY : coverage
 
 # fast build rule for target.
-wfcpp-test/fast:
-	cd /home/elaine/cpp/WFCpp/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/wfcpp-test.dir/build.make test/CMakeFiles/wfcpp-test.dir/build
-.PHONY : wfcpp-test/fast
+coverage/fast:
+	cd /home/elaine/cpp/WFCpp/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/coverage.dir/build.make test/CMakeFiles/coverage.dir/build
+.PHONY : coverage/fast
 
-src/TestApp.o: src/TestApp.cpp.o
-.PHONY : src/TestApp.o
+# Convenience name for target.
+test/CMakeFiles/main.exe.dir/rule:
+	cd /home/elaine/cpp/WFCpp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/main.exe.dir/rule
+.PHONY : test/CMakeFiles/main.exe.dir/rule
+
+# Convenience name for target.
+main.exe: test/CMakeFiles/main.exe.dir/rule
+.PHONY : main.exe
+
+# fast build rule for target.
+main.exe/fast:
+	cd /home/elaine/cpp/WFCpp/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/main.exe.dir/build.make test/CMakeFiles/main.exe.dir/build
+.PHONY : main.exe/fast
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
 
 # target to build an object file
-src/TestApp.cpp.o:
-	cd /home/elaine/cpp/WFCpp/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/wfcpp-test.dir/build.make test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o
-.PHONY : src/TestApp.cpp.o
+src/main.cpp.o:
+	cd /home/elaine/cpp/WFCpp/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/main.exe.dir/build.make test/CMakeFiles/main.exe.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-src/TestApp.i: src/TestApp.cpp.i
-.PHONY : src/TestApp.i
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-src/TestApp.cpp.i:
-	cd /home/elaine/cpp/WFCpp/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/wfcpp-test.dir/build.make test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.i
-.PHONY : src/TestApp.cpp.i
+src/main.cpp.i:
+	cd /home/elaine/cpp/WFCpp/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/main.exe.dir/build.make test/CMakeFiles/main.exe.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-src/TestApp.s: src/TestApp.cpp.s
-.PHONY : src/TestApp.s
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-src/TestApp.cpp.s:
-	cd /home/elaine/cpp/WFCpp/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/wfcpp-test.dir/build.make test/CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.s
-.PHONY : src/TestApp.cpp.s
+src/main.cpp.s:
+	cd /home/elaine/cpp/WFCpp/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/main.exe.dir/build.make test/CMakeFiles/main.exe.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -162,10 +176,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... wfcpp-test"
-	@echo "... src/TestApp.o"
-	@echo "... src/TestApp.i"
-	@echo "... src/TestApp.s"
+	@echo "... coverage"
+	@echo "... main.exe"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

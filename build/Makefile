@@ -117,17 +117,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named wfcpp-test
+# Target rules for targets named coverage
 
 # Build rule for target.
-wfcpp-test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wfcpp-test
-.PHONY : wfcpp-test
+coverage: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 coverage
+.PHONY : coverage
 
 # fast build rule for target.
-wfcpp-test/fast:
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/wfcpp-test.dir/build.make test/CMakeFiles/wfcpp-test.dir/build
-.PHONY : wfcpp-test/fast
+coverage/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/coverage.dir/build.make test/CMakeFiles/coverage.dir/build
+.PHONY : coverage/fast
+
+#=============================================================================
+# Target rules for targets named main.exe
+
+# Build rule for target.
+main.exe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main.exe
+.PHONY : main.exe
+
+# fast build rule for target.
+main.exe/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/main.exe.dir/build.make test/CMakeFiles/main.exe.dir/build
+.PHONY : main.exe/fast
 
 #=============================================================================
 # Target rules for targets named doc
@@ -163,9 +176,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... coverage"
 	@echo "... doc"
+	@echo "... main.exe"
 	@echo "... wfcpp"
-	@echo "... wfcpp-test"
 .PHONY : help
 
 

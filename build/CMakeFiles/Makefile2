@@ -98,7 +98,7 @@ library/clean: library/CMakeFiles/wfcpp.dir/clean
 # Directory level rules for directory test
 
 # Recursive "all" directory target.
-test/all: test/CMakeFiles/wfcpp-test.dir/all
+test/all: test/CMakeFiles/main.exe.dir/all
 .PHONY : test/all
 
 # Recursive "preinstall" directory target.
@@ -106,34 +106,61 @@ test/preinstall:
 .PHONY : test/preinstall
 
 # Recursive "clean" directory target.
-test/clean: test/CMakeFiles/wfcpp-test.dir/clean
+test/clean: test/CMakeFiles/coverage.dir/clean
+test/clean: test/CMakeFiles/main.exe.dir/clean
 .PHONY : test/clean
 
 #=============================================================================
-# Target rules for target test/CMakeFiles/wfcpp-test.dir
+# Target rules for target test/CMakeFiles/coverage.dir
 
 # All Build rule for target.
-test/CMakeFiles/wfcpp-test.dir/all: library/CMakeFiles/wfcpp.dir/all
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/wfcpp-test.dir/build.make test/CMakeFiles/wfcpp-test.dir/depend
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/wfcpp-test.dir/build.make test/CMakeFiles/wfcpp-test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/elaine/cpp/WFCpp/build/CMakeFiles --progress-num=6,7 "Built target wfcpp-test"
-.PHONY : test/CMakeFiles/wfcpp-test.dir/all
+test/CMakeFiles/coverage.dir/all:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/coverage.dir/build.make test/CMakeFiles/coverage.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/coverage.dir/build.make test/CMakeFiles/coverage.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/elaine/cpp/WFCpp/build/CMakeFiles --progress-num= "Built target coverage"
+.PHONY : test/CMakeFiles/coverage.dir/all
 
 # Build rule for subdir invocation for target.
-test/CMakeFiles/wfcpp-test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/elaine/cpp/WFCpp/build/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/wfcpp-test.dir/all
+test/CMakeFiles/coverage.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/elaine/cpp/WFCpp/build/CMakeFiles 0
-.PHONY : test/CMakeFiles/wfcpp-test.dir/rule
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/coverage.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/elaine/cpp/WFCpp/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/coverage.dir/rule
 
 # Convenience name for target.
-wfcpp-test: test/CMakeFiles/wfcpp-test.dir/rule
-.PHONY : wfcpp-test
+coverage: test/CMakeFiles/coverage.dir/rule
+.PHONY : coverage
 
 # clean rule for target.
-test/CMakeFiles/wfcpp-test.dir/clean:
-	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/wfcpp-test.dir/build.make test/CMakeFiles/wfcpp-test.dir/clean
-.PHONY : test/CMakeFiles/wfcpp-test.dir/clean
+test/CMakeFiles/coverage.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/coverage.dir/build.make test/CMakeFiles/coverage.dir/clean
+.PHONY : test/CMakeFiles/coverage.dir/clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/main.exe.dir
+
+# All Build rule for target.
+test/CMakeFiles/main.exe.dir/all: library/CMakeFiles/wfcpp.dir/all
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/main.exe.dir/build.make test/CMakeFiles/main.exe.dir/depend
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/main.exe.dir/build.make test/CMakeFiles/main.exe.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/elaine/cpp/WFCpp/build/CMakeFiles --progress-num=2,3 "Built target main.exe"
+.PHONY : test/CMakeFiles/main.exe.dir/all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/main.exe.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/elaine/cpp/WFCpp/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/main.exe.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/elaine/cpp/WFCpp/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/main.exe.dir/rule
+
+# Convenience name for target.
+main.exe: test/CMakeFiles/main.exe.dir/rule
+.PHONY : main.exe
+
+# clean rule for target.
+test/CMakeFiles/main.exe.dir/clean:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/main.exe.dir/build.make test/CMakeFiles/main.exe.dir/clean
+.PHONY : test/CMakeFiles/main.exe.dir/clean
 
 #=============================================================================
 # Target rules for target library/CMakeFiles/doc.dir
@@ -168,7 +195,7 @@ library/CMakeFiles/doc.dir/clean:
 library/CMakeFiles/wfcpp.dir/all:
 	$(MAKE) $(MAKESILENT) -f library/CMakeFiles/wfcpp.dir/build.make library/CMakeFiles/wfcpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f library/CMakeFiles/wfcpp.dir/build.make library/CMakeFiles/wfcpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/elaine/cpp/WFCpp/build/CMakeFiles --progress-num=2,3,4,5 "Built target wfcpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/elaine/cpp/WFCpp/build/CMakeFiles --progress-num=4,5,6,7 "Built target wfcpp"
 .PHONY : library/CMakeFiles/wfcpp.dir/all
 
 # Build rule for subdir invocation for target.
