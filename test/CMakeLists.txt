@@ -1,27 +1,33 @@
 cmake_minimum_required(VERSION 3.5)
-project(wfcpp VERSION 0.0.1 LANGUAGES CXX)
+project(wfcpp-test VERSION 0.0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-#add libraries
-# add_subdirectory(external/raylib)
+if(ENABLE_COVERAGE)
+  # set compiler flags
+  set(CMAKE_CXX_FLAGS "-O0 -coverage")
 
-add_library(${PROJECT_NAME} STATIC src/main.cpp) #src/LoadingState.cpp)
+  # find required tools
+  find_program(LCOV lcov REQUIRED)
+  find_program(GENHTML genhtml REQUIRED)
 
-#makes crawler-engine's include dir accessible to itself and outsiders (via the proj name crawler-engine)
-target_include_directories(${PROJECT_NAME}
-    PUBLIC
-        $<INSTALL_INTERFACE:include>
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    PRIVATE
-    #library names
-)
+  # add coverage target
+  add_custom_target(coverage
+    # gather data
+    COMMAND ${LCOV} --directory . --capture --output-file coverage.info
+    # generate report
+    COMMAND ${GENHTML} --demangle-cpp -o coverage coverage.info
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
 
-target_link_libraries(${PROJECT_NAME}
-    PUBLIC
+else()
+  # set compiler flags
+  set(CMAKE_CXX_FLAGS "-O2")
+endif()
 
-    PRIVATE
-    #library names
-)
+#wcfpp-test.exe
+add_executable(${PROJECT_NAME} src/TestApp.cpp)
 
+target_link_libraries(${PROJECT_NAME} wfcpp)
+
+target_include_directories(${PROJECT_NAME} PRIVATE wfcpp)

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libwfcpp.a CMakeFiles/wfcpp.dir/src/Extractor.cpp.o CMakeFiles/wfcpp.dir/src/Solver.cpp.o CMakeFiles/wfcpp.dir/src/Synthesizer.cpp.o
+/usr/bin/ranlib libwfcpp.a

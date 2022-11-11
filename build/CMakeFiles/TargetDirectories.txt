@@ -1,0 +1,9 @@
+/home/elaine/cpp/WFCpp/build/CMakeFiles/edit_cache.dir
+/home/elaine/cpp/WFCpp/build/CMakeFiles/rebuild_cache.dir
+/home/elaine/cpp/WFCpp/build/test/CMakeFiles/wfcpp-test.dir
+/home/elaine/cpp/WFCpp/build/test/CMakeFiles/edit_cache.dir
+/home/elaine/cpp/WFCpp/build/test/CMakeFiles/rebuild_cache.dir
+/home/elaine/cpp/WFCpp/build/library/CMakeFiles/doc.dir
+/home/elaine/cpp/WFCpp/build/library/CMakeFiles/wfcpp.dir
+/home/elaine/cpp/WFCpp/build/library/CMakeFiles/edit_cache.dir
+/home/elaine/cpp/WFCpp/build/library/CMakeFiles/rebuild_cache.dir

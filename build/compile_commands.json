@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/elaine/cpp/WFCpp/build/test",
+  "command": "/usr/bin/g++  -I/home/elaine/cpp/WFCpp/test/wfcpp -I/home/elaine/cpp/WFCpp/library/include -O2 -g -std=gnu++2a -o CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o -c /home/elaine/cpp/WFCpp/test/src/TestApp.cpp",
+  "file": "/home/elaine/cpp/WFCpp/test/src/TestApp.cpp"
+},
+{
+  "directory": "/home/elaine/cpp/WFCpp/build/library",
+  "command": "/usr/bin/g++  -I/home/elaine/cpp/WFCpp/library/include -g -std=gnu++2a -o CMakeFiles/wfcpp.dir/src/Extractor.cpp.o -c /home/elaine/cpp/WFCpp/library/src/Extractor.cpp",
+  "file": "/home/elaine/cpp/WFCpp/library/src/Extractor.cpp"
+},
+{
+  "directory": "/home/elaine/cpp/WFCpp/build/library",
+  "command": "/usr/bin/g++  -I/home/elaine/cpp/WFCpp/library/include -g -std=gnu++2a -o CMakeFiles/wfcpp.dir/src/Solver.cpp.o -c /home/elaine/cpp/WFCpp/library/src/Solver.cpp",
+  "file": "/home/elaine/cpp/WFCpp/library/src/Solver.cpp"
+},
+{
+  "directory": "/home/elaine/cpp/WFCpp/build/library",
+  "command": "/usr/bin/g++  -I/home/elaine/cpp/WFCpp/library/include -g -std=gnu++2a -o CMakeFiles/wfcpp.dir/src/Synthesizer.cpp.o -c /home/elaine/cpp/WFCpp/library/src/Synthesizer.cpp",
+  "file": "/home/elaine/cpp/WFCpp/library/src/Synthesizer.cpp"
+}
+]

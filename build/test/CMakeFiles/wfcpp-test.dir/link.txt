@@ -1,0 +1,1 @@
+/usr/bin/g++ -O2 -g "CMakeFiles/wfcpp-test.dir/src/TestApp.cpp.o" -o wfcpp-test  ../library/libwfcpp.a 
