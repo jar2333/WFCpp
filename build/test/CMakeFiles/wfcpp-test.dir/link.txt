@@ -1,1 +1,0 @@
-/usr/bin/g++ -O0 -coverage -Wall -g "CMakeFiles/wfcpp-test.dir/src/main.cpp.o" -o wfcpp-test  ../library/libwfcpp.a 
