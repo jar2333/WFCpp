@@ -20,4 +20,4 @@ cd build/test
 ./main.exe && make coverage
 ```
 
-To-do: put the build targets for each of the tests, library, and documentation in the readme.
+To-do: put the individual build targets for each of the tests, library, and documentation in the readme.
