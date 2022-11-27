@@ -1,24 +1,32 @@
 #pragma once
 
+#include <Tile.h>
+#include <map>
 #include <vector>
 
-template<typename T>
+template <typename TileKey>
 class Grid {
-  public:
-    Grid(int N) {
-      for (int i = 0; i < N; i++) {
-        grid.push_back(std::vector<T> row(N));
-      }
-    }
+
+public:
+
+    Grid(std::map<TileKey, Tile> tileMap, int dimension) : tileMap(tileMap), dimension(dimension) {}
+
+    int getDimension();
+
+    // TODO: replace (i, j) with Position
+    TileKey getPosition(int i, int j);
+    Tile getPositionTile(int i, int j);
+
+    void setPosition(int i, int j, TileKey tile); // or: set(Position, TileKey)
+
+
+private:
+
+    int dimension;
+    std::map<TileKey, Tile> tileMap;
+
+    std::vector<std::vector<TileKey>> tileKeyGrid;
+
+    // TODO: maybe some traverse helpers?
     
-    inline int get(int i, int j) {
-      return grid[i][j];
-    }
-
-    inline int set(int i, int j, T v) {
-      grid[i][j] = v;
-    }
-
-  private:
-    std::vector<std::vector<T>> grid; 
 };
