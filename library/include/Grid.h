@@ -1,6 +1,8 @@
 #pragma once
 
 #include <Tile.h>
+#include <Position.h>
+
 #include <map>
 #include <vector>
 
@@ -9,15 +11,15 @@ class Grid {
 
 public:
 
-    Grid(std::map<TileKey, Tile> tileMap, int dimension) : tileMap(tileMap), dimension(dimension) {}
+    Grid(const std::map<TileKey, Tile>& tileMap, int dimension) : tileMap(tileMap), dimension(dimension) {}
 
     int getDimension();
 
-    // TODO: replace (i, j) with Position
-    TileKey getPosition(int i, int j);
-    Tile getPositionTile(int i, int j);
+    inline TileKey getKey(Position p);
+    inline void setKey(Position p, TileKey key); 
 
-    void setPosition(int i, int j, TileKey tile); // or: set(Position, TileKey)
+    inline Tile getTile(Position p);
+
 
 
 private:

@@ -13,6 +13,11 @@
 #include <unordered_map>
 
 #include <utility>
+#include <tuple>
+
+#include <optional>
+
+#include <cstdlib>
 
 class Solver {
 
@@ -22,11 +27,13 @@ public:
 
   typedef int TileKey;
 
-  typedef std::function<void(const T&, Position)> CollapseCallbackT;
-  typedef std::function<void(const std::vector<T>&, Position)> PropagateCallbackT;  
+  typedef std::function<void(const T&, Position)> CollapseCallback;
+  typedef std::function<void(const std::vector<T>&, Position)> PropagateCallback;
 
-  typedef typename std::list<CollapseCallbackT>::iterator CollapseCallbackCookie;
-  typedef typename std::list<PropagateCallbackT>::iterator PropagateCallbackCookie;
+  typedef std::function<TileKey(std::vector<TileKey>&)> CollapseBehavior;
+
+  typedef typename std::list<CollapseCallback>::iterator CollapseCallbackCookie;
+  typedef typename std::list<PropagateCallback>::iterator PropagateCallbackCookie;
 
   //the main way of using the library, the int keys are auto-generated from vector as the indeces
   Solver(const std::vector<T>& tiles, int seed=0): seed(seed) {
@@ -100,7 +107,7 @@ public:
  
   //To-do: returns a receipt object to deregister when out of scope?
   //API: calls registered function with tile in collapsed grid slot
-  CollapseCallbackCookie registerCollapse(CollapseCallbackT callback) {
+  CollapseCallbackCookie registerCollapse(CollapseCallback callback) {
     return collapse_callbacks.insert(collapse_callbacks.begin(), callback);
   }
 
@@ -110,7 +117,7 @@ public:
 
 
   //API: calls registered function with possible tiles in collapsed grid slot
-  PropagateCallbackCookie registerPropagate(PropagateCallbackT callback) {
+  PropagateCallbackCookie registerPropagate(PropagateCallback callback) {
     return propagate_callbacks.insert(propagate_callbacks.begin(), callback);
   }
 
@@ -129,21 +136,67 @@ public:
   // void setSelectionHeuristic(std::function<bool(const std::vector&<TileKey>, const std::vector&<TileKey>)> h)
 
   //low level function to change collapse selection policy
-  // void setCollapseBehaviour(std::function<TileKey(const std::vector&<TileKey>)> b);
+  void setCollapseBehaviour(CollapseBehavior b) {
+    collapse_behavior = b;
+  }
 
 
 private:
-  void initializeGrid(int N);
-
   int seed;
 
   std::map<TileKey, T> tiles;
-  //  std::function<TileKey(std::vector&<TileKey>)> heuristic;
+  
 
+  /*
+   ALGORITHM (optimize)
+  */
+  std::map<Position, std::vector<TileKey>> grid;
+
+  void initializeGrid(int N) {
+    std::vector<TileKey> possible_tiles;
+    for (auto const& [key, val] : tiles) {
+      possible_tiles.push_back(key);
+    }
+
+    for (int i = 0; i < N; i++) {
+      for (int j = 0; j < N; j++) {
+        grid[{i, j}] = possible_tiles;
+      }
+    }
+  }
+
+  TileKey collapseAt(std::vector<TileKey>& tiles) {
+    if (this->collapse_behavior) {
+      return collapse_behavior.value()(tiles);
+    }
+    return collapseRandom(tiles);
+  }
+
+  TileKey collapseRandom(std::vector<TileKey>& tiles) {
+    int index = rand() % tiles.size();
+
+    auto key = tiles[index];
+
+    tiles.erase(tiles.begin() + index);
+
+    return key;
+  }
+
+  /*
+    BEHAVIOURS
+  */
+  std::optional<CollapseBehavior> collapse_behavior = {};
+
+  /*
+   CONSTRAINTS
+  */
   std::map<std::pair<TileKey, Direction>, std::unordered_set<TileKey>> adjacency_constraints;
-
   std::map<Position, std::vector<TileKey>> initial_constraints;
 
-  std::list<CollapseCallbackT> collapse_callbacks;
-  std::list<PropagateCallbackT> propagate_callbacks;
+
+  /*
+    CALLBACKS
+  */
+  std::list<CollapseCallback> collapse_callbacks;
+  std::list<PropagateCallback> propagate_callbacks;
 };
