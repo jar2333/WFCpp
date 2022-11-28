@@ -17,6 +17,10 @@
 
 #include <optional>
 
+#include <iterator>
+
+#include <algorithm>
+
 #include <cstdlib>
 
 class Solver {
@@ -24,13 +28,14 @@ class Solver {
 public:
 
   typedef Tile T;
-
   typedef int TileKey;
+
+  typedef std::pair<TileKey, Direction> Side;
+
+  typedef std::function<std::vector<TileKey>::const_iterator(const std::vector<TileKey>&)> CollapseBehavior;
 
   typedef std::function<void(const T&, Position)> CollapseCallback;
   typedef std::function<void(const std::vector<T>&, Position)> PropagateCallback;
-
-  typedef std::function<TileKey(std::vector<TileKey>&)> CollapseBehavior;
 
   typedef typename std::list<CollapseCallback>::iterator CollapseCallbackCookie;
   typedef typename std::list<PropagateCallback>::iterator PropagateCallbackCookie;
@@ -54,8 +59,12 @@ public:
   //change seed whenever
   void setSeed(int seed) {
     seed = seed;
+    srand(seed);
   }
 
+  int getSeed() {
+    return seed;
+  }
 
   Grid<T> solve(int N); 
 
@@ -91,13 +100,13 @@ public:
   /* Initial constraints */
   void setInitialConstraint(Position p, TileKey possibility) {
     initial_constraints[p].clear();
-    initial_constraints[p].push_back(possibility);
+    initial_constraints[p].insert(possibility);
   }
 
   void setInitialConstraint(Position p, std::initializer_list<TileKey> possibilities) {
     initial_constraints[p].clear(); 
     for (auto k : possibilities) {
-      initial_constraints[p].push_back(k);
+      initial_constraints[p].insert(k);
     }
   }
   
@@ -136,67 +145,95 @@ public:
   // void setSelectionHeuristic(std::function<bool(const std::vector&<TileKey>, const std::vector&<TileKey>)> h)
 
   //low level function to change collapse selection policy
-  void setCollapseBehaviour(CollapseBehavior b) {
-    collapse_behavior = b;
+  void setCollapseBehaviour(std::optional<CollapseBehavior> b) {
+    if (!b) {
+      collapse_behavior = nullptr;
+    }
+    collapse_behavior = b.value();
   }
 
 
 private:
   int seed;
-
   std::map<TileKey, T> tiles;
-  
 
   /*
-   ALGORITHM (optimize)
+    CONSTRAINTS
   */
-  std::map<Position, std::vector<TileKey>> grid;
-
-  void initializeGrid(int N) {
-    std::vector<TileKey> possible_tiles;
-    for (auto const& [key, val] : tiles) {
-      possible_tiles.push_back(key);
-    }
-
-    for (int i = 0; i < N; i++) {
-      for (int j = 0; j < N; j++) {
-        grid[{i, j}] = possible_tiles;
-      }
-    }
-  }
-
-  TileKey collapseAt(std::vector<TileKey>& tiles) {
-    if (this->collapse_behavior) {
-      return collapse_behavior.value()(tiles);
-    }
-    return collapseRandom(tiles);
-  }
-
-  TileKey collapseRandom(std::vector<TileKey>& tiles) {
-    int index = rand() % tiles.size();
-
-    auto key = tiles[index];
-
-    tiles.erase(tiles.begin() + index);
-
-    return key;
-  }
+  std::map<Side, std::unordered_set<TileKey>> adjacency_constraints;
+  std::map<Position, std::unordered_set<TileKey>> initial_constraints;
 
   /*
     BEHAVIOURS
   */
-  std::optional<CollapseBehavior> collapse_behavior = {};
-
-  /*
-   CONSTRAINTS
-  */
-  std::map<std::pair<TileKey, Direction>, std::unordered_set<TileKey>> adjacency_constraints;
-  std::map<Position, std::vector<TileKey>> initial_constraints;
-
+  CollapseBehavior collapse_behavior = nullptr;
 
   /*
     CALLBACKS
   */
   std::list<CollapseCallback> collapse_callbacks;
   std::list<PropagateCallback> propagate_callbacks;
+
+
+  /*
+    ALGORITHM (optimize)
+  */
+
+  std::unordered_map<Position, std::vector<TileKey>> grid;
+  Position nextToCollapse;
+
+  Position getMinEntropyCoordinates() {
+    return nextToCollapse;
+  }
+
+  void initializeGrid(int N) {
+    //get vector of all possible tiles
+    std::vector<TileKey> max_tiles;
+    for (auto const& [tile_key, _] : tiles) {
+      max_tiles.push_back(tile_key);
+    }
+
+    //populate grid
+    for (int i = 0; i < N; i++) {
+      for (int j = 0; j < N; j++) {
+        Position p{i, j};
+        initializeGridPosition(p, max_tiles);
+      }
+    }
+  }
+
+  void initializeGridPosition(Position p, std::vector<TileKey>& max_tiles) {
+    grid[p] = [&](){
+      if (initial_constraints.contains(p)) {
+        auto init = initial_constraints[p];
+
+        std::vector<TileKey> possible_tiles;
+        std::copy_if(max_tiles.begin(), max_tiles.end(), std::back_inserter(possible_tiles), [&](TileKey k){
+          return init.contains(k);
+        });
+        
+        return possible_tiles;
+      }
+      return max_tiles;
+    }();
+  }
+
+  void collapseAt(std::vector<TileKey>& tiles) {
+    auto it = [&](){
+      if (collapse_behavior) {
+        return collapse_behavior(tiles);
+      }
+      return collapseRandom(tiles);
+    }();
+
+    TileKey tile = *it;
+    tiles.clear();
+    tiles.push_back(tile);
+  }
+
+  std::vector<TileKey>::const_iterator collapseRandom(const std::vector<TileKey>& tiles) {
+    size_t index = rand() % tiles.size();
+    return tiles.begin() + index;
+  }
+
 };
