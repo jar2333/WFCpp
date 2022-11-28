@@ -34,8 +34,8 @@ public:
 
   typedef std::function<std::vector<TileKey>::const_iterator(const std::vector<TileKey>&)> CollapseBehavior;
 
-  typedef std::function<void(const T&, Position)> CollapseCallback;
-  typedef std::function<void(const std::vector<T>&, Position)> PropagateCallback;
+  typedef std::function<void(const TileKey&, Position)> CollapseCallback;
+  typedef std::function<void(const std::vector<TileKey>&, Position)> PropagateCallback;
 
   typedef typename std::list<CollapseCallback>::iterator CollapseCallbackCookie;
   typedef typename std::list<PropagateCallback>::iterator PropagateCallbackCookie;
@@ -241,9 +241,13 @@ private:
     }();
 
     TileKey tile = *it;
-    
+
     tiles.clear();
     tiles.push_back(tile);
+
+    for (auto callback : collapse_callbacks) {
+      callback(tile, p);
+    }
   }
 
   void propagate(Position p) {
