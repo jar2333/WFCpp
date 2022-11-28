@@ -174,19 +174,15 @@ private:
   std::list<CollapseCallback> collapse_callbacks;
   std::list<PropagateCallback> propagate_callbacks;
 
-
   /*
     ALGORITHM (optimize)
   */
 
   std::unordered_map<Position, std::vector<TileKey>> grid;
-  Position nextToCollapse;
-
-  Position getMinEntropyCoordinates() {
-    return nextToCollapse;
-  }
 
   void initializeGrid(int N) {
+    grid.clear();
+
     //get vector of all possible tiles
     std::vector<TileKey> max_tiles;
     for (auto const& [tile_key, _] : tiles) {
@@ -197,28 +193,46 @@ private:
     for (int i = 0; i < N; i++) {
       for (int j = 0; j < N; j++) {
         Position p{i, j};
-        initializeGridPosition(p, max_tiles);
+        grid[p] = getPossibleTiles(p, max_tiles);;
       }
     }
   }
 
-  void initializeGridPosition(Position p, std::vector<TileKey>& max_tiles) {
-    grid[p] = [&](){
-      if (initial_constraints.contains(p)) {
-        auto init = initial_constraints[p];
+  std::vector<TileKey> getPossibleTiles(Position p, std::vector<TileKey>& max_tiles) {
+    if (initial_constraints.contains(p)) {
+      auto init = initial_constraints[p];
 
-        std::vector<TileKey> possible_tiles;
-        std::copy_if(max_tiles.begin(), max_tiles.end(), std::back_inserter(possible_tiles), [&](TileKey k){
-          return init.contains(k);
-        });
-        
-        return possible_tiles;
-      }
-      return max_tiles;
-    }();
+      std::vector<TileKey> possible_tiles;
+      std::copy_if(max_tiles.begin(), max_tiles.end(), std::back_inserter(possible_tiles), [&init](TileKey k){
+        return init.contains(k);
+      });
+      
+      return possible_tiles;
+    }
+    return max_tiles;
   }
 
-  void collapseAt(std::vector<TileKey>& tiles) {
+  void iterate() {
+    Position p = getMinEntropyCoordinates();
+    collapseAt(p);
+    propagate(p);
+  }
+
+  Position getMinEntropyCoordinates() {
+    Position min_entropy_position;
+    size_t min_entropy = tiles.size();
+    for (auto const [p, v] : grid) {
+      if (v.size() < min_entropy) {
+        min_entropy_position = p;
+        min_entropy = v.size();
+      }
+    }
+    return min_entropy_position;
+  }
+
+  void collapseAt(Position p) {
+    std::vector<TileKey>& tiles = grid[p];
+
     auto it = [&](){
       if (collapse_behavior) {
         return collapse_behavior(tiles);
@@ -227,8 +241,13 @@ private:
     }();
 
     TileKey tile = *it;
+    
     tiles.clear();
     tiles.push_back(tile);
+  }
+
+  void propagate(Position p) {
+
   }
 
   std::vector<TileKey>::const_iterator collapseRandom(const std::vector<TileKey>& tiles) {
