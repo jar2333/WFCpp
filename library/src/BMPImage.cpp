@@ -5,7 +5,7 @@
 #include <BMPImage.h>
 #include <others.h>
 
-#define LOG true
+#define LOG false
 
 constexpr unsigned int defaultWidth = 5;
 constexpr unsigned int defaultHeight = 5;
@@ -15,14 +15,10 @@ BMPImage::BMPImage()
     BMPImage(defaultWidth, defaultHeight);
 }
 
-BMPImage::BMPImage(int initWidth, int initHeight)
+BMPImage::BMPImage(unsigned int initWidth, unsigned int initHeight)
 {
-    width = initWidth;
-    height = initHeight;
+    setSize(initWidth, initHeight);
 
-    auto defaultPixelRow = std::vector<Pixel>(width, defaultPixel);
-
-    pixels.resize(initHeight, defaultPixelRow);
 }
 
 BMPImage::BMPImage(std::string filename)
@@ -36,10 +32,10 @@ BMPImage::BMPImage(std::string filename)
 	width = (unsigned int) image.TellWidth();
 	height = (unsigned int) image.TellHeight();
 
-    BMPImage(width, height);
+    setSize(width, height);
 
-	for (int j = 0; j < height; j++){
-		for (int i = 0; i < width; i++){
+	for (int i = 0; i < width; i++) {
+		for (int j = 0; j < height; j++) {
             Pixel p;
 
 			p.Red = image(i,j)->Red;
@@ -47,7 +43,8 @@ BMPImage::BMPImage(std::string filename)
 			p.Blue = image(i,j)->Blue;
             p.Alpha = image(i, j)->Alpha;
 
-			pixels[j][i] = p;	
+			pixels[i][j] = p;	
+
 		}
 	}
 }
@@ -58,21 +55,17 @@ unsigned int BMPImage::getWidth() const
 unsigned int BMPImage::getHeight() const
 {   return height;  }
 
-void BMPImage::setSize(int newWidth , int newHeight )
+void BMPImage::setSize(unsigned int newWidth , unsigned int newHeight)
 {
     if (newWidth <= 0 || newHeight <= 0)
         throw std::out_of_range ("Size out of range. ");
 
-    for (int i = 0; i < height; i++) {
-        pixels[i].resize(newWidth, defaultPixel);
-    }
-    width = newWidth;
+    pixels.resize(newHeight, std::vector<Pixel> ());
+    for (auto& row: pixels)
+        row.resize(newWidth, defaultPixel);
 
-    auto defaultPixelRow = std::vector<Pixel>(width, defaultPixel);
-    
-    pixels.resize(newHeight, defaultPixelRow);
+    width = newWidth;
     height = newHeight;
-    
 }
 
 Pixel BMPImage::getPixel(Position pos) const

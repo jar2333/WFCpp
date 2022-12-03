@@ -1,8 +1,8 @@
+#pragma once
+
 #include <vector>
 #include <string>
-
-#ifndef _BMPIMAGE_h_
-#define _BMPIMAGE_h_
+#include <others.h>
 
 // 0~255
 typedef unsigned char  BYTE;
@@ -28,13 +28,13 @@ class BMPImage {
 public:
 
     BMPImage();
-    BMPImage(int initWidth, int initHeight);
+    BMPImage(unsigned int initWidth, unsigned int initHeight);
     BMPImage(std::string filename);
     ~BMPImage() = default;
 
     unsigned int getWidth() const;
     unsigned int getHeight() const;
-    void setSize(int NewWidth , int NewHeight);
+    void setSize(unsigned int NewWidth , unsigned int NewHeight);
 
     Pixel getPixel(Position pos) const;
     void setPixel(Position pos, Pixel newPixel);
@@ -49,5 +49,3 @@ private:
 
     constexpr bool checkPosition(Position pos) const;
 };
-
-#endif

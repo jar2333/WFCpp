@@ -1,9 +1,8 @@
+#pragma once
+
 #include <Tile.h>
 #include <Grid.h>
 #include <memory>
-
-#ifndef _SYNTHESIZER_h_
-#define _SYNTHESIZER_h_
 
 class Synthesizer {
 
@@ -29,5 +28,3 @@ private:
     void copyTileToGrid(Position pos, const Tile* tile, BMPImage* gridImage);
 
 };
-
-#endif

@@ -9,7 +9,7 @@ void Synthesizer::exportGridToFile(const Grid* grid, std::string exportPath)
 
     auto resImage = exportGridToImage(grid);
 
-    return resImage->exportToPNGFile(exportPath);
+    resImage->exportToPNGFile(exportPath);
 
 }
 
@@ -23,7 +23,6 @@ std::shared_ptr<BMPImage> Synthesizer::exportGridToImage(const Grid* grid)
     for (auto pos : grid->enumeratePosition()) {
         auto tile = grid->getPosition(pos);
         auto pixelPos = grid->translatePixelPosition(pos);
-
         copyTileToGrid(pixelPos, tile.get(), resImage.get());
     }
 
@@ -45,7 +44,7 @@ std::shared_ptr<BMPImage> Synthesizer::getRealTimeImage() const
 void Synthesizer::modifyRealTimeImage(Position pos, const Tile* tile)
 {
     if (realTimeImage == nullptr)
-        throw std::runtime_error("realTimeImage not initialized. ");
+        throw std::invalid_argument("realTimeImage not initialized. ");
     copyTileToGrid(pos, tile, realTimeImage.get());
 }
 
@@ -68,7 +67,7 @@ void Synthesizer::copyTileToGrid(Position pos, const Tile* tile, BMPImage* gridI
     auto width = src->getWidth();
 
     for (auto tilePos : tile->enumeratePosition()) {
-            auto srcPixel = src->getPixel(pos);
+            auto srcPixel = src->getPixel(tilePos);
             Position newPos = { pos.x + tilePos.x, pos.y + tilePos.y };
             gridImage->setPixel(newPos, srcPixel);
     }
