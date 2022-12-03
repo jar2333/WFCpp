@@ -8,7 +8,7 @@
 #include <string>
 #include <iostream>
 
-int Extractor::tileFormation(std::vector<Pixel>* pixels, Tile* tile, unsigned int width, unsigned int height){
+int Extractor::tileFormation(std::vector<Pixel>* pixels, TileData* tile, unsigned int width, unsigned int height){
 	std::vector<Pixel> north;
 	std::vector<Pixel> south;
 	std::vector<Pixel> east;
@@ -58,12 +58,12 @@ int Extractor::tileFormation(std::vector<Pixel>* pixels, Tile* tile, unsigned in
 	return 1;
 }
 
-int Extractor::setConstraints(Tile tile, std::vector<Tile> tileList){
+int Extractor::setConstraints(TileData tile, std::vector<TileData> tileList){
 	
 	return 1;
 }
 
-int Extractor::tileCompare(Tile tile1, Tile tile2){
+int Extractor::tileCompare(TileData tile1, TileData tile2){
 	
 	return 0;
 }
@@ -143,7 +143,7 @@ int Extractor::extractBMP(unsigned int* width, unsigned int* height, std::string
 }
 
 
-int Extractor::extractTileset(unsigned int width, unsigned int height, unsigned int horizontal, unsigned int vertical, std::vector<Pixel> pixels, std::vector<Tile>* tiles){
+int Extractor::extractTileset(unsigned int width, unsigned int height, unsigned int horizontal, unsigned int vertical, std::vector<Pixel> pixels, std::vector<TileData>* tiles){
 	Extractor e;
 	unsigned int newWidth = width / horizontal; 
 	unsigned int newHeight = height / vertical; 
@@ -155,7 +155,7 @@ int Extractor::extractTileset(unsigned int width, unsigned int height, unsigned 
 		std::cout << "i: " << i << std::endl;
 		for(int j = 0; j < horizontal; j++){
 			std::cout << "j: " << j << std::endl;
-			Tile t;
+			TileData t;
 
 			for(std::vector<Pixel>::iterator it = (pixels.begin() + (i * width * newHeight) + (j * newWidth)) ; it != pixels.end(); ++it){
 
