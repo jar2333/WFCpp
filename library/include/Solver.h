@@ -334,7 +334,18 @@ private:
   }
 
   std::unordered_set<TileKey> getAdjacencies(TileKey k, Direction d) {
-    return this->adjacency_constraints[{k, d}];
+    Side s{k, d};
+    if (adjacency_constraints.contains(s)) {
+      return adjacency_constraints[s];
+    }
+
+    //very eager, should not be called much though
+    //by default, every tile can be adjacent to every other tile
+    std::unordered_set<TileKey> adjacencies;
+    for (auto [k, _] : tiles) {
+      adjacencies.insert(k);
+    }
+    return adjacencies;
   }
 
 };
