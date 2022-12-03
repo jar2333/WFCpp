@@ -26,7 +26,12 @@ if(DOXYGEN_FOUND)
 endif(DOXYGEN_FOUND)
 
 add_library(${PROJECT_NAME} 
-    STATIC src/Extractor.cpp src/Solver.cpp src/Synthesizer.cpp
+    STATIC 
+    src/Extractor/EasyBMP.cpp
+    src/Extractor/lodepng.cpp
+    src/Extractor/Extractor.cpp 
+    src/Solver.cpp 
+    src/Synthesizer.cpp
     )
 
 #makes wfcpp's include dir accessible to itself and outsiders (via the proj name wfcpp)
