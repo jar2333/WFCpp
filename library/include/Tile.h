@@ -1,5 +1,7 @@
+#pragma once
+
 #include <string>
-#include <Enums.h>
+#include <Direction.h>
 
 class Tile {
 
@@ -17,5 +19,6 @@ private:
     std::string filePath;
 
     // TODO: add other variables
+
 
 };
