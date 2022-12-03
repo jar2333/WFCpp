@@ -52,7 +52,7 @@ int main() {
     solver.addAdjacencyConstraint(3, Direction::LEFT, {2,3});
     solver.addAdjacencyConstraint(3, Direction::RIGHT, {2,3});
 
-    solver.setInitialConstraint({3,3}, {0});
+    solver.setInitialConstraint({2,3}, {1});
 
     solver.registerOnCollapse([&tiles](const Solver::TileKey& k, Position p){
         auto [i, j] = p;
@@ -67,8 +67,8 @@ int main() {
 
     auto grid = solver.solve(5);
 
-    for (int i = 0; i < 4; i++) {
-      for (int j = 0; j < 4; j++) {
+    for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5; j++) {
         std::cout << "Position: (" << i << ", " << j << "), tile: " << tiles[grid.getKey({i, j})] << std::endl;
       }
     }

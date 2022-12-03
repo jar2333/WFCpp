@@ -229,8 +229,17 @@ private:
     for (int i = 0; i < N; i++) {
       for (int j = 0; j < N; j++) {
         Position p{i, j};
-        grid[p] = getPossibleTiles(p);;
+        grid[p] = getPossibleTiles(p);
       }
+    }
+
+    //propagate initial constraints
+    processInitialConstraints();
+  }
+
+  void processInitialConstraints() {
+    for (const auto& [p, _] : this->initial_constraints) {
+      propagate(p);
     }
   }
 
