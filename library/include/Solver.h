@@ -82,19 +82,18 @@ public:
   Grid<TileKey> solve(int N) {
     Grid<TileKey> g = Grid<TileKey>(this->tiles, N);
 
-    std::cout << "made grid\n"; 
+    //std::cout << "made grid\n"; 
 
     initializeGrid(N);
 
-    std::cout << "initialized grid\n"; 
+    //std::cout << "initialized grid\n"; 
 
     while (!isCollapsed()) {
-      std::cout << "==========\nIterating\n===========\n"; 
+      //std::cout << "==========\nIterating\n===========\n"; 
       iterate();
-      assert (false);
     }
 
-    std::cout << "checking for contradiction \n"; 
+    //std::cout << "checking for contradiction \n"; 
 
     //can be moved down the call stack if required by algorithm logic, later
     if (isContradiction()) {
@@ -124,14 +123,14 @@ public:
   }
 
   //using initializer list
-  void addAdjacencyConstraints(TileKey t, Direction d, std::initializer_list<TileKey> neighbors) {
+  void addAdjacencyConstraint(TileKey t, Direction d, std::initializer_list<TileKey> neighbors) {
     auto p = std::make_pair(t, d);
     for (auto n : neighbors) {
       adjacency_constraints[p].insert(n);
     }
   }
 
-  void removeAdjacencyConstraints(TileKey t, Direction d, std::initializer_list<TileKey> neighbors) {
+  void removeAdjacencyConstraint(TileKey t, Direction d, std::initializer_list<TileKey> neighbors) {
     auto p = std::make_pair(t, d);
     for (auto n : neighbors) {
       adjacency_constraints[p].erase(n);
@@ -236,17 +235,17 @@ private:
   }
 
   void iterate() {
-    std::cout << "--------Getting min entropy coords--------\n"; 
+    //std::cout << "--------Getting min entropy coords--------\n"; 
     Position p = getMinEntropyCoordinates();
-    std::cout << "--------Collapsing--------\n"; 
+    //std::cout << "--------Collapsing--------\n"; 
     collapseAt(p);
-    std::cout << "--------Propagating--------\n"; 
+    //std::cout << "--------Propagating--------\n"; 
     propagate(p);
   }
 
   //optimizations can be made using an instance variable
   bool isCollapsed() {
-    for (const auto& [p, t] : this->grid) {
+    for (const auto& [_, t] : this->grid) {
       if (t.size() > 1)
         return false;
     }
@@ -255,7 +254,7 @@ private:
 
   //alternatively make this an exception?
   bool isContradiction() {
-    for (const auto& [p, t] : this->grid) {
+    for (const auto& [_, t] : this->grid) {
       if (t.size() == 0)
         return true;
     }
@@ -263,11 +262,11 @@ private:
   }
 
   Position getMinEntropyCoordinates() {
-    std::cout << "Getting min entropy coordinates\n";
+    //std::cout << "Getting min entropy coordinates\n";
     Position min_entropy_position{0,0};
     size_t min_entropy = tiles.size();
     for (auto const [p, v] : grid) {
-      if (v.size() < min_entropy) {
+      if (v.size() < min_entropy && v.size() > 1) {
         min_entropy_position = p;
         min_entropy = v.size();
       }
@@ -277,10 +276,10 @@ private:
 
   void collapseAt(Position p) {
     auto [x, y] = p;
-    std::cout << "Getting tiles at position (" << x << ", " << y << ")\n"; 
+    //std::cout << "Getting tiles at position (" << x << ", " << y << ")\n"; 
     std::vector<TileKey>& tiles = grid.at(p);
 
-    std::cout << "Choosing tile...\n"; 
+    //std::cout << "Choosing tile...\n"; 
     auto it = [&](){
       if (collapse_behavior) {
         return collapse_behavior(tiles);
@@ -288,12 +287,12 @@ private:
       return collapseRandom(tiles);
     }();
 
-    std::cout << "removing all except tile\n"; 
+    //std::cout << "removing all except tile\n"; 
     TileKey tile = *it;
     tiles.clear();
     tiles.push_back(tile);
 
-    std::cout << "Callbacks...\n"; 
+    //std::cout << "Callbacks...\n"; 
     for (auto callback : collapse_callbacks) {
       callback(tile, p);
     }
@@ -308,15 +307,15 @@ private:
       stack.pop();
 
       auto [x, y] = p;
-      std::cout << "Popped: (" << x << ", " << y << ")\n"; 
+      //std::cout << "Popped: (" << x << ", " << y << ")\n"; 
 
       std::vector<Position> neighbors = getNeighbors(cur);
 
       for (Position n : neighbors) {
         auto [xn, yn] = n;
-        std::cout << "Propagating at Neighbor: (" << xn << ", " << yn << ")\n";  
+        //std::cout << "Propagating at Neighbor: (" << xn << ", " << yn << ")\n";  
         if (propagateAt(cur, n)) {
-          std::cout << "Pushed neighbor: (" << xn << ", " << yn << ")\n"; 
+          //std::cout << "Pushed neighbor: (" << xn << ", " << yn << ")\n"; 
           stack.push(n);
         }
       }
@@ -330,15 +329,15 @@ private:
 
     std::vector<TileKey>& current_tiles = grid[current];
 
-    std::cout << "Got direction ";
+    //std::cout << "Got direction ";
     Direction d = current.getDirection(neighbor);
-    std::cout << (int)d << std::endl;
+    //std::cout << (int)d << std::endl;
     
     //for each tile in the current grid slot, check its set of allowed neighbors in the given direction
     //add that to an overall set of permitted tiles, which is then used to remove any which are not in this set
     std::unordered_set<TileKey> allowed;
     for (TileKey k : current_tiles) {
-      std::cout << "Current tile: " << k << std::endl;
+      //std::cout << "Current tile: " << k << std::endl;
       auto adjacencies = getAdjacencies(k, d);
       print(adjacencies, "Adjacencies");
       for (TileKey a : adjacencies) {
@@ -348,7 +347,7 @@ private:
 
     print(allowed, "allowed tiles");
 
-    std::cout << "Removing from neighbors...\n";
+    //std::cout << "Removing from neighbors...\n";
     print(neighbor_tiles, "neighbor tiles");
     auto it = std::remove_if(neighbor_tiles.begin(), neighbor_tiles.end(), [&](TileKey k){
       return !allowed.contains(k);
@@ -419,11 +418,11 @@ private:
 
   template <typename T>
   void print(T a, std::string container) {
-    std::cout << container << ": ";
+    //std::cout << container << ": ";
     for (auto k : a) {
-        std::cout << k << ", ";
+        //std::cout << k << ", ";
     }
-    std::cout << std::endl;
+    //std::cout << std::endl;
   }
 
 };
