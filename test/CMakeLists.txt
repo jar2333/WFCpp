@@ -22,7 +22,7 @@ if (CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
 
 else()
   # set compiler flags
-  set(CMAKE_CXX_FLAGS "-O2")
+  set(CMAKE_CXX_FLAGS "-O0 -Wall")
 endif()
 
 #wcfpp-test.exe
