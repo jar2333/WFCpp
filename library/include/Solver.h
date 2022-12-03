@@ -42,7 +42,6 @@ public:
   typedef typename std::list<PropagateCallback>::iterator PropagateCallbackCookie;
 
   //the main way of using the library, the int keys are auto-generated from vector as the indeces
-  //can be templated!!!!
   template<typename T>
   Solver(const std::vector<T>& tiles, int seed=0): seed(seed) {
     for (TileKey k = 0; k < tiles.size(); k++) {
@@ -51,7 +50,6 @@ public:
   }
 
   //similar, but keys are provided explicitly for each tile
-  //can be templated!!!!
   template<typename T>
   Solver(const std::map<TileKey, T>& tiles, int seed=0): seed(seed) {
     for (auto [k, _] : tiles) {

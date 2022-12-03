@@ -1,5 +1,11 @@
 #include <Solver.h>
 
+typedef Solver::TileKey TileKey;
+
+/*
+   INTERFACE
+*/
+
 void Solver::setSeed(int seed) {
     seed = seed;
     srand(seed);
@@ -10,8 +16,8 @@ int Solver::getSeed() {
 }
 
 //use move semantics?
-Grid<Solver::TileKey> Solver::solve(int N) {
-    Grid<Solver::TileKey> g = Grid<Solver::TileKey>(this->tiles, N);
+Grid<TileKey> Solver::solve(int N) {
+    Grid<TileKey> g = Grid<TileKey>(this->tiles, N);
 
     initializeGrid(N);
 
@@ -25,41 +31,41 @@ Grid<Solver::TileKey> Solver::solve(int N) {
     }
 
     for (const auto& [p, tile] : this->grid) {
-      Solver::TileKey k = tile[0];
+      TileKey k = tile[0];
       g.setKey(p, k);
     }
 
     return g;
   }
 
-  void Solver::addAdjacencyConstraint(Solver::TileKey t, Direction d, Solver::TileKey neighbor) {
+  void Solver::addAdjacencyConstraint(TileKey t, Direction d, TileKey neighbor) {
     adjacency_constraints[std::make_pair(t, d)].insert(neighbor);
   }
 
-  void Solver::removeAdjacencyConstraint(Solver::TileKey t, Direction d, Solver::TileKey neighbor) {
+  void Solver::removeAdjacencyConstraint(TileKey t, Direction d, TileKey neighbor) {
     adjacency_constraints[std::make_pair(t, d)].erase(neighbor);
   }
 
-  void Solver::addAdjacencyConstraint(Solver::TileKey t, Direction d, std::initializer_list<Solver::TileKey> neighbors) {
+  void Solver::addAdjacencyConstraint(TileKey t, Direction d, std::initializer_list<TileKey> neighbors) {
     auto p = std::make_pair(t, d);
     for (auto n : neighbors) {
       adjacency_constraints[p].insert(n);
     }
   }
 
-  void Solver::removeAdjacencyConstraint(Solver::TileKey t, Direction d, std::initializer_list<Solver::TileKey> neighbors) {
+  void Solver::removeAdjacencyConstraint(TileKey t, Direction d, std::initializer_list<TileKey> neighbors) {
     auto p = std::make_pair(t, d);
     for (auto n : neighbors) {
       adjacency_constraints[p].erase(n);
     }
   }
 
-  void Solver::setInitialConstraint(Position p, Solver::TileKey possibility) {
+  void Solver::setInitialConstraint(Position p, TileKey possibility) {
     initial_constraints[p].clear();
     initial_constraints[p].insert(possibility);
   }
 
-  void Solver::setInitialConstraint(Position p, std::initializer_list<Solver::TileKey> possibilities) {
+  void Solver::setInitialConstraint(Position p, std::initializer_list<TileKey> possibilities) {
     initial_constraints[p].clear(); 
     for (auto k : possibilities) {
       initial_constraints[p].insert(k);
@@ -90,9 +96,6 @@ Grid<Solver::TileKey> Solver::solve(int N) {
     }
     collapse_behavior = b.value();
   }
-
-
-
 
   /*
     ALGORITHM (optimize)
@@ -161,7 +164,7 @@ Grid<Solver::TileKey> Solver::solve(int N) {
   }
 
   void Solver::collapseAt(Position p) {
-    std::vector<Solver::TileKey>& tiles = grid.at(p);
+    std::vector<TileKey>& tiles = grid.at(p);
     
     auto it = [&](){
       if (collapse_behavior) {
@@ -170,7 +173,7 @@ Grid<Solver::TileKey> Solver::solve(int N) {
       return collapseRandom(tiles);
     }();
 
-    Solver::TileKey tile = *it;
+    TileKey tile = *it;
     tiles.clear();
     tiles.push_back(tile);
 
@@ -200,27 +203,27 @@ Grid<Solver::TileKey> Solver::solve(int N) {
 
   //returns true if neighbor's possible tiles decrease
   bool Solver::propagateAt(Position current, Position neighbor) {
-    std::vector<Solver::TileKey>& neighbor_tiles = grid[neighbor];
+    std::vector<TileKey>& neighbor_tiles = grid[neighbor];
     size_t initial_amount = neighbor_tiles.size();
 
-    std::vector<Solver::TileKey>& current_tiles = grid[current];
+    std::vector<TileKey>& current_tiles = grid[current];
 
     Direction d = current.getDirection(neighbor);
     
     //for each tile in the current grid slot, check its set of allowed neighbors in the given direction
     //add that to an overall set of permitted tiles, which is then used to remove any which are not in this set
-    std::unordered_set<Solver::TileKey> allowed;
-    for (Solver::TileKey k : current_tiles) {
+    std::unordered_set<TileKey> allowed;
+    for (TileKey k : current_tiles) {
       
       auto adjacencies = getAdjacencies(k, d);
       //print(adjacencies, "Adjacencies");
-      for (Solver::TileKey a : adjacencies) {
+      for (TileKey a : adjacencies) {
         allowed.insert(a);
       }
     }
 
     //remove non-allowed tiles
-    auto it = std::remove_if(neighbor_tiles.begin(), neighbor_tiles.end(), [&](Solver::TileKey k){
+    auto it = std::remove_if(neighbor_tiles.begin(), neighbor_tiles.end(), [&](TileKey k){
       return !allowed.contains(k);
     });
     neighbor_tiles.erase(it, neighbor_tiles.end());
@@ -251,18 +254,18 @@ Grid<Solver::TileKey> Solver::solve(int N) {
     return neighbors;
   }
 
-  std::vector<Solver::TileKey>::const_iterator Solver::collapseRandom(const std::vector<Solver::TileKey>& tiles) {
+  std::vector<TileKey>::const_iterator Solver::collapseRandom(const std::vector<TileKey>& tiles) {
     size_t index = rand() % tiles.size();
     return tiles.begin() + index;
   }
 
-  std::unordered_set<Solver::TileKey> Solver::getAdjacencies(Solver::TileKey k, Direction d) {
+  std::unordered_set<TileKey> Solver::getAdjacencies(TileKey k, Direction d) {
     Side s{k, d};
     if (adjacency_constraints.contains(s)) {
       return adjacency_constraints[s];
     }
     //by default, every tile can be adjacent to every other tile
-    std::unordered_set<Solver::TileKey> adjacencies(this->tiles.begin(), this->tiles.end());
+    std::unordered_set<TileKey> adjacencies(this->tiles.begin(), this->tiles.end());
 
     //caching, lazy initialization
     adjacency_constraints[s] = adjacencies;
@@ -270,11 +273,11 @@ Grid<Solver::TileKey> Solver::solve(int N) {
     return adjacencies;
   }
 
-  std::vector<Solver::TileKey> Solver::getPossibleTiles(Position p) {
+  std::vector<TileKey> Solver::getPossibleTiles(Position p) {
     if (initial_constraints.contains(p)) {
       auto init = initial_constraints[p];
 
-      std::vector<Solver::TileKey> possible_tiles;
+      std::vector<TileKey> possible_tiles;
       
       for (auto k : init) {
         possible_tiles.push_back(k);
