@@ -9,7 +9,7 @@ Dependencies:
 - [LCov](https://ltp.sourceforge.net/coverage/lcov.php) extension to gcov coverage tester
 
 
-To build (library, documentation, and tests):
+To build (library, documentation, and tests) assumming the root directory is the working directory:
 ```bash
 cmake --build ./build --config Debug --target all -- && make
 ```
