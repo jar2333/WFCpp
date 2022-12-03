@@ -11,6 +11,7 @@
 #include <functional>
 #include <unordered_set>
 #include <unordered_map>
+#include <stack>
 
 #include <utility>
 #include <tuple>
@@ -25,8 +26,6 @@
 
 class Solver {
 
-public:
-
   typedef Tile T;
   typedef int TileKey;
 
@@ -36,6 +35,8 @@ public:
 
   typedef std::function<void(const TileKey&, Position)> CollapseCallback;
   typedef std::function<void(const std::vector<TileKey>&, Position)> PropagateCallback;
+
+public:
 
   typedef typename std::list<CollapseCallback>::iterator CollapseCallbackCookie;
   typedef typename std::list<PropagateCallback>::iterator PropagateCallbackCookie;
@@ -116,21 +117,29 @@ public:
  
   //To-do: returns a receipt object to deregister when out of scope?
   //API: calls registered function with tile in collapsed grid slot
-  CollapseCallbackCookie registerCollapse(CollapseCallback callback) {
+  // vector<int> tiles;
+  // Solver solver(tiles);
+  // solver.registerOnCollapse([&](const int& key, Position p) {
+  //   tile = tiles[key];
+  //   auto [x, y] = p;
+  //   opengl.draw(tile, x, y);
+  // });
+
+  CollapseCallbackCookie registerOnCollapse(CollapseCallback callback) {
     return collapse_callbacks.insert(collapse_callbacks.begin(), callback);
   }
 
-  void deregisterCollapse(CollapseCallbackCookie cookie) {
+  void deregisterOnCollapse(CollapseCallbackCookie cookie) {
     collapse_callbacks.erase(cookie);
   }
 
 
   //API: calls registered function with possible tiles in collapsed grid slot
-  PropagateCallbackCookie registerPropagate(PropagateCallback callback) {
+  PropagateCallbackCookie registerOnPropagate(PropagateCallback callback) {
     return propagate_callbacks.insert(propagate_callbacks.begin(), callback);
   }
 
-  void deregisterCollapse(PropagateCallbackCookie cookie) {
+  void deregisterOnCollapse(PropagateCallbackCookie cookie) {
     propagate_callbacks.erase(cookie);
   }
 
@@ -142,7 +151,6 @@ public:
   // Low level function to change the position selection heuristic
   // A comparison function, during propagation, run to find the global minimum tile to collapse
   // Write details in documentation
-  // void setSelectionHeuristic(std::function<bool(const std::vector&<TileKey>, const std::vector&<TileKey>)> h)
 
   //low level function to change collapse selection policy
   void setCollapseBehaviour(std::optional<CollapseBehavior> b) {
@@ -161,7 +169,7 @@ private:
     CONSTRAINTS
   */
   std::map<Side, std::unordered_set<TileKey>> adjacency_constraints;
-  std::map<Position, std::unordered_set<TileKey>> initial_constraints;
+  std::unordered_map<Position, std::unordered_set<TileKey>> initial_constraints;
 
   /*
     BEHAVIOURS
@@ -179,9 +187,12 @@ private:
   */
 
   std::unordered_map<Position, std::vector<TileKey>> grid;
+  int N;
 
   void initializeGrid(int N) {
     grid.clear();
+
+    this->N = N;
 
     //get vector of all possible tiles
     std::vector<TileKey> max_tiles;
@@ -251,12 +262,74 @@ private:
   }
 
   void propagate(Position p) {
+    std::stack<Position> stack;
+    stack.push(p);
 
+    while (!stack.empty()) {
+      Position cur = stack.top();
+      stack.pop();
+
+      std::vector<Position> neighbors = getNeighbors(cur);
+
+      for (Position n : neighbors) {
+        if (propagateAt(cur, n)) {
+          stack.push(n);
+        }
+      }
+    }
+  }
+
+  //returns true if neighbor's possible tiles decrease
+  bool propagateAt(Position current, Position neighbor) {
+    std::vector<TileKey>& neighbor_tiles = grid[neighbor];
+    size_t initial_amount = neighbor_tiles.size();
+
+    std::vector<TileKey>& current_tiles = grid[current];
+
+    Direction d = current.getDirection(neighbor);
+    
+    //for each tile in the current grid slot, check its set of allowed neighbors in the given direction
+    //add that to an overall set of permitted tiles, which is then used to remove any which are not in this set
+    std::unordered_set<TileKey> allowed;
+    for (TileKey k : current_tiles) {
+      auto adjacencies = getAdjacencies(k, d);
+      for (TileKey a : adjacencies) {
+        allowed.insert(a);
+      }
+    }
+
+    std::remove_if(neighbor_tiles.begin(), neighbor_tiles.end(), [&](TileKey k){
+      return !allowed.contains(k);
+    });
+
+    return neighbor_tiles.size() < initial_amount;
+  }
+
+
+  std::vector<Position> getNeighbors(Position p) {
+    auto [x, y] = p;
+
+    std::vector<Position> neighbors;
+
+    if (0 < x) 
+      neighbors.push_back({x-1, y});
+    if (x < N-1)
+      neighbors.push_back({x+1, y});
+    if (0 < y) 
+      neighbors.push_back({x, y-1});
+    if (y < N-1)
+      neighbors.push_back({x, y+1});
+
+    return neighbors;
   }
 
   std::vector<TileKey>::const_iterator collapseRandom(const std::vector<TileKey>& tiles) {
     size_t index = rand() % tiles.size();
     return tiles.begin() + index;
+  }
+
+  std::unordered_set<TileKey> getAdjacencies(TileKey k, Direction d) {
+    return this->adjacency_constraints[{k, d}];
   }
 
 };
