@@ -24,6 +24,8 @@
 
 #include <cstdlib>
 
+#include <stdexcept>
+
 class Solver {
 
 
@@ -73,7 +75,28 @@ public:
     return seed;
   }
 
-  Grid<TileKey> solve(int N); 
+  //exception throwing variant of algorithm
+  //use move semantics?
+  Grid<TileKey> solve(int N) {
+    Grid<TileKey> g = Grid<TileKey>(this->tiles, N);
+
+    initializeGrid(N);
+    while (!isCollapsed()) {
+      iterate();
+    }
+
+    //can be moved down the call stack if required by algorithm logic, later
+    if (isContradiction()) {
+      throw std::runtime_error( "Encountered contradiction in solver." );
+    }
+
+    for (const auto& [p, tile] : this->grid) {
+      TileKey k = tile[0];
+      g.setKey(p, k);
+    }
+
+    return g;
+  }
 
   /*
    CONSTRAINT INTERFACE/API
@@ -122,14 +145,6 @@ public:
   */
  
   //To-do: returns a receipt object to deregister when out of scope?
-  //API: calls registered function with tile in collapsed grid slot
-  // vector<int> tiles;
-  // Solver solver(tiles);
-  // solver.registerOnCollapse([&](const int& key, Position p) {
-  //   tile = tiles[key];
-  //   auto [x, y] = p;
-  //   opengl.draw(tile, x, y);
-  // });
 
   CollapseCallbackCookie registerOnCollapse(CollapseCallback callback) {
     return collapse_callbacks.insert(collapse_callbacks.begin(), callback);
@@ -209,20 +224,6 @@ private:
     }
   }
 
-  std::vector<TileKey> getPossibleTiles(Position p) {
-    if (initial_constraints.contains(p)) {
-      auto init = initial_constraints[p];
-
-      std::vector<TileKey> possible_tiles;
-      std::copy_if(this->tiles.begin(), this->tiles.end(), std::back_inserter(possible_tiles), [&init](TileKey k){
-        return init.contains(k);
-      });
-      
-      return possible_tiles;
-    }
-    return this->tiles;
-  }
-
   void iterate() {
     Position p = getMinEntropyCoordinates();
     collapseAt(p);
@@ -232,7 +233,7 @@ private:
   //optimizations can be made using an instance variable
   bool isCollapsed() {
     for (const auto& [p, t] : this->grid) {
-      if (t.size() != 1)
+      if (t.size() > 1)
         return false;
     }
     return true;
@@ -364,5 +365,20 @@ private:
     
     return adjacencies;
   }
+
+  std::vector<TileKey> getPossibleTiles(Position p) {
+    if (initial_constraints.contains(p)) {
+      auto init = initial_constraints[p];
+
+      std::vector<TileKey> possible_tiles;
+      std::copy_if(this->tiles.begin(), this->tiles.end(), std::back_inserter(possible_tiles), [&init](TileKey k){
+        return init.contains(k);
+      });
+      
+      return possible_tiles;
+    }
+    return this->tiles;
+  }
+
 
 };

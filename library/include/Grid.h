@@ -11,7 +11,8 @@ class Grid {
 
 public:
 
-    Grid(const std::map<TileKey, Tile>& tileMap, int dimension) : tileMap(tileMap), dimension(dimension) {}
+    Grid(const std::vector<TileKey>& tileKeys, int dimension) : tileKeys(tileKeys), dimension(dimension) {}
+    // Grid(const std::map<TileKey, Tile>& tileMap, int dimension) : tileMap(tileMap), dimension(dimension) {}
 
     int getDimension();
 
@@ -25,7 +26,8 @@ public:
 private:
 
     int dimension;
-    std::map<TileKey, Tile> tileMap;
+    std::vector<TileKey> tileKeys;
+    // std::map<TileKey, Tile> tileMap;
 
     std::vector<std::vector<TileKey>> tileKeyGrid;
 
