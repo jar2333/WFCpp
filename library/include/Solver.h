@@ -26,9 +26,12 @@
 
 #include <stdexcept>
 
+#include <iostream>
+#include <assert.h>
+
 class Solver {
 public:
-  typedef int TileKey;
+  typedef size_t TileKey;
 
 private:
   typedef std::pair<TileKey, Direction> Side;
@@ -79,10 +82,19 @@ public:
   Grid<TileKey> solve(int N) {
     Grid<TileKey> g = Grid<TileKey>(this->tiles, N);
 
+    std::cout << "made grid\n"; 
+
     initializeGrid(N);
+
+    std::cout << "initialized grid\n"; 
+
     while (!isCollapsed()) {
+      std::cout << "==========\nIterating\n===========\n"; 
       iterate();
+      assert (false);
     }
+
+    std::cout << "checking for contradiction \n"; 
 
     //can be moved down the call stack if required by algorithm logic, later
     if (isContradiction()) {
@@ -224,8 +236,11 @@ private:
   }
 
   void iterate() {
+    std::cout << "--------Getting min entropy coords--------\n"; 
     Position p = getMinEntropyCoordinates();
+    std::cout << "--------Collapsing--------\n"; 
     collapseAt(p);
+    std::cout << "--------Propagating--------\n"; 
     propagate(p);
   }
 
@@ -248,7 +263,8 @@ private:
   }
 
   Position getMinEntropyCoordinates() {
-    Position min_entropy_position;
+    std::cout << "Getting min entropy coordinates\n";
+    Position min_entropy_position{0,0};
     size_t min_entropy = tiles.size();
     for (auto const [p, v] : grid) {
       if (v.size() < min_entropy) {
@@ -260,8 +276,11 @@ private:
   }
 
   void collapseAt(Position p) {
-    std::vector<TileKey>& tiles = grid[p];
+    auto [x, y] = p;
+    std::cout << "Getting tiles at position (" << x << ", " << y << ")\n"; 
+    std::vector<TileKey>& tiles = grid.at(p);
 
+    std::cout << "Choosing tile...\n"; 
     auto it = [&](){
       if (collapse_behavior) {
         return collapse_behavior(tiles);
@@ -269,11 +288,12 @@ private:
       return collapseRandom(tiles);
     }();
 
+    std::cout << "removing all except tile\n"; 
     TileKey tile = *it;
-
     tiles.clear();
     tiles.push_back(tile);
 
+    std::cout << "Callbacks...\n"; 
     for (auto callback : collapse_callbacks) {
       callback(tile, p);
     }
@@ -287,10 +307,16 @@ private:
       Position cur = stack.top();
       stack.pop();
 
+      auto [x, y] = p;
+      std::cout << "Popped: (" << x << ", " << y << ")\n"; 
+
       std::vector<Position> neighbors = getNeighbors(cur);
 
       for (Position n : neighbors) {
+        auto [xn, yn] = n;
+        std::cout << "Propagating at Neighbor: (" << xn << ", " << yn << ")\n";  
         if (propagateAt(cur, n)) {
+          std::cout << "Pushed neighbor: (" << xn << ", " << yn << ")\n"; 
           stack.push(n);
         }
       }
@@ -304,21 +330,32 @@ private:
 
     std::vector<TileKey>& current_tiles = grid[current];
 
+    std::cout << "Got direction ";
     Direction d = current.getDirection(neighbor);
+    std::cout << (int)d << std::endl;
     
     //for each tile in the current grid slot, check its set of allowed neighbors in the given direction
     //add that to an overall set of permitted tiles, which is then used to remove any which are not in this set
     std::unordered_set<TileKey> allowed;
     for (TileKey k : current_tiles) {
+      std::cout << "Current tile: " << k << std::endl;
       auto adjacencies = getAdjacencies(k, d);
+      print(adjacencies, "Adjacencies");
       for (TileKey a : adjacencies) {
         allowed.insert(a);
       }
     }
 
-    std::remove_if(neighbor_tiles.begin(), neighbor_tiles.end(), [&](TileKey k){
+    print(allowed, "allowed tiles");
+
+    std::cout << "Removing from neighbors...\n";
+    print(neighbor_tiles, "neighbor tiles");
+    auto it = std::remove_if(neighbor_tiles.begin(), neighbor_tiles.end(), [&](TileKey k){
       return !allowed.contains(k);
     });
+    neighbor_tiles.erase(it, neighbor_tiles.end());
+    print(neighbor_tiles, "neighbor tiles after removal");
+    
 
     //call all the callbacks
     for (auto callback : propagate_callbacks) {
@@ -379,5 +416,14 @@ private:
     return this->tiles;
   }
 
+
+  template <typename T>
+  void print(T a, std::string container) {
+    std::cout << container << ": ";
+    for (auto k : a) {
+        std::cout << k << ", ";
+    }
+    std::cout << std::endl;
+  }
 
 };

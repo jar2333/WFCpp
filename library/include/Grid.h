@@ -11,15 +11,32 @@ class Grid {
 
 public:
 
-    Grid(const std::vector<TileKey>& tileKeys, int dimension) : tileKeys(tileKeys), dimension(dimension) {}
+    Grid(const std::vector<TileKey>& tileKeys, int dimension) : tileKeys(tileKeys), dimension(dimension) {
+        for (int i = 0; i < dimension; i++) {
+            std::vector<TileKey> row(dimension);
+            for (int j = 0; j < dimension; j++) {
+                tileKeyGrid.push_back(row);
+            }
+        }
+    }
+    // Grid(const std::vector<TileKey>& tileKeys, int dimension) : tileKeys(tileKeys), dimension(dimension) {}
     // Grid(const std::map<TileKey, Tile>& tileMap, int dimension) : tileMap(tileMap), dimension(dimension) {}
 
-    int getDimension();
+    int getDimension() {
+        return this->dimension;
+    }
 
-    inline TileKey getKey(Position p);
-    inline void setKey(Position p, TileKey key); 
+    TileKey getKey(Position p) {
+        auto [x, y] = p;
+        return tileKeyGrid[x][y];
+    }
 
-    inline Tile getTile(Position p);
+    void setKey(Position p, TileKey key) {
+        auto [x, y] = p;
+        tileKeyGrid[x][y] = key;
+    } 
+
+    // Tile getTile(Position p);
 
 
 
