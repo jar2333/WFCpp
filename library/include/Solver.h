@@ -26,7 +26,9 @@
 
 class Solver {
 
-  typedef Tile T;
+
+public:
+
   typedef int TileKey;
 
   typedef std::pair<TileKey, Direction> Side;
@@ -36,21 +38,25 @@ class Solver {
   typedef std::function<void(const TileKey&, Position)> CollapseCallback;
   typedef std::function<void(const std::vector<TileKey>&, Position)> PropagateCallback;
 
-public:
-
   typedef typename std::list<CollapseCallback>::iterator CollapseCallbackCookie;
   typedef typename std::list<PropagateCallback>::iterator PropagateCallbackCookie;
 
   //the main way of using the library, the int keys are auto-generated from vector as the indeces
+  //can be templated!!!!
+  template<typename T>
   Solver(const std::vector<T>& tiles, int seed=0): seed(seed) {
     for (TileKey k = 0; k < tiles.size(); k++) {
-      this->tiles[k] = tiles[k];
+      this->tiles.push_back(k);
     }
   }
 
   //similar, but keys are provided explicitly for each tile
+  //can be templated!!!!
+  template<typename T>
   Solver(const std::map<TileKey, T>& tiles, int seed=0): seed(seed) {
-    this->tiles = tiles;
+    for (auto [k, _] : tiles) {
+      this->tiles.push_back(k);
+    }
   }
 
   /*
@@ -67,7 +73,7 @@ public:
     return seed;
   }
 
-  Grid<T> solve(int N); 
+  Grid<TileKey> solve(int N); 
 
   /*
    CONSTRAINT INTERFACE/API
@@ -163,7 +169,7 @@ public:
 
 private:
   int seed;
-  std::map<TileKey, T> tiles;
+  std::vector<TileKey> tiles;
 
   /*
     CONSTRAINTS
@@ -194,39 +200,51 @@ private:
 
     this->N = N;
 
-    //get vector of all possible tiles
-    std::vector<TileKey> max_tiles;
-    for (auto const& [tile_key, _] : tiles) {
-      max_tiles.push_back(tile_key);
-    }
-
     //populate grid
     for (int i = 0; i < N; i++) {
       for (int j = 0; j < N; j++) {
         Position p{i, j};
-        grid[p] = getPossibleTiles(p, max_tiles);;
+        grid[p] = getPossibleTiles(p);;
       }
     }
   }
 
-  std::vector<TileKey> getPossibleTiles(Position p, std::vector<TileKey>& max_tiles) {
+  std::vector<TileKey> getPossibleTiles(Position p) {
     if (initial_constraints.contains(p)) {
       auto init = initial_constraints[p];
 
       std::vector<TileKey> possible_tiles;
-      std::copy_if(max_tiles.begin(), max_tiles.end(), std::back_inserter(possible_tiles), [&init](TileKey k){
+      std::copy_if(this->tiles.begin(), this->tiles.end(), std::back_inserter(possible_tiles), [&init](TileKey k){
         return init.contains(k);
       });
       
       return possible_tiles;
     }
-    return max_tiles;
+    return this->tiles;
   }
 
   void iterate() {
     Position p = getMinEntropyCoordinates();
     collapseAt(p);
     propagate(p);
+  }
+
+  //optimizations can be made using an instance variable
+  bool isCollapsed() {
+    for (const auto& [p, t] : this->grid) {
+      if (t.size() != 1)
+        return false;
+    }
+    return true;
+  }
+
+  //alternatively make this an exception?
+  bool isContradiction() {
+    for (const auto& [p, t] : this->grid) {
+      if (t.size() == 0)
+        return true;
+    }
+    return false;
   }
 
   Position getMinEntropyCoordinates() {
@@ -338,13 +356,12 @@ private:
     if (adjacency_constraints.contains(s)) {
       return adjacency_constraints[s];
     }
-
-    //very eager, should not be called much though
     //by default, every tile can be adjacent to every other tile
-    std::unordered_set<TileKey> adjacencies;
-    for (auto [k, _] : tiles) {
-      adjacencies.insert(k);
-    }
+    std::unordered_set<TileKey> adjacencies(this->tiles.begin(), this->tiles.end());
+
+    //caching, lazy initialization
+    adjacency_constraints[s] = adjacencies;
+    
     return adjacencies;
   }
 
