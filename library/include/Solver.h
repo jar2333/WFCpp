@@ -339,21 +339,21 @@ private:
     for (TileKey k : current_tiles) {
       //std::cout << "Current tile: " << k << std::endl;
       auto adjacencies = getAdjacencies(k, d);
-      print(adjacencies, "Adjacencies");
+      //print(adjacencies, "Adjacencies");
       for (TileKey a : adjacencies) {
         allowed.insert(a);
       }
     }
 
-    print(allowed, "allowed tiles");
+    //print(allowed, "allowed tiles");
 
     //std::cout << "Removing from neighbors...\n";
-    print(neighbor_tiles, "neighbor tiles");
+    //print(neighbor_tiles, "neighbor tiles");
     auto it = std::remove_if(neighbor_tiles.begin(), neighbor_tiles.end(), [&](TileKey k){
       return !allowed.contains(k);
     });
     neighbor_tiles.erase(it, neighbor_tiles.end());
-    print(neighbor_tiles, "neighbor tiles after removal");
+    //print(neighbor_tiles, "neighbor tiles after removal");
     
 
     //call all the callbacks
@@ -416,14 +416,5 @@ private:
     return this->tiles;
   }
 
-
-  template <typename T>
-  void print(T a, std::string container) {
-    //std::cout << container << ": ";
-    for (auto k : a) {
-        //std::cout << k << ", ";
-    }
-    //std::cout << std::endl;
-  }
 
 };
