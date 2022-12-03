@@ -8,6 +8,16 @@
 
 #include <iostream>
 
+
+template <typename T>
+void print(T a, std::string container) {
+    std::cout << container << ": ";
+    for (auto k : a) {
+        std::cout << k << ", ";
+    }
+    std::cout << std::endl;
+}
+
 int main() {
 
     std::vector<std::string> tiles;
@@ -17,7 +27,7 @@ int main() {
     tiles.push_back("sky");
     tiles.push_back("bird");   
 
-
+    std::cout << "Seed: ";
     int seed;
     std::cin >> seed;
     Solver solver = Solver(tiles, seed);
@@ -38,15 +48,21 @@ int main() {
     solver.addAdjacencyConstraint(2, Direction::RIGHT, {2,3});
 
     solver.addAdjacencyConstraint(3, Direction::UP, {2,3});
-    solver.addAdjacencyConstraint(3, Direction::DOWN, {2,3});
+    solver.addAdjacencyConstraint(3, Direction::DOWN, {1,2,3});
     solver.addAdjacencyConstraint(3, Direction::LEFT, {2,3});
     solver.addAdjacencyConstraint(3, Direction::RIGHT, {2,3});
 
-    // solver.setInitialConstraint({3,3}, {0});
+    solver.setInitialConstraint({3,3}, {0});
 
     solver.registerOnCollapse([&tiles](const Solver::TileKey& k, Position p){
         auto [i, j] = p;
         std::cout << "Collapse! at Position: (" << i << ", " << j << "), tile: " << tiles[k] << std::endl;
+    });
+
+    solver.registerOnPropagate([&tiles](const std::vector<Solver::TileKey>& k, Position p){
+        auto [i, j] = p;
+        std::cout << "Propagate! at Position: (" << i << ", " << j << "), ";
+        print(k, "tiles: ");
     });
 
     auto grid = solver.solve(5);

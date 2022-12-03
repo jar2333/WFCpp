@@ -406,9 +406,10 @@ private:
       auto init = initial_constraints[p];
 
       std::vector<TileKey> possible_tiles;
-      std::copy_if(this->tiles.begin(), this->tiles.end(), std::back_inserter(possible_tiles), [&init](TileKey k){
-        return init.contains(k);
-      });
+      
+      for (TileKey k : init) {
+        possible_tiles.push_back(k);
+      }
       
       return possible_tiles;
     }
