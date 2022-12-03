@@ -27,12 +27,10 @@
 #include <stdexcept>
 
 class Solver {
-
-
 public:
-
   typedef int TileKey;
 
+private:
   typedef std::pair<TileKey, Direction> Side;
 
   typedef std::function<std::vector<TileKey>::const_iterator(const std::vector<TileKey>&)> CollapseBehavior;
@@ -40,6 +38,7 @@ public:
   typedef std::function<void(const TileKey&, Position)> CollapseCallback;
   typedef std::function<void(const std::vector<TileKey>&, Position)> PropagateCallback;
 
+public:
   typedef typename std::list<CollapseCallback>::iterator CollapseCallbackCookie;
   typedef typename std::list<PropagateCallback>::iterator PropagateCallbackCookie;
 
