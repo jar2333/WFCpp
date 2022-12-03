@@ -11,7 +11,7 @@ Dependencies:
 
 To build (library, documentation, and tests):
 ```bash
-cmake --build ./build --config Debug --target all -j 4 -- && make
+cmake --build ./build --config Debug --target all -- && make
 ```
 
 To run tests and get coverage:

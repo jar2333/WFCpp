@@ -11,6 +11,7 @@ class Grid {
 
 public:
 
+
     Grid(const std::vector<TileKey>& tileKeys, int dimension) : tileKeys(tileKeys), dimension(dimension) {
         for (int i = 0; i < dimension; i++) {
             std::vector<TileKey> row(dimension);
@@ -39,10 +40,15 @@ public:
     // Tile getTile(Position p);
 
 
+    // TODO: replace (i, j) with Position
+    Tile getPosition(int i, int j);
+    void setPosition(int i, int j, Tile tile); // or: set(Position, TileKey)
+
 
 private:
 
     int dimension;
+
     std::vector<TileKey> tileKeys;
     // std::map<TileKey, Tile> tileMap;
 
@@ -51,3 +57,4 @@ private:
     // TODO: maybe some traverse helpers?
     
 };
+
