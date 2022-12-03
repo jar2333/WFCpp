@@ -302,6 +302,11 @@ private:
       return !allowed.contains(k);
     });
 
+    //call all the callbacks
+    for (auto callback : propagate_callbacks) {
+      callback(neighbor_tiles, neighbor);
+    }
+
     return neighbor_tiles.size() < initial_amount;
   }
 
