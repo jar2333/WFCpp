@@ -1,21 +1,22 @@
 #include <string>
 #include <Enums.h>
+#include <BMPImage.h>
+#include <memory>
 
+#ifndef _TILE_h_
+#define _TILE_h_
 class Tile {
 
 public:
 
-    int getDimension();
-    bool matchesColors(Tile other, Direction d);
-
-    // TODO: loads image from filePath and returns image object
-    // ImageObject getImageData(); 
+    int getSize() const;
+    std::shared_ptr<BMPImage> getImageData() const; 
+    std::vector<Position> enumeratePosition() const;
 
 private:
 
-    int n;
-    std::string filePath;
-
-    // TODO: add other variables
-
+    int size;
+    std::shared_ptr<BMPImage> image;
 };
+
+#endif
