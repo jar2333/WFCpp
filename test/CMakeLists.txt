@@ -9,26 +9,15 @@ add_executable(main.exe src/main.cpp)
 
 if (CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
   # set compiler flags
-  set(CMAKE_CXX_FLAGS "-O0 -coverage -Wall")
-
-  # find required tools
-  find_program(LCOV lcov REQUIRED)
-  find_program(GENHTML genhtml REQUIRED)
-
-  # add coverage target
-  add_custom_target(coverage
-    # gather data
-    COMMAND ${LCOV} --directory . --capture --output-file coverage.info
-    # generate report
-    COMMAND ${GENHTML} --demangle-cpp -o coverage ../coverage.info
-    )
-
-  target_link_libraries(main.exe wfcpp -coverage)
+  set(CMAKE_CXX_FLAGS "-O0 -Wall -fprofile-arcs -ftest-coverage")
+ 
+  add_compile_options("-coverage")
+  link_libraries("-coverage")
 
 else()
   # set compiler flags
   set(CMAKE_CXX_FLAGS "-O2")
-  target_link_libraries(main.exe wfcpp)
+
 endif()
 
 

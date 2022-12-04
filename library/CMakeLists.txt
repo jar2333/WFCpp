@@ -4,11 +4,11 @@ project(wfcpp VERSION 0.0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-#add libraries
+#add CMake libraries
 # add_subdirectory(external/raylib)
 
 if (CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
-  set(CMAKE_CXX_FLAGS "-O0 -coverage -Wall")
+  set(CMAKE_CXX_FLAGS "-O0 -coverage -Wall -fprofile-arcs -ftest-coverage")
 else()
   set(CMAKE_CXX_FLAGS "-O2")
 endif()
@@ -55,6 +55,11 @@ target_include_directories(${PROJECT_NAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     PRIVATE
     #library names
+        $<INSTALL_INTERFACE:lib/EasyBMP>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/EasyBMP>
+
+        $<INSTALL_INTERFACE:lib/lodepng>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/lodepng>
 )
 
 target_link_libraries(${PROJECT_NAME}

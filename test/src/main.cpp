@@ -115,16 +115,18 @@ void testSolver() {
         std::cout << "Collapse! at Position: (" << i << ", " << j << "), tile: " << tiles[k] << std::endl;
     });
 
-    solver.registerOnPropagate([&tiles](const std::vector<Solver::TileKey>& k, Position p){
+    solver.registerOnPropagate([](const std::vector<Solver::TileKey>& k, Position p){
         auto [i, j] = p;
         std::cout << "Propagate! at Position: (" << i << ", " << j << "), ";
         print(k, "tiles: ");
     });
 
-    auto grid = solver.solve(5);
+    int gridSize = 7;
 
-    for (int i = 0; i < 5; i++) {
-      for (int j = 0; j < 5; j++) {
+    auto grid = solver.solve(gridSize);
+
+    for (int i = 0; i < gridSize; i++) {
+      for (int j = 0; j < gridSize; j++) {
         std::cout << "Position: (" << i << ", " << j << "), tile: " << tiles[grid.getKey({i, j})] << std::endl;
       }
     }

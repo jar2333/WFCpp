@@ -125,11 +125,8 @@ Grid<TileKey> Solver::solve(int N) {
   }
 
   void Solver::iterate() {
-    
     Position p = getMinEntropyCoordinates();
-    
     collapseAt(p);
-    
     propagate(p);
   }
 
