@@ -1,0 +1,429 @@
+\hypertarget{classSolver}{}\doxysection{Solver Class Reference}
+\label{classSolver}\index{Solver@{Solver}}
+
+
+The \mbox{\hyperlink{classSolver}{Solver}} class.  
+
+
+
+
+{\ttfamily \#include $<$Solver.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef size\+\_\+t \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}
+\item 
+\mbox{\Hypertarget{classSolver_a9023dccd73fc12ad487d1f01e1a70082}\label{classSolver_a9023dccd73fc12ad487d1f01e1a70082}} 
+typedef std\+::function$<$ std\+::vector$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$\+::const\+\_\+iterator(const std\+::vector$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ \&)$>$ {\bfseries Collapse\+Behavior}
+\item 
+\mbox{\Hypertarget{classSolver_a4bd804104330d7de1d024957ef59a79b}\label{classSolver_a4bd804104330d7de1d024957ef59a79b}} 
+typedef std\+::function$<$ void(const \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} \&, \mbox{\hyperlink{structPosition}{Position}})$>$ {\bfseries Collapse\+Callback}
+\item 
+\mbox{\Hypertarget{classSolver_a017f6f4aec8b3eec43ea3130fe702286}\label{classSolver_a017f6f4aec8b3eec43ea3130fe702286}} 
+typedef std\+::function$<$ void(const std\+::vector$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ \&, \mbox{\hyperlink{structPosition}{Position}})$>$ {\bfseries Propagate\+Callback}
+\item 
+typedef std\+::list$<$ Collapse\+Callback $>$\+::iterator \mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{Collapse\+Callback\+Cookie}}
+\item 
+typedef std\+::list$<$ Propagate\+Callback $>$\+::iterator \mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{Propagate\+Callback\+Cookie}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classSolver_ab9943f77531798a2f6ce24b8281d71a3}{Solver}} (const std\+::vector$<$ T $>$ \&tiles, int seed=0)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classSolver_a7b00bb931fe601491c521d6176cf77b5}{Solver}} (const std\+::map$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}, T $>$ \&tiles, int seed=0)
+\item 
+void \mbox{\hyperlink{classSolver_a34198a1963bea018d0d7096dd36e3653}{set\+Seed}} (int seed)
+\begin{DoxyCompactList}\small\item\em Set the seed for the random number generator. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSolver_a010ed819d6b21696564a5cc5cd5e2cbb}{get\+Seed}} ()
+\begin{DoxyCompactList}\small\item\em Get the seed for the random number generator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ \mbox{\hyperlink{classSolver_a81dc1e75e3c6e3cce9d884242d148ac1}{solve}} (int N)
+\item 
+void \mbox{\hyperlink{classSolver_ae9e645865467108124343029fcd91504}{add\+Adjacency\+Constraint}} (\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} t, Direction d, \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} neighbor)
+\item 
+void \mbox{\hyperlink{classSolver_ac103dc80c8f2e6b8f96d6890c7e0f1e8}{remove\+Adjacency\+Constraint}} (\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} t, Direction d, \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} neighbor)
+\item 
+void \mbox{\hyperlink{classSolver_ac358763cee631e16e737f69172bfb354}{add\+Adjacency\+Constraint}} (\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} t, Direction d, std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ neighbors)
+\item 
+void \mbox{\hyperlink{classSolver_a4c8f8508887d24dfe0807f394dd98fcf}{remove\+Adjacency\+Constraint}} (\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} t, Direction d, std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ neighbors)
+\item 
+void \mbox{\hyperlink{classSolver_a30173570fd36893e302f9313fe030937}{set\+Initial\+Constraint}} (\mbox{\hyperlink{structPosition}{Position}} p, \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} possibility)
+\item 
+void \mbox{\hyperlink{classSolver_a8db472c24ac7cdbba16b99226c53b82d}{set\+Initial\+Constraint}} (\mbox{\hyperlink{structPosition}{Position}} p, std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ possibilities)
+\item 
+\mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{Collapse\+Callback\+Cookie}} \mbox{\hyperlink{classSolver_aa21bdaffa17e0ef52e78ce64f2046b5b}{register\+On\+Collapse}} (Collapse\+Callback callback)
+\item 
+void \mbox{\hyperlink{classSolver_acbca26de9fca6d061d0478dda6cc64f1}{deregister\+On\+Collapse}} (\mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{Collapse\+Callback\+Cookie}} cookie)
+\item 
+\mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{Propagate\+Callback\+Cookie}} \mbox{\hyperlink{classSolver_aed54210e84c73fff7fb4f2be1e965457}{register\+On\+Propagate}} (Propagate\+Callback callback)
+\item 
+void \mbox{\hyperlink{classSolver_a20fd0b667ebdf313e19616c33d3642c2}{deregister\+On\+Collapse}} (\mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{Propagate\+Callback\+Cookie}} cookie)
+\item 
+void \mbox{\hyperlink{classSolver_a8b11638a34e8929a126607edbb125898}{set\+Collapse\+Behaviour}} (std\+::optional$<$ Collapse\+Behavior $>$ b)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classSolver}{Solver}} class. 
+
+\begin{DoxyAuthor}{Author}
+Jose A. Ramos
+\end{DoxyAuthor}
+This class implements the Wave Function Collapse (WFC) algorithm. It provides an interface for calling the algorithm, for setting the solver constraints, changing some algorithm behavior, and registering for certain events. It utilizes keys to represent tiles, returning a 2D grid of keys.
+
+At the moment, only 2 dimensional square grids are available to be solved by the algorithm. This limitation is not hard to overcome, and in fact this class can be generalized with minor changes to some key private methods and the Direction enum.
+
+The algorithm consists of a grid, with each slot/square having a set of allowed tiles at any given time. In the WFC literature, this is called a \char`\"{}superposition\char`\"{}, although we avoid that nomenclature. A grid square is said to be \char`\"{}collapsed\char`\"{} when only one tile is allowed in it. The grid itself is said to be \char`\"{}collapsed\char`\"{} when all of its squares are collapsed. This constitutes a \char`\"{}solved\char`\"{} grid. If a grid square ever has zero allowed tiles, that means the grid is in \char`\"{}contradiction\char`\"{}. A solution cannot be found from a contradiction.
+
+WFC works by iterating 3 steps until either the grid is solved or a leads to a contradiction\+:
+\begin{DoxyItemize}
+\item Find the non-\/collapsed grid square with the least number of allowed tiles (this is the \char`\"{}min entropy heuristic\char`\"{}).
+\item Collapse the grid square using some policy (usually uniform random sampling).
+\item Propagate the results of the new collapsed grid square, removing tiles that are now disallowed by adjacency constraints.
+\end{DoxyItemize}
+
+Beyond offering the solve method, this class provides an API to define {\itshape adjacency constraints} and {\itshape initial constraints}, which guide the final solution to the grid. Additionally, it provides an API for registering functions to be called on the information at a grid square whenever it either collapses or is affected by propagation. Finally, an API is provided for changing the way grid squares are collapsed.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classGrid}{Grid}} 
+
+Direction 
+
+\mbox{\hyperlink{structPosition}{Position}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classSolver_abc55f3b23ccda7c353df7abfb678f150}\label{classSolver_abc55f3b23ccda7c353df7abfb678f150}} 
+\index{Solver@{Solver}!CollapseCallbackCookie@{CollapseCallbackCookie}}
+\index{CollapseCallbackCookie@{CollapseCallbackCookie}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{CollapseCallbackCookie}{CollapseCallbackCookie}}
+{\footnotesize\ttfamily typedef std\+::list$<$Collapse\+Callback$>$\+::iterator \mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{Solver\+::\+Collapse\+Callback\+Cookie}}}
+
+The alias for the callback cookie type for collapse events \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classSolver_aa21bdaffa17e0ef52e78ce64f2046b5b}{register\+On\+Collapse(\+Collapse\+Callback callback)}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}\label{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}} 
+\index{Solver@{Solver}!PropagateCallbackCookie@{PropagateCallbackCookie}}
+\index{PropagateCallbackCookie@{PropagateCallbackCookie}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{PropagateCallbackCookie}{PropagateCallbackCookie}}
+{\footnotesize\ttfamily typedef std\+::list$<$Propagate\+Callback$>$\+::iterator \mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{Solver\+::\+Propagate\+Callback\+Cookie}}}
+
+The alias for the callback cookie type for propagation events \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classSolver_aed54210e84c73fff7fb4f2be1e965457}{register\+On\+Propagate(\+Propagate\+Callback callback)}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classSolver_a624d11307b449d2e13dee24ec5170eed}\label{classSolver_a624d11307b449d2e13dee24ec5170eed}} 
+\index{Solver@{Solver}!TileKey@{TileKey}}
+\index{TileKey@{TileKey}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{TileKey}{TileKey}}
+{\footnotesize\ttfamily typedef size\+\_\+t \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Solver\+::\+Tile\+Key}}}
+
+The alias for the key type used for tiles in the algorithm. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSolver_ab9943f77531798a2f6ce24b8281d71a3}\label{classSolver_ab9943f77531798a2f6ce24b8281d71a3}} 
+\index{Solver@{Solver}!Solver@{Solver}}
+\index{Solver@{Solver}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{Solver()}{Solver()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Solver\+::\+Solver (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{tiles,  }\item[{int}]{seed = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+The tile keys are auto-\/generated from vector as the indeces. 
+\begin{DoxyParams}{Parameters}
+{\em tiles} & A vector of tiles. \\
+\hline
+{\em seed} & The seed for the random number generator. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSolver_a7b00bb931fe601491c521d6176cf77b5}\label{classSolver_a7b00bb931fe601491c521d6176cf77b5}} 
+\index{Solver@{Solver}!Solver@{Solver}}
+\index{Solver@{Solver}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{Solver()}{Solver()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Solver\+::\+Solver (\begin{DoxyParamCaption}\item[{const std\+::map$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}, T $>$ \&}]{tiles,  }\item[{int}]{seed = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Keeps track of tile keys from a given mapping of tile keys to tiles. 
+\begin{DoxyParams}{Parameters}
+{\em tiles} & A map of tile keys to tiles. \\
+\hline
+{\em seed} & The seed for the random number generator. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSolver_ac358763cee631e16e737f69172bfb354}\label{classSolver_ac358763cee631e16e737f69172bfb354}} 
+\index{Solver@{Solver}!addAdjacencyConstraint@{addAdjacencyConstraint}}
+\index{addAdjacencyConstraint@{addAdjacencyConstraint}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{addAdjacencyConstraint()}{addAdjacencyConstraint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Solver\+::add\+Adjacency\+Constraint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}}]{t,  }\item[{Direction}]{d,  }\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$}]{neighbors }\end{DoxyParamCaption})}
+
+A multi-\/argument version of \mbox{\hyperlink{classSolver_ae9e645865467108124343029fcd91504}{Solver\+::add\+Adjacency\+Constraint}} Utilizes an initializer list, for use by programmers.
+
+This method is idempotent.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classSolver_ae9e645865467108124343029fcd91504}{Solver\+::add\+Adjacency\+Constraint(\+Tile\+Key t, Direction d, Tile\+Key neighbor)}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The tile key which will have a new possible neighbor \\
+\hline
+{\em d} & The direction in which the neighbor will be possible \\
+\hline
+{\em neighbors} & The tile keys which are allowed to be adjacent to t in direction d \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSolver_ae9e645865467108124343029fcd91504}\label{classSolver_ae9e645865467108124343029fcd91504}} 
+\index{Solver@{Solver}!addAdjacencyConstraint@{addAdjacencyConstraint}}
+\index{addAdjacencyConstraint@{addAdjacencyConstraint}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{addAdjacencyConstraint()}{addAdjacencyConstraint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Solver\+::add\+Adjacency\+Constraint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}}]{t,  }\item[{Direction}]{d,  }\item[{\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}}]{neighbor }\end{DoxyParamCaption})}
+
+A method for adding an $<$it$>$adjacency constraint$<$/it$>$. An adjacency constraint consists of a given tile, a direction, and a neighbor tile. The constraint specifies that the neighbor tile is allowed to be adjacent to the given tile in said direction. Inversely, if such a constraint does not exist, the neighbor tile is not allowed to be adjacent in that direction.
+
+By default, if {\bfseries{no}} constraint exists for a (tile, direction) pair, every tile is allowed to be adjacent to the given tile in that direction. This is why they are called $<$it$>$constraints$<$/it$>$, since it constrains this default case by only allowing specific neighbors.
+
+This method is idempotent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The tile key which will have a new possible neighbor \\
+\hline
+{\em d} & The direction in which the neighbor will be possible \\
+\hline
+{\em neighbor} & The tile key which is allowed to be adjacent to t in direction d \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSolver_acbca26de9fca6d061d0478dda6cc64f1}\label{classSolver_acbca26de9fca6d061d0478dda6cc64f1}} 
+\index{Solver@{Solver}!deregisterOnCollapse@{deregisterOnCollapse}}
+\index{deregisterOnCollapse@{deregisterOnCollapse}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{deregisterOnCollapse()}{deregisterOnCollapse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Solver\+::deregister\+On\+Collapse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{Solver\+::\+Collapse\+Callback\+Cookie}}}]{cookie }\end{DoxyParamCaption})}
+
+Deregisters a function that is called whenever a grid square collapses.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{Collapse\+Callback\+Cookie}} 
+
+\mbox{\hyperlink{classSolver_aa21bdaffa17e0ef52e78ce64f2046b5b}{register\+On\+Collapse(\+Collapse\+Callback callback)}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & a cookie used to indentify and remove a callback \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSolver_a20fd0b667ebdf313e19616c33d3642c2}\label{classSolver_a20fd0b667ebdf313e19616c33d3642c2}} 
+\index{Solver@{Solver}!deregisterOnCollapse@{deregisterOnCollapse}}
+\index{deregisterOnCollapse@{deregisterOnCollapse}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{deregisterOnCollapse()}{deregisterOnCollapse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Solver\+::deregister\+On\+Collapse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{Solver\+::\+Propagate\+Callback\+Cookie}}}]{cookie }\end{DoxyParamCaption})}
+
+Deregisters a function that is called whenever a grid square is interacted with during constraint propagation.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{Propagate\+Callback\+Cookie}} 
+
+\mbox{\hyperlink{classSolver_aed54210e84c73fff7fb4f2be1e965457}{register\+On\+Propagate(\+Propagate\+Callback callback)}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em cookie} & a cookie used to indentify and remove a callback \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSolver_a010ed819d6b21696564a5cc5cd5e2cbb}\label{classSolver_a010ed819d6b21696564a5cc5cd5e2cbb}} 
+\index{Solver@{Solver}!getSeed@{getSeed}}
+\index{getSeed@{getSeed}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{getSeed()}{getSeed()}}
+{\footnotesize\ttfamily int Solver\+::get\+Seed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the seed for the random number generator. 
+
+\begin{DoxyReturn}{Returns}
+the seed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSolver_aa21bdaffa17e0ef52e78ce64f2046b5b}\label{classSolver_aa21bdaffa17e0ef52e78ce64f2046b5b}} 
+\index{Solver@{Solver}!registerOnCollapse@{registerOnCollapse}}
+\index{registerOnCollapse@{registerOnCollapse}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{registerOnCollapse()}{registerOnCollapse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{Solver\+::\+Collapse\+Callback\+Cookie}} Solver\+::register\+On\+Collapse (\begin{DoxyParamCaption}\item[{Solver\+::\+Collapse\+Callback}]{callback }\end{DoxyParamCaption})}
+
+Registers a function to be called whenever a grid square collapses. The function argument is the tile key now occupying that grid square, and the position. Returns a cookie to allow deregistering the function later.
+
+\begin{DoxySeeAlso}{See also}
+Collapse\+Callback 
+
+\mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{Collapse\+Callback\+Cookie}} 
+
+\mbox{\hyperlink{classSolver_acbca26de9fca6d061d0478dda6cc64f1}{deregister\+On\+Collapse(\+Collapse\+Callback\+Cookie cookie)}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & a function to be called when a grid square collapses \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a cookie to be used for deregistering the callback 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSolver_aed54210e84c73fff7fb4f2be1e965457}\label{classSolver_aed54210e84c73fff7fb4f2be1e965457}} 
+\index{Solver@{Solver}!registerOnPropagate@{registerOnPropagate}}
+\index{registerOnPropagate@{registerOnPropagate}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{registerOnPropagate()}{registerOnPropagate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{Solver\+::\+Propagate\+Callback\+Cookie}} Solver\+::register\+On\+Propagate (\begin{DoxyParamCaption}\item[{Solver\+::\+Propagate\+Callback}]{callback }\end{DoxyParamCaption})}
+
+Registers a function to be called whenever a grid square collapses. The function argument is the tile key now occupying that grid square, and the position. Returns a cookie to allow deregistering the function later.
+
+\begin{DoxySeeAlso}{See also}
+Propagate\+Callback 
+
+\mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{Propagate\+Callback\+Cookie}} 
+
+\mbox{\hyperlink{classSolver_a20fd0b667ebdf313e19616c33d3642c2}{deregister\+On\+Collapse(\+Propagate\+Callback\+Cookie cookie)}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & a function to be called when a grid square is interacted with during constraint propagation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a cookie to be used for deregistering the callback 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSolver_a4c8f8508887d24dfe0807f394dd98fcf}\label{classSolver_a4c8f8508887d24dfe0807f394dd98fcf}} 
+\index{Solver@{Solver}!removeAdjacencyConstraint@{removeAdjacencyConstraint}}
+\index{removeAdjacencyConstraint@{removeAdjacencyConstraint}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{removeAdjacencyConstraint()}{removeAdjacencyConstraint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Solver\+::remove\+Adjacency\+Constraint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}}]{t,  }\item[{Direction}]{d,  }\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$}]{neighbors }\end{DoxyParamCaption})}
+
+A multi-\/argument version of \mbox{\hyperlink{classSolver_ae9e645865467108124343029fcd91504}{Solver\+::add\+Adjacency\+Constraint}} Utilizes an initializer list, for use by programmers.
+
+This method is idempotent.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classSolver_ac103dc80c8f2e6b8f96d6890c7e0f1e8}{Solver\+::remove\+Adjacency\+Constraint(\+Tile\+Key t, Direction d, Tile\+Key neighbor)}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The tile key which will have a possible neighbor removed \\
+\hline
+{\em d} & The direction in which the neighbor will no longer be a possible \\
+\hline
+{\em neighbors} & The tile keys which are no longer allowed to be adjacent to t in direction d \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSolver_ac103dc80c8f2e6b8f96d6890c7e0f1e8}\label{classSolver_ac103dc80c8f2e6b8f96d6890c7e0f1e8}} 
+\index{Solver@{Solver}!removeAdjacencyConstraint@{removeAdjacencyConstraint}}
+\index{removeAdjacencyConstraint@{removeAdjacencyConstraint}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{removeAdjacencyConstraint()}{removeAdjacencyConstraint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Solver\+::remove\+Adjacency\+Constraint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}}]{t,  }\item[{Direction}]{d,  }\item[{\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}}]{neighbor }\end{DoxyParamCaption})}
+
+A method for removing an $<$it$>$adjacency constraint$<$/it$>$.
+
+This method is idempotent.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classSolver_ae9e645865467108124343029fcd91504}{Solver\+::add\+Adjacency\+Constraint(\+Tile\+Key t, Direction d, Tile\+Key neighbor)}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The tile key which will have a possible neighbor removed \\
+\hline
+{\em d} & The direction in which the neighbor will no longer be a possible \\
+\hline
+{\em neighbor} & The tile key which is no longer allowed to be adjacent to t in direction d \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSolver_a8b11638a34e8929a126607edbb125898}\label{classSolver_a8b11638a34e8929a126607edbb125898}} 
+\index{Solver@{Solver}!setCollapseBehaviour@{setCollapseBehaviour}}
+\index{setCollapseBehaviour@{setCollapseBehaviour}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{setCollapseBehaviour()}{setCollapseBehaviour()}}
+{\footnotesize\ttfamily void Solver\+::set\+Collapse\+Behaviour (\begin{DoxyParamCaption}\item[{std\+::optional$<$ Collapse\+Behavior $>$}]{b }\end{DoxyParamCaption})}
+
+Low level access function to change selection policy used in collapse. Can be set to a null value, in which case collapse\+Random is used instead.
+
+\begin{DoxySeeAlso}{See also}
+Collapse\+Behavior 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em b} & a function which returns an iterator to a specific tile key in a grid square \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSolver_a8db472c24ac7cdbba16b99226c53b82d}\label{classSolver_a8db472c24ac7cdbba16b99226c53b82d}} 
+\index{Solver@{Solver}!setInitialConstraint@{setInitialConstraint}}
+\index{setInitialConstraint@{setInitialConstraint}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{setInitialConstraint()}{setInitialConstraint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Solver\+::set\+Initial\+Constraint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{p,  }\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$}]{possibilities }\end{DoxyParamCaption})}
+
+A multi-\/tile version of \mbox{\hyperlink{classSolver_a30173570fd36893e302f9313fe030937}{set\+Initial\+Constraint(\+Position p, Tile\+Key possibility)}}
+
+If an empty initializer list is passed, nothing will occur.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & the grid position for the initial constraint \\
+\hline
+{\em possibilities} & the tile keys which will be allowed in this grid position \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSolver_a30173570fd36893e302f9313fe030937}\label{classSolver_a30173570fd36893e302f9313fe030937}} 
+\index{Solver@{Solver}!setInitialConstraint@{setInitialConstraint}}
+\index{setInitialConstraint@{setInitialConstraint}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{setInitialConstraint()}{setInitialConstraint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Solver\+::set\+Initial\+Constraint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{p,  }\item[{\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}}]{possibility }\end{DoxyParamCaption})}
+
+A method to set an $<$it$>$initial constraint$<$/it$>$. An initial constraint involves a grid position and a tile key. The grid square at the given position is preemptively collapsed to the given tile key, with the results being propagated, before the algorithm begins. This gives the user more say in the kinds of solutions that the algorithm will reach.
+
+Liberal use of initial constraints may lead to frequent contradictions, so limiting their use is adviced.
+
+Unlike the adjacency constraint API, succesive calls to this method with the same position but different tile keys does not add them all to the grid position. It is a setter, not an inserter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & the grid position for the initial constraint \\
+\hline
+{\em possibility} & the sole tile key which will be allowed in this grid position \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSolver_a34198a1963bea018d0d7096dd36e3653}\label{classSolver_a34198a1963bea018d0d7096dd36e3653}} 
+\index{Solver@{Solver}!setSeed@{setSeed}}
+\index{setSeed@{setSeed}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{setSeed()}{setSeed()}}
+{\footnotesize\ttfamily void Solver\+::set\+Seed (\begin{DoxyParamCaption}\item[{int}]{seed }\end{DoxyParamCaption})}
+
+
+
+Set the seed for the random number generator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seed} & the seed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSolver_a81dc1e75e3c6e3cce9d884242d148ac1}\label{classSolver_a81dc1e75e3c6e3cce9d884242d148ac1}} 
+\index{Solver@{Solver}!solve@{solve}}
+\index{solve@{solve}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ Solver\+::solve (\begin{DoxyParamCaption}\item[{int}]{N }\end{DoxyParamCaption})}
+
+Runs the wave-\/function collapse algorithm, returning a solved 2-\/dimensional square \mbox{\hyperlink{classGrid}{Grid}} or throwing an exception if the algorithm fails. The grid returned is of dimensions NxN. 
+\begin{DoxyParams}{Parameters}
+{\em N} & The dimensions of the square grid. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A solved grid 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & Indicates that the grid could not be solved. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Solver.\+h\item 
+src/Solver.\+cpp\end{DoxyCompactItemize}

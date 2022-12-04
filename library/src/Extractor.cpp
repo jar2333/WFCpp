@@ -1,6 +1,6 @@
-#include "lodepng.h"
-#include "EasyBMP.h"
-#include "EasyBMP_BMP.h"
+#include <lodepng.h>
+#include <EasyBMP.h>
+#include <EasyBMP_BMP.h>
 
 #include <Extractor.h>
 
@@ -87,7 +87,7 @@ int Extractor::extractPNG(unsigned int* width, unsigned int* height, std::string
 	}
 
 	for(std::vector<unsigned char>::iterator it = image.begin() ; it != image.end(); ++it){
-		std::cout <<  counter << ": " << (int) *it << std::endl;
+		// std::cout <<  counter << ": " << (int) *it << std::endl;
 		counter++;
 		switch(colorCounter){
 			case 1:
@@ -120,7 +120,7 @@ int Extractor::extractBMP(unsigned int* width, unsigned int* height, std::string
 	BMP image;
 	image.ReadFromFile((*filename).c_str()); 			
 
-	std::cout << (*filename).c_str() << std::endl;
+	// std::cout << (*filename).c_str() << std::endl;
 		
 	*width = (unsigned int) image.TellWidth();
 	*height = (unsigned int) image.TellHeight();
@@ -152,9 +152,9 @@ int Extractor::extractTileset(unsigned int width, unsigned int height, unsigned 
 	std::vector<Pixel> tilePixels;	
 
 	for(int i = 0; i < vertical; i++){
-		std::cout << "i: " << i << std::endl;
+		// std::cout << "i: " << i << std::endl;
 		for(int j = 0; j < horizontal; j++){
-			std::cout << "j: " << j << std::endl;
+			// std::cout << "j: " << j << std::endl;
 			TileData t;
 
 			for(std::vector<Pixel>::iterator it = (pixels.begin() + (i * width * newHeight) + (j * newWidth)) ; it != pixels.end(); ++it){
@@ -170,7 +170,7 @@ int Extractor::extractTileset(unsigned int width, unsigned int height, unsigned 
 					widthCounter = 0;	
 				}
 
-				std::cout << widthCounter << ":" << heightCounter << std::endl;
+				// std::cout << widthCounter << ":" << heightCounter << std::endl;
 				tilePixels.push_back(*it);
 				widthCounter++;
 			}

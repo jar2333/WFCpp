@@ -4,8 +4,14 @@ project(wfcpp VERSION 0.0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-#add libraries
+#add CMake libraries
 # add_subdirectory(external/raylib)
+
+if (CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
+  set(CMAKE_CXX_FLAGS "-O0 -coverage -Wall -fprofile-arcs -ftest-coverage")
+else()
+  set(CMAKE_CXX_FLAGS "-O2")
+endif()
 
 # add a target to generate API documentation with Doxygen
 find_package(Doxygen)
@@ -19,20 +25,28 @@ if(DOXYGEN_FOUND)
 
     add_custom_target(doc ALL
         COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
-        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
         COMMENT "Generating API documentation with Doxygen" 
         VERBATIM
     )
 endif(DOXYGEN_FOUND)
 
+add_library(EasyBMP
+    STATIC 
+    lib/EasyBMP/EasyBMP.cpp
+)
+
+add_library(lodepng
+    STATIC 
+    lib/lodepng/lodepng.cpp
+)
+
 add_library(${PROJECT_NAME} 
     STATIC 
-    src/Extractor/EasyBMP.cpp
-    src/Extractor/lodepng.cpp
-    src/Extractor/Extractor.cpp 
+    src/Extractor.cpp 
     src/Solver.cpp 
     src/Synthesizer.cpp
-    )
+)
 
 #makes wfcpp's include dir accessible to itself and outsiders (via the proj name wfcpp)
 target_include_directories(${PROJECT_NAME}
@@ -41,6 +55,11 @@ target_include_directories(${PROJECT_NAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     PRIVATE
     #library names
+        $<INSTALL_INTERFACE:lib/EasyBMP>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/EasyBMP>
+
+        $<INSTALL_INTERFACE:lib/lodepng>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/lib/lodepng>
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -48,5 +67,7 @@ target_link_libraries(${PROJECT_NAME}
 
     PRIVATE
     #library names
+        EasyBMP
+        lodepng
 )
 

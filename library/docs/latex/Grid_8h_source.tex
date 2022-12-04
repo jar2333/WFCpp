@@ -1,0 +1,66 @@
+\hypertarget{Grid_8h_source}{}\doxysection{Grid.\+h}
+\label{Grid_8h_source}\index{include/Grid.h@{include/Grid.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <Tile.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <Position.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{template} <\textcolor{keyword}{typename} TileKey>}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classGrid}{Grid}} \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \mbox{\hyperlink{classGrid}{Grid}}(\textcolor{keyword}{const} std::vector<TileKey>\& tileKeys, \textcolor{keywordtype}{int} dimension) : tileKeys(tileKeys), dimension(dimension) \{}
+\DoxyCodeLine{16         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < dimension; i++) \{}
+\DoxyCodeLine{17             std::vector<TileKey> row(dimension);}
+\DoxyCodeLine{18             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < dimension; j++) \{}
+\DoxyCodeLine{19                 tileKeyGrid.push\_back(row);}
+\DoxyCodeLine{20             \}}
+\DoxyCodeLine{21         \}}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23     \textcolor{comment}{// Grid(const std::vector<TileKey>\& tileKeys, int dimension) : tileKeys(tileKeys), dimension(dimension) \{\}}}
+\DoxyCodeLine{24     \textcolor{comment}{// Grid(const std::map<TileKey, Tile>\& tileMap, int dimension) : tileMap(tileMap), dimension(dimension) \{\}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} getDimension() \{}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} this-\/>dimension;}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     TileKey getKey(\mbox{\hyperlink{structPosition}{Position}} p) \{}
+\DoxyCodeLine{31         \textcolor{keyword}{auto} [x, y] = p;}
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} tileKeyGrid[x][y];}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} setKey(\mbox{\hyperlink{structPosition}{Position}} p, TileKey key) \{}
+\DoxyCodeLine{36         \textcolor{keyword}{auto} [x, y] = p;}
+\DoxyCodeLine{37         tileKeyGrid[x][y] = key;}
+\DoxyCodeLine{38     \} }
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{// Tile getTile(Position p);}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{comment}{// TODO: replace (i, j) with Position}}
+\DoxyCodeLine{44     \mbox{\hyperlink{classTile}{Tile}} getPosition(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j);}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} setPosition(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j, \mbox{\hyperlink{classTile}{Tile}} tile); \textcolor{comment}{// or: set(Position, TileKey)}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{private}:}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{int} dimension;}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     std::vector<TileKey> tileKeys;}
+\DoxyCodeLine{53     \textcolor{comment}{// std::map<TileKey, Tile> tileMap;}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     std::vector<std::vector<TileKey>> tileKeyGrid;}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{comment}{// TODO: maybe some traverse helpers?}}
+\DoxyCodeLine{58     }
+\DoxyCodeLine{59 \};}
+\DoxyCodeLine{60 }
+
+\end{DoxyCode}
