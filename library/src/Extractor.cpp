@@ -1,6 +1,6 @@
-#include "lodepng.h"
-#include "EasyBMP.h"
-#include "EasyBMP_BMP.h"
+#include "../lib/lodepng/lodepng.h"
+#include "../lib/EasyBMP/EasyBMP.h"
+#include "../lib/EasyBMP/EasyBMP_BMP.h"
 
 #include <Extractor.h>
 

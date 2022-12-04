@@ -7,6 +7,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 #add libraries
 # add_subdirectory(external/raylib)
 
+if (CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
+  set(CMAKE_CXX_FLAGS "-O0 -coverage -Wall")
+else()
+  set(CMAKE_CXX_FLAGS "-O2")
+endif()
+
 # add a target to generate API documentation with Doxygen
 find_package(Doxygen)
 if(DOXYGEN_FOUND)
@@ -25,14 +31,22 @@ if(DOXYGEN_FOUND)
     )
 endif(DOXYGEN_FOUND)
 
+add_library(EasyBMP
+    STATIC 
+    lib/EasyBMP/EasyBMP.cpp
+)
+
+add_library(lodepng
+    STATIC 
+    lib/lodepng/lodepng.cpp
+)
+
 add_library(${PROJECT_NAME} 
     STATIC 
-    src/Extractor/EasyBMP.cpp
-    src/Extractor/lodepng.cpp
-    src/Extractor/Extractor.cpp 
+    src/Extractor.cpp 
     src/Solver.cpp 
     src/Synthesizer.cpp
-    )
+)
 
 #makes wfcpp's include dir accessible to itself and outsiders (via the proj name wfcpp)
 target_include_directories(${PROJECT_NAME}
@@ -48,5 +62,7 @@ target_link_libraries(${PROJECT_NAME}
 
     PRIVATE
     #library names
+        EasyBMP
+        lodepng
 )
 

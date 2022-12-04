@@ -63,9 +63,8 @@ public:
 
   //change seed whenever
   void setSeed(int seed);
-
   int getSeed();
-
+  
   Grid<TileKey> solve(int N);
 
   /*
