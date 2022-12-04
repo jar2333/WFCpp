@@ -1,0 +1,52 @@
+\hypertarget{Extractor_8h_source}{}\doxysection{Extractor.\+h}
+\label{Extractor_8h_source}\index{include/Extractor.h@{include/Extractor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{enum} Side \{ north, south, east, west \};}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{classPixel}{Pixel}} \{}
+\DoxyCodeLine{9     \textcolor{keyword}{public}:}
+\DoxyCodeLine{10         \textcolor{keywordtype}{int} count;}
+\DoxyCodeLine{11         \textcolor{keywordtype}{int} R;}
+\DoxyCodeLine{12         \textcolor{keywordtype}{int} G;}
+\DoxyCodeLine{13         \textcolor{keywordtype}{int} B;}
+\DoxyCodeLine{14         \textcolor{keywordtype}{int} A;}
+\DoxyCodeLine{15 \};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classTileData}{TileData}} \{}
+\DoxyCodeLine{18     \textcolor{keyword}{public}: }
+\DoxyCodeLine{19         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, height;}
+\DoxyCodeLine{20         std::vector<Pixel> pixels;}
+\DoxyCodeLine{21         }
+\DoxyCodeLine{22         std::vector<Pixel> north;}
+\DoxyCodeLine{23         std::vector<Pixel> south;}
+\DoxyCodeLine{24         std::vector<Pixel> east;}
+\DoxyCodeLine{25         std::vector<Pixel> west;}
+\DoxyCodeLine{26         }
+\DoxyCodeLine{27         std::vector<TileData> northConstraints;}
+\DoxyCodeLine{28         std::vector<TileData> southConstraints;}
+\DoxyCodeLine{29         std::vector<TileData> westConstraints;}
+\DoxyCodeLine{30         std::vector<TileData> eastConstraints;}
+\DoxyCodeLine{31 \};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{classExtractor}{Extractor}} \{}
+\DoxyCodeLine{34     \textcolor{keyword}{public}: }
+\DoxyCodeLine{35         \textcolor{keywordtype}{int} extractPNG(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}* width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}* height, std::string* filename, std::vector<Pixel>* pixels);   }
+\DoxyCodeLine{36         \textcolor{keywordtype}{int} extractBMP(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}* width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}* height, std::string* filename, std::vector<Pixel>* pixels);}
+\DoxyCodeLine{37         \textcolor{keywordtype}{int} extractTileset(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Horizontal, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Vertical, std::vector<Pixel> pixels, std::vector<TileData>* tiles);}
+\DoxyCodeLine{38         \textcolor{keywordtype}{int} tileFormation(std::vector<Pixel>* pixels, \mbox{\hyperlink{classTileData}{TileData}}* tile, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height);}
+\DoxyCodeLine{39         \textcolor{keywordtype}{int} setConstraints(\mbox{\hyperlink{classTileData}{TileData}} tile, std::vector<TileData> tileList);}
+\DoxyCodeLine{40         \textcolor{keywordtype}{int} tileCompare(\mbox{\hyperlink{classTileData}{TileData}} tile1, \mbox{\hyperlink{classTileData}{TileData}} tile2);}
+\DoxyCodeLine{41         \textcolor{keywordtype}{int} sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length, Side side);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         \textcolor{keyword}{static} \textcolor{keywordtype}{int} encodePNG(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, std::string filename, std::vector<Pixel> pixels);}
+\DoxyCodeLine{44     \textcolor{keyword}{private}: }
+\DoxyCodeLine{45         \textcolor{keywordtype}{int} stuff;}
+\DoxyCodeLine{46 \};}
+
+\end{DoxyCode}

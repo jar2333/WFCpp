@@ -186,7 +186,7 @@ public:
   * @see Solver::removeAdjacencyConstraint(TileKey t, Direction d, TileKey neighbor)
   * @param t The tile key which will have a possible neighbor removed
   * @param d The direction in which the neighbor will no longer be a possible
-  * @param neighbor The tile keys which are no longer allowed to be adjacent to t in direction d
+  * @param neighbors The tile keys which are no longer allowed to be adjacent to t in direction d
   */
   void removeAdjacencyConstraint(TileKey t, Direction d, std::initializer_list<TileKey> neighbors);
 
@@ -212,7 +212,7 @@ public:
   * If an empty initializer list is passed, nothing will occur. 
   *
   * @param p the grid position for the initial constraint
-  * @param possibility the tile keys which will be allowed in this grid position 
+  * @param possibilities the tile keys which will be allowed in this grid position 
   */
   void setInitialConstraint(Position p, std::initializer_list<TileKey> possibilities);
   
