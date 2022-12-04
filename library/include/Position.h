@@ -34,7 +34,7 @@ namespace std {
   template <>
   struct hash<Position> {
     std::size_t operator()(const Position& k) const {
-      return (k.y << 16 ) ^ k.x;
+      return (k.y << 16) ^ k.x;
     }
   };
 
