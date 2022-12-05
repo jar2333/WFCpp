@@ -37,8 +37,8 @@ public:
     {
         std::vector<Position> res;
 
-        for (unsigned int i = 0; i < size; i++)
-            for (unsigned int j = 0; j < size; j++) {
+        for (int i = 0; i < size; i++)
+            for (int j = 0; j < size; j++) {
                 Position pos = {j, i};
                 res.push_back(pos);
             }

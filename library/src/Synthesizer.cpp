@@ -5,14 +5,15 @@
 #include <memory>
 #include <utility>
 
-void Synthesizer::exportGridToFile(const Grid* grid, std::string exportPath)
+
+void Synthesizer::exportGridToFile(const Grid<TileKey>* grid, std::string exportPath, FileType type)
 {
     auto resImage = exportGridToImage(grid);
 
-    resImage->exportToPNGFile(exportPath);
+    resImage->exportToFile(exportPath, type);
 }
 
-std::shared_ptr<BMPImage> Synthesizer::exportGridToImage(const Grid* grid)
+std::shared_ptr<BMPImage> Synthesizer::exportGridToImage(const Grid<TileKey>* grid)
 {
     unsigned int gridDimension = grid->getDimension();
     unsigned int tileSize = grid->getPosition(Position {0, 0})->getSize();
@@ -47,9 +48,9 @@ void Synthesizer::modifyRealTimeImage(Position pos, const Tile* tile)
     copyTileToGrid(pos, tile, realTimeImage.get());
 }
 
-void Synthesizer::exportRealTimeImageToFile(std::string exportPath)
+void Synthesizer::exportRealTimeImageToFile(std::string exportPath, FileType type)
 {
-    realTimeImage->exportToPNGFile(exportPath);
+    realTimeImage->exportToFile(exportPath, type);
 }
 
 void Synthesizer::clearRealTimeImage()

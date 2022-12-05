@@ -86,22 +86,35 @@ void BMPImage::setPixel(Position pos, Pixel newPixel)
     pixels[pos.y][pos.x] = newPixel;
 }
 
-void BMPImage::exportToPNGFile(std::string filename) const
+void BMPImage::exportToFile(std::string filename, FileType type) const
 {
-    std::vector<unsigned char> image;
-	for(auto row: pixels)
-        for (auto pixel: row) {
-            auto r =  (unsigned char) (pixel.Red);
-            auto g =  (unsigned char) (pixel.Green);
-            auto b =  (unsigned char) (pixel.Blue);
-            auto a =  (unsigned char) (pixel.Alpha);
-            image.push_back(r);
-            image.push_back(g);
-            image.push_back(b);
-            image.push_back(a);
-	    }
+    if (type == FileType::png) {
+        std::vector<unsigned char> image;
+        for(auto row: pixels)
+            for (auto pixel: row) {
+                auto r =  (unsigned char) (pixel.Red);
+                auto g =  (unsigned char) (pixel.Green);
+                auto b =  (unsigned char) (pixel.Blue);
+                auto a =  (unsigned char) (pixel.Alpha);
+                image.push_back(r);
+                image.push_back(g);
+                image.push_back(b);
+                image.push_back(a);
+            }
 
-	lodepng::encode(filename, image, width, height);
+        lodepng::encode(filename, image, width, height);
+    
+    } else {
+        auto res = BMP();
+        res.SetSize(width, height);
+        for (int i = 0; i < width; i++)
+            for (int j = 0; j < height; j++) {
+                Pixel pixel = getPixel({i, j});
+                RGBApixel rgbaPixel = { pixel.Red, pixel.Green, pixel.Blue, pixel.Alpha };
+                res.SetPixel(i, j, rgbaPixel);
+            }
+        res.WriteToFile(filename.c_str());
+    }
 	
 }
 
