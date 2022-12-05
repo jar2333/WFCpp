@@ -10,22 +10,13 @@ template <typename TileKey>
 class Grid {
 
 public:
-    Grid(const std::vector<TileKey>& tileKeys, int dimension) : tileKeys(tileKeys), dimension(dimension) {
-        for (unsigned int i = 0; i < dimension; i++) {
-            std::vector<TileKey> row(dimension);
-            for (unsigned int j = 0; j < dimension; j++) {
-                tileKeyGrid.push_back(row);
-            }
-        }
-    }
-
     Grid() { dimension = 0; }
 
     ~Grid() = default;
 
-    Grid(unsigned int d, std::map<TileKey, std::shared_ptr<Tile>> map)
+    Grid(unsigned int dimension, std::map<TileKey, std::shared_ptr<Tile>> map)
     {
-        setDimension(d);
+        setDimension(dimension);
         setTileMap(map);
     }
 
@@ -108,7 +99,6 @@ private:
 
     unsigned int dimension;
 
-    std::vector<TileKey> tileKeys;
     std::map<TileKey, std::shared_ptr<Tile>> tileMap;
 
     std::vector<std::vector<TileKey>> tileKeyGrid;
