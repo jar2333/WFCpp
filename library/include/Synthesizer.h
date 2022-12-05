@@ -11,8 +11,8 @@ public:
     Synthesizer() = default;
     ~Synthesizer() = default;
 
-    void exportGridToFile(const Grid* grid, std::string exportPath);
-    std::shared_ptr<BMPImage> exportGridToImage(const Grid* grid);
+    void exportGridToFile(const Grid& grid, std::string exportPath);
+    std::shared_ptr<BMPImage> exportGridToImage(const Grid& grid);
      
     void initRealTimeImage(unsigned int n);
     void modifyRealTimeImage(Position pos, const Tile* tile);

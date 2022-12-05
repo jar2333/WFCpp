@@ -5,23 +5,24 @@
 #include <memory>
 #include <utility>
 
-void Synthesizer::exportGridToFile(const Grid* grid, std::string exportPath)
+void Synthesizer::exportGridToFile(const Grid& grid, std::string exportPath)
 {
     auto resImage = exportGridToImage(grid);
 
     resImage->exportToPNGFile(exportPath);
 }
 
-std::shared_ptr<BMPImage> Synthesizer::exportGridToImage(const Grid* grid)
+std::shared_ptr<BMPImage> Synthesizer::exportGridToImage(const Grid& grid)
 {
-    unsigned int gridDimension = grid->getDimension();
-    unsigned int tileSize = grid->getPosition(Position {0, 0})->getSize();
+    unsigned int gridDimension = grid.getDimension();
+    unsigned int tileSize = grid.getPosition(Position {0, 0})->getSize();
 
     auto resImage = std::make_shared<BMPImage>(gridDimension * tileSize, gridDimension * tileSize);
 
-    for (auto pos : grid->enumeratePosition()) {
-        auto tile = grid->getPosition(pos);
-        auto pixelPos = grid->translatePixelPosition(pos);
+    for (auto pos : grid.enumeratePosition()) {
+        auto tile = grid.getPosition(pos);
+        auto pixelPos = grid.translatePixelPosition(pos);
+        
         copyTileToGrid(pixelPos, tile.get(), resImage.get());
     }
 
