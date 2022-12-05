@@ -16,13 +16,13 @@ cmake --build ./build --config Debug --target all --
 the `--config Debug` should be omitted in release, as it enables flags related to coverage testing and disables optimization.
 
 A list of all targets that can be used instead of `all`
-- `wfcpp` to compile WFCpp as a static library.
-- `main.exe` to compile test executable.
-- `doc` to build Doxygen documentation for WFCpp.
+- `wfcpp` to compile WFCpp as a static library (part of `all`).
+- `main.exe` to compile test executable (part of `all`).
+- `doc` to build Doxygen documentation for WFCpp (part of `all`).
 - `coverage` to build LCov coverage report for test executable (running of test executable required beforehand).
 - `run` to run test executable (IO not possible, manual run preferred).
-- `EasyBMP` to compile EasyBMP as a static library.
-- `lodepng` to compile lodepng as a static library.
+- `EasyBMP` to compile EasyBMP as a static library (part of `all`).
+- `lodepng` to compile lodepng as a static library (part of `all`).
 
 Alternative way to run tests and build coverage report:
 ```bash
