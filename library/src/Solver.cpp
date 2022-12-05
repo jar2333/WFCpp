@@ -1,5 +1,18 @@
 #include <Solver.h>
 
+#include <functional>
+
+namespace std {
+
+  template <>
+  struct hash<Position> {
+    std::size_t operator()(const Position& k) const {
+      return (k.y << 16) ^ k.x;
+    }
+  };
+
+}
+
 typedef Solver::TileKey TileKey;
 
 /*

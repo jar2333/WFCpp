@@ -36,8 +36,8 @@ BMPImage::BMPImage(std::string filename)
 
     setSize(width, height);
 
-	for (int i = 0; i < width; i++) {
-		for (int j = 0; j < height; j++) {
+	for (unsigned int i = 0; i < width; i++) {
+		for (unsigned int j = 0; j < height; j++) {
             Pixel p;
 
 			p.Red = image(i,j)->Red;

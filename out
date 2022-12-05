@@ -1,0 +1,1220 @@
+[ 16%] Built target lodepng
+[ 33%] Built target EasyBMP
+Consolidate compiler generated dependencies of target wfcpp
+[ 41%] Building CXX object library/CMakeFiles/wfcpp.dir/src/Solver.cpp.o
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: error: ‘hash’ is not a class template
+   35 |   struct hash<Position> {
+      |          ^~~~
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:25: error: explicit specialization of non-template ‘std::hash’
+   35 |   struct hash<Position> {
+      |                         ^
+/home/elaine/cpp/WFCpp/library/include/Position.h:36:10: error: ‘size_t’ in namespace ‘std’ does not name a type
+   36 |     std::size_t operator()(const Position& k) const {
+      |          ^~~~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:58:12: error: ‘std::hash’ is not a template
+   58 |     struct hash;
+      |            ^~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:71:49: error: ‘std::hash’ is not a template
+   71 |     struct __poison_hash<_Tp, __void_t<decltype(hash<_Tp>()(declval<_Tp>()))>>
+      |                                                 ^~~~
+/usr/include/c++/10/bits/functional_hash.h: In member function ‘std::size_t std::__hash_enum<_Tp, true>::operator()(_Tp) const’:
+/usr/include/c++/10/bits/functional_hash.h:94:15: error: ‘std::hash’ is not a template
+   94 |        return hash<__type>{}(static_cast<__type>(__val));
+      |               ^~~~
+/usr/include/c++/10/bits/functional_hash.h: At global scope:
+/usr/include/c++/10/bits/functional_hash.h:101:12: error: ‘std::hash’ is not a template
+  101 |     struct hash : __hash_enum<_Tp>
+      |            ^~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:106:12: error: ‘hash’ is not a class template
+  106 |     struct hash<_Tp*> : public __hash_base<size_t, _Tp*>
+      |            ^~~~
+/usr/include/c++/10/bits/functional_hash.h:106:21: error: ‘std::hash’ is not a template
+  106 |     struct hash<_Tp*> : public __hash_base<size_t, _Tp*>
+      |                     ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:124:3: error: ‘hash’ is not a class template
+  124 |   _Cxx_hashtable_define_trivial_hash(bool)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:124:3: error: ‘std::hash’ is not a template
+  124 |   _Cxx_hashtable_define_trivial_hash(bool)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:127:3: error: ‘hash’ is not a class template
+  127 |   _Cxx_hashtable_define_trivial_hash(char)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:127:3: error: ‘std::hash’ is not a template
+  127 |   _Cxx_hashtable_define_trivial_hash(char)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:130:3: error: ‘hash’ is not a class template
+  130 |   _Cxx_hashtable_define_trivial_hash(signed char)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:130:3: error: ‘std::hash’ is not a template
+  130 |   _Cxx_hashtable_define_trivial_hash(signed char)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:133:3: error: ‘hash’ is not a class template
+  133 |   _Cxx_hashtable_define_trivial_hash(unsigned char)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:133:3: error: ‘std::hash’ is not a template
+  133 |   _Cxx_hashtable_define_trivial_hash(unsigned char)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:136:3: error: ‘hash’ is not a class template
+  136 |   _Cxx_hashtable_define_trivial_hash(wchar_t)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:136:3: error: ‘std::hash’ is not a template
+  136 |   _Cxx_hashtable_define_trivial_hash(wchar_t)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:140:3: error: ‘hash’ is not a class template
+  140 |   _Cxx_hashtable_define_trivial_hash(char8_t)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:140:3: error: ‘std::hash’ is not a template
+  140 |   _Cxx_hashtable_define_trivial_hash(char8_t)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:144:3: error: ‘hash’ is not a class template
+  144 |   _Cxx_hashtable_define_trivial_hash(char16_t)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:144:3: error: ‘std::hash’ is not a template
+  144 |   _Cxx_hashtable_define_trivial_hash(char16_t)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:147:3: error: ‘hash’ is not a class template
+  147 |   _Cxx_hashtable_define_trivial_hash(char32_t)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:147:3: error: ‘std::hash’ is not a template
+  147 |   _Cxx_hashtable_define_trivial_hash(char32_t)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:150:3: error: ‘hash’ is not a class template
+  150 |   _Cxx_hashtable_define_trivial_hash(short)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:150:3: error: ‘std::hash’ is not a template
+  150 |   _Cxx_hashtable_define_trivial_hash(short)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:153:3: error: ‘hash’ is not a class template
+  153 |   _Cxx_hashtable_define_trivial_hash(int)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:153:3: error: ‘std::hash’ is not a template
+  153 |   _Cxx_hashtable_define_trivial_hash(int)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:156:3: error: ‘hash’ is not a class template
+  156 |   _Cxx_hashtable_define_trivial_hash(long)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:156:3: error: ‘std::hash’ is not a template
+  156 |   _Cxx_hashtable_define_trivial_hash(long)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:159:3: error: ‘hash’ is not a class template
+  159 |   _Cxx_hashtable_define_trivial_hash(long long)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:159:3: error: ‘std::hash’ is not a template
+  159 |   _Cxx_hashtable_define_trivial_hash(long long)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:162:3: error: ‘hash’ is not a class template
+  162 |   _Cxx_hashtable_define_trivial_hash(unsigned short)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:162:3: error: ‘std::hash’ is not a template
+  162 |   _Cxx_hashtable_define_trivial_hash(unsigned short)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:165:3: error: ‘hash’ is not a class template
+  165 |   _Cxx_hashtable_define_trivial_hash(unsigned int)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:165:3: error: ‘std::hash’ is not a template
+  165 |   _Cxx_hashtable_define_trivial_hash(unsigned int)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:168:3: error: ‘hash’ is not a class template
+  168 |   _Cxx_hashtable_define_trivial_hash(unsigned long)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:168:3: error: ‘std::hash’ is not a template
+  168 |   _Cxx_hashtable_define_trivial_hash(unsigned long)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:171:3: error: ‘hash’ is not a class template
+  171 |   _Cxx_hashtable_define_trivial_hash(unsigned long long)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:171:3: error: ‘std::hash’ is not a template
+  171 |   _Cxx_hashtable_define_trivial_hash(unsigned long long)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:174:3: error: ‘hash’ is not a class template
+  174 |   _Cxx_hashtable_define_trivial_hash(__GLIBCXX_TYPE_INT_N_0)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:174:3: error: ‘std::hash’ is not a template
+  174 |   _Cxx_hashtable_define_trivial_hash(__GLIBCXX_TYPE_INT_N_0)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:175:3: error: ‘hash’ is not a class template
+  175 |   _Cxx_hashtable_define_trivial_hash(__GLIBCXX_TYPE_INT_N_0 unsigned)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/functional_hash.h:175:3: error: ‘std::hash’ is not a template
+  175 |   _Cxx_hashtable_define_trivial_hash(__GLIBCXX_TYPE_INT_N_0 unsigned)
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:231:12: error: ‘hash’ is not a class template
+  231 |     struct hash<float> : public __hash_base<size_t, float>
+      |            ^~~~
+/usr/include/c++/10/bits/functional_hash.h:231:22: error: ‘std::hash’ is not a template
+  231 |     struct hash<float> : public __hash_base<size_t, float>
+      |                      ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:243:12: error: ‘hash’ is not a class template
+  243 |     struct hash<double> : public __hash_base<size_t, double>
+      |            ^~~~
+/usr/include/c++/10/bits/functional_hash.h:243:23: error: ‘std::hash’ is not a template
+  243 |     struct hash<double> : public __hash_base<size_t, double>
+      |                       ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:255:12: error: ‘hash’ is not a class template
+  255 |     struct hash<long double>
+      |            ^~~~
+/usr/include/c++/10/bits/functional_hash.h:255:28: error: ‘std::hash’ is not a template
+  255 |     struct hash<long double>
+      |                            ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:264:12: error: ‘hash’ is not a class template
+  264 |     struct hash<nullptr_t> : public __hash_base<size_t, nullptr_t>
+      |            ^~~~
+/usr/include/c++/10/bits/functional_hash.h:264:26: error: ‘std::hash’ is not a template
+  264 |     struct hash<nullptr_t> : public __hash_base<size_t, nullptr_t>
+      |                          ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:283:27: error: ‘std::hash’ is not a template
+  283 |     struct __is_fast_hash<hash<long double>> : public std::false_type
+      |                           ^~~~
+In file included from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/stl_bvector.h:622:26: error: ‘hash’ is not a class template
+  622 |       friend struct std::hash<vector>;
+      |                          ^~~~
+/usr/include/c++/10/bits/stl_bvector.h:1351:12: error: ‘hash’ is not a class template
+ 1351 |     struct hash<_GLIBCXX_STD_C::vector<bool, _Alloc>>
+      |            ^~~~
+/usr/include/c++/10/bits/stl_bvector.h:1351:52: error: ‘std::hash’ is not a template
+ 1351 |     struct hash<_GLIBCXX_STD_C::vector<bool, _Alloc>>
+      |                                                    ^~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/vector:72,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/vector.tcc:967:9: error: expected initializer before ‘<’ token
+  967 |     hash<_GLIBCXX_STD_C::vector<bool, _Alloc>>::
+      |         ^
+In file included from /usr/include/c++/10/bits/basic_string.h:48,
+                 from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string_view:639:12: error: ‘std::hash’ is not a template
+  639 |     struct hash;
+      |            ^~~~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/basic_string.h:48,
+                 from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string_view:642:12: error: ‘hash’ is not a class template
+  642 |     struct hash<string_view>
+      |            ^~~~
+/usr/include/c++/10/string_view:642:28: error: ‘std::hash’ is not a template
+  642 |     struct hash<string_view>
+      |                            ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/basic_string.h:48,
+                 from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string_view:651:27: error: ‘std::hash’ is not a template
+  651 |     struct __is_fast_hash<hash<string_view>> : std::false_type
+      |                           ^~~~
+/usr/include/c++/10/string_view:651:12: error: redefinition of ‘struct std::__is_fast_hash<std::hash>’
+  651 |     struct __is_fast_hash<hash<string_view>> : std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:283:12: note: previous definition of ‘struct std::__is_fast_hash<std::hash>’
+  283 |     struct __is_fast_hash<hash<long double>> : public std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/basic_string.h:48,
+                 from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string_view:656:12: error: ‘hash’ is not a class template
+  656 |     struct hash<wstring_view>
+      |            ^~~~
+/usr/include/c++/10/string_view:656:29: error: ‘std::hash’ is not a template
+  656 |     struct hash<wstring_view>
+      |                             ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/basic_string.h:48,
+                 from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string_view:666:27: error: ‘std::hash’ is not a template
+  666 |     struct __is_fast_hash<hash<wstring_view>> : std::false_type
+      |                           ^~~~
+/usr/include/c++/10/string_view:666:12: error: redefinition of ‘struct std::__is_fast_hash<std::hash>’
+  666 |     struct __is_fast_hash<hash<wstring_view>> : std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:283:12: note: previous definition of ‘struct std::__is_fast_hash<std::hash>’
+  283 |     struct __is_fast_hash<hash<long double>> : public std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/basic_string.h:48,
+                 from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string_view:672:12: error: ‘hash’ is not a class template
+  672 |     struct hash<u8string_view>
+      |            ^~~~
+/usr/include/c++/10/string_view:672:30: error: ‘std::hash’ is not a template
+  672 |     struct hash<u8string_view>
+      |                              ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/basic_string.h:48,
+                 from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string_view:681:27: error: ‘std::hash’ is not a template
+  681 |     struct __is_fast_hash<hash<u8string_view>> : std::false_type
+      |                           ^~~~
+/usr/include/c++/10/string_view:681:12: error: redefinition of ‘struct std::__is_fast_hash<std::hash>’
+  681 |     struct __is_fast_hash<hash<u8string_view>> : std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:283:12: note: previous definition of ‘struct std::__is_fast_hash<std::hash>’
+  283 |     struct __is_fast_hash<hash<long double>> : public std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/basic_string.h:48,
+                 from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string_view:686:12: error: ‘hash’ is not a class template
+  686 |     struct hash<u16string_view>
+      |            ^~~~
+/usr/include/c++/10/string_view:686:31: error: ‘std::hash’ is not a template
+  686 |     struct hash<u16string_view>
+      |                               ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/basic_string.h:48,
+                 from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string_view:696:27: error: ‘std::hash’ is not a template
+  696 |     struct __is_fast_hash<hash<u16string_view>> : std::false_type
+      |                           ^~~~
+/usr/include/c++/10/string_view:696:12: error: redefinition of ‘struct std::__is_fast_hash<std::hash>’
+  696 |     struct __is_fast_hash<hash<u16string_view>> : std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:283:12: note: previous definition of ‘struct std::__is_fast_hash<std::hash>’
+  283 |     struct __is_fast_hash<hash<long double>> : public std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/basic_string.h:48,
+                 from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string_view:700:12: error: ‘hash’ is not a class template
+  700 |     struct hash<u32string_view>
+      |            ^~~~
+/usr/include/c++/10/string_view:700:31: error: ‘std::hash’ is not a template
+  700 |     struct hash<u32string_view>
+      |                               ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/basic_string.h:48,
+                 from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string_view:710:27: error: ‘std::hash’ is not a template
+  710 |     struct __is_fast_hash<hash<u32string_view>> : std::false_type
+      |                           ^~~~
+/usr/include/c++/10/string_view:710:12: error: redefinition of ‘struct std::__is_fast_hash<std::hash>’
+  710 |     struct __is_fast_hash<hash<u32string_view>> : std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:283:12: note: previous definition of ‘struct std::__is_fast_hash<std::hash>’
+  283 |     struct __is_fast_hash<hash<long double>> : public std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/basic_string.h:6808:12: error: ‘hash’ is not a class template
+ 6808 |     struct hash<string>
+      |            ^~~~
+/usr/include/c++/10/bits/basic_string.h:6808:23: error: ‘std::hash’ is not a template
+ 6808 |     struct hash<string>
+      |                       ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/basic_string.h:6817:27: error: ‘std::hash’ is not a template
+ 6817 |     struct __is_fast_hash<hash<string>> : std::false_type
+      |                           ^~~~
+/usr/include/c++/10/bits/basic_string.h:6817:12: error: redefinition of ‘struct std::__is_fast_hash<std::hash>’
+ 6817 |     struct __is_fast_hash<hash<string>> : std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:283:12: note: previous definition of ‘struct std::__is_fast_hash<std::hash>’
+  283 |     struct __is_fast_hash<hash<long double>> : public std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/basic_string.h:6823:12: error: ‘hash’ is not a class template
+ 6823 |     struct hash<wstring>
+      |            ^~~~
+/usr/include/c++/10/bits/basic_string.h:6823:24: error: ‘std::hash’ is not a template
+ 6823 |     struct hash<wstring>
+      |                        ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/basic_string.h:6833:27: error: ‘std::hash’ is not a template
+ 6833 |     struct __is_fast_hash<hash<wstring>> : std::false_type
+      |                           ^~~~
+/usr/include/c++/10/bits/basic_string.h:6833:12: error: redefinition of ‘struct std::__is_fast_hash<std::hash>’
+ 6833 |     struct __is_fast_hash<hash<wstring>> : std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:283:12: note: previous definition of ‘struct std::__is_fast_hash<std::hash>’
+  283 |     struct __is_fast_hash<hash<long double>> : public std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/basic_string.h:6841:12: error: ‘hash’ is not a class template
+ 6841 |     struct hash<u8string>
+      |            ^~~~
+/usr/include/c++/10/bits/basic_string.h:6841:25: error: ‘std::hash’ is not a template
+ 6841 |     struct hash<u8string>
+      |                         ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/basic_string.h:6851:27: error: ‘std::hash’ is not a template
+ 6851 |     struct __is_fast_hash<hash<u8string>> : std::false_type
+      |                           ^~~~
+/usr/include/c++/10/bits/basic_string.h:6851:12: error: redefinition of ‘struct std::__is_fast_hash<std::hash>’
+ 6851 |     struct __is_fast_hash<hash<u8string>> : std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:283:12: note: previous definition of ‘struct std::__is_fast_hash<std::hash>’
+  283 |     struct __is_fast_hash<hash<long double>> : public std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/basic_string.h:6857:12: error: ‘hash’ is not a class template
+ 6857 |     struct hash<u16string>
+      |            ^~~~
+/usr/include/c++/10/bits/basic_string.h:6857:26: error: ‘std::hash’ is not a template
+ 6857 |     struct hash<u16string>
+      |                          ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/basic_string.h:6867:27: error: ‘std::hash’ is not a template
+ 6867 |     struct __is_fast_hash<hash<u16string>> : std::false_type
+      |                           ^~~~
+/usr/include/c++/10/bits/basic_string.h:6867:12: error: redefinition of ‘struct std::__is_fast_hash<std::hash>’
+ 6867 |     struct __is_fast_hash<hash<u16string>> : std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:283:12: note: previous definition of ‘struct std::__is_fast_hash<std::hash>’
+  283 |     struct __is_fast_hash<hash<long double>> : public std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/basic_string.h:6872:12: error: ‘hash’ is not a class template
+ 6872 |     struct hash<u32string>
+      |            ^~~~
+/usr/include/c++/10/bits/basic_string.h:6872:26: error: ‘std::hash’ is not a template
+ 6872 |     struct hash<u32string>
+      |                          ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/string:55,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/basic_string.h:6882:27: error: ‘std::hash’ is not a template
+ 6882 |     struct __is_fast_hash<hash<u32string>> : std::false_type
+      |                           ^~~~
+/usr/include/c++/10/bits/basic_string.h:6882:12: error: redefinition of ‘struct std::__is_fast_hash<std::hash>’
+ 6882 |     struct __is_fast_hash<hash<u32string>> : std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/10/bits/stl_bvector.h:61,
+                 from /usr/include/c++/10/vector:68,
+                 from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:3,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/functional_hash.h:283:12: note: previous definition of ‘struct std::__is_fast_hash<std::hash>’
+  283 |     struct __is_fast_hash<hash<long double>> : public std::false_type
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string: In member function ‘std::size_t std::__hash_string_base<_Str>::operator()(const _Str&) const’:
+/usr/include/c++/10/string:84:16: error: ‘std::hash’ is not a template
+   84 |       { return hash<basic_string_view<typename _Str::value_type>>{}(__s); }
+      |                ^~~~
+/usr/include/c++/10/string: At global scope:
+/usr/include/c++/10/string:88:12: error: ‘hash’ is not a class template
+   88 |     struct hash<pmr::string>
+      |            ^~~~
+/usr/include/c++/10/string:88:28: error: ‘std::hash’ is not a template
+   88 |     struct hash<pmr::string>
+      |                            ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string:93:12: error: ‘hash’ is not a class template
+   93 |     struct hash<pmr::u8string>
+      |            ^~~~
+/usr/include/c++/10/string:93:30: error: ‘std::hash’ is not a template
+   93 |     struct hash<pmr::u8string>
+      |                              ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string:98:12: error: ‘hash’ is not a class template
+   98 |     struct hash<pmr::u16string>
+      |            ^~~~
+/usr/include/c++/10/string:98:31: error: ‘std::hash’ is not a template
+   98 |     struct hash<pmr::u16string>
+      |                               ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string:102:12: error: ‘hash’ is not a class template
+  102 |     struct hash<pmr::u32string>
+      |            ^~~~
+/usr/include/c++/10/string:102:31: error: ‘std::hash’ is not a template
+  102 |     struct hash<pmr::u32string>
+      |                               ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /home/elaine/cpp/WFCpp/library/include/BMPImage.h:4,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:5,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/string:107:12: error: ‘hash’ is not a class template
+  107 |     struct hash<pmr::wstring>
+      |            ^~~~
+/usr/include/c++/10/string:107:29: error: ‘std::hash’ is not a template
+  107 |     struct hash<pmr::wstring>
+      |                             ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/ios_base.h:46,
+                 from /usr/include/c++/10/streambuf:41,
+                 from /usr/include/c++/10/bits/streambuf_iterator.h:35,
+                 from /usr/include/c++/10/iterator:66,
+                 from /usr/include/c++/10/bits/ranges_algobase.h:36,
+                 from /usr/include/c++/10/bits/ranges_uninitialized.h:36,
+                 from /usr/include/c++/10/memory:69,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:8,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/system_error:479:12: error: ‘hash’ is not a class template
+  479 |     struct hash<error_code>
+      |            ^~~~
+/usr/include/c++/10/system_error:479:27: error: ‘std::hash’ is not a template
+  479 |     struct hash<error_code>
+      |                           ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/ios_base.h:46,
+                 from /usr/include/c++/10/streambuf:41,
+                 from /usr/include/c++/10/bits/streambuf_iterator.h:35,
+                 from /usr/include/c++/10/iterator:66,
+                 from /usr/include/c++/10/bits/ranges_algobase.h:36,
+                 from /usr/include/c++/10/bits/ranges_uninitialized.h:36,
+                 from /usr/include/c++/10/memory:69,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:8,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/system_error:496:12: error: ‘hash’ is not a class template
+  496 |     struct hash<error_condition>
+      |            ^~~~
+/usr/include/c++/10/system_error:496:32: error: ‘std::hash’ is not a template
+  496 |     struct hash<error_condition>
+      |                                ^
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/ranges:45,
+                 from /usr/include/c++/10/bits/ranges_algobase.h:38,
+                 from /usr/include/c++/10/bits/ranges_uninitialized.h:36,
+                 from /usr/include/c++/10/memory:69,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:8,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/optional:1257:25: error: ‘std::hash’ is not a template
+ 1257 |       noexcept(noexcept(hash<_Up>{}(*__t)))
+      |                         ^~~~
+/usr/include/c++/10/optional: In member function ‘std::size_t std::__optional_hash_call_base<_Tp, _Up, <anonymous> >::operator()(const std::optional<_Tp>&) const’:
+/usr/include/c++/10/optional:1262:22: error: ‘std::hash’ is not a template
+ 1262 |         return __t ? hash<_Up>{}(*__t) : __magic_disengaged_hash;
+      |                      ^~~~
+/usr/include/c++/10/optional: At global scope:
+/usr/include/c++/10/optional:1270:12: error: ‘hash’ is not a class template
+ 1270 |     struct hash<optional<_Tp>>
+      |            ^~~~
+/usr/include/c++/10/optional:1270:29: error: ‘std::hash’ is not a template
+ 1270 |     struct hash<optional<_Tp>>
+      |                             ^~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/ranges:45,
+                 from /usr/include/c++/10/bits/ranges_algobase.h:38,
+                 from /usr/include/c++/10/bits/ranges_uninitialized.h:36,
+                 from /usr/include/c++/10/memory:69,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:8,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/optional:1279:27: error: ‘std::hash’ is not a template
+ 1279 |     struct __is_fast_hash<hash<optional<_Tp>>> : __is_fast_hash<hash<_Tp>>
+      |                           ^~~~
+/usr/include/c++/10/optional:1279:12: error: template parameters not deducible in partial specialization:
+ 1279 |     struct __is_fast_hash<hash<optional<_Tp>>> : __is_fast_hash<hash<_Tp>>
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/optional:1279:12: note:         ‘_Tp’
+/usr/include/c++/10/optional:1279:65: error: ‘std::hash’ is not a template
+ 1279 |     struct __is_fast_hash<hash<optional<_Tp>>> : __is_fast_hash<hash<_Tp>>
+      |                                                                 ^~~~
+In file included from /usr/include/c++/10/memory:83,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:8,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/unique_ptr.h:921:38: error: ‘std::hash’ is not a template
+  921 |       noexcept(noexcept(std::declval<hash<_Ptr>>()(std::declval<_Ptr>())))
+      |                                      ^~~~
+/usr/include/c++/10/bits/unique_ptr.h: In member function ‘std::size_t std::__uniq_ptr_hash<_Up, _Ptr, <anonymous> >::operator()(const _Up&) const’:
+/usr/include/c++/10/bits/unique_ptr.h:922:16: error: ‘std::hash’ is not a template
+  922 |       { return hash<_Ptr>()(__u.get()); }
+      |                ^~~~
+/usr/include/c++/10/bits/unique_ptr.h: At global scope:
+/usr/include/c++/10/bits/unique_ptr.h:933:12: error: ‘hash’ is not a class template
+  933 |     struct hash<unique_ptr<_Tp, _Dp>>
+      |            ^~~~
+/usr/include/c++/10/bits/unique_ptr.h:933:36: error: ‘std::hash’ is not a template
+  933 |     struct hash<unique_ptr<_Tp, _Dp>>
+      |                                    ^~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/bits/shared_ptr.h:52,
+                 from /usr/include/c++/10/memory:84,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:8,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/shared_ptr_base.h:1884:12: error: ‘hash’ is not a class template
+ 1884 |     struct hash<__shared_ptr<_Tp, _Lp>>
+      |            ^~~~
+/usr/include/c++/10/bits/shared_ptr_base.h:1884:38: error: ‘std::hash’ is not a template
+ 1884 |     struct hash<__shared_ptr<_Tp, _Lp>>
+      |                                      ^~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /usr/include/c++/10/memory:84,
+                 from /home/elaine/cpp/WFCpp/library/include/Tile.h:8,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/shared_ptr.h:881:12: error: ‘hash’ is not a class template
+  881 |     struct hash<shared_ptr<_Tp>>
+      |            ^~~~
+/usr/include/c++/10/bits/shared_ptr.h:881:31: error: ‘std::hash’ is not a template
+  881 |     struct hash<shared_ptr<_Tp>>
+      |                               ^~
+In file included from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:1:
+/home/elaine/cpp/WFCpp/library/include/Position.h:35:10: note: previous declaration here
+   35 |   struct hash<Position> {
+      |          ^~~~
+In file included from /home/elaine/cpp/WFCpp/library/include/Solver.h:3,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/home/elaine/cpp/WFCpp/library/include/Tile.h: In member function ‘std::vector<Position> Tile::enumeratePosition() const’:
+/home/elaine/cpp/WFCpp/library/include/Tile.h:41:33: warning: narrowing conversion of ‘j’ from ‘unsigned int’ to ‘int’ [-Wnarrowing]
+   41 |                 Position pos = {j, i};
+      |                                 ^
+/home/elaine/cpp/WFCpp/library/include/Tile.h:41:36: warning: narrowing conversion of ‘i’ from ‘unsigned int’ to ‘int’ [-Wnarrowing]
+   41 |                 Position pos = {j, i};
+      |                                    ^
+In file included from /usr/include/c++/10/unordered_map:47,
+                 from /usr/include/c++/10/functional:61,
+                 from /home/elaine/cpp/WFCpp/library/include/Grid.h:8,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:4,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/unordered_map.h: At global scope:
+/usr/include/c++/10/bits/unordered_map.h:44:22: error: ‘std::hash’ is not a template
+   44 |     typename _Hash = hash<_Key>,
+      |                      ^~~~
+/usr/include/c++/10/bits/unordered_map.h:61:22: error: ‘std::hash’ is not a template
+   61 |     typename _Hash = hash<_Key>,
+      |                      ^~~~
+/usr/include/c++/10/bits/unordered_map.h:99:22: error: ‘std::hash’ is not a template
+   99 |     typename _Hash = hash<_Key>,
+      |                      ^~~~
+/usr/include/c++/10/bits/unordered_map.h:1143:22: error: ‘std::hash’ is not a template
+ 1143 |     typename _Hash = hash<__iter_key_t<_InputIterator>>,
+      |                      ^~~~
+/usr/include/c++/10/bits/unordered_map.h:1157:58: error: ‘std::hash’ is not a template
+ 1157 |   template<typename _Key, typename _Tp, typename _Hash = hash<_Key>,
+      |                                                          ^~~~
+/usr/include/c++/10/bits/unordered_map.h:1175:8: error: ‘std::hash’ is not a template
+ 1175 |        hash<__iter_key_t<_InputIterator>>,
+      |        ^~~~
+/usr/include/c++/10/bits/unordered_map.h:1185:8: error: ‘std::hash’ is not a template
+ 1185 |        hash<__iter_key_t<_InputIterator>>,
+      |        ^~~~
+/usr/include/c++/10/bits/unordered_map.h:1205:33: error: ‘std::hash’ is not a template
+ 1205 |     -> unordered_map<_Key, _Tp, hash<_Key>, equal_to<_Key>, _Allocator>;
+      |                                 ^~~~
+/usr/include/c++/10/bits/unordered_map.h:1210:33: error: ‘std::hash’ is not a template
+ 1210 |     -> unordered_map<_Key, _Tp, hash<_Key>, equal_to<_Key>, _Allocator>;
+      |                                 ^~~~
+/usr/include/c++/10/bits/unordered_map.h:1246:22: error: ‘std::hash’ is not a template
+ 1246 |     typename _Hash = hash<_Key>,
+      |                      ^~~~
+/usr/include/c++/10/bits/unordered_map.h:1995:22: error: ‘std::hash’ is not a template
+ 1995 |     typename _Hash = hash<__iter_key_t<_InputIterator>>,
+      |                      ^~~~
+/usr/include/c++/10/bits/unordered_map.h:2010:58: error: ‘std::hash’ is not a template
+ 2010 |   template<typename _Key, typename _Tp, typename _Hash = hash<_Key>,
+      |                                                          ^~~~
+/usr/include/c++/10/bits/unordered_map.h:2029:6: error: ‘std::hash’ is not a template
+ 2029 |      hash<__iter_key_t<_InputIterator>>,
+      |      ^~~~
+/usr/include/c++/10/bits/unordered_map.h:2038:6: error: ‘std::hash’ is not a template
+ 2038 |      hash<__iter_key_t<_InputIterator>>,
+      |      ^~~~
+/usr/include/c++/10/bits/unordered_map.h:2057:38: error: ‘std::hash’ is not a template
+ 2057 |     -> unordered_multimap<_Key, _Tp, hash<_Key>, equal_to<_Key>, _Allocator>;
+      |                                      ^~~~
+/usr/include/c++/10/bits/unordered_map.h:2062:38: error: ‘std::hash’ is not a template
+ 2062 |     -> unordered_multimap<_Key, _Tp, hash<_Key>, equal_to<_Key>, _Allocator>;
+      |                                      ^~~~
+In file included from /usr/include/c++/10/functional:61,
+                 from /home/elaine/cpp/WFCpp/library/include/Grid.h:8,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:4,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/unordered_map:62:60: error: ‘std::hash’ is not a template
+   62 |     template<typename _Key, typename _Tp, typename _Hash = std::hash<_Key>,
+      |                                                            ^~~
+/usr/include/c++/10/unordered_map:67:60: error: ‘std::hash’ is not a template
+   67 |     template<typename _Key, typename _Tp, typename _Hash = std::hash<_Key>,
+      |                                                            ^~~
+In file included from /home/elaine/cpp/WFCpp/library/include/Grid.h:8,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:4,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/functional:1107:9: error: ‘std::hash’ is not a template
+ 1107 |       = hash<typename iterator_traits<_RAIter>::value_type>,
+      |         ^~~~
+/usr/include/c++/10/functional:1163:9: error: ‘std::hash’ is not a template
+ 1163 |       = hash<typename iterator_traits<_RAIter>::value_type>,
+      |         ^~~~
+In file included from /usr/include/c++/10/unordered_set:47,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:12,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/unordered_set.h:43:22: error: ‘std::hash’ is not a template
+   43 |     typename _Hash = hash<_Value>,
+      |                      ^~~~
+/usr/include/c++/10/bits/unordered_set.h:58:22: error: ‘std::hash’ is not a template
+   58 |     typename _Hash = hash<_Value>,
+      |                      ^~~~
+/usr/include/c++/10/bits/unordered_set.h:94:22: error: ‘std::hash’ is not a template
+   94 |     typename _Hash = hash<_Value>,
+      |                      ^~~~
+/usr/include/c++/10/bits/unordered_set.h:823:7: error: ‘std::hash’ is not a template
+  823 |       hash<typename iterator_traits<_InputIterator>::value_type>,
+      |       ^~~~
+/usr/include/c++/10/bits/unordered_set.h:838:43: error: ‘std::hash’ is not a template
+  838 |   template<typename _Tp, typename _Hash = hash<_Tp>,
+      |                                           ^~~~
+/usr/include/c++/10/bits/unordered_set.h:855:8: error: ‘std::hash’ is not a template
+  855 |        hash<
+      |        ^~~~
+/usr/include/c++/10/bits/unordered_set.h:878:27: error: ‘std::hash’ is not a template
+  878 |     -> unordered_set<_Tp, hash<_Tp>, equal_to<_Tp>, _Allocator>;
+      |                           ^~~~
+/usr/include/c++/10/bits/unordered_set.h:909:22: error: ‘std::hash’ is not a template
+  909 |     typename _Hash = hash<_Value>,
+      |                      ^~~~
+/usr/include/c++/10/bits/unordered_set.h:1617:7: error: ‘std::hash’ is not a template
+ 1617 |       hash<typename iterator_traits<_InputIterator>::value_type>,
+      |       ^~~~
+/usr/include/c++/10/bits/unordered_set.h:1633:43: error: ‘std::hash’ is not a template
+ 1633 |   template<typename _Tp, typename _Hash = hash<_Tp>,
+      |                                           ^~~~
+/usr/include/c++/10/bits/unordered_set.h:1651:6: error: ‘std::hash’ is not a template
+ 1651 |      hash<typename
+      |      ^~~~
+/usr/include/c++/10/bits/unordered_set.h:1676:32: error: ‘std::hash’ is not a template
+ 1676 |     -> unordered_multiset<_Tp, hash<_Tp>, equal_to<_Tp>, _Allocator>;
+      |                                ^~~~
+In file included from /home/elaine/cpp/WFCpp/library/include/Solver.h:12,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/unordered_set:62:46: error: ‘std::hash’ is not a template
+   62 |     template<typename _Key, typename _Hash = std::hash<_Key>,
+      |                                              ^~~
+/usr/include/c++/10/unordered_set:67:46: error: ‘std::hash’ is not a template
+   67 |     template<typename _Key, typename _Hash = std::hash<_Key>,
+      |                                              ^~~
+/home/elaine/cpp/WFCpp/library/src/Solver.cpp: In member function ‘Grid<long unsigned int> Solver::solve(int)’:
+/home/elaine/cpp/WFCpp/library/src/Solver.cpp:21:51: error: no matching function for call to ‘Grid<long unsigned int>::Grid(int&, std::vector<long unsigned int>&)’
+   21 |     Grid<TileKey> g = Grid<TileKey>(N, this->tiles);
+      |                                                   ^
+In file included from /home/elaine/cpp/WFCpp/library/include/Solver.h:4,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/home/elaine/cpp/WFCpp/library/include/Grid.h:18:5: note: candidate: ‘Grid<TileKey>::Grid(unsigned int, std::map<TileKey, std::shared_ptr<Tile> >) [with TileKey = long unsigned int]’
+   18 |     Grid(unsigned int dimension, std::map<TileKey, std::shared_ptr<Tile>> map)
+      |     ^~~~
+/home/elaine/cpp/WFCpp/library/include/Grid.h:18:75: note:   no known conversion for argument 2 from ‘std::vector<long unsigned int>’ to ‘std::map<long unsigned int, std::shared_ptr<Tile>, std::less<long unsigned int>, std::allocator<std::pair<const long unsigned int, std::shared_ptr<Tile> > > >’
+   18 |     Grid(unsigned int dimension, std::map<TileKey, std::shared_ptr<Tile>> map)
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+/home/elaine/cpp/WFCpp/library/include/Grid.h:14:5: note: candidate: ‘Grid<TileKey>::Grid() [with TileKey = long unsigned int]’
+   14 |     Grid() { dimension = 0; }
+      |     ^~~~
+/home/elaine/cpp/WFCpp/library/include/Grid.h:14:5: note:   candidate expects 0 arguments, 2 provided
+/home/elaine/cpp/WFCpp/library/include/Grid.h:11:7: note: candidate: ‘Grid<long unsigned int>::Grid(const Grid<long unsigned int>&)’
+   11 | class Grid {
+      |       ^~~~
+/home/elaine/cpp/WFCpp/library/include/Grid.h:11:7: note:   candidate expects 1 argument, 2 provided
+In file included from /usr/include/c++/10/bits/hashtable.h:35,
+                 from /usr/include/c++/10/unordered_map:46,
+                 from /usr/include/c++/10/functional:61,
+                 from /home/elaine/cpp/WFCpp/library/include/Grid.h:8,
+                 from /home/elaine/cpp/WFCpp/library/include/Solver.h:4,
+                 from /home/elaine/cpp/WFCpp/library/src/Solver.cpp:2:
+/usr/include/c++/10/bits/hashtable_policy.h: In instantiation of ‘std::__detail::_Hash_code_base<_Key, _Value, _ExtractKey, _H1, _H2, std::__detail::_Default_ranged_hash, true>::__hash_code std::__detail::_Hash_code_base<_Key, _Value, _ExtractKey, _H1, _H2, std::__detail::_Default_ranged_hash, true>::_M_hash_code(const _Key&) const [with _Key = Position; _Value = std::pair<const Position, std::unordered_set<long unsigned int> >; _ExtractKey = std::__detail::_Select1st; _H1 = std::hash; _H2 = std::__detail::_Mod_range_hashing; std::__detail::_Hash_code_base<_Key, _Value, _ExtractKey, _H1, _H2, std::__detail::_Default_ranged_hash, true>::__hash_code = long unsigned int]’:
+/usr/include/c++/10/bits/hashtable_policy.h:707:45:   required from ‘std::__detail::_Map_base<_Key, _Pair, _Alloc, std::__detail::_Select1st, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits, true>::mapped_type& std::__detail::_Map_base<_Key, _Pair, _Alloc, std::__detail::_Select1st, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits, true>::operator[](const key_type&) [with _Key = Position; _Pair = std::pair<const Position, std::unordered_set<long unsigned int> >; _Alloc = std::allocator<std::pair<const Position, std::unordered_set<long unsigned int> > >; _Equal = std::equal_to<Position>; _H1 = std::hash; _H2 = std::__detail::_Mod_range_hashing; _Hash = std::__detail::_Default_ranged_hash; _RehashPolicy = std::__detail::_Prime_rehash_policy; _Traits = std::__detail::_Hashtable_traits<true, false, true>; std::__detail::_Map_base<_Key, _Pair, _Alloc, std::__detail::_Select1st, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits, true>::mapped_type = std::unordered_set<long unsigned int>; std::__detail::_Map_base<_Key, _Pair, _Alloc, std::__detail::_Select1st, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits, true>::key_type = Position]’
+/usr/include/c++/10/bits/unordered_map.h:984:20:   required from ‘std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::mapped_type& std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::operator[](const key_type&) [with _Key = Position; _Tp = std::unordered_set<long unsigned int>; _Hash = std::hash; _Pred = std::equal_to<Position>; _Alloc = std::allocator<std::pair<const Position, std::unordered_set<long unsigned int> > >; std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::mapped_type = std::unordered_set<long unsigned int>; std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::key_type = Position]’
+/home/elaine/cpp/WFCpp/library/src/Solver.cpp:65:26:   required from here
+/usr/include/c++/10/bits/hashtable_policy.h:1377:16: error: static assertion failed: hash function must be invocable with an argument of key type
+ 1377 |  static_assert(__is_invocable<const _H1&, const _Key&>{},
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/hashtable_policy.h:1379:16: error: no match for call to ‘(const std::hash) (const Position&)’
+ 1379 |  return _M_h1()(__k);
+      |         ~~~~~~~^~~~~
+/usr/include/c++/10/bits/hashtable_policy.h: In instantiation of ‘std::__detail::_Hash_code_base<_Key, _Value, _ExtractKey, _H1, _H2, std::__detail::_Default_ranged_hash, true>::__hash_code std::__detail::_Hash_code_base<_Key, _Value, _ExtractKey, _H1, _H2, std::__detail::_Default_ranged_hash, true>::_M_hash_code(const _Key&) const [with _Key = Position; _Value = std::pair<const Position, std::vector<long unsigned int> >; _ExtractKey = std::__detail::_Select1st; _H1 = std::hash; _H2 = std::__detail::_Mod_range_hashing; std::__detail::_Hash_code_base<_Key, _Value, _ExtractKey, _H1, _H2, std::__detail::_Default_ranged_hash, true>::__hash_code = long unsigned int]’:
+/usr/include/c++/10/bits/hashtable_policy.h:707:45:   required from ‘std::__detail::_Map_base<_Key, _Pair, _Alloc, std::__detail::_Select1st, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits, true>::mapped_type& std::__detail::_Map_base<_Key, _Pair, _Alloc, std::__detail::_Select1st, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits, true>::operator[](const key_type&) [with _Key = Position; _Pair = std::pair<const Position, std::vector<long unsigned int> >; _Alloc = std::allocator<std::pair<const Position, std::vector<long unsigned int> > >; _Equal = std::equal_to<Position>; _H1 = std::hash; _H2 = std::__detail::_Mod_range_hashing; _Hash = std::__detail::_Default_ranged_hash; _RehashPolicy = std::__detail::_Prime_rehash_policy; _Traits = std::__detail::_Hashtable_traits<true, false, true>; std::__detail::_Map_base<_Key, _Pair, _Alloc, std::__detail::_Select1st, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits, true>::mapped_type = std::vector<long unsigned int>; std::__detail::_Map_base<_Key, _Pair, _Alloc, std::__detail::_Select1st, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits, true>::key_type = Position]’
+/usr/include/c++/10/bits/unordered_map.h:984:20:   required from ‘std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::mapped_type& std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::operator[](const key_type&) [with _Key = Position; _Tp = std::vector<long unsigned int>; _Hash = std::hash; _Pred = std::equal_to<Position>; _Alloc = std::allocator<std::pair<const Position, std::vector<long unsigned int> > >; std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::mapped_type = std::vector<long unsigned int>; std::unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>::key_type = Position]’
+/home/elaine/cpp/WFCpp/library/src/Solver.cpp:114:15:   required from here
+/usr/include/c++/10/bits/hashtable_policy.h:1377:16: error: static assertion failed: hash function must be invocable with an argument of key type
+ 1377 |  static_assert(__is_invocable<const _H1&, const _Key&>{},
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/hashtable_policy.h:1379:16: error: no match for call to ‘(const std::hash) (const Position&)’
+ 1379 |  return _M_h1()(__k);
+      |         ~~~~~~~^~~~~
+/usr/include/c++/10/bits/hashtable_policy.h: In instantiation of ‘std::__detail::_Hash_code_base<_Key, _Value, _ExtractKey, _H1, _H2, std::__detail::_Default_ranged_hash, true>::__hash_code std::__detail::_Hash_code_base<_Key, _Value, _ExtractKey, _H1, _H2, std::__detail::_Default_ranged_hash, true>::_M_hash_code(const _Key&) const [with _Key = long unsigned int; _Value = long unsigned int; _ExtractKey = std::__detail::_Identity; _H1 = std::hash; _H2 = std::__detail::_Mod_range_hashing; std::__detail::_Hash_code_base<_Key, _Value, _ExtractKey, _H1, _H2, std::__detail::_Default_ranged_hash, true>::__hash_code = long unsigned int]’:
+/usr/include/c++/10/bits/hashtable.h:1468:46:   required from ‘std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits>::const_iterator std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits>::find(const key_type&) const [with _Key = long unsigned int; _Value = long unsigned int; _Alloc = std::allocator<long unsigned int>; _ExtractKey = std::__detail::_Identity; _Equal = std::equal_to<long unsigned int>; _H1 = std::hash; _H2 = std::__detail::_Mod_range_hashing; _Hash = std::__detail::_Default_ranged_hash; _RehashPolicy = std::__detail::_Prime_rehash_policy; _Traits = std::__detail::_Hashtable_traits<true, true, true>; std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits>::const_iterator = std::__detail::_Hashtable_base<long unsigned int, long unsigned int, std::__detail::_Identity, std::equal_to<long unsigned int>, std::hash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Hashtable_traits<true, true, true> >::const_iterator; std::_Hashtable<_Key, _Value, _Alloc, _ExtractKey, _Equal, _H1, _H2, _Hash, _RehashPolicy, _Traits>::key_type = long unsigned int]’
+/usr/include/c++/10/bits/unordered_set.h:678:25:   required from ‘bool std::unordered_set<_Value, _Hash, _Pred, _Alloc>::contains(const key_type&) const [with _Value = long unsigned int; _Hash = std::hash; _Pred = std::equal_to<long unsigned int>; _Alloc = std::allocator<long unsigned int>; std::unordered_set<_Value, _Hash, _Pred, _Alloc>::key_type = long unsigned int]’
+/home/elaine/cpp/WFCpp/library/src/Solver.cpp:225:33:   required from here
+/usr/include/c++/10/bits/hashtable_policy.h:1377:16: error: static assertion failed: hash function must be invocable with an argument of key type
+ 1377 |  static_assert(__is_invocable<const _H1&, const _Key&>{},
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/10/bits/hashtable_policy.h:1379:16: error: no match for call to ‘(const std::hash) (const long unsigned int&)’
+ 1379 |  return _M_h1()(__k);
+      |         ~~~~~~~^~~~~
+gmake[2]: *** [library/CMakeFiles/wfcpp.dir/build.make:90: library/CMakeFiles/wfcpp.dir/src/Solver.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:283: library/CMakeFiles/wfcpp.dir/all] Error 2
+gmake: *** [Makefile:91: all] Error 2

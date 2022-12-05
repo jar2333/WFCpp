@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 #wcfpp-test.exe
-add_executable(main.exe src/main.cpp)
+add_executable(main.exe 
+  src/main.cpp
+)
 
 if (CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")
   # set compiler flags

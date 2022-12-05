@@ -1,0 +1,57 @@
+\hypertarget{BMPImage_8h_source}{}\doxysection{BMPImage.\+h}
+\label{BMPImage_8h_source}\index{include/BMPImage.h@{include/BMPImage.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <Position.h>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{comment}{// 0\string~255}}
+\DoxyCodeLine{8 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} BYTE;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structPixel}{Pixel}} \{}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} count;}
+\DoxyCodeLine{12     BYTE Blue;}
+\DoxyCodeLine{13     BYTE Green;}
+\DoxyCodeLine{14     BYTE Red;}
+\DoxyCodeLine{15     BYTE Alpha;}
+\DoxyCodeLine{16 \} \mbox{\hyperlink{structPixel}{Pixel}}; }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{constexpr} \mbox{\hyperlink{structPixel}{Pixel}} defaultPixel = \{}
+\DoxyCodeLine{19     0,}
+\DoxyCodeLine{20     255,}
+\DoxyCodeLine{21     255,}
+\DoxyCodeLine{22     255,}
+\DoxyCodeLine{23     0}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classBMPImage}{BMPImage}} \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \mbox{\hyperlink{classBMPImage}{BMPImage}}();}
+\DoxyCodeLine{31     \mbox{\hyperlink{classBMPImage}{BMPImage}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} initWidth, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} initHeight);}
+\DoxyCodeLine{32     \mbox{\hyperlink{classBMPImage}{BMPImage}}(std::string filename);}
+\DoxyCodeLine{33     \mbox{\hyperlink{classBMPImage}{\string~BMPImage}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} getWidth() \textcolor{keyword}{const};}
+\DoxyCodeLine{36     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} getHeight() \textcolor{keyword}{const};}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} setSize(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NewWidth , \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NewHeight);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \mbox{\hyperlink{structPixel}{Pixel}} getPixel(\mbox{\hyperlink{structPosition}{Position}} pos) \textcolor{keyword}{const};}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} setPixel(\mbox{\hyperlink{structPosition}{Position}} pos, \mbox{\hyperlink{structPixel}{Pixel}} newPixel);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} exportToBMPFile(std::string filename) \textcolor{keyword}{const};}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} exportToPNGFile(std::string filename) \textcolor{keyword}{const};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{private}:}
+\DoxyCodeLine{46     std::vector<std::vector<Pixel>> pixels;}
+\DoxyCodeLine{47     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width;}
+\DoxyCodeLine{48     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} checkPosition(\mbox{\hyperlink{structPosition}{Position}} pos) \textcolor{keyword}{const};}
+\DoxyCodeLine{51 \};}
+
+\end{DoxyCode}

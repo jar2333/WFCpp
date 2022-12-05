@@ -7,7 +7,6 @@
 #include <string>
 #include <memory>
 
-typedef int TileKey;
 class Tile {
 
 public:
