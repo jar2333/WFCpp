@@ -2,6 +2,9 @@
 
 #include <Tile.h>
 #include <Grid.h>
+
+#include <Solver.h>
+
 #include <memory>
 
 class Synthesizer {
@@ -11,8 +14,8 @@ public:
     Synthesizer() = default;
     ~Synthesizer() = default;
 
-    void exportGridToFile(const Grid& grid, std::string exportPath);
-    std::shared_ptr<BMPImage> exportGridToImage(const Grid& grid);
+    void exportGridToFile(const Grid<Solver::TileKey>& grid, std::string exportPath);
+    std::shared_ptr<BMPImage> exportGridToImage(const Grid<Solver::TileKey>& grid);
      
     void initRealTimeImage(unsigned int n);
     void modifyRealTimeImage(Position pos, const Tile* tile);
