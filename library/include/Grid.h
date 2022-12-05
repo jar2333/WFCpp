@@ -19,6 +19,11 @@ public:
         setDimension(dimension);
         setTileMap(map);
     }
+    
+    Grid(unsigned int dimension)
+    {
+        setDimension(dimension);
+    }
 
     unsigned int getDimension() const
     {

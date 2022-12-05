@@ -20,6 +20,15 @@
 #include <cstdlib>
 #include <stdexcept>
 
+namespace std {
+  template <>
+  struct hash<Position> {
+    std::size_t operator()(const Position& k) const {
+      return (k.y << 16) ^ k.x;
+    }
+  };
+}
+
 /**
 * @class Solver
 * @brief The Solver class
@@ -316,3 +325,4 @@ private:
 
 
 };
+
