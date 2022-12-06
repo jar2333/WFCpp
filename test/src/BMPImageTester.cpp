@@ -49,6 +49,17 @@ void BMPImageTester::testCmpBMPImage() {
     auto image2 = BMPImage(assetDir + "/Grass.png");
 
     assert(image1 == image2);
+
+    image1 = BMPImage(assetDir + "/synthesizer_test_sample.bmp");
+    image2 = BMPImage(assetDir + "/Grass.png");
+
+    assert(image1 != image2);
+
+    image1 = BMPImage(assetDir + "/synthesizer_test_sample.bmp");
+    image2 = BMPImage(assetDir + "/synthesizer_test_sample_rt.bmp");
+
+    assert(image1 != image2);
+
 }
 
 void BMPImageTester::testConstructByFile() {

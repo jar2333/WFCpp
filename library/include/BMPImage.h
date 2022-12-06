@@ -4,7 +4,6 @@
 #include <string>
 #include <Position.h>
 #include <FileType.h>
-#include <iostream>
 #include <sstream>
 
 // 0~255
@@ -86,13 +85,11 @@ private:
 inline bool operator==(const BMPImage& lhs, const BMPImage& rhs)
 {
     if (lhs.getWidth() != rhs.getWidth() || lhs.getHeight() != rhs.getHeight()) {
-        std::cout << lhs.getWidth() << " " << rhs.getWidth() << std::endl;
         return false;
     }
     for (auto x = 0; x < lhs.getWidth(); x++)
         for (auto y = 0; y < lhs.getHeight(); y++) {
             if (lhs.getPixel({x, y}) != rhs.getPixel({x, y})) {
-                std::cout << lhs.getPixel({x, y}) << "\n" << rhs.getPixel({x, y}) << std::endl;
                 return false;
             }
         }
