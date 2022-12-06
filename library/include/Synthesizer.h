@@ -1,9 +1,6 @@
 #pragma once
 
-#include <Grid.h>
-
 #include <Solver.h>
-
 #include <FileType.h>
 #include <memory>
 
@@ -19,7 +16,7 @@ public:
     std::shared_ptr<BMPImage> exportGridToImage(const Grid<Solver::TileKey>& grid);
      
     void initRealTimeImage(unsigned int n);
-    void modifyRealTimeImage(Position pos, const Tile* tile);
+    void modifyRealTimeImage(Position pos, const Tile& tile);
     std::shared_ptr<BMPImage> getRealTimeImage() const;
     void clearRealTimeImage();
     
@@ -29,6 +26,6 @@ public:
 private:
 
     std::shared_ptr<BMPImage> realTimeImage;
-    void copyTileToGrid(Position pos, const Tile* tile, BMPImage* gridImage);
+    void copyTileToGrid(Position pos, const Tile& tile, BMPImage* gridImage);
 
 };

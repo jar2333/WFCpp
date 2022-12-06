@@ -1,8 +1,6 @@
+#include <Extractor.h>
 #include <lodepng.h>
 #include <EasyBMP.h>
-#include <EasyBMP_BMP.h>
-
-#include <Extractor.h>
 
 #include <vector>
 #include <string>
@@ -91,19 +89,19 @@ int Extractor::extractPNG(unsigned int* width, unsigned int* height, std::string
 		counter++;
 		switch(colorCounter){
 			case 1:
-				p.R = (int) *it;
+				p.Red = (int) *it;
 				colorCounter++;
 				break;
 			case 2:
-				p.G = (int) *it;
+				p.Green = (int) *it;
 				colorCounter++;
 				break;
 			case 3:
-				p.B = (int) *it;
+				p.Blue = (int) *it;
 				colorCounter++;
 				break;
 			case 4:
-				p.A = (int) *it;
+				p.Alpha = (int) *it;
 				colorCounter = 1;
 				(*pixels).push_back(p);
 				break;
@@ -131,9 +129,9 @@ int Extractor::extractBMP(unsigned int* width, unsigned int* height, std::string
 		
 		for(int i = 0; i < *width; i++){
 			
-			p.R = image(i,j)->Red;
-			p.G = image(i,j)->Green;
-			p.B = image(i,j)->Blue;
+			p.Red = image(i,j)->Red;
+			p.Green = image(i,j)->Green;
+			p.Blue = image(i,j)->Blue;
 			(*pixels).push_back(p);	
 		}
 	}
@@ -190,10 +188,10 @@ int Extractor::encodePNG(unsigned int width, unsigned int height, std::string fi
 	unsigned char r,g,b,a;
 
 	for(std::vector<Pixel>::iterator it = pixels.begin(); it != pixels.end(); ++it){
-		r =  (unsigned char) ((*it).R);
-		g =  (unsigned char) ((*it).G);
-		b =  (unsigned char) ((*it).B);
-		a =  (unsigned char) ((*it).A);
+		r =  (unsigned char) ((*it).Red);
+		g =  (unsigned char) ((*it).Green);
+		b =  (unsigned char) ((*it).Blue);
+		a =  (unsigned char) ((*it).Alpha);
 		image.push_back(r);
 		image.push_back(g);
 		image.push_back(b);

@@ -47,7 +47,6 @@ public:
 
 private:
 
-    int n;
     std::string filePath;
     // TODO: add other variables
 

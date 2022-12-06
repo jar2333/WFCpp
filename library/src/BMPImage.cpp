@@ -1,73 +1,106 @@
-#include <vector>
-#include <iostream>
-
-#include <EasyBMP.h>
-#include <lodepng.h>
-
 #include <BMPImage.h>
-#include <Position.h>
+
+#include <lodepng.h>
+#include <EasyBMP.h>
+
+#include <filesystem>
+namespace fs = std::filesystem;
 
 #define LOG false
 
 constexpr unsigned int defaultWidth = 5;
 constexpr unsigned int defaultHeight = 5;
 
+std::ostream& operator<<(std::ostream &os, const Pixel &p)
+{
+    return (os << "Red: " << int(p.Red) << " Green: " << int(p.Green) << " Blue: " << int(p.Blue)  << " Alpha: " << int(p.Alpha));
+}
+
 BMPImage::BMPImage()
 {
     BMPImage(defaultWidth, defaultHeight);
 }
 
-BMPImage::BMPImage(unsigned int initWidth, unsigned int initHeight)
+BMPImage::BMPImage(unsigned int initWidth, unsigned int initHeight): 
+    bitDepth(defaultBitDepth), verticalDPI(defaultVerticalDPI), horizontalDPI(defaultHorizontalDPI)
 {
     setSize(initWidth, initHeight);
-
 }
 
-BMPImage::BMPImage(std::string filename)
+BMPImage::BMPImage(std::string filePath)
 {
-    BMP image;
-	image.ReadFromFile(filename.c_str()); 			
+    fs::path p = filePath;
+    FileType type;
+    unsigned int width, height;
 
-    if (LOG)
-	    std::cout << filename << std::endl;
+    if (p.extension() == ".png" || p.extension() == ".PNG")
+        type = FileType::png;
+    else if (p.extension() == ".bmp" || p.extension() == ".BMP")
+        type = FileType::bmp;
+    else
+        throw std::invalid_argument("Invalid image file extension: " + p.extension().string() + " (we only support png or bmp). ");
 		
-	width = (unsigned int) image.TellWidth();
-	height = (unsigned int) image.TellHeight();
+    if (type == FileType::png) {
+        std::vector<unsigned char> srcImg;
+        std::vector<unsigned char> image;
+        
+        unsigned err = 0;
 
-    setSize(width, height);
+        if ((err = lodepng::load_file(srcImg, filePath)) != 0)
+            throw std::runtime_error(std::string(lodepng_error_text(err)) + ": " + filePath);
+        
+        if ((err = lodepng::decode(image, width, height, srcImg)) != 0)
+            throw std::runtime_error(std::string(lodepng_error_text(err)) + ": " + filePath);
 
-	for (unsigned int i = 0; i < width; i++) {
-		for (unsigned int j = 0; j < height; j++) {
-            Pixel p;
+        setSize(width, height);
 
-			p.Red = image(i,j)->Red;
-			p.Green = image(i,j)->Green;
-			p.Blue = image(i,j)->Blue;
-            p.Alpha = image(i, j)->Alpha;
+        auto i = 0;
+        for(int y = 0; y < height; y++) //the rows are stored inversed in bmp
+            for(int x = 0; x < width; x++) {
+                pixels[x][y].Red = image[i++];
+                pixels[x][y].Green = image[i++];
+                pixels[x][y].Blue = image[i++];
+                pixels[x][y].Alpha = image[i++];
+                pixels[x][y].count = 0;
+            }
+        
+        bitDepth = defaultBitDepth;
+        horizontalDPI = defaultHorizontalDPI;
+        verticalDPI = defaultVerticalDPI;
+    }
+    else {
+        BMP rawBMP;
+	    rawBMP.ReadFromFile(filePath.c_str()); 
+        width = (unsigned int) rawBMP.TellWidth();
+	    height = (unsigned int) rawBMP.TellHeight();
 
-			pixels[i][j] = p;	
+        setSize(width, height);
 
-		}
-	}
+        for (int y = 0; y < height; y++)
+            for (int x = 0; x < width; x++){
+                pixels[x][y] = rawBMP.GetPixel(x, y);
+            }
+
+        bitDepth = rawBMP.TellBitDepth();
+        horizontalDPI = rawBMP.TellHorizontalDPI();
+        verticalDPI = rawBMP.TellVerticalDPI();	
+    }	
 }
 
 unsigned int BMPImage::getWidth() const
-{   return width;  }
+{   return pixels.size();  }
 
 unsigned int BMPImage::getHeight() const
-{   return height;  }
+{   return pixels.size() > 0 ? pixels[0].size() : 0;  }
 
 void BMPImage::setSize(unsigned int newWidth , unsigned int newHeight)
 {
     if (newWidth <= 0 || newHeight <= 0)
         throw std::out_of_range ("Size out of range. ");
 
-    pixels.resize(newHeight, std::vector<Pixel> ());
-    for (auto& row: pixels)
-        row.resize(newWidth, defaultPixel);
-
-    width = newWidth;
-    height = newHeight;
+    pixels.resize(newWidth, std::vector<Pixel> ());
+    for (auto& x: pixels)
+        x.resize(newHeight, defaultPixel);
 }
 
 Pixel BMPImage::getPixel(Position pos) const
@@ -75,7 +108,7 @@ Pixel BMPImage::getPixel(Position pos) const
     if (!checkPosition(pos))
         throw std::out_of_range ("Position out of range. ");
 
-    return pixels[pos.y][pos.x];
+    return pixels[pos.x][pos.y];
 }
 
 void BMPImage::setPixel(Position pos, Pixel newPixel)
@@ -83,15 +116,19 @@ void BMPImage::setPixel(Position pos, Pixel newPixel)
     if (!checkPosition(pos))
         throw std::out_of_range ("Position out of range. ");
 
-    pixels[pos.y][pos.x] = newPixel;
+    pixels[pos.x][pos.y] = newPixel;
 }
 
 void BMPImage::exportToFile(std::string filename, FileType type) const
 {
+    auto width = getWidth();
+    auto height = getHeight();
+
     if (type == FileType::png) {
         std::vector<unsigned char> image;
-        for(auto row: pixels)
-            for (auto pixel: row) {
+        for(int y = 0; y < height; y++)
+            for (int x = 0; x < width; x++) {
+                auto pixel = getPixel({x, y});
                 auto r =  (unsigned char) (pixel.Red);
                 auto g =  (unsigned char) (pixel.Green);
                 auto b =  (unsigned char) (pixel.Blue);
@@ -102,25 +139,28 @@ void BMPImage::exportToFile(std::string filename, FileType type) const
                 image.push_back(a);
             }
 
-        lodepng::encode(filename, image, width, height);
-    
+        int err = 0;
+        if ((err = lodepng::encode(filename, image, width, height)) != 0)
+            throw std::runtime_error(lodepng_error_text(err));
     } else {
-        auto res = BMP();
+        BMP res;
         res.SetSize(width, height);
-        for (int i = 0; i < width; i++)
-            for (int j = 0; j < height; j++) {
-                Pixel pixel = getPixel({i, j});
-                RGBApixel rgbaPixel = { pixel.Red, pixel.Green, pixel.Blue, pixel.Alpha };
-                res.SetPixel(i, j, rgbaPixel);
+        res.SetBitDepth(bitDepth);
+        res.SetDPI(horizontalDPI, verticalDPI);
+        for (int x = 0; x < width; x++)
+            for (int y = 0; y < height; y++) {
+                Pixel pixel = getPixel({x, y});
+                RGBApixel rgbaPixel = { pixel.Blue, pixel.Green, pixel.Red, pixel.Alpha };
+                res.SetPixel(x, y, rgbaPixel);
             }
         res.WriteToFile(filename.c_str());
     }
 	
 }
 
-constexpr bool BMPImage::checkPosition(Position pos) const
+inline bool BMPImage::checkPosition(Position pos) const
 {
-    unsigned int i = pos.x;
-    unsigned int j = pos.y;
-    return (i < width && i >= 0 && j < height && j >= 0);
+    unsigned int x = pos.x;
+    unsigned int y = pos.y;
+    return (x < getWidth() && x >= 0 && y < getHeight() && y >= 0);
 }

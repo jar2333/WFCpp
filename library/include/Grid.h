@@ -5,6 +5,7 @@
 
 #include <map>
 #include <vector>
+#include <limits.h>
 
 template <typename TileKey>
 class Grid {
@@ -82,9 +83,13 @@ public:
     {
         if (!checkPosition(pos))
             throw std::out_of_range("Position out of range. ");
+
+        if (getPosition(pos)->getSize() > INT_MAX)
+            throw std::runtime_error("Tile size too big. ");
         
-        auto tileSize = getPosition({0, 0})->getSize();
-        return {pos.x * tileSize, pos.y * tileSize};
+        auto tileSize = (int) getPosition(pos)->getSize();
+        
+        return { pos.x * tileSize, pos.y * tileSize} ;
     }
 
     std::vector<Position> enumeratePosition() const

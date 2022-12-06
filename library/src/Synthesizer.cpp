@@ -23,7 +23,7 @@ std::shared_ptr<BMPImage> Synthesizer::exportGridToImage(const Grid<Solver::Tile
         auto tile = grid.getPosition(pos);
         auto pixelPos = grid.translatePixelPosition(pos);
         
-        copyTileToGrid(pixelPos, tile.get(), resImage.get());
+        copyTileToGrid(pixelPos, *tile, resImage.get());
     }
 
     return resImage;
@@ -41,7 +41,7 @@ std::shared_ptr<BMPImage> Synthesizer::getRealTimeImage() const
     return realTimeImage;
 }
 
-void Synthesizer::modifyRealTimeImage(Position pos, const Tile* tile)
+void Synthesizer::modifyRealTimeImage(Position pos, const Tile& tile)
 {
     if (realTimeImage == nullptr)
         throw std::invalid_argument("realTimeImage not initialized. ");
@@ -59,14 +59,12 @@ void Synthesizer::clearRealTimeImage()
     realTimeImage = nullptr;
 }
 
-void Synthesizer::copyTileToGrid(Position pos, const Tile* tile, BMPImage* gridImage)
+void Synthesizer::copyTileToGrid(Position pos, const Tile& tile, BMPImage* gridImage)
 {
     
-    auto src = tile->getImageData();
-    // auto height = src->getHeight();
-    // auto width = src->getWidth();
+    auto src = tile.getImageData();
 
-    for (auto tilePos : tile->enumeratePosition()) {
+    for (auto tilePos : tile.enumeratePosition()) {
             auto srcPixel = src->getPixel(tilePos);
             Position newPos = { pos.x + tilePos.x, pos.y + tilePos.y };
             gridImage->setPixel(newPos, srcPixel);
