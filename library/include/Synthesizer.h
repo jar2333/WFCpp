@@ -1,11 +1,12 @@
 #pragma once
 
-#include <Tile.h>
 #include <Grid.h>
 
 #include <Solver.h>
 
+#include <FileType.h>
 #include <memory>
+
 
 class Synthesizer {
 
@@ -14,7 +15,7 @@ public:
     Synthesizer() = default;
     ~Synthesizer() = default;
 
-    void exportGridToFile(const Grid<Solver::TileKey>& grid, std::string exportPath);
+    void exportGridToFile(const Grid<Solver::TileKey>& grid, std::string exportPath, FileType type);
     std::shared_ptr<BMPImage> exportGridToImage(const Grid<Solver::TileKey>& grid);
      
     void initRealTimeImage(unsigned int n);
@@ -22,7 +23,7 @@ public:
     std::shared_ptr<BMPImage> getRealTimeImage() const;
     void clearRealTimeImage();
     
-    void exportRealTimeImageToFile(std::string exportPath);
+    void exportRealTimeImageToFile(std::string exportPath, FileType type);
 
 
 private:

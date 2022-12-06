@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <Position.h>
+#include <FileType.h>
 
 // 0~255
 typedef unsigned char BYTE;
@@ -39,8 +40,7 @@ public:
     Pixel getPixel(Position pos) const;
     void setPixel(Position pos, Pixel newPixel);
 
-    void exportToBMPFile(std::string filename) const;
-    void exportToPNGFile(std::string filename) const;
+    void exportToFile(std::string filename, FileType type) const;
 
 private:
     std::vector<std::vector<Pixel>> pixels;

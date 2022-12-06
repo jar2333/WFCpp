@@ -91,8 +91,8 @@ public:
     {
         std::vector<Position> res;
 
-        for (unsigned int i = 0; i < dimension; i++)
-            for (unsigned int j = 0; j < dimension; j++) {
+        for (int i = 0; i < dimension; i++)
+            for (int j = 0; j < dimension; j++) {
                 Position pos = {j, i};
                 res.push_back(pos);
             }
@@ -110,8 +110,8 @@ private:
 
     constexpr bool checkPosition(Position pos) const
     {
-        unsigned int i = pos.x;
-        unsigned int j = pos.y;
+        int i = pos.x;
+        int j = pos.y;
         return (i < dimension && i >= 0 && j < dimension && j >= 0);
     }
 };

@@ -11,6 +11,8 @@
 #include <Position.h>
 #include <Grid.h>
 
+#include <Synthesizer.h>
+#include <memory>
 
 void testExtractor() {
 	Extractor e;
@@ -133,8 +135,65 @@ void testSolver() {
 
 }
 
+std::shared_ptr<BMPImage> generateBMPByPixel(unsigned int size, Pixel pixel)
+{
+    auto img = std::make_shared<BMPImage> (size, size);
+    for (unsigned int i = 0; i < size; i++)
+        for (unsigned int j = 0; j < size; j++) {
+            Position pos = {i ,j};
+            img->setPixel(pos, pixel);
+        }
+    return img;
+}
+
+std::shared_ptr<Grid<TileKey>> generateCompleteGrid()
+{
+    auto img1 = generateBMPByPixel(3, {0, 255, 255, 255, 255});
+    auto img2 = generateBMPByPixel(3, {0, 0, 0, 0, 255});
+
+    auto tile1 = std::make_shared<Tile> (img1);
+    auto tile2 = std::make_shared<Tile> (img2);
+
+
+    std::map<TileKey, std::shared_ptr<Tile>> tileMap;
+
+    tileMap[TileKey(1)] = tile1;
+    tileMap[TileKey(2)] = tile2;
+
+
+    auto grid = std::make_shared<Grid<TileKey>> (3, tileMap);
+
+
+    for (const auto pos : grid->enumeratePosition()) {
+        if (pos.x % 2 == 0)
+            grid->setPosition(pos, TileKey(1));
+        else
+            grid->setPosition(pos, TileKey(2));
+    }
+
+    return grid;
+}
+
+
+bool testExportGridToFile()
+{
+    auto syn = Synthesizer();
+    auto grid = generateCompleteGrid();
+    std::string dir = std::string(std::filesystem::current_path()) + "/test/assets";
+    std::string exportPath = dir + "test_synthesizer";
+    auto resImg = syn.exportGridToImage(grid.get());
+    syn.exportGridToFile(grid.get(), exportPath + ".png", FileType::png);
+    resImg->exportToFile(exportPath + ".bmp", FileType::bmp);
+
+    std::cout << "Image generated at: " << exportPath << std::endl;
+
+    return true;
+}
+
+
 int main() {
 	testExtractor();
 	testSolver();
+    testExportGridToFile();
     return 0;
 }
