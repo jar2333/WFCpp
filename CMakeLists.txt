@@ -33,6 +33,7 @@ endif()
 #very flimsy but it works so whatever
 add_custom_target(run
   COMMAND ${CMAKE_SOURCE_DIR}/build/test/main.exe
+  WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
 )
 
 add_subdirectory(test)

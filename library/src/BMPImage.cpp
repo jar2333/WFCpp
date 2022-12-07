@@ -87,17 +87,14 @@ BMPImage::BMPImage(std::string filePath)
     }	
 }
 
-unsigned int BMPImage::getWidth() const
+unsigned int BMPImage::getWidth() const noexcept
 {   return pixels.size();  }
 
-unsigned int BMPImage::getHeight() const
+unsigned int BMPImage::getHeight() const noexcept
 {   return pixels.size() > 0 ? pixels[0].size() : 0;  }
 
 void BMPImage::setSize(unsigned int newWidth , unsigned int newHeight)
 {
-    if (newWidth <= 0 || newHeight <= 0)
-        throw std::out_of_range ("Size out of range. ");
-
     pixels.resize(newWidth, std::vector<Pixel> ());
     for (auto& x: pixels)
         x.resize(newHeight, defaultPixel);
