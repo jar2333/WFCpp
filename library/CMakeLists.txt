@@ -46,6 +46,7 @@ add_library(${PROJECT_NAME}
     src/Extractor.cpp 
     src/Solver.cpp 
     src/Synthesizer.cpp
+    src/BMPImage.cpp
 )
 
 #makes wfcpp's include dir accessible to itself and outsiders (via the proj name wfcpp)

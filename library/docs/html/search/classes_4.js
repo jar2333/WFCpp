@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['solver_0',['Solver',['../classSolver.html',1,'']]]
+  ['pixel_0',['Pixel',['../structPixel.html',1,'']]],
+  ['position_1',['Position',['../structPosition.html',1,'']]]
 ];

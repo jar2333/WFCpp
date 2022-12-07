@@ -4,27 +4,58 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <Direction.h>}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{classTile}{Tile}} \{}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <Direction.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <Position.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <BMPImage.h>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <memory>}}
 \DoxyCodeLine{9 }
-\DoxyCodeLine{10     \textcolor{keywordtype}{int} getDimension();}
-\DoxyCodeLine{11     \textcolor{keywordtype}{bool} matchesColors(\mbox{\hyperlink{classTile}{Tile}} other, Direction d);}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13     \textcolor{comment}{// TODO: loads image from filePath and returns image object}}
-\DoxyCodeLine{14     \textcolor{comment}{// ImageObject getImageData(); }}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16 \textcolor{keyword}{private}:}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{18     \textcolor{keywordtype}{int} n;}
-\DoxyCodeLine{19     std::string filePath;}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21     \textcolor{comment}{// TODO: add other variables}}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24 \};}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classTile}{Tile}} \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \mbox{\hyperlink{classTile}{Tile}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{15     \mbox{\hyperlink{classTile}{\string~Tile}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \mbox{\hyperlink{classTile}{Tile}}(\textcolor{keyword}{const} std::shared\_ptr<BMPImage> img)}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19         \textcolor{keywordflow}{if} (img-\/>getHeight() != img-\/>getWidth())}
+\DoxyCodeLine{20             \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}Image must be square. "{}});}
+\DoxyCodeLine{21         size = img-\/>getHeight();}
+\DoxyCodeLine{22         image = img;}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} getSize()\textcolor{keyword}{ const}}
+\DoxyCodeLine{26 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} size;}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29     }
+\DoxyCodeLine{30     std::shared\_ptr<BMPImage> getImageData()\textcolor{keyword}{ const}}
+\DoxyCodeLine{31 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} image;}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     std::vector<Position> enumeratePosition()\textcolor{keyword}{ const}}
+\DoxyCodeLine{36 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{37         std::vector<Position> res;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; i++)}
+\DoxyCodeLine{40             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < size; j++) \{}
+\DoxyCodeLine{41                 \mbox{\hyperlink{structPosition}{Position}} pos = \{j, i\};}
+\DoxyCodeLine{42                 res.push\_back(pos);}
+\DoxyCodeLine{43             \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{private}:}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     std::string filePath;}
+\DoxyCodeLine{51     \textcolor{comment}{// TODO: add other variables}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} size;}
+\DoxyCodeLine{54     std::shared\_ptr<BMPImage> image;}
+\DoxyCodeLine{55 \};}
 
 \end{DoxyCode}

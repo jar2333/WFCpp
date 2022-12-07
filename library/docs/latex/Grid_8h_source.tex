@@ -9,58 +9,121 @@
 \DoxyCodeLine{5 }
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include <map>}}
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{8 }
-\DoxyCodeLine{9 \textcolor{keyword}{template} <\textcolor{keyword}{typename} TileKey>}
-\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classGrid}{Grid}} \{}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{keyword}{public}:}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 }
-\DoxyCodeLine{15     \mbox{\hyperlink{classGrid}{Grid}}(\textcolor{keyword}{const} std::vector<TileKey>\& tileKeys, \textcolor{keywordtype}{int} dimension) : tileKeys(tileKeys), dimension(dimension) \{}
-\DoxyCodeLine{16         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < dimension; i++) \{}
-\DoxyCodeLine{17             std::vector<TileKey> row(dimension);}
-\DoxyCodeLine{18             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < dimension; j++) \{}
-\DoxyCodeLine{19                 tileKeyGrid.push\_back(row);}
-\DoxyCodeLine{20             \}}
-\DoxyCodeLine{21         \}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <limits.h>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{template} <\textcolor{keyword}{typename} TileKey>}
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classGrid}{Grid}} \{}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{classGrid}{Grid}}() \{ dimension = 0; \}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \mbox{\hyperlink{classGrid}{\string~Grid}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \mbox{\hyperlink{classGrid}{Grid}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} dimension, std::map<TileKey, std::shared\_ptr<Tile>> map)}
+\DoxyCodeLine{19     \{}
+\DoxyCodeLine{20         setDimension(dimension);}
+\DoxyCodeLine{21         setTileMap(map);}
 \DoxyCodeLine{22     \}}
-\DoxyCodeLine{23     \textcolor{comment}{// Grid(const std::vector<TileKey>\& tileKeys, int dimension) : tileKeys(tileKeys), dimension(dimension) \{\}}}
-\DoxyCodeLine{24     \textcolor{comment}{// Grid(const std::map<TileKey, Tile>\& tileMap, int dimension) : tileMap(tileMap), dimension(dimension) \{\}}}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26     \textcolor{keywordtype}{int} getDimension() \{}
-\DoxyCodeLine{27         \textcolor{keywordflow}{return} this-\/>dimension;}
-\DoxyCodeLine{28     \}}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30     TileKey getKey(\mbox{\hyperlink{structPosition}{Position}} p) \{}
-\DoxyCodeLine{31         \textcolor{keyword}{auto} [x, y] = p;}
-\DoxyCodeLine{32         \textcolor{keywordflow}{return} tileKeyGrid[x][y];}
-\DoxyCodeLine{33     \}}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35     \textcolor{keywordtype}{void} setKey(\mbox{\hyperlink{structPosition}{Position}} p, TileKey key) \{}
-\DoxyCodeLine{36         \textcolor{keyword}{auto} [x, y] = p;}
-\DoxyCodeLine{37         tileKeyGrid[x][y] = key;}
-\DoxyCodeLine{38     \} }
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40     \textcolor{comment}{// Tile getTile(Position p);}}
+\DoxyCodeLine{23     }
+\DoxyCodeLine{24     \mbox{\hyperlink{classGrid}{Grid}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} dimension)}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26         setDimension(dimension);}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} getDimension()\textcolor{keyword}{ const}}
+\DoxyCodeLine{30 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{31         \textcolor{keywordflow}{return} dimension;}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} setDimension(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} newDimension)}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         dimension = newDimension;}
+\DoxyCodeLine{37         tileKeyGrid.resize(newDimension, std::vector<TileKey>());}
+\DoxyCodeLine{38         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& row : tileKeyGrid)}
+\DoxyCodeLine{39             row.resize(newDimension, TileKey(-\/1)); \textcolor{comment}{// suppose -\/1 == unassigned}}
+\DoxyCodeLine{40     \}}
 \DoxyCodeLine{41 }
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43     \textcolor{comment}{// TODO: replace (i, j) with Position}}
-\DoxyCodeLine{44     \mbox{\hyperlink{classTile}{Tile}} getPosition(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j);}
-\DoxyCodeLine{45     \textcolor{keywordtype}{void} setPosition(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j, \mbox{\hyperlink{classTile}{Tile}} tile); \textcolor{comment}{// or: set(Position, TileKey)}}
+\DoxyCodeLine{42     TileKey getKey(\mbox{\hyperlink{structPosition}{Position}} p) }
+\DoxyCodeLine{43     \{}
+\DoxyCodeLine{44         \textcolor{keywordflow}{return} tileKeyGrid[p.x][p.y];}
+\DoxyCodeLine{45     \}}
 \DoxyCodeLine{46 }
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48 \textcolor{keyword}{private}:}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50     \textcolor{keywordtype}{int} dimension;}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} setKey(\mbox{\hyperlink{structPosition}{Position}} p, TileKey key) }
+\DoxyCodeLine{48     \{}
+\DoxyCodeLine{49         setPosition(p, key);}
+\DoxyCodeLine{50     \} }
 \DoxyCodeLine{51 }
-\DoxyCodeLine{52     std::vector<TileKey> tileKeys;}
-\DoxyCodeLine{53     \textcolor{comment}{// std::map<TileKey, Tile> tileMap;}}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55     std::vector<std::vector<TileKey>> tileKeyGrid;}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57     \textcolor{comment}{// TODO: maybe some traverse helpers?}}
-\DoxyCodeLine{58     }
-\DoxyCodeLine{59 \};}
-\DoxyCodeLine{60 }
+\DoxyCodeLine{52     std::shared\_ptr<Tile> getPosition(\mbox{\hyperlink{structPosition}{Position}} pos)\textcolor{keyword}{ const}}
+\DoxyCodeLine{53 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{54         \textcolor{keywordflow}{if} (!checkPosition(pos))}
+\DoxyCodeLine{55             \textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"{}Position out of range. "{}});}
+\DoxyCodeLine{56         }
+\DoxyCodeLine{57         \textcolor{keyword}{auto} tileKey = tileKeyGrid[pos.y][pos.x];}
+\DoxyCodeLine{58         \textcolor{keyword}{auto} tile = tileMap.at(tileKey);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} tile;}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} setPosition(\mbox{\hyperlink{structPosition}{Position}} pos, TileKey tileKey)}
+\DoxyCodeLine{64     \{}
+\DoxyCodeLine{65         \textcolor{keywordflow}{if} (tileMap.find(tileKey) == tileMap.end())}
+\DoxyCodeLine{66             \textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"{}TileKey does not exist. "{}});}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68         \textcolor{keywordflow}{if} (!checkPosition(pos))}
+\DoxyCodeLine{69             \textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"{}Position out of range. "{}});}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71         tileKeyGrid[pos.y][pos.x] = tileKey;}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} setTileMap(std::map<TileKey, std::shared\_ptr<Tile>> newMap) \{}
+\DoxyCodeLine{75         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto} \& e : newMap)}
+\DoxyCodeLine{76         \{}
+\DoxyCodeLine{77             \textcolor{comment}{// If the key exists, change only the value, add the \{key, value\} otherwise}}
+\DoxyCodeLine{78             tileMap[e.first] = e.second;}
+\DoxyCodeLine{79         \}}
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \mbox{\hyperlink{structPosition}{Position}} translatePixelPosition(\mbox{\hyperlink{structPosition}{Position}} pos)\textcolor{keyword}{ const}}
+\DoxyCodeLine{83 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{84         \textcolor{keywordflow}{if} (!checkPosition(pos))}
+\DoxyCodeLine{85             \textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"{}Position out of range. "{}});}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87         \textcolor{keywordflow}{if} (getPosition(pos)-\/>getSize() > INT\_MAX)}
+\DoxyCodeLine{88             \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}Tile size too big. "{}});}
+\DoxyCodeLine{89         }
+\DoxyCodeLine{90         \textcolor{keyword}{auto} tileSize = (int) getPosition(pos)-\/>getSize();}
+\DoxyCodeLine{91         }
+\DoxyCodeLine{92         \textcolor{keywordflow}{return} \{ pos.x * tileSize, pos.y * tileSize\} ;}
+\DoxyCodeLine{93     \}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     std::vector<Position> enumeratePosition()\textcolor{keyword}{ const}}
+\DoxyCodeLine{96 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{97         std::vector<Position> res;}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < dimension; i++)}
+\DoxyCodeLine{100             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < dimension; j++) \{}
+\DoxyCodeLine{101                 \mbox{\hyperlink{structPosition}{Position}} pos = \{j, i\};}
+\DoxyCodeLine{102                 res.push\_back(pos);}
+\DoxyCodeLine{103             \}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105         \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{106     \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{keyword}{private}:}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} dimension;}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     std::map<TileKey, std::shared\_ptr<Tile>> tileMap;}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     std::vector<std::vector<TileKey>> tileKeyGrid;}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} checkPosition(\mbox{\hyperlink{structPosition}{Position}} pos)\textcolor{keyword}{ const}}
+\DoxyCodeLine{117 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{118         \textcolor{keywordtype}{int} i = pos.x;}
+\DoxyCodeLine{119         \textcolor{keywordtype}{int} j = pos.y;}
+\DoxyCodeLine{120         \textcolor{keywordflow}{return} (i < dimension \&\& i >= 0 \&\& j < dimension \&\& j >= 0);}
+\DoxyCodeLine{121     \}}
+\DoxyCodeLine{122 \};}
+\DoxyCodeLine{123 }
 
 \end{DoxyCode}

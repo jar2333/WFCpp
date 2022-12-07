@@ -17,7 +17,7 @@ int Solver::getSeed() {
 
 //use move semantics?
 Grid<TileKey> Solver::solve(int N) {
-    Grid<TileKey> g = Grid<TileKey>(this->tiles, N);
+    Grid<TileKey> g = Grid<TileKey>(N);
 
     initializeGrid(N);
 

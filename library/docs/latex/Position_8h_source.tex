@@ -32,16 +32,5 @@
 \DoxyCodeLine{28 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{structPosition}{Position}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structPosition}{Position}}\& rhs) \{ }
 \DoxyCodeLine{29     \textcolor{keywordflow}{return} lhs.x == rhs.x \&\& lhs.y == rhs.y;}
 \DoxyCodeLine{30 \}}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32 \textcolor{keyword}{namespace }std \{}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34   \textcolor{keyword}{template} <>}
-\DoxyCodeLine{35   \textcolor{keyword}{struct }hash<\mbox{\hyperlink{structPosition}{Position}}> \{}
-\DoxyCodeLine{36     std::size\_t operator()(\textcolor{keyword}{const} \mbox{\hyperlink{structPosition}{Position}}\& k)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{37       \textcolor{keywordflow}{return} (k.y << 16 ) \string^ k.x;}
-\DoxyCodeLine{38     \}}
-\DoxyCodeLine{39   \};}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41 \}}
 
 \end{DoxyCode}

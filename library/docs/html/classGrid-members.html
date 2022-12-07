@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Member List</title>
+<title>WFCPP: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">WFCPP<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -75,12 +75,19 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getDimension</b>() (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>getKey</b>(Position p) (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getPosition</b>(int i, int j) (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>Grid</b>(const std::vector&lt; TileKey &gt; &amp;tileKeys, int dimension) (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>enumeratePosition</b>() const (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>getDimension</b>() const (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getKey</b>(Position p) (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>getPosition</b>(Position pos) const (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Grid</b>() (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>Grid</b>(unsigned int dimension, std::map&lt; TileKey, std::shared_ptr&lt; Tile &gt; &gt; map) (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Grid</b>(unsigned int dimension) (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>setDimension</b>(unsigned int newDimension) (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setKey</b>(Position p, TileKey key) (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>setPosition</b>(int i, int j, Tile tile) (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>setPosition</b>(Position pos, TileKey tileKey) (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setTileMap</b>(std::map&lt; TileKey, std::shared_ptr&lt; Tile &gt; &gt; newMap) (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>translatePixelPosition</b>(Position pos) const (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Grid</b>()=default (defined in <a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a>)</td><td class="entry"><a class="el" href="classGrid.html">Grid&lt; TileKey &gt;</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['wfcsolver_0',['WFCSolver',['../classWFCSolver.html',1,'']]]
+  ['tile_0',['Tile',['../classTile.html',1,'']]],
+  ['tiledata_1',['TileData',['../classTileData.html',1,'']]]
 ];

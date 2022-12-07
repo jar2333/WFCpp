@@ -3,11 +3,17 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classGrid_a503398134e9d7644c5ef5108c98ff343}\label{classGrid_a503398134e9d7644c5ef5108c98ff343}} 
-{\bfseries Grid} (const std\+::vector$<$ Tile\+Key $>$ \&tile\+Keys, int dimension)
+\mbox{\Hypertarget{classGrid_a6a2c45aa87d100e97256e767a31ad5fd}\label{classGrid_a6a2c45aa87d100e97256e767a31ad5fd}} 
+{\bfseries Grid} (unsigned int dimension, std\+::map$<$ Tile\+Key, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTile}{Tile}} $>$ $>$ map)
 \item 
-\mbox{\Hypertarget{classGrid_a4391bd1c3852eb55986f7b9352822c54}\label{classGrid_a4391bd1c3852eb55986f7b9352822c54}} 
-int {\bfseries get\+Dimension} ()
+\mbox{\Hypertarget{classGrid_a8ff5ab49588ef7c4ca769b15c7018259}\label{classGrid_a8ff5ab49588ef7c4ca769b15c7018259}} 
+{\bfseries Grid} (unsigned int dimension)
+\item 
+\mbox{\Hypertarget{classGrid_af311f7540341e7ed1a81682855206c3b}\label{classGrid_af311f7540341e7ed1a81682855206c3b}} 
+unsigned int {\bfseries get\+Dimension} () const
+\item 
+\mbox{\Hypertarget{classGrid_ac9bb85c3d3d03df237b9ae5297413667}\label{classGrid_ac9bb85c3d3d03df237b9ae5297413667}} 
+void {\bfseries set\+Dimension} (unsigned int new\+Dimension)
 \item 
 \mbox{\Hypertarget{classGrid_a530bb0447ee3a550e78cbd2ea263a61e}\label{classGrid_a530bb0447ee3a550e78cbd2ea263a61e}} 
 Tile\+Key {\bfseries get\+Key} (\mbox{\hyperlink{structPosition}{Position}} p)
@@ -15,11 +21,20 @@ Tile\+Key {\bfseries get\+Key} (\mbox{\hyperlink{structPosition}{Position}} p)
 \mbox{\Hypertarget{classGrid_ac1be51958f14fde2240f99b132aef4a0}\label{classGrid_ac1be51958f14fde2240f99b132aef4a0}} 
 void {\bfseries set\+Key} (\mbox{\hyperlink{structPosition}{Position}} p, Tile\+Key key)
 \item 
-\mbox{\Hypertarget{classGrid_a6ab74f5120f2cfa13b26db549b190572}\label{classGrid_a6ab74f5120f2cfa13b26db549b190572}} 
-\mbox{\hyperlink{classTile}{Tile}} {\bfseries get\+Position} (int i, int j)
+\mbox{\Hypertarget{classGrid_a11d8451e1100565a8080d79b6c293e02}\label{classGrid_a11d8451e1100565a8080d79b6c293e02}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTile}{Tile}} $>$ {\bfseries get\+Position} (\mbox{\hyperlink{structPosition}{Position}} pos) const
 \item 
-\mbox{\Hypertarget{classGrid_a9b90753ce89135e3eec723acab7bbaae}\label{classGrid_a9b90753ce89135e3eec723acab7bbaae}} 
-void {\bfseries set\+Position} (int i, int j, \mbox{\hyperlink{classTile}{Tile}} tile)
+\mbox{\Hypertarget{classGrid_aabb4e300f05f2b96bbaf866df51c4ab2}\label{classGrid_aabb4e300f05f2b96bbaf866df51c4ab2}} 
+void {\bfseries set\+Position} (\mbox{\hyperlink{structPosition}{Position}} pos, Tile\+Key tile\+Key)
+\item 
+\mbox{\Hypertarget{classGrid_abaee19e8b0445c0046571346dd5116a4}\label{classGrid_abaee19e8b0445c0046571346dd5116a4}} 
+void {\bfseries set\+Tile\+Map} (std\+::map$<$ Tile\+Key, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classTile}{Tile}} $>$ $>$ new\+Map)
+\item 
+\mbox{\Hypertarget{classGrid_a38686b9dfb9b5cf77d729adb8a86f0ad}\label{classGrid_a38686b9dfb9b5cf77d729adb8a86f0ad}} 
+\mbox{\hyperlink{structPosition}{Position}} {\bfseries translate\+Pixel\+Position} (\mbox{\hyperlink{structPosition}{Position}} pos) const
+\item 
+\mbox{\Hypertarget{classGrid_aef2dc8a52e269031b3e45f094a038f35}\label{classGrid_aef2dc8a52e269031b3e45f094a038f35}} 
+std\+::vector$<$ \mbox{\hyperlink{structPosition}{Position}} $>$ {\bfseries enumerate\+Position} () const
 \end{DoxyCompactItemize}
 
 

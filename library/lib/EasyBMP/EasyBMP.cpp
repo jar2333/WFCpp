@@ -328,20 +328,17 @@ RGBApixel* BMP::operator()(int i, int j)
  return &(Pixels[i][j]);
 }
 
-// int BMP::TellBitDepth( void ) const
-int BMP::TellBitDepth( void )
+int BMP::TellBitDepth( void ) const
 { return BitDepth; }
 
-// int BMP::TellHeight( void ) const
-int BMP::TellHeight( void )
+int BMP::TellHeight( void ) const
 { return Height; }
 
-// int BMP::TellWidth( void ) const
-int BMP::TellWidth( void )
+int BMP::TellWidth( void ) const
 { return Width; }
 
 // int BMP::TellNumberOfColors( void ) const
-int BMP::TellNumberOfColors( void )
+int BMP::TellNumberOfColors( void ) const
 {
  int output = IntPow( 2, BitDepth );
  if( BitDepth == 32 )
@@ -801,13 +798,13 @@ bool BMP::ReadFromFile( const char* FileName )
   return false; 
  }
  
- if( bmih.biCompression == 3 && bmih.biBitCount != 16 )
+ if( bmih.biCompression == 3 && bmih.biBitCount != 16 && bmih.biBitCount != 32)
  {
   if( EasyBMPwarnings )
   {
    cout << "EasyBMP Error: " << FileName 
         << " uses bit fields and is not a" << endl
-        << "               16-bit file. This is not supported." << endl;
+        << "               16-bit or 32-bit file. This is not supported." << endl;
   }
   SetSize(1,1);
   SetBitDepth(1);
@@ -903,11 +900,11 @@ bool BMP::ReadFromFile( const char* FileName )
  int BytesToSkip = bmfh.bfOffBits - 54;;
  if( BitDepth < 16 )
  { BytesToSkip -= 4*IntPow(2,BitDepth); }
- if( BitDepth == 16 && bmih.biCompression == 3 )
+ if( BitDepth == 16 && bmih.biCompression == 3 && BitDepth == 32)
  { BytesToSkip -= 3*4; }
  if( BytesToSkip < 0 )
  { BytesToSkip = 0; }
- if( BytesToSkip > 0 && BitDepth != 16 )
+ if( BytesToSkip > 0 && BitDepth != 16 && BitDepth != 32)
  {
   if( EasyBMPwarnings )
   {

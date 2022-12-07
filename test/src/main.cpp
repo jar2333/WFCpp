@@ -1,16 +1,4 @@
-#include <Extractor.h>
-
-#include <iostream>
-#include <string>
-#include <vector>
-
-#include <filesystem>
-
-#include <Solver.h>
-#include <Direction.h>
-#include <Position.h>
-#include <Grid.h>
-
+#include "Test.h"
 
 void testExtractor() {
 	Extractor e;
@@ -133,8 +121,16 @@ void testSolver() {
 
 }
 
+
 int main() {
-	testExtractor();
-	testSolver();
+	// testExtractor();
+	// testSolver();
+
+    BMPImageTester imgTester;
+    imgTester.runAll();
+
+    SynthesizerTester synTester;
+    synTester.runAll();
+
     return 0;
 }

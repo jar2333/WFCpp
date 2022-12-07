@@ -1,18 +1,10 @@
 #pragma once
 
+#include <BMPImage.h>
 #include <vector>
 #include <string>
 
 enum Side { north, south, east, west };
-
-class Pixel {
-	public:
-		int count;
-		int R;
-		int G;
-		int B;
-		int A;
-};
 
 class TileData {
 	public: 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['extractor_0',['Extractor',['../classExtractor.html',1,'']]]
+  ['bmpimage_0',['BMPImage',['../classBMPImage.html',1,'']]]
 ];

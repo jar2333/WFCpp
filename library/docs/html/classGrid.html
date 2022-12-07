@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Grid&lt; TileKey &gt; Class Template Reference</title>
+<title>WFCPP: Grid&lt; TileKey &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">WFCPP<span id="projectnumber">&#160;0.0.1</span>
    </div>
   </td>
  </tr>
@@ -78,24 +78,39 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a503398134e9d7644c5ef5108c98ff343"><td class="memItemLeft" align="right" valign="top"><a id="a503398134e9d7644c5ef5108c98ff343" name="a503398134e9d7644c5ef5108c98ff343"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Grid</b> (const std::vector&lt; TileKey &gt; &amp;tileKeys, int dimension)</td></tr>
-<tr class="separator:a503398134e9d7644c5ef5108c98ff343"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4391bd1c3852eb55986f7b9352822c54"><td class="memItemLeft" align="right" valign="top"><a id="a4391bd1c3852eb55986f7b9352822c54" name="a4391bd1c3852eb55986f7b9352822c54"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getDimension</b> ()</td></tr>
-<tr class="separator:a4391bd1c3852eb55986f7b9352822c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a2c45aa87d100e97256e767a31ad5fd"><td class="memItemLeft" align="right" valign="top"><a id="a6a2c45aa87d100e97256e767a31ad5fd" name="a6a2c45aa87d100e97256e767a31ad5fd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Grid</b> (unsigned int dimension, std::map&lt; TileKey, std::shared_ptr&lt; <a class="el" href="classTile.html">Tile</a> &gt; &gt; map)</td></tr>
+<tr class="separator:a6a2c45aa87d100e97256e767a31ad5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ff5ab49588ef7c4ca769b15c7018259"><td class="memItemLeft" align="right" valign="top"><a id="a8ff5ab49588ef7c4ca769b15c7018259" name="a8ff5ab49588ef7c4ca769b15c7018259"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Grid</b> (unsigned int dimension)</td></tr>
+<tr class="separator:a8ff5ab49588ef7c4ca769b15c7018259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af311f7540341e7ed1a81682855206c3b"><td class="memItemLeft" align="right" valign="top"><a id="af311f7540341e7ed1a81682855206c3b" name="af311f7540341e7ed1a81682855206c3b"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getDimension</b> () const</td></tr>
+<tr class="separator:af311f7540341e7ed1a81682855206c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bb85c3d3d03df237b9ae5297413667"><td class="memItemLeft" align="right" valign="top"><a id="ac9bb85c3d3d03df237b9ae5297413667" name="ac9bb85c3d3d03df237b9ae5297413667"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDimension</b> (unsigned int newDimension)</td></tr>
+<tr class="separator:ac9bb85c3d3d03df237b9ae5297413667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a530bb0447ee3a550e78cbd2ea263a61e"><td class="memItemLeft" align="right" valign="top"><a id="a530bb0447ee3a550e78cbd2ea263a61e" name="a530bb0447ee3a550e78cbd2ea263a61e"></a>
 TileKey&#160;</td><td class="memItemRight" valign="bottom"><b>getKey</b> (<a class="el" href="structPosition.html">Position</a> p)</td></tr>
 <tr class="separator:a530bb0447ee3a550e78cbd2ea263a61e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1be51958f14fde2240f99b132aef4a0"><td class="memItemLeft" align="right" valign="top"><a id="ac1be51958f14fde2240f99b132aef4a0" name="ac1be51958f14fde2240f99b132aef4a0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setKey</b> (<a class="el" href="structPosition.html">Position</a> p, TileKey key)</td></tr>
 <tr class="separator:ac1be51958f14fde2240f99b132aef4a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ab74f5120f2cfa13b26db549b190572"><td class="memItemLeft" align="right" valign="top"><a id="a6ab74f5120f2cfa13b26db549b190572" name="a6ab74f5120f2cfa13b26db549b190572"></a>
-<a class="el" href="classTile.html">Tile</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getPosition</b> (int i, int j)</td></tr>
-<tr class="separator:a6ab74f5120f2cfa13b26db549b190572"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b90753ce89135e3eec723acab7bbaae"><td class="memItemLeft" align="right" valign="top"><a id="a9b90753ce89135e3eec723acab7bbaae" name="a9b90753ce89135e3eec723acab7bbaae"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (int i, int j, <a class="el" href="classTile.html">Tile</a> tile)</td></tr>
-<tr class="separator:a9b90753ce89135e3eec723acab7bbaae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11d8451e1100565a8080d79b6c293e02"><td class="memItemLeft" align="right" valign="top"><a id="a11d8451e1100565a8080d79b6c293e02" name="a11d8451e1100565a8080d79b6c293e02"></a>
+std::shared_ptr&lt; <a class="el" href="classTile.html">Tile</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getPosition</b> (<a class="el" href="structPosition.html">Position</a> pos) const</td></tr>
+<tr class="separator:a11d8451e1100565a8080d79b6c293e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabb4e300f05f2b96bbaf866df51c4ab2"><td class="memItemLeft" align="right" valign="top"><a id="aabb4e300f05f2b96bbaf866df51c4ab2" name="aabb4e300f05f2b96bbaf866df51c4ab2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (<a class="el" href="structPosition.html">Position</a> pos, TileKey tileKey)</td></tr>
+<tr class="separator:aabb4e300f05f2b96bbaf866df51c4ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaee19e8b0445c0046571346dd5116a4"><td class="memItemLeft" align="right" valign="top"><a id="abaee19e8b0445c0046571346dd5116a4" name="abaee19e8b0445c0046571346dd5116a4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTileMap</b> (std::map&lt; TileKey, std::shared_ptr&lt; <a class="el" href="classTile.html">Tile</a> &gt; &gt; newMap)</td></tr>
+<tr class="separator:abaee19e8b0445c0046571346dd5116a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38686b9dfb9b5cf77d729adb8a86f0ad"><td class="memItemLeft" align="right" valign="top"><a id="a38686b9dfb9b5cf77d729adb8a86f0ad" name="a38686b9dfb9b5cf77d729adb8a86f0ad"></a>
+<a class="el" href="structPosition.html">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><b>translatePixelPosition</b> (<a class="el" href="structPosition.html">Position</a> pos) const</td></tr>
+<tr class="separator:a38686b9dfb9b5cf77d729adb8a86f0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef2dc8a52e269031b3e45f094a038f35"><td class="memItemLeft" align="right" valign="top"><a id="aef2dc8a52e269031b3e45f094a038f35" name="aef2dc8a52e269031b3e45f094a038f35"></a>
+std::vector&lt; <a class="el" href="structPosition.html">Position</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>enumeratePosition</b> () const</td></tr>
+<tr class="separator:aef2dc8a52e269031b3e45f094a038f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="Grid_8h_source.html">Grid.h</a></li>

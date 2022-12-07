@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deregisteroncollapse_0',['deregisterOnCollapse',['../classSolver.html#acbca26de9fca6d061d0478dda6cc64f1',1,'Solver::deregisterOnCollapse(CollapseCallbackCookie cookie)'],['../classSolver.html#a20fd0b667ebdf313e19616c33d3642c2',1,'Solver::deregisterOnCollapse(PropagateCallbackCookie cookie)']]]
+  ['bmpimage_0',['BMPImage',['../classBMPImage.html#a4f403c17cd09de70d082009ff7650318',1,'BMPImage::BMPImage()'],['../classBMPImage.html#a1da162da881556b0fdb1d4c9fa13cc2e',1,'BMPImage::BMPImage(unsigned int initWidth, unsigned int initHeight)'],['../classBMPImage.html#a4ebe374a1525f538bd4f00d3f22cada6',1,'BMPImage::BMPImage(std::string filename)']]]
 ];

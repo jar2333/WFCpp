@@ -5,56 +5,119 @@
 
 #include <map>
 #include <vector>
+#include <limits.h>
 
 template <typename TileKey>
 class Grid {
 
 public:
+    Grid() { dimension = 0; }
 
+    ~Grid() = default;
 
-    Grid(const std::vector<TileKey>& tileKeys, int dimension) : tileKeys(tileKeys), dimension(dimension) {
-        for (int i = 0; i < dimension; i++) {
-            std::vector<TileKey> row(dimension);
-            for (int j = 0; j < dimension; j++) {
-                tileKeyGrid.push_back(row);
-            }
-        }
+    Grid(unsigned int dimension, std::map<TileKey, std::shared_ptr<Tile>> map)
+    {
+        setDimension(dimension);
+        setTileMap(map);
     }
-    // Grid(const std::vector<TileKey>& tileKeys, int dimension) : tileKeys(tileKeys), dimension(dimension) {}
-    // Grid(const std::map<TileKey, Tile>& tileMap, int dimension) : tileMap(tileMap), dimension(dimension) {}
-
-    int getDimension() {
-        return this->dimension;
+    
+    Grid(unsigned int dimension)
+    {
+        setDimension(dimension);
     }
 
-    TileKey getKey(Position p) {
-        auto [x, y] = p;
-        return tileKeyGrid[x][y];
+    unsigned int getDimension() const
+    {
+        return dimension;
     }
 
-    void setKey(Position p, TileKey key) {
-        auto [x, y] = p;
-        tileKeyGrid[x][y] = key;
+    void setDimension(unsigned int newDimension)
+    {
+        dimension = newDimension;
+        tileKeyGrid.resize(newDimension, std::vector<TileKey>());
+        for (auto& row : tileKeyGrid)
+            row.resize(newDimension, TileKey(-1)); // suppose -1 == unassigned
+    }
+
+    TileKey getKey(Position p) 
+    {
+        return tileKeyGrid[p.x][p.y];
+    }
+
+    void setKey(Position p, TileKey key) 
+    {
+        setPosition(p, key);
     } 
 
-    // Tile getTile(Position p);
+    std::shared_ptr<Tile> getPosition(Position pos) const
+    {
+        if (!checkPosition(pos))
+            throw std::out_of_range("Position out of range. ");
+        
+        auto tileKey = tileKeyGrid[pos.y][pos.x];
+        auto tile = tileMap.at(tileKey);
 
+        return tile;
+    }
 
-    // TODO: replace (i, j) with Position
-    Tile getPosition(int i, int j);
-    void setPosition(int i, int j, Tile tile); // or: set(Position, TileKey)
+    void setPosition(Position pos, TileKey tileKey)
+    {
+        if (tileMap.find(tileKey) == tileMap.end())
+            throw std::out_of_range("TileKey does not exist. ");
 
+        if (!checkPosition(pos))
+            throw std::out_of_range("Position out of range. ");
+
+        tileKeyGrid[pos.y][pos.x] = tileKey;
+    }
+
+    void setTileMap(std::map<TileKey, std::shared_ptr<Tile>> newMap) {
+        for(const auto & e : newMap)
+        {
+            // If the key exists, change only the value, add the {key, value} otherwise
+            tileMap[e.first] = e.second;
+        }
+    }
+
+    Position translatePixelPosition(Position pos) const
+    {
+        if (!checkPosition(pos))
+            throw std::out_of_range("Position out of range. ");
+
+        if (getPosition(pos)->getSize() > INT_MAX)
+            throw std::runtime_error("Tile size too big. ");
+        
+        auto tileSize = (int) getPosition(pos)->getSize();
+        
+        return { pos.x * tileSize, pos.y * tileSize} ;
+    }
+
+    std::vector<Position> enumeratePosition() const
+    {
+        std::vector<Position> res;
+
+        for (int i = 0; i < dimension; i++)
+            for (int j = 0; j < dimension; j++) {
+                Position pos = {j, i};
+                res.push_back(pos);
+            }
+
+        return res;
+    }
 
 private:
 
-    int dimension;
+    unsigned int dimension;
 
-    std::vector<TileKey> tileKeys;
-    // std::map<TileKey, Tile> tileMap;
+    std::map<TileKey, std::shared_ptr<Tile>> tileMap;
 
     std::vector<std::vector<TileKey>> tileKeyGrid;
 
-    // TODO: maybe some traverse helpers?
-    
+    constexpr bool checkPosition(Position pos) const
+    {
+        int i = pos.x;
+        int j = pos.y;
+        return (i < dimension && i >= 0 && j < dimension && j >= 0);
+    }
 };
 

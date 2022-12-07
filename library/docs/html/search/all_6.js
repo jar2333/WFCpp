@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['pixel_0',['Pixel',['../classPixel.html',1,'']]],
-  ['position_1',['Position',['../structPosition.html',1,'']]],
-  ['propagatecallbackcookie_2',['PropagateCallbackCookie',['../classSolver.html#ace4c0aafb91c3db2531d97fe61d8afb7',1,'Solver']]]
+  ['hash_3c_20position_20_3e_0',['hash&lt; Position &gt;',['../structstd_1_1hash_3_01Position_01_4.html',1,'std']]]
 ];
