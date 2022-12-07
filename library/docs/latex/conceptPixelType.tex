@@ -1,0 +1,34 @@
+\hypertarget{conceptPixelType}{}\doxysection{Pixel\+Type Concept Reference}
+\label{conceptPixelType}\index{PixelType@{PixelType}}
+
+
+The concept for pixel-\/like objects. It requires the type to contain RGBA properties/members.  
+
+
+
+
+{\ttfamily \#include $<$BMPImage.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{\textcolor{keyword}{concept }\mbox{\hyperlink{conceptPixelType}{PixelType}} =  \textcolor{keyword}{requires}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    T::Red; }
+\DoxyCodeLine{    T::Green; }
+\DoxyCodeLine{    T::Blue; }
+\DoxyCodeLine{    T::Alpha; }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+The concept for pixel-\/like objects. It requires the type to contain RGBA properties/members. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}

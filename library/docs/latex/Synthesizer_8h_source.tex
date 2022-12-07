@@ -1,0 +1,45 @@
+\hypertarget{Synthesizer_8h_source}{}\doxysection{Synthesizer.\+h}
+\label{Synthesizer_8h_source}\index{include/Synthesizer.h@{include/Synthesizer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <Solver.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <FileType.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{classSynthesizer}{Synthesizer}} \{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{27     \mbox{\hyperlink{classSynthesizer_a26d78110d4609ebbef47c7e959ae5ffa}{Synthesizer}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{33     \mbox{\hyperlink{classSynthesizer_ab6db47137628f952658c54393a5b0b02}{\string~Synthesizer}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{34     }
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSynthesizer_a009f52510346543046daaaf42d4c3b52}{exportGridToFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGrid}{Grid<Solver::TileKey>}}\& grid, std::string exportPath, FileType type);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{49     std::shared\_ptr<BMPImage> \mbox{\hyperlink{classSynthesizer_adfa5fc11c54bff2692c28f4eb5366e3b}{exportGridToImage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGrid}{Grid<Solver::TileKey>}}\& grid);}
+\DoxyCodeLine{50      }
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSynthesizer_abb8be08e44bfd6b22f2c0d82f262e980}{initRealTimeImage}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSynthesizer_a278775c726f930443cb2c324db9a388a}{modifyRealTimeImage}}(\mbox{\hyperlink{structPosition}{Position}} pos, \textcolor{keyword}{const} \mbox{\hyperlink{classTile}{Tile}}\& tile);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{72     std::shared\_ptr<BMPImage> \mbox{\hyperlink{classSynthesizer_a1a85df00dd394ab9834096f0a7e9811d}{getRealTimeImage}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSynthesizer_a3cfbf06c00f96c490867f900ae1f89ab}{clearRealTimeImage}}();}
+\DoxyCodeLine{79     }
+\DoxyCodeLine{86     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSynthesizer_a129537b4e39130e8b56f4ba0756c2643}{exportRealTimeImageToFile}}(std::string exportPath, FileType type);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{keyword}{private}:}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{comment}{/* IMAGE STATE */}}
+\DoxyCodeLine{92     std::shared\_ptr<BMPImage> realTimeImage;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{comment}{/* HELPER */}}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} copyTileToGrid(\mbox{\hyperlink{structPosition}{Position}} pos, \textcolor{keyword}{const} \mbox{\hyperlink{classTile}{Tile}}\& tile, \mbox{\hyperlink{classBMPImage}{BMPImage}}* gridImage);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \};}
+
+\end{DoxyCode}

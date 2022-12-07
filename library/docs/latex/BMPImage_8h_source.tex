@@ -1,0 +1,126 @@
+\hypertarget{BMPImage_8h_source}{}\doxysection{BMPImage.\+h}
+\label{BMPImage_8h_source}\index{include/BMPImage.h@{include/BMPImage.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <Position.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <FileType.h>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{13 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} BYTE;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{21 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> }
+\DoxyCodeLine{22 \textcolor{keyword}{concept }\mbox{\hyperlink{conceptPixelType}{PixelType}} = \textcolor{keyword}{requires}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     T::Red; }
+\DoxyCodeLine{25     T::Green; }
+\DoxyCodeLine{26     T::Blue; }
+\DoxyCodeLine{27     T::Alpha; }
+\DoxyCodeLine{28 \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{34 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structPixel}{Pixel}} \{}
+\DoxyCodeLine{35     \textcolor{keywordtype}{int} count;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{41     BYTE \mbox{\hyperlink{structPixel_a25700f39819fea43d244144cfeb19ee3}{Blue}};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{47     BYTE \mbox{\hyperlink{structPixel_a25b3da0327b05debc2851da433fce42f}{Green}};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{53     BYTE \mbox{\hyperlink{structPixel_a2a9517ac9601f28c51294a93ed2c8728}{Red}};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{59     BYTE \mbox{\hyperlink{structPixel_ab97afc36303b6967adead9ea01084762}{Alpha}};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{70     \textcolor{keyword}{template}<PixelType T>}
+\DoxyCodeLine{71     \mbox{\hyperlink{structPixel}{Pixel}}\& \mbox{\hyperlink{structPixel_a59ebc25bda17bfed253c49eb31b58a63}{operator=}}(\textcolor{keyword}{const} T\& rhs) \{}
+\DoxyCodeLine{72         \mbox{\hyperlink{structPixel_ab97afc36303b6967adead9ea01084762}{Alpha}} = rhs.Alpha;}
+\DoxyCodeLine{73         \mbox{\hyperlink{structPixel_a25700f39819fea43d244144cfeb19ee3}{Blue}} = rhs.Blue;}
+\DoxyCodeLine{74         \mbox{\hyperlink{structPixel_a25b3da0327b05debc2851da433fce42f}{Green}} = rhs.Green;}
+\DoxyCodeLine{75         \mbox{\hyperlink{structPixel_a2a9517ac9601f28c51294a93ed2c8728}{Red}} = rhs.Red;}
+\DoxyCodeLine{76         count = 0;}
+\DoxyCodeLine{77         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{78     \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \} \mbox{\hyperlink{structPixel}{Pixel}}; }
+\DoxyCodeLine{81 }
+\DoxyCodeLine{91 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{structPixel}{Pixel}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structPixel}{Pixel}}\& rhs) \{ }
+\DoxyCodeLine{92     \textcolor{keywordflow}{return} lhs.Pixel::Blue == rhs.Pixel::Blue \&\& lhs.Pixel::Green == rhs.Pixel::Green \&\& lhs.\mbox{\hyperlink{structPixel_a2a9517ac9601f28c51294a93ed2c8728}{Red}} == rhs.\mbox{\hyperlink{structPixel_a2a9517ac9601f28c51294a93ed2c8728}{Red}} \&\& lhs.\mbox{\hyperlink{structPixel_ab97afc36303b6967adead9ea01084762}{Alpha}} == rhs.\mbox{\hyperlink{structPixel_ab97afc36303b6967adead9ea01084762}{Alpha}};}
+\DoxyCodeLine{93 \}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{103 std::ostream\& operator<<(std::ostream \&os, \textcolor{keyword}{const} \mbox{\hyperlink{structPixel}{Pixel}} \&p);}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{comment}{/* DEFAULT CONSTANTS */}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{keyword}{constexpr} \mbox{\hyperlink{structPixel}{Pixel}} defaultPixel = \{}
+\DoxyCodeLine{108     0,}
+\DoxyCodeLine{109     255,}
+\DoxyCodeLine{110     255,}
+\DoxyCodeLine{111     255,}
+\DoxyCodeLine{112     0}
+\DoxyCodeLine{113 \};}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} defaultHorizontalDPI = 96;}
+\DoxyCodeLine{116 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} defaultVerticalDPI = 96;}
+\DoxyCodeLine{117 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} defaultBitDepth = 32;}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{130 \textcolor{keyword}{class }\mbox{\hyperlink{classBMPImage}{BMPImage}} \{}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132 \textcolor{keyword}{public}:}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{138     \mbox{\hyperlink{classBMPImage_a4f403c17cd09de70d082009ff7650318}{BMPImage}}();}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{146     \mbox{\hyperlink{classBMPImage_a4f403c17cd09de70d082009ff7650318}{BMPImage}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} initWidth, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} initHeight);}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{153     \mbox{\hyperlink{classBMPImage_a4f403c17cd09de70d082009ff7650318}{BMPImage}}(std::string filename);}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{159     \mbox{\hyperlink{classBMPImage_a623be82b65beb90e120ac6c1f3650f8c}{\string~BMPImage}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     \textcolor{comment}{/* Size */}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{169     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classBMPImage_ab7689d4b96f5d98d002f895ca3f6ecbe}{getWidth}}() const noexcept;}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{176     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classBMPImage_ad710995d044bd0c7f6481a1ec3d3c947}{getHeight}}() const noexcept;}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{185     \textcolor{keywordtype}{void} \mbox{\hyperlink{classBMPImage_a5e5dc46dd01696614bb951623901ee47}{setSize}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NewWidth , \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} NewHeight);}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187     \textcolor{comment}{/* Pixel */}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{195     \mbox{\hyperlink{structPixel}{Pixel}} \mbox{\hyperlink{classBMPImage_a386ec4889d5c7bdc230cd28fa5317383}{getPixel}}(\mbox{\hyperlink{structPosition}{Position}} pos) const;}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{204     \textcolor{keywordtype}{void} \mbox{\hyperlink{classBMPImage_a92650178f0de80f97ef6b718af90e058}{setPixel}}(\mbox{\hyperlink{structPosition}{Position}} pos, \mbox{\hyperlink{structPixel}{Pixel}} newPixel);}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{213     \textcolor{keywordtype}{void} \mbox{\hyperlink{classBMPImage_a976c087c6d6d5ad9f793f112e90d00db}{exportToFile}}(std::\textcolor{keywordtype}{string} filename, FileType type) const;}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215 private:}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     \textcolor{comment}{/* PIXELS */}}
+\DoxyCodeLine{218     std::vector<std::vector<\mbox{\hyperlink{structPixel}{Pixel}}>> pixels;}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220     \textcolor{comment}{/* METADATA */}}
+\DoxyCodeLine{221     \textcolor{keywordtype}{int} bitDepth;}
+\DoxyCodeLine{222     \textcolor{keywordtype}{int} verticalDPI, horizontalDPI;}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224     \textcolor{comment}{/* HELPERS */}}
+\DoxyCodeLine{225     inline \textcolor{keywordtype}{bool} checkPosition(\mbox{\hyperlink{structPosition}{Position}} pos) const;}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227 \};}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{238 inline \textcolor{keywordtype}{bool} operator==(const \mbox{\hyperlink{classBMPImage}{BMPImage}}\& lhs, const \mbox{\hyperlink{classBMPImage}{BMPImage}}\& rhs)}
+\DoxyCodeLine{239 \{}
+\DoxyCodeLine{240     \textcolor{keywordflow}{if} (lhs.getWidth() != rhs.getWidth() || lhs.getHeight() != rhs.getHeight()) \{}
+\DoxyCodeLine{241         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{242     \}}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} x = 0; x < lhs.getWidth(); x++)}
+\DoxyCodeLine{245         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} y = 0; y < lhs.getHeight(); y++) \{}
+\DoxyCodeLine{246             \textcolor{keywordflow}{if} (lhs.getPixel(\{x, y\}) != rhs.getPixel(\{x, y\})) \{}
+\DoxyCodeLine{247                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{248             \}}
+\DoxyCodeLine{249         \}}
+\DoxyCodeLine{250     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{251 \}}
+\DoxyCodeLine{252 }
+
+\end{DoxyCode}

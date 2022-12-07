@@ -1,0 +1,210 @@
+\hypertarget{classBMPImage}{}\doxysection{BMPImage Class Reference}
+\label{classBMPImage}\index{BMPImage@{BMPImage}}
+
+
+The \mbox{\hyperlink{classBMPImage}{BMPImage}} class.  
+
+
+
+
+{\ttfamily \#include $<$BMPImage.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBMPImage_a4f403c17cd09de70d082009ff7650318}{BMPImage}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classBMPImage}{BMPImage}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBMPImage_a1da162da881556b0fdb1d4c9fa13cc2e}{BMPImage}} (unsigned int init\+Width, unsigned int init\+Height)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classBMPImage}{BMPImage}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBMPImage_a4ebe374a1525f538bd4f00d3f22cada6}{BMPImage}} (std\+::string filename)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classBMPImage}{BMPImage}} object from image file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBMPImage_a623be82b65beb90e120ac6c1f3650f8c}{$\sim$\+BMPImage}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classBMPImage}{BMPImage}} object. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classBMPImage_ab7689d4b96f5d98d002f895ca3f6ecbe}{get\+Width}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the width. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classBMPImage_ad710995d044bd0c7f6481a1ec3d3c947}{get\+Height}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the height. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBMPImage_a5e5dc46dd01696614bb951623901ee47}{set\+Size}} (unsigned int New\+Width, unsigned int New\+Height)
+\begin{DoxyCompactList}\small\item\em Set the Size of the image. The added positions will be filled with default\+Pixel. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPixel}{Pixel}} \mbox{\hyperlink{classBMPImage_a386ec4889d5c7bdc230cd28fa5317383}{get\+Pixel}} (\mbox{\hyperlink{structPosition}{Position}} pos) const
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{structPixel}{Pixel}} object at some position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBMPImage_a92650178f0de80f97ef6b718af90e058}{set\+Pixel}} (\mbox{\hyperlink{structPosition}{Position}} pos, \mbox{\hyperlink{structPixel}{Pixel}} new\+Pixel)
+\begin{DoxyCompactList}\small\item\em Set the \mbox{\hyperlink{structPixel}{Pixel}} object at some position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBMPImage_a976c087c6d6d5ad9f793f112e90d00db}{export\+To\+File}} (std\+::string filename, File\+Type type) const
+\begin{DoxyCompactList}\small\item\em Export this object to a file of specified type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classBMPImage}{BMPImage}} class. 
+
+This class supports the import, export and basic modification of images as BMP files. It provides an interface for image processing in \mbox{\hyperlink{classExtractor}{Extractor}} and \mbox{\hyperlink{classSynthesizer}{Synthesizer}}.
+
+At the time, we only support png and bmp format images. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBMPImage_a4f403c17cd09de70d082009ff7650318}\label{classBMPImage_a4f403c17cd09de70d082009ff7650318}} 
+\index{BMPImage@{BMPImage}!BMPImage@{BMPImage}}
+\index{BMPImage@{BMPImage}!BMPImage@{BMPImage}}
+\doxysubsubsection{\texorpdfstring{BMPImage()}{BMPImage()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily BMPImage\+::\+BMPImage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classBMPImage}{BMPImage}} object. 
+
+\mbox{\Hypertarget{classBMPImage_a1da162da881556b0fdb1d4c9fa13cc2e}\label{classBMPImage_a1da162da881556b0fdb1d4c9fa13cc2e}} 
+\index{BMPImage@{BMPImage}!BMPImage@{BMPImage}}
+\index{BMPImage@{BMPImage}!BMPImage@{BMPImage}}
+\doxysubsubsection{\texorpdfstring{BMPImage()}{BMPImage()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily BMPImage\+::\+BMPImage (\begin{DoxyParamCaption}\item[{unsigned int}]{init\+Width,  }\item[{unsigned int}]{init\+Height }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classBMPImage}{BMPImage}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em init\+Width} & \\
+\hline
+{\em init\+Height} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBMPImage_a4ebe374a1525f538bd4f00d3f22cada6}\label{classBMPImage_a4ebe374a1525f538bd4f00d3f22cada6}} 
+\index{BMPImage@{BMPImage}!BMPImage@{BMPImage}}
+\index{BMPImage@{BMPImage}!BMPImage@{BMPImage}}
+\doxysubsubsection{\texorpdfstring{BMPImage()}{BMPImage()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily BMPImage\+::\+BMPImage (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classBMPImage}{BMPImage}} object from image file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & File to read from. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBMPImage_a623be82b65beb90e120ac6c1f3650f8c}\label{classBMPImage_a623be82b65beb90e120ac6c1f3650f8c}} 
+\index{BMPImage@{BMPImage}!````~BMPImage@{$\sim$BMPImage}}
+\index{````~BMPImage@{$\sim$BMPImage}!BMPImage@{BMPImage}}
+\doxysubsubsection{\texorpdfstring{$\sim$BMPImage()}{~BMPImage()}}
+{\footnotesize\ttfamily BMPImage\+::$\sim$\+BMPImage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classBMPImage}{BMPImage}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBMPImage_a976c087c6d6d5ad9f793f112e90d00db}\label{classBMPImage_a976c087c6d6d5ad9f793f112e90d00db}} 
+\index{BMPImage@{BMPImage}!exportToFile@{exportToFile}}
+\index{exportToFile@{exportToFile}!BMPImage@{BMPImage}}
+\doxysubsubsection{\texorpdfstring{exportToFile()}{exportToFile()}}
+{\footnotesize\ttfamily void BMPImage\+::export\+To\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{filename,  }\item[{File\+Type}]{type }\end{DoxyParamCaption}) const}
+
+
+
+Export this object to a file of specified type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The path for the exported image. \\
+\hline
+{\em type} & The type of the image. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & Indicates that the export fails. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classBMPImage_ad710995d044bd0c7f6481a1ec3d3c947}\label{classBMPImage_ad710995d044bd0c7f6481a1ec3d3c947}} 
+\index{BMPImage@{BMPImage}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!BMPImage@{BMPImage}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily unsigned int BMPImage\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Get the height. 
+
+\begin{DoxyReturn}{Returns}
+the height as unsigned int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBMPImage_a386ec4889d5c7bdc230cd28fa5317383}\label{classBMPImage_a386ec4889d5c7bdc230cd28fa5317383}} 
+\index{BMPImage@{BMPImage}!getPixel@{getPixel}}
+\index{getPixel@{getPixel}!BMPImage@{BMPImage}}
+\doxysubsubsection{\texorpdfstring{getPixel()}{getPixel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPixel}{Pixel}} BMPImage\+::get\+Pixel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{pos }\end{DoxyParamCaption}) const}
+
+
+
+Get the \mbox{\hyperlink{structPixel}{Pixel}} object at some position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & a position in image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structPixel}{Pixel}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBMPImage_ab7689d4b96f5d98d002f895ca3f6ecbe}\label{classBMPImage_ab7689d4b96f5d98d002f895ca3f6ecbe}} 
+\index{BMPImage@{BMPImage}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!BMPImage@{BMPImage}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily unsigned int BMPImage\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Get the width. 
+
+\begin{DoxyReturn}{Returns}
+the width as unsigned int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBMPImage_a92650178f0de80f97ef6b718af90e058}\label{classBMPImage_a92650178f0de80f97ef6b718af90e058}} 
+\index{BMPImage@{BMPImage}!setPixel@{setPixel}}
+\index{setPixel@{setPixel}!BMPImage@{BMPImage}}
+\doxysubsubsection{\texorpdfstring{setPixel()}{setPixel()}}
+{\footnotesize\ttfamily void BMPImage\+::set\+Pixel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{pos,  }\item[{\mbox{\hyperlink{structPixel}{Pixel}}}]{new\+Pixel }\end{DoxyParamCaption})}
+
+
+
+Set the \mbox{\hyperlink{structPixel}{Pixel}} object at some position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & a position in image \\
+\hline
+{\em new\+Pixel} & the new \mbox{\hyperlink{structPixel}{Pixel}} to be filled in \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & Indicates that the position is not valid. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classBMPImage_a5e5dc46dd01696614bb951623901ee47}\label{classBMPImage_a5e5dc46dd01696614bb951623901ee47}} 
+\index{BMPImage@{BMPImage}!setSize@{setSize}}
+\index{setSize@{setSize}!BMPImage@{BMPImage}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily void BMPImage\+::set\+Size (\begin{DoxyParamCaption}\item[{unsigned int}]{New\+Width,  }\item[{unsigned int}]{New\+Height }\end{DoxyParamCaption})}
+
+
+
+Set the Size of the image. The added positions will be filled with default\+Pixel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em New\+Width} & \\
+\hline
+{\em New\+Height} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/BMPImage.\+h\item 
+src/BMPImage.\+cpp\end{DoxyCompactItemize}

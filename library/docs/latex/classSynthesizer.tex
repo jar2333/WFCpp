@@ -1,0 +1,185 @@
+\hypertarget{classSynthesizer}{}\doxysection{Synthesizer Class Reference}
+\label{classSynthesizer}\index{Synthesizer@{Synthesizer}}
+
+
+The \mbox{\hyperlink{classSynthesizer}{Synthesizer}} class.  
+
+
+
+
+{\ttfamily \#include $<$Synthesizer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSynthesizer_a26d78110d4609ebbef47c7e959ae5ffa}{Synthesizer}} ()=default
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classSynthesizer}{Synthesizer}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSynthesizer_ab6db47137628f952658c54393a5b0b02}{$\sim$\+Synthesizer}} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classSynthesizer}{Synthesizer}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSynthesizer_a009f52510346543046daaaf42d4c3b52}{export\+Grid\+To\+File}} (const \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Solver\+::\+Tile\+Key}} $>$ \&grid, std\+::string export\+Path, File\+Type type)
+\begin{DoxyCompactList}\small\item\em Export a completed \mbox{\hyperlink{classGrid}{Grid}} to a file of the specified format. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ \mbox{\hyperlink{classSynthesizer_adfa5fc11c54bff2692c28f4eb5366e3b}{export\+Grid\+To\+Image}} (const \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Solver\+::\+Tile\+Key}} $>$ \&grid)
+\begin{DoxyCompactList}\small\item\em Export a completed \mbox{\hyperlink{classGrid}{Grid}} to a \mbox{\hyperlink{classBMPImage}{BMPImage}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSynthesizer_abb8be08e44bfd6b22f2c0d82f262e980}{init\+Real\+Time\+Image}} (unsigned int n)
+\begin{DoxyCompactList}\small\item\em Initialize a real time image for step by step images. If there is an existing real time image, this function would clear the existing one. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSynthesizer_a278775c726f930443cb2c324db9a388a}{modify\+Real\+Time\+Image}} (\mbox{\hyperlink{structPosition}{Position}} pos, const \mbox{\hyperlink{classTile}{Tile}} \&tile)
+\begin{DoxyCompactList}\small\item\em Modify the real time image with one step of collapse in grid. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ \mbox{\hyperlink{classSynthesizer_a1a85df00dd394ab9834096f0a7e9811d}{get\+Real\+Time\+Image}} () const
+\begin{DoxyCompactList}\small\item\em Get the Real Time Image object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSynthesizer_a3cfbf06c00f96c490867f900ae1f89ab}{clear\+Real\+Time\+Image}} ()
+\begin{DoxyCompactList}\small\item\em Clear the current real time image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSynthesizer_a129537b4e39130e8b56f4ba0756c2643}{export\+Real\+Time\+Image\+To\+File}} (std\+::string export\+Path, File\+Type type)
+\begin{DoxyCompactList}\small\item\em Export the real time image to file in the specified format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classSynthesizer}{Synthesizer}} class. 
+
+This class implements the functionality of synthesizing grid into an out put image. At the moment, only png and bmp images are supported. All generated images are stored as \mbox{\hyperlink{classBMPImage}{BMPImage}} and transformed into specified format.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classGrid}{Grid}} 
+
+\mbox{\hyperlink{classBMPImage}{BMPImage}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSynthesizer_a26d78110d4609ebbef47c7e959ae5ffa}\label{classSynthesizer_a26d78110d4609ebbef47c7e959ae5ffa}} 
+\index{Synthesizer@{Synthesizer}!Synthesizer@{Synthesizer}}
+\index{Synthesizer@{Synthesizer}!Synthesizer@{Synthesizer}}
+\doxysubsubsection{\texorpdfstring{Synthesizer()}{Synthesizer()}}
+{\footnotesize\ttfamily Synthesizer\+::\+Synthesizer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Construct a new \mbox{\hyperlink{classSynthesizer}{Synthesizer}} object. 
+
+\mbox{\Hypertarget{classSynthesizer_ab6db47137628f952658c54393a5b0b02}\label{classSynthesizer_ab6db47137628f952658c54393a5b0b02}} 
+\index{Synthesizer@{Synthesizer}!````~Synthesizer@{$\sim$Synthesizer}}
+\index{````~Synthesizer@{$\sim$Synthesizer}!Synthesizer@{Synthesizer}}
+\doxysubsubsection{\texorpdfstring{$\sim$Synthesizer()}{~Synthesizer()}}
+{\footnotesize\ttfamily Synthesizer\+::$\sim$\+Synthesizer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destroy the \mbox{\hyperlink{classSynthesizer}{Synthesizer}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSynthesizer_a3cfbf06c00f96c490867f900ae1f89ab}\label{classSynthesizer_a3cfbf06c00f96c490867f900ae1f89ab}} 
+\index{Synthesizer@{Synthesizer}!clearRealTimeImage@{clearRealTimeImage}}
+\index{clearRealTimeImage@{clearRealTimeImage}!Synthesizer@{Synthesizer}}
+\doxysubsubsection{\texorpdfstring{clearRealTimeImage()}{clearRealTimeImage()}}
+{\footnotesize\ttfamily void Synthesizer\+::clear\+Real\+Time\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear the current real time image. 
+
+\mbox{\Hypertarget{classSynthesizer_a009f52510346543046daaaf42d4c3b52}\label{classSynthesizer_a009f52510346543046daaaf42d4c3b52}} 
+\index{Synthesizer@{Synthesizer}!exportGridToFile@{exportGridToFile}}
+\index{exportGridToFile@{exportGridToFile}!Synthesizer@{Synthesizer}}
+\doxysubsubsection{\texorpdfstring{exportGridToFile()}{exportGridToFile()}}
+{\footnotesize\ttfamily void Synthesizer\+::export\+Grid\+To\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Solver\+::\+Tile\+Key}} $>$ \&}]{grid,  }\item[{std\+::string}]{export\+Path,  }\item[{File\+Type}]{type }\end{DoxyParamCaption})}
+
+
+
+Export a completed \mbox{\hyperlink{classGrid}{Grid}} to a file of the specified format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & A completed grid of tiles. \\
+\hline
+{\em export\+Path} & The path for the exported image. \\
+\hline
+{\em type} & The format for the image. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSynthesizer_adfa5fc11c54bff2692c28f4eb5366e3b}\label{classSynthesizer_adfa5fc11c54bff2692c28f4eb5366e3b}} 
+\index{Synthesizer@{Synthesizer}!exportGridToImage@{exportGridToImage}}
+\index{exportGridToImage@{exportGridToImage}!Synthesizer@{Synthesizer}}
+\doxysubsubsection{\texorpdfstring{exportGridToImage()}{exportGridToImage()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ Synthesizer\+::export\+Grid\+To\+Image (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Solver\+::\+Tile\+Key}} $>$ \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Export a completed \mbox{\hyperlink{classGrid}{Grid}} to a \mbox{\hyperlink{classBMPImage}{BMPImage}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & A completed grid of tiles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+BMPImage$>$ Caller gets the ownership of a smart pointer to the result image. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSynthesizer_a129537b4e39130e8b56f4ba0756c2643}\label{classSynthesizer_a129537b4e39130e8b56f4ba0756c2643}} 
+\index{Synthesizer@{Synthesizer}!exportRealTimeImageToFile@{exportRealTimeImageToFile}}
+\index{exportRealTimeImageToFile@{exportRealTimeImageToFile}!Synthesizer@{Synthesizer}}
+\doxysubsubsection{\texorpdfstring{exportRealTimeImageToFile()}{exportRealTimeImageToFile()}}
+{\footnotesize\ttfamily void Synthesizer\+::export\+Real\+Time\+Image\+To\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{export\+Path,  }\item[{File\+Type}]{type }\end{DoxyParamCaption})}
+
+
+
+Export the real time image to file in the specified format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em export\+Path} & The target path for the exported image. \\
+\hline
+{\em type} & The format of image. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSynthesizer_a1a85df00dd394ab9834096f0a7e9811d}\label{classSynthesizer_a1a85df00dd394ab9834096f0a7e9811d}} 
+\index{Synthesizer@{Synthesizer}!getRealTimeImage@{getRealTimeImage}}
+\index{getRealTimeImage@{getRealTimeImage}!Synthesizer@{Synthesizer}}
+\doxysubsubsection{\texorpdfstring{getRealTimeImage()}{getRealTimeImage()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ Synthesizer\+::get\+Real\+Time\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the Real Time Image object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+BMPImage$>$ The caller gains ownership of the real time image. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSynthesizer_abb8be08e44bfd6b22f2c0d82f262e980}\label{classSynthesizer_abb8be08e44bfd6b22f2c0d82f262e980}} 
+\index{Synthesizer@{Synthesizer}!initRealTimeImage@{initRealTimeImage}}
+\index{initRealTimeImage@{initRealTimeImage}!Synthesizer@{Synthesizer}}
+\doxysubsubsection{\texorpdfstring{initRealTimeImage()}{initRealTimeImage()}}
+{\footnotesize\ttfamily void Synthesizer\+::init\+Real\+Time\+Image (\begin{DoxyParamCaption}\item[{unsigned int}]{n }\end{DoxyParamCaption})}
+
+
+
+Initialize a real time image for step by step images. If there is an existing real time image, this function would clear the existing one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The dimension of the image. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSynthesizer_a278775c726f930443cb2c324db9a388a}\label{classSynthesizer_a278775c726f930443cb2c324db9a388a}} 
+\index{Synthesizer@{Synthesizer}!modifyRealTimeImage@{modifyRealTimeImage}}
+\index{modifyRealTimeImage@{modifyRealTimeImage}!Synthesizer@{Synthesizer}}
+\doxysubsubsection{\texorpdfstring{modifyRealTimeImage()}{modifyRealTimeImage()}}
+{\footnotesize\ttfamily void Synthesizer\+::modify\+Real\+Time\+Image (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{pos,  }\item[{const \mbox{\hyperlink{classTile}{Tile}} \&}]{tile }\end{DoxyParamCaption})}
+
+
+
+Modify the real time image with one step of collapse in grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The logical position of the target position in grid. \\
+\hline
+{\em tile} & The target tile to be filled into the position. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Synthesizer.\+h\item 
+src/Synthesizer.\+cpp\end{DoxyCompactItemize}
