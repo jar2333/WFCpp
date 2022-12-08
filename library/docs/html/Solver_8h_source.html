@@ -150,9 +150,9 @@ $(function() {
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classSolver.html#a010ed819d6b21696564a5cc5cd5e2cbb">getSeed</a>();</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>  std::shared_ptr&lt;Grid&lt;TileKey&gt;&gt; <a class="code hl_function" href="classSolver.html#a9c2cba2f430b64ed9a970e1406b19f15">solve</a>(<span class="keywordtype">int</span> N);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>  std::shared_ptr&lt;Grid&lt;TileKey&gt;&gt; <a class="code hl_function" href="classSolver.html#a7d7406c53eecaf19b82b312791d8fcb0">solve</a>(<span class="keywordtype">size_t</span> N);</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#a9c2cba2f430b64ed9a970e1406b19f15">solve</a>(<span class="keywordtype">int</span> N, <a class="code hl_class" href="classGrid.html">Grid&lt;TileKey&gt;</a>&amp; grid);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#a7d7406c53eecaf19b82b312791d8fcb0">solve</a>(<span class="keywordtype">size_t</span> N, <a class="code hl_class" href="classGrid.html">Grid&lt;TileKey&gt;</a>&amp; grid);</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  <span class="comment">/*</span></div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">   CONSTRAINT INTERFACE/API</span></div>
@@ -210,9 +210,9 @@ $(function() {
 <div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
 <div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>  <span class="comment">/* ALGORITHM */</span></div>
 <div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>  std::unordered_map&lt;Position, std::vector&lt;TileKey&gt;&gt; grid;</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>  <span class="keywordtype">int</span> N;</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>  <span class="keywordtype">size_t</span> N;</div>
 <div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>  <span class="keywordtype">void</span> initializeGrid(<span class="keywordtype">int</span> N);</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>  <span class="keywordtype">void</span> initializeGrid(<span class="keywordtype">size_t</span> N);</div>
 <div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>  <span class="keywordtype">void</span> processInitialConstraints() ;</div>
 <div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>  <span class="keywordtype">bool</span> isCollapsed();</div>
 <div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>  <span class="keywordtype">bool</span> isContradiction();</div>
@@ -236,8 +236,8 @@ $(function() {
 <div class="ttc" id="aclassSolver_html_a34198a1963bea018d0d7096dd36e3653"><div class="ttname"><a href="classSolver.html#a34198a1963bea018d0d7096dd36e3653">Solver::setSeed</a></div><div class="ttdeci">void setSeed(int seed)</div><div class="ttdoc">Set the seed for the random number generator.</div><div class="ttdef"><b>Definition:</b> Solver.cpp:9</div></div>
 <div class="ttc" id="aclassSolver_html_a624d11307b449d2e13dee24ec5170eed"><div class="ttname"><a href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">Solver::TileKey</a></div><div class="ttdeci">size_t TileKey</div><div class="ttdef"><b>Definition:</b> Solver.h:80</div></div>
 <div class="ttc" id="aclassSolver_html_a7b00bb931fe601491c521d6176cf77b5"><div class="ttname"><a href="classSolver.html#a7b00bb931fe601491c521d6176cf77b5">Solver::Solver</a></div><div class="ttdeci">Solver(const std::map&lt; TileKey, T &gt; &amp;tiles, int seed=0)</div><div class="ttdef"><b>Definition:</b> Solver.h:117</div></div>
+<div class="ttc" id="aclassSolver_html_a7d7406c53eecaf19b82b312791d8fcb0"><div class="ttname"><a href="classSolver.html#a7d7406c53eecaf19b82b312791d8fcb0">Solver::solve</a></div><div class="ttdeci">std::shared_ptr&lt; Grid&lt; TileKey &gt; &gt; solve(size_t N)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:18</div></div>
 <div class="ttc" id="aclassSolver_html_a8b11638a34e8929a126607edbb125898"><div class="ttname"><a href="classSolver.html#a8b11638a34e8929a126607edbb125898">Solver::setCollapseBehaviour</a></div><div class="ttdeci">void setCollapseBehaviour(std::optional&lt; CollapseBehavior &gt; b)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:94</div></div>
-<div class="ttc" id="aclassSolver_html_a9c2cba2f430b64ed9a970e1406b19f15"><div class="ttname"><a href="classSolver.html#a9c2cba2f430b64ed9a970e1406b19f15">Solver::solve</a></div><div class="ttdeci">std::shared_ptr&lt; Grid&lt; TileKey &gt; &gt; solve(int N)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:18</div></div>
 <div class="ttc" id="aclassSolver_html_aa21bdaffa17e0ef52e78ce64f2046b5b"><div class="ttname"><a href="classSolver.html#aa21bdaffa17e0ef52e78ce64f2046b5b">Solver::registerOnCollapse</a></div><div class="ttdeci">CollapseCallbackCookie registerOnCollapse(CollapseCallback callback)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:76</div></div>
 <div class="ttc" id="aclassSolver_html_ab9943f77531798a2f6ce24b8281d71a3"><div class="ttname"><a href="classSolver.html#ab9943f77531798a2f6ce24b8281d71a3">Solver::Solver</a></div><div class="ttdeci">Solver(const std::vector&lt; T &gt; &amp;tiles, int seed=0)</div><div class="ttdef"><b>Definition:</b> Solver.h:105</div></div>
 <div class="ttc" id="aclassSolver_html_abc55f3b23ccda7c353df7abfb678f150"><div class="ttname"><a href="classSolver.html#abc55f3b23ccda7c353df7abfb678f150">Solver::CollapseCallbackCookie</a></div><div class="ttdeci">std::list&lt; CollapseCallback &gt;::iterator CollapseCallbackCookie</div><div class="ttdef"><b>Definition:</b> Solver.h:91</div></div>
@@ -246,7 +246,7 @@ $(function() {
 <div class="ttc" id="aclassSolver_html_ace4c0aafb91c3db2531d97fe61d8afb7"><div class="ttname"><a href="classSolver.html#ace4c0aafb91c3db2531d97fe61d8afb7">Solver::PropagateCallbackCookie</a></div><div class="ttdeci">std::list&lt; PropagateCallback &gt;::iterator PropagateCallbackCookie</div><div class="ttdef"><b>Definition:</b> Solver.h:97</div></div>
 <div class="ttc" id="aclassSolver_html_ae9e645865467108124343029fcd91504"><div class="ttname"><a href="classSolver.html#ae9e645865467108124343029fcd91504">Solver::addAdjacencyConstraint</a></div><div class="ttdeci">void addAdjacencyConstraint(TileKey t, Direction d, TileKey neighbor)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:42</div></div>
 <div class="ttc" id="aclassSolver_html_aed54210e84c73fff7fb4f2be1e965457"><div class="ttname"><a href="classSolver.html#aed54210e84c73fff7fb4f2be1e965457">Solver::registerOnPropagate</a></div><div class="ttdeci">PropagateCallbackCookie registerOnPropagate(PropagateCallback callback)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:86</div></div>
-<div class="ttc" id="astructPosition_html"><div class="ttname"><a href="structPosition.html">Position</a></div><div class="ttdef"><b>Definition:</b> Position.h:5</div></div>
+<div class="ttc" id="astructPosition_html"><div class="ttname"><a href="structPosition.html">Position</a></div><div class="ttdef"><b>Definition:</b> Position.h:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

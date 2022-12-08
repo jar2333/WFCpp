@@ -26,7 +26,7 @@ public:
         setDimension(dimension);
     }
 
-    unsigned int getDimension() const
+    size_t getDimension() const
     {
         return dimension;
     }
@@ -90,7 +90,7 @@ public:
         if (getTile(pos)->getSize() > INT_MAX)
             throw std::runtime_error("Tile size too big. ");
         
-        auto tileSize = (int) getTile(pos)->getSize();
+        auto tileSize = getTile(pos)->getSize();
         
         return { pos.x * tileSize, pos.y * tileSize} ;
     }
@@ -99,8 +99,8 @@ public:
     {
         std::vector<Position> res;
 
-        for (int i = 0; i < dimension; i++)
-            for (int j = 0; j < dimension; j++) {
+        for (size_t i = 0; i < dimension; i++)
+            for (size_t j = 0; j < dimension; j++) {
                 Position pos = {j, i};
                 res.push_back(pos);
             }
@@ -118,8 +118,8 @@ private:
 
     constexpr bool checkPosition(Position pos) const
     {
-        int i = pos.x;
-        int j = pos.y;
+        size_t i = pos.x;
+        size_t j = pos.y;
         return (i < dimension && i >= 0 && j < dimension && j >= 0);
     }
 };

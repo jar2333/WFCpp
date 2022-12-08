@@ -15,13 +15,13 @@ typedef Solver::TileKey TileKey;
     return seed;
   }
 
-  std::shared_ptr<Grid<TileKey>> Solver::solve(int N) {
+  std::shared_ptr<Grid<TileKey>> Solver::solve(size_t N) {
     auto g = std::make_shared<Grid<TileKey>>(N);
     this->solve(N, *g);
     return g;
   }
 
-  void Solver::solve(int N, Grid<TileKey>& grid) {
+  void Solver::solve(size_t N, Grid<TileKey>& grid) {
     initializeGrid(N);
 
     while (!isCollapsed()) {
@@ -102,14 +102,14 @@ typedef Solver::TileKey TileKey;
     ALGORITHM (optimize)
   */
 
-  void Solver::initializeGrid(int N) {
+  void Solver::initializeGrid(size_t N) {
     grid.clear();
 
     this->N = N;
 
     //populate grid
-    for (int i = 0; i < N; i++) {
-      for (int j = 0; j < N; j++) {
+    for (size_t i = 0; i < N; i++) {
+      for (size_t j = 0; j < N; j++) {
         Position p{i, j};
         grid[p] = getPossibleTiles(p);
       }

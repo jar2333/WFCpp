@@ -143,7 +143,7 @@ public:
   * @return A solved grid
   * @throws std::runtime_error Indicates that the grid could not be solved. 
   */
-  std::shared_ptr<Grid<TileKey>> solve(int N);
+  std::shared_ptr<Grid<TileKey>> solve(size_t N);
 
   /**
   * Runs the wave-function collapse algorithm, solving in-place a 2-dimensional square Grid or throwing an exception if the algorithm fails.
@@ -152,7 +152,7 @@ public:
   * @param grid A grid to solve
   * @throws std::runtime_error Indicates that the grid could not be solved. 
   */
-  void solve(int N, Grid<TileKey>& grid);
+  void solve(size_t N, Grid<TileKey>& grid);
 
   /*
    CONSTRAINT INTERFACE/API
@@ -323,9 +323,9 @@ private:
 
   /* ALGORITHM */
   std::unordered_map<Position, std::vector<TileKey>> grid;
-  int N;
+  size_t N;
 
-  void initializeGrid(int N);
+  void initializeGrid(size_t N);
   void processInitialConstraints() ;
   bool isCollapsed();
   bool isContradiction();

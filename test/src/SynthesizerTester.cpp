@@ -3,9 +3,9 @@
 std::shared_ptr<BMPImage> generateBMPByPixel(unsigned int size, Pixel pixel)
 {
     auto img = std::make_shared<BMPImage> (size, size);
-    for (int i = 0; i < size; i++)
-        for (int j = 0; j < size; j++) {
-            Position pos = {i ,j};
+    for (unsigned int i = 0; i < size; i++)
+        for (unsigned int j = 0; j < size; j++) {
+            Position pos = {i, j};
             img->setPixel(pos, pixel);
         }
     return img;

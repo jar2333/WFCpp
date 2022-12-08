@@ -30,7 +30,7 @@
 \DoxyCodeLine{26         setDimension(dimension);}
 \DoxyCodeLine{27     \}}
 \DoxyCodeLine{28 }
-\DoxyCodeLine{29     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} getDimension()\textcolor{keyword}{ const}}
+\DoxyCodeLine{29     \textcolor{keywordtype}{size\_t} getDimension()\textcolor{keyword}{ const}}
 \DoxyCodeLine{30 \textcolor{keyword}{    }\{}
 \DoxyCodeLine{31         \textcolor{keywordflow}{return} dimension;}
 \DoxyCodeLine{32     \}}
@@ -94,7 +94,7 @@
 \DoxyCodeLine{90         \textcolor{keywordflow}{if} (getTile(pos)-\/>getSize() > INT\_MAX)}
 \DoxyCodeLine{91             \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}Tile size too big. "{}});}
 \DoxyCodeLine{92         }
-\DoxyCodeLine{93         \textcolor{keyword}{auto} tileSize = (int) getTile(pos)-\/>getSize();}
+\DoxyCodeLine{93         \textcolor{keyword}{auto} tileSize = getTile(pos)-\/>getSize();}
 \DoxyCodeLine{94         }
 \DoxyCodeLine{95         \textcolor{keywordflow}{return} \{ pos.x * tileSize, pos.y * tileSize\} ;}
 \DoxyCodeLine{96     \}}
@@ -103,8 +103,8 @@
 \DoxyCodeLine{99 \textcolor{keyword}{    }\{}
 \DoxyCodeLine{100         std::vector<Position> res;}
 \DoxyCodeLine{101 }
-\DoxyCodeLine{102         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < dimension; i++)}
-\DoxyCodeLine{103             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < dimension; j++) \{}
+\DoxyCodeLine{102         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < dimension; i++)}
+\DoxyCodeLine{103             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} j = 0; j < dimension; j++) \{}
 \DoxyCodeLine{104                 \mbox{\hyperlink{structPosition}{Position}} pos = \{j, i\};}
 \DoxyCodeLine{105                 res.push\_back(pos);}
 \DoxyCodeLine{106             \}}
@@ -122,8 +122,8 @@
 \DoxyCodeLine{118 }
 \DoxyCodeLine{119     \textcolor{keyword}{constexpr} \textcolor{keywordtype}{bool} checkPosition(\mbox{\hyperlink{structPosition}{Position}} pos)\textcolor{keyword}{ const}}
 \DoxyCodeLine{120 \textcolor{keyword}{    }\{}
-\DoxyCodeLine{121         \textcolor{keywordtype}{int} i = pos.x;}
-\DoxyCodeLine{122         \textcolor{keywordtype}{int} j = pos.y;}
+\DoxyCodeLine{121         \textcolor{keywordtype}{size\_t} i = pos.x;}
+\DoxyCodeLine{122         \textcolor{keywordtype}{size\_t} j = pos.y;}
 \DoxyCodeLine{123         \textcolor{keywordflow}{return} (i < dimension \&\& i >= 0 \&\& j < dimension \&\& j >= 0);}
 \DoxyCodeLine{124     \}}
 \DoxyCodeLine{125 \};}

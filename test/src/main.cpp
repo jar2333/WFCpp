@@ -106,12 +106,12 @@ void testSolver() {
         print(k, "tiles: ");
     });
 
-    int gridSize = 2;
+    size_t gridSize = 2;
 
     auto grid = solver.solve(gridSize);
 
-    for (int i = 0; i < gridSize; i++) {
-      for (int j = 0; j < gridSize; j++) {
+    for (size_t i = 0; i < gridSize; i++) {
+      for (size_t j = 0; j < gridSize; j++) {
         std::cout << "Position: (" << i << ", " << j << "), tile: " << tiles[grid->getKey({i, j})] << std::endl;
       }
     }
