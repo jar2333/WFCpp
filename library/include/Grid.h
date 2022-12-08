@@ -15,13 +15,13 @@ public:
 
     ~Grid() = default;
 
-    Grid(unsigned int dimension, std::map<TileKey, std::shared_ptr<Tile>> map)
+    Grid(size_t dimension, std::map<TileKey, std::shared_ptr<Tile>> map)
     {
         setDimension(dimension);
         setTileMap(map);
     }
     
-    Grid(unsigned int dimension)
+    Grid(size_t dimension)
     {
         setDimension(dimension);
     }
@@ -31,7 +31,7 @@ public:
         return dimension;
     }
 
-    void setDimension(unsigned int newDimension)
+    void setDimension(size_t newDimension)
     {
         dimension = newDimension;
         tileKeyGrid.resize(newDimension, std::vector<TileKey>());
@@ -46,10 +46,13 @@ public:
 
     void setKey(Position p, TileKey key) 
     {
-        setPosition(p, key);
+        if (!checkPosition(p))
+            throw std::out_of_range("Position out of range. ");
+
+        tileKeyGrid[p.y][p.x] = key;
     } 
 
-    std::shared_ptr<Tile> getPosition(Position pos) const
+    std::shared_ptr<Tile> getTile(Position pos) const
     {
         if (!checkPosition(pos))
             throw std::out_of_range("Position out of range. ");
@@ -60,9 +63,9 @@ public:
         return tile;
     }
 
-    void setPosition(Position pos, TileKey tileKey)
+    void setTile(Position pos, TileKey tileKey)
     {
-        if (tileMap.find(tileKey) == tileMap.end())
+        if (!tileMap.contains(tileKey))
             throw std::out_of_range("TileKey does not exist. ");
 
         if (!checkPosition(pos))
@@ -84,10 +87,10 @@ public:
         if (!checkPosition(pos))
             throw std::out_of_range("Position out of range. ");
 
-        if (getPosition(pos)->getSize() > INT_MAX)
+        if (getTile(pos)->getSize() > INT_MAX)
             throw std::runtime_error("Tile size too big. ");
         
-        auto tileSize = (int) getPosition(pos)->getSize();
+        auto tileSize = (int) getTile(pos)->getSize();
         
         return { pos.x * tileSize, pos.y * tileSize} ;
     }
@@ -107,7 +110,7 @@ public:
 
 private:
 
-    unsigned int dimension;
+    size_t dimension;
 
     std::map<TileKey, std::shared_ptr<Tile>> tileMap;
 

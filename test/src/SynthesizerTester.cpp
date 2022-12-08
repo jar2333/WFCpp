@@ -30,7 +30,7 @@ std::shared_ptr<Grid<Solver::TileKey>> generateCompleteGrid()
 
 
     for (const auto pos : grid->enumeratePosition()) {
-        grid->setPosition(pos, Solver::TileKey(pos.x % 2 + 1));
+        grid->setTile(pos, Solver::TileKey(pos.x % 2 + 1));
     }
 
     return grid;
@@ -91,7 +91,7 @@ void SynthesizerTester::testRealTimeImage()
 
     LOG("   Modify image");
     auto pos = grid->translatePixelPosition({1, 1});
-    syn.modifyRealTimeImage(pos, *(grid->getPosition({1, 1})));
+    syn.modifyRealTimeImage(pos, *(grid->getTile({1, 1})));
     assert((*img) == sampleImageRt);
 
     LOG("   Export image");

@@ -241,8 +241,8 @@ inline bool operator==(const BMPImage& lhs, const BMPImage& rhs)
         return false;
     }
 
-    for (auto x = 0; x < lhs.getWidth(); x++)
-        for (auto y = 0; y < lhs.getHeight(); y++) {
+    for (unsigned int x = 0; x < lhs.getWidth(); x++)
+        for (unsigned int y = 0; y < lhs.getHeight(); y++) {
             if (lhs.getPixel({x, y}) != rhs.getPixel({x, y})) {
                 return false;
             }

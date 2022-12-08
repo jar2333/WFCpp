@@ -6,19 +6,22 @@ typedef Solver::TileKey TileKey;
    INTERFACE
 */
 
-void Solver::setSeed(int seed) {
+  void Solver::setSeed(int seed) {
     seed = seed;
     srand(seed);
-}
+  }
 
-int Solver::getSeed() {
+  int Solver::getSeed() {
     return seed;
-}
+  }
 
-//use move semantics?
-Grid<TileKey> Solver::solve(int N) {
-    Grid<TileKey> g = Grid<TileKey>(N);
+  std::shared_ptr<Grid<TileKey>> Solver::solve(int N) {
+    auto g = std::make_shared<Grid<TileKey>>(N);
+    this->solve(N, *g);
+    return g;
+  }
 
+  void Solver::solve(int N, Grid<TileKey>& grid) {
     initializeGrid(N);
 
     while (!isCollapsed()) {
@@ -32,10 +35,8 @@ Grid<TileKey> Solver::solve(int N) {
 
     for (const auto& [p, tile] : this->grid) {
       TileKey k = tile[0];
-      g.setKey(p, k);
+      grid.setKey(p, k);
     }
-
-    return g;
   }
 
   void Solver::addAdjacencyConstraint(TileKey t, Direction d, TileKey neighbor) {

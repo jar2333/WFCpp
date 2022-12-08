@@ -4,6 +4,7 @@
 #include <Grid.h>
 #include <Position.h>
 
+#include <memory>
 #include <map>
 #include <set>
 #include <vector>
@@ -20,14 +21,20 @@
 #include <cstdlib>
 #include <stdexcept>
 
-namespace std {
-  template <>
-  struct hash<Position> {
-    std::size_t operator()(const Position& k) const {
-      return (k.y << 16) ^ k.x;
-    }
-  };
-}
+
+template <>
+struct std::hash<Position> {
+  std::size_t operator()(const Position& k) const {
+    return (k.y << 16) ^ k.x;
+  }
+};
+template <>
+struct std::hash<std::pair<size_t, Direction>> {
+  std::size_t operator()(const std::pair<size_t, Direction>& k) const {
+    return k.first ^ (size_t)k.second;
+  }
+};
+
 
 /**
 * @class Solver
@@ -136,7 +143,16 @@ public:
   * @return A solved grid
   * @throws std::runtime_error Indicates that the grid could not be solved. 
   */
-  Grid<TileKey> solve(int N);
+  std::shared_ptr<Grid<TileKey>> solve(int N);
+
+  /**
+  * Runs the wave-function collapse algorithm, solving in-place a 2-dimensional square Grid or throwing an exception if the algorithm fails.
+  * The grid modified is of dimensions NxN.
+  * @param N The dimensions of the square grid. 
+  * @param grid A grid to solve
+  * @throws std::runtime_error Indicates that the grid could not be solved. 
+  */
+  void solve(int N, Grid<TileKey>& grid);
 
   /*
    CONSTRAINT INTERFACE/API
@@ -144,13 +160,13 @@ public:
   */
 
   /**
-  * A method for adding an <it>adjacency constraint</it>. An adjacency constraint
+  * A method for adding an <i>adjacency constraint</i>. An adjacency constraint
   * consists of a given tile, a direction, and a neighbor tile. The constraint specifies that
   * the neighbor tile is allowed to be adjacent to the given tile in said direction. Inversely, if
   * such a constraint does not exist, the neighbor tile is not allowed to be adjacent in that direction.
   * 
   * By default, if <b>no</b> constraint exists for a (tile, direction) pair, every tile is allowed
-  * to be adjacent to the given tile in that direction. This is why they are called <it>constraints</it>,
+  * to be adjacent to the given tile in that direction. This is why they are called <i>constraints</i>,
   * since it constrains this default case by only allowing specific neighbors.
   *
   * This method is idempotent.
@@ -162,7 +178,7 @@ public:
   void addAdjacencyConstraint(TileKey t, Direction d, TileKey neighbor);
 
   /**
-  * A method for removing an <it>adjacency constraint</it>. 
+  * A method for removing an <i>adjacency constraint</i>. 
   *
   * This method is idempotent.
   *
@@ -200,7 +216,7 @@ public:
   void removeAdjacencyConstraint(TileKey t, Direction d, std::initializer_list<TileKey> neighbors);
 
   /**
-  * A method to set an <it>initial constraint</it>. An initial constraint involves a grid position
+  * A method to set an <i>initial constraint</i>. An initial constraint involves a grid position
   * and a tile key. The grid square at the given position is preemptively collapsed to the given tile key,
   * with the results being propagated, before the algorithm begins. This gives the user more say in the
   * kinds of solutions that the algorithm will reach. 
@@ -311,9 +327,9 @@ private:
 
   void initializeGrid(int N);
   void processInitialConstraints() ;
-  void iterate();
   bool isCollapsed();
   bool isContradiction();
+  void iterate();
   Position getMinEntropyCoordinates();
   void collapseAt(Position p);
   void propagate(Position p);
