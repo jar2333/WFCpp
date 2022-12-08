@@ -1,0 +1,59 @@
+\hypertarget{Pixel_8h_source}{}\doxysection{Pixel.\+h}
+\label{Pixel_8h_source}\index{include/Pixel.h@{include/Pixel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{9 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} BYTE;}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{17 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> }
+\DoxyCodeLine{18 \textcolor{keyword}{concept }\mbox{\hyperlink{conceptPixelType}{PixelType}} = \textcolor{keyword}{requires}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     T::Red; }
+\DoxyCodeLine{21     T::Green; }
+\DoxyCodeLine{22     T::Blue; }
+\DoxyCodeLine{23     T::Alpha; }
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{30 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structPixel}{Pixel}} \{}
+\DoxyCodeLine{31     \textcolor{keywordtype}{int} count;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{37     BYTE \mbox{\hyperlink{structPixel_a25700f39819fea43d244144cfeb19ee3}{Blue}};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{43     BYTE \mbox{\hyperlink{structPixel_a25b3da0327b05debc2851da433fce42f}{Green}};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{49     BYTE \mbox{\hyperlink{structPixel_a2a9517ac9601f28c51294a93ed2c8728}{Red}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{55     BYTE \mbox{\hyperlink{structPixel_ab97afc36303b6967adead9ea01084762}{Alpha}};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{66     \textcolor{keyword}{template}<PixelType T>}
+\DoxyCodeLine{67     \mbox{\hyperlink{structPixel}{Pixel}}\& \mbox{\hyperlink{structPixel_a59ebc25bda17bfed253c49eb31b58a63}{operator=}}(\textcolor{keyword}{const} T\& rhs) \{}
+\DoxyCodeLine{68         \mbox{\hyperlink{structPixel_ab97afc36303b6967adead9ea01084762}{Alpha}} = rhs.Alpha;}
+\DoxyCodeLine{69         \mbox{\hyperlink{structPixel_a25700f39819fea43d244144cfeb19ee3}{Blue}} = rhs.Blue;}
+\DoxyCodeLine{70         \mbox{\hyperlink{structPixel_a25b3da0327b05debc2851da433fce42f}{Green}} = rhs.Green;}
+\DoxyCodeLine{71         \mbox{\hyperlink{structPixel_a2a9517ac9601f28c51294a93ed2c8728}{Red}} = rhs.Red;}
+\DoxyCodeLine{72         count = 0;}
+\DoxyCodeLine{73         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{74     \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \} \mbox{\hyperlink{structPixel}{Pixel}}; }
+\DoxyCodeLine{77 }
+\DoxyCodeLine{87 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{structPixel}{Pixel}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structPixel}{Pixel}}\& rhs) \{ }
+\DoxyCodeLine{88     \textcolor{keywordflow}{return} lhs.Pixel::Blue == rhs.Pixel::Blue \&\& lhs.Pixel::Green == rhs.Pixel::Green \&\& lhs.\mbox{\hyperlink{structPixel_a2a9517ac9601f28c51294a93ed2c8728}{Red}} == rhs.\mbox{\hyperlink{structPixel_a2a9517ac9601f28c51294a93ed2c8728}{Red}} \&\& lhs.\mbox{\hyperlink{structPixel_ab97afc36303b6967adead9ea01084762}{Alpha}} == rhs.\mbox{\hyperlink{structPixel_ab97afc36303b6967adead9ea01084762}{Alpha}};}
+\DoxyCodeLine{89 \}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{99 std::ostream\& operator<<(std::ostream \&os, \textcolor{keyword}{const} \mbox{\hyperlink{structPixel}{Pixel}} \&p);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{comment}{/* DEFAULT CONSTANTS */}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{keyword}{constexpr} \mbox{\hyperlink{structPixel}{Pixel}} defaultPixel = \{}
+\DoxyCodeLine{104     0,}
+\DoxyCodeLine{105     255,}
+\DoxyCodeLine{106     255,}
+\DoxyCodeLine{107     255,}
+\DoxyCodeLine{108     0}
+\DoxyCodeLine{109 \};}
+
+\end{DoxyCode}
