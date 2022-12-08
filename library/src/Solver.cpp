@@ -151,7 +151,7 @@ typedef Solver::TileKey TileKey;
 
   Position Solver::getMinEntropyCoordinates() {
     Position min_entropy_position{0,0};
-    size_t min_entropy = tiles.size();
+    size_t min_entropy = this->tiles.size();
     for (auto const [p, v] : grid) {
       if (v.size() < min_entropy && v.size() > 1) {
         min_entropy_position = p;

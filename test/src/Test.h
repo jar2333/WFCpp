@@ -58,3 +58,25 @@ class BMPImageTester
         void testExportToFile();
 
 };
+
+class SolverTester
+{
+    public:
+        SolverTester() = default;
+        ~SolverTester() = default;
+
+        void runAll();
+
+        void testSolver();
+};
+
+class ExtractorTester
+{
+    public:
+        ExtractorTester() = default;
+        ~ExtractorTester() = default;
+
+        void runAll();
+
+        void testExtractor();
+};

@@ -148,7 +148,7 @@ public:
   /**
   * Runs the wave-function collapse algorithm, solving in-place a 2-dimensional square Grid or throwing an exception if the algorithm fails.
   * The grid modified is of dimensions NxN.
-  * @param N The dimensions of the square grid. 
+  * @param N The dimension of the square grid. 
   * @param grid A grid to solve
   * @throws std::runtime_error Indicates that the grid could not be solved. 
   */
@@ -311,7 +311,7 @@ private:
   std::vector<TileKey> tiles;
 
   /* CONSTRAINTS */
-  std::map<Side, std::unordered_set<TileKey>> adjacency_constraints;
+  std::unordered_map<Side, std::unordered_set<TileKey>> adjacency_constraints;
   std::unordered_map<Position, std::unordered_set<TileKey>> initial_constraints;
 
   /* BEHAVIOURS */
