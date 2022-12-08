@@ -10,6 +10,8 @@ add_executable(main.exe
   src/Test.h
   src/SynthesizerTester.cpp
   src/BMPImageTester.cpp
+  src/SolverTester.cpp
+  src/ExtractorTester.cpp
 )
 
 if (CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug")

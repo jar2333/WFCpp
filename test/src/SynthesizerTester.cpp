@@ -3,9 +3,9 @@
 std::shared_ptr<BMPImage> generateBMPByPixel(unsigned int size, Pixel pixel)
 {
     auto img = std::make_shared<BMPImage> (size, size);
-    for (int i = 0; i < size; i++)
-        for (int j = 0; j < size; j++) {
-            Position pos = {i ,j};
+    for (unsigned int i = 0; i < size; i++)
+        for (unsigned int j = 0; j < size; j++) {
+            Position pos = {i, j};
             img->setPixel(pos, pixel);
         }
     return img;
@@ -30,7 +30,7 @@ std::shared_ptr<Grid<Solver::TileKey>> generateCompleteGrid()
 
 
     for (const auto pos : grid->enumeratePosition()) {
-        grid->setPosition(pos, Solver::TileKey(pos.x % 2 + 1));
+        grid->setTile(pos, Solver::TileKey(pos.x % 2 + 1));
     }
 
     return grid;
@@ -91,7 +91,7 @@ void SynthesizerTester::testRealTimeImage()
 
     LOG("   Modify image");
     auto pos = grid->translatePixelPosition({1, 1});
-    syn.modifyRealTimeImage(pos, *(grid->getPosition({1, 1})));
+    syn.modifyRealTimeImage(pos, *(grid->getTile({1, 1})));
     assert((*img) == sampleImageRt);
 
     LOG("   Export image");

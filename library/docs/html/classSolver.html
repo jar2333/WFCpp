@@ -114,8 +114,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a010ed819d6b21696564a5cc5cd5e2cbb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolver.html#a010ed819d6b21696564a5cc5cd5e2cbb">getSeed</a> ()</td></tr>
 <tr class="memdesc:a010ed819d6b21696564a5cc5cd5e2cbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the seed for the random number generator.  <a href="classSolver.html#a010ed819d6b21696564a5cc5cd5e2cbb">More...</a><br /></td></tr>
 <tr class="separator:a010ed819d6b21696564a5cc5cd5e2cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81dc1e75e3c6e3cce9d884242d148ac1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGrid.html">Grid</a>&lt; <a class="el" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolver.html#a81dc1e75e3c6e3cce9d884242d148ac1">solve</a> (int N)</td></tr>
-<tr class="separator:a81dc1e75e3c6e3cce9d884242d148ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d7406c53eecaf19b82b312791d8fcb0"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classGrid.html">Grid</a>&lt; <a class="el" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolver.html#a7d7406c53eecaf19b82b312791d8fcb0">solve</a> (size_t N)</td></tr>
+<tr class="separator:a7d7406c53eecaf19b82b312791d8fcb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a889f4d7fb4caa5d53a5a54ef31592d13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolver.html#a889f4d7fb4caa5d53a5a54ef31592d13">solve</a> (size_t N, <a class="el" href="classGrid.html">Grid</a>&lt; <a class="el" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a> &gt; &amp;grid)</td></tr>
+<tr class="separator:a889f4d7fb4caa5d53a5a54ef31592d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9e645865467108124343029fcd91504"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolver.html#ae9e645865467108124343029fcd91504">addAdjacencyConstraint</a> (<a class="el" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a> t, Direction d, <a class="el" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a> neighbor)</td></tr>
 <tr class="separator:ae9e645865467108124343029fcd91504"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac103dc80c8f2e6b8f96d6890c7e0f1e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolver.html#ac103dc80c8f2e6b8f96d6890c7e0f1e8">removeAdjacencyConstraint</a> (<a class="el" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a> t, Direction d, <a class="el" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a> neighbor)</td></tr>
@@ -370,8 +372,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >A method for adding an &lt;it&gt;adjacency constraint&lt;/it&gt;. An adjacency constraint consists of a given tile, a direction, and a neighbor tile. The constraint specifies that the neighbor tile is allowed to be adjacent to the given tile in said direction. Inversely, if such a constraint does not exist, the neighbor tile is not allowed to be adjacent in that direction.</p>
-<p >By default, if <b>no</b> constraint exists for a (tile, direction) pair, every tile is allowed to be adjacent to the given tile in that direction. This is why they are called &lt;it&gt;constraints&lt;/it&gt;, since it constrains this default case by only allowing specific neighbors.</p>
+<p >A method for adding an <em>adjacency constraint</em>. An adjacency constraint consists of a given tile, a direction, and a neighbor tile. The constraint specifies that the neighbor tile is allowed to be adjacent to the given tile in said direction. Inversely, if such a constraint does not exist, the neighbor tile is not allowed to be adjacent in that direction.</p>
+<p >By default, if <b>no</b> constraint exists for a (tile, direction) pair, every tile is allowed to be adjacent to the given tile in that direction. This is why they are called <em>constraints</em>, since it constrains this default case by only allowing specific neighbors.</p>
 <p >This method is idempotent.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -598,7 +600,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >A method for removing an &lt;it&gt;adjacency constraint&lt;/it&gt;.</p>
+<p >A method for removing an <em>adjacency constraint</em>.</p>
 <p >This method is idempotent.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classSolver.html#ae9e645865467108124343029fcd91504">Solver::addAdjacencyConstraint(TileKey t, Direction d, TileKey neighbor)</a> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -700,7 +702,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >A method to set an &lt;it&gt;initial constraint&lt;/it&gt;. An initial constraint involves a grid position and a tile key. The grid square at the given position is preemptively collapsed to the given tile key, with the results being propagated, before the algorithm begins. This gives the user more say in the kinds of solutions that the algorithm will reach.</p>
+<p >A method to set an <em>initial constraint</em>. An initial constraint involves a grid position and a tile key. The grid square at the given position is preemptively collapsed to the given tile key, with the results being propagated, before the algorithm begins. This gives the user more say in the kinds of solutions that the algorithm will reach.</p>
 <p >Liberal use of initial constraints may lead to frequent contradictions, so limiting their use is adviced.</p>
 <p >Unlike the adjacency constraint API, succesive calls to this method with the same position but different tile keys does not add them all to the grid position. It is a setter, not an inserter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -739,16 +741,16 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a81dc1e75e3c6e3cce9d884242d148ac1" name="a81dc1e75e3c6e3cce9d884242d148ac1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81dc1e75e3c6e3cce9d884242d148ac1">&#9670;&#160;</a></span>solve()</h2>
+<a id="a7d7406c53eecaf19b82b312791d8fcb0" name="a7d7406c53eecaf19b82b312791d8fcb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d7406c53eecaf19b82b312791d8fcb0">&#9670;&#160;</a></span>solve() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classGrid.html">Grid</a>&lt; <a class="el" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a> &gt; Solver::solve </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classGrid.html">Grid</a>&lt; <a class="el" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a> &gt; &gt; Solver::solve </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>N</em></td><td>)</td>
           <td></td>
         </tr>
@@ -761,6 +763,47 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A solved grid </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Indicates that the grid could not be solved. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a889f4d7fb4caa5d53a5a54ef31592d13" name="a889f4d7fb4caa5d53a5a54ef31592d13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a889f4d7fb4caa5d53a5a54ef31592d13">&#9670;&#160;</a></span>solve() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::solve </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>N</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classGrid.html">Grid</a>&lt; <a class="el" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>grid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Runs the wave-function collapse algorithm, solving in-place a 2-dimensional square <a class="el" href="classGrid.html">Grid</a> or throwing an exception if the algorithm fails. The grid modified is of dimensions NxN. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">N</td><td>The dimensions of the square grid. </td></tr>
+    <tr><td class="paramname">grid</td><td>A grid to solve </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::runtime_error</td><td>Indicates that the grid could not be solved. </td></tr>

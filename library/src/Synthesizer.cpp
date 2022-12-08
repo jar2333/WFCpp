@@ -15,12 +15,12 @@ void Synthesizer::exportGridToFile(const Grid<Solver::TileKey>& grid, std::strin
 std::shared_ptr<BMPImage> Synthesizer::exportGridToImage(const Grid<Solver::TileKey>& grid)
 {
     unsigned int gridDimension = grid.getDimension();
-    unsigned int tileSize = grid.getPosition(Position {0, 0})->getSize();
+    unsigned int tileSize = grid.getTile(Position {0, 0})->getSize();
 
     auto resImage = std::make_shared<BMPImage>(gridDimension * tileSize, gridDimension * tileSize);
 
     for (auto pos : grid.enumeratePosition()) {
-        auto tile = grid.getPosition(pos);
+        auto tile = grid.getTile(pos);
         auto pixelPos = grid.translatePixelPosition(pos);
         
         copyTileToGrid(pixelPos, *tile, resImage.get());

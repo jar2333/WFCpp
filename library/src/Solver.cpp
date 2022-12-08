@@ -6,19 +6,22 @@ typedef Solver::TileKey TileKey;
    INTERFACE
 */
 
-void Solver::setSeed(int seed) {
+  void Solver::setSeed(int seed) {
     seed = seed;
     srand(seed);
-}
+  }
 
-int Solver::getSeed() {
+  int Solver::getSeed() {
     return seed;
-}
+  }
 
-//use move semantics?
-Grid<TileKey> Solver::solve(int N) {
-    Grid<TileKey> g = Grid<TileKey>(N);
+  std::shared_ptr<Grid<TileKey>> Solver::solve(size_t N) {
+    auto g = std::make_shared<Grid<TileKey>>(N);
+    this->solve(N, *g);
+    return g;
+  }
 
+  void Solver::solve(size_t N, Grid<TileKey>& grid) {
     initializeGrid(N);
 
     while (!isCollapsed()) {
@@ -32,10 +35,8 @@ Grid<TileKey> Solver::solve(int N) {
 
     for (const auto& [p, tile] : this->grid) {
       TileKey k = tile[0];
-      g.setKey(p, k);
+      grid.setKey(p, k);
     }
-
-    return g;
   }
 
   void Solver::addAdjacencyConstraint(TileKey t, Direction d, TileKey neighbor) {
@@ -101,14 +102,14 @@ Grid<TileKey> Solver::solve(int N) {
     ALGORITHM (optimize)
   */
 
-  void Solver::initializeGrid(int N) {
+  void Solver::initializeGrid(size_t N) {
     grid.clear();
 
     this->N = N;
 
     //populate grid
-    for (int i = 0; i < N; i++) {
-      for (int j = 0; j < N; j++) {
+    for (size_t i = 0; i < N; i++) {
+      for (size_t j = 0; j < N; j++) {
         Position p{i, j};
         grid[p] = getPossibleTiles(p);
       }
@@ -150,7 +151,7 @@ Grid<TileKey> Solver::solve(int N) {
 
   Position Solver::getMinEntropyCoordinates() {
     Position min_entropy_position{0,0};
-    size_t min_entropy = tiles.size();
+    size_t min_entropy = this->tiles.size();
     for (auto const [p, v] : grid) {
       if (v.size() < min_entropy && v.size() > 1) {
         min_entropy_position = p;

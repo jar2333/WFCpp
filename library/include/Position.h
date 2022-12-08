@@ -2,19 +2,18 @@
 
 #include <Direction.h>
 
+#include <cstddef>
+
 struct Position {
-    int x;
-    int y;
+    size_t x;
+    size_t y;
 
     Direction getDirection(Position other) {
-      auto x_offset = other.x - this->x;
-      auto y_offset = other.y - this->y;  
-
-      if (x_offset == 1)
+      if (other.x > x)
         return Direction::RIGHT;
-      else if (x_offset == -1)
+      else if (other.x < x)
         return Direction::LEFT;
-      else if (y_offset == 1)
+      else if (other.y > y)
         return Direction::UP;
       else
         return Direction::DOWN;

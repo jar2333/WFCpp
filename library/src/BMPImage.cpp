@@ -55,8 +55,8 @@ BMPImage::BMPImage(std::string filePath)
         setSize(width, height);
 
         auto i = 0;
-        for(int y = 0; y < height; y++) //the rows are stored inversed in bmp
-            for(int x = 0; x < width; x++) {
+        for(unsigned int y = 0; y < height; y++) //the rows are stored inversed in bmp
+            for(unsigned int x = 0; x < width; x++) {
                 pixels[x][y].Red = image[i++];
                 pixels[x][y].Green = image[i++];
                 pixels[x][y].Blue = image[i++];
@@ -76,8 +76,8 @@ BMPImage::BMPImage(std::string filePath)
 
         setSize(width, height);
 
-        for (int y = 0; y < height; y++)
-            for (int x = 0; x < width; x++){
+        for (unsigned int y = 0; y < height; y++)
+            for (unsigned int x = 0; x < width; x++){
                 pixels[x][y] = rawBMP.GetPixel(x, y);
             }
 
@@ -123,8 +123,8 @@ void BMPImage::exportToFile(std::string filename, FileType type) const
 
     if (type == FileType::png) {
         std::vector<unsigned char> image;
-        for(int y = 0; y < height; y++)
-            for (int x = 0; x < width; x++) {
+        for(unsigned int y = 0; y < height; y++)
+            for (unsigned int x = 0; x < width; x++) {
                 auto pixel = getPixel({x, y});
                 auto r =  (unsigned char) (pixel.Red);
                 auto g =  (unsigned char) (pixel.Green);
@@ -144,8 +144,8 @@ void BMPImage::exportToFile(std::string filename, FileType type) const
         res.SetSize(width, height);
         res.SetBitDepth(bitDepth);
         res.SetDPI(horizontalDPI, verticalDPI);
-        for (int x = 0; x < width; x++)
-            for (int y = 0; y < height; y++) {
+        for (unsigned int x = 0; x < width; x++)
+            for (unsigned int y = 0; y < height; y++) {
                 Pixel pixel = getPixel({x, y});
                 RGBApixel rgbaPixel = { pixel.Blue, pixel.Green, pixel.Red, pixel.Alpha };
                 res.SetPixel(x, y, rgbaPixel);

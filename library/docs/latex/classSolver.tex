@@ -38,7 +38,9 @@ void \mbox{\hyperlink{classSolver_a34198a1963bea018d0d7096dd36e3653}{set\+Seed}}
 \begin{DoxyCompactList}\small\item\em Set the seed for the random number generator. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classSolver_a010ed819d6b21696564a5cc5cd5e2cbb}{get\+Seed}} ()
 \begin{DoxyCompactList}\small\item\em Get the seed for the random number generator. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ \mbox{\hyperlink{classSolver_a81dc1e75e3c6e3cce9d884242d148ac1}{solve}} (int N)
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ $>$ \mbox{\hyperlink{classSolver_a7d7406c53eecaf19b82b312791d8fcb0}{solve}} (size\+\_\+t N)
+\item 
+void \mbox{\hyperlink{classSolver_a889f4d7fb4caa5d53a5a54ef31592d13}{solve}} (size\+\_\+t N, \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ \&grid)
 \item 
 void \mbox{\hyperlink{classSolver_ae9e645865467108124343029fcd91504}{add\+Adjacency\+Constraint}} (\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} t, Direction d, \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} neighbor)
 \item 
@@ -181,9 +183,9 @@ This method is idempotent.
 \doxysubsubsection{\texorpdfstring{addAdjacencyConstraint()}{addAdjacencyConstraint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Solver\+::add\+Adjacency\+Constraint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}}]{t,  }\item[{Direction}]{d,  }\item[{\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}}]{neighbor }\end{DoxyParamCaption})}
 
-A method for adding an $<$it$>$adjacency constraint$<$/it$>$. An adjacency constraint consists of a given tile, a direction, and a neighbor tile. The constraint specifies that the neighbor tile is allowed to be adjacent to the given tile in said direction. Inversely, if such a constraint does not exist, the neighbor tile is not allowed to be adjacent in that direction.
+A method for adding an {\itshape adjacency constraint}. An adjacency constraint consists of a given tile, a direction, and a neighbor tile. The constraint specifies that the neighbor tile is allowed to be adjacent to the given tile in said direction. Inversely, if such a constraint does not exist, the neighbor tile is not allowed to be adjacent in that direction.
 
-By default, if {\bfseries{no}} constraint exists for a (tile, direction) pair, every tile is allowed to be adjacent to the given tile in that direction. This is why they are called $<$it$>$constraints$<$/it$>$, since it constrains this default case by only allowing specific neighbors.
+By default, if {\bfseries{no}} constraint exists for a (tile, direction) pair, every tile is allowed to be adjacent to the given tile in that direction. This is why they are called {\itshape constraints}, since it constrains this default case by only allowing specific neighbors.
 
 This method is idempotent.
 
@@ -319,7 +321,7 @@ This method is idempotent.
 \doxysubsubsection{\texorpdfstring{removeAdjacencyConstraint()}{removeAdjacencyConstraint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Solver\+::remove\+Adjacency\+Constraint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}}]{t,  }\item[{Direction}]{d,  }\item[{\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}}]{neighbor }\end{DoxyParamCaption})}
 
-A method for removing an $<$it$>$adjacency constraint$<$/it$>$.
+A method for removing an {\itshape adjacency constraint}.
 
 This method is idempotent.
 
@@ -374,7 +376,7 @@ If an empty initializer list is passed, nothing will occur.
 \doxysubsubsection{\texorpdfstring{setInitialConstraint()}{setInitialConstraint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Solver\+::set\+Initial\+Constraint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{p,  }\item[{\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}}}]{possibility }\end{DoxyParamCaption})}
 
-A method to set an $<$it$>$initial constraint$<$/it$>$. An initial constraint involves a grid position and a tile key. The grid square at the given position is preemptively collapsed to the given tile key, with the results being propagated, before the algorithm begins. This gives the user more say in the kinds of solutions that the algorithm will reach.
+A method to set an {\itshape initial constraint}. An initial constraint involves a grid position and a tile key. The grid square at the given position is preemptively collapsed to the given tile key, with the results being propagated, before the algorithm begins. This gives the user more say in the kinds of solutions that the algorithm will reach.
 
 Liberal use of initial constraints may lead to frequent contradictions, so limiting their use is adviced.
 
@@ -402,11 +404,11 @@ Set the seed for the random number generator.
 {\em seed} & the seed \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classSolver_a81dc1e75e3c6e3cce9d884242d148ac1}\label{classSolver_a81dc1e75e3c6e3cce9d884242d148ac1}} 
+\mbox{\Hypertarget{classSolver_a7d7406c53eecaf19b82b312791d8fcb0}\label{classSolver_a7d7406c53eecaf19b82b312791d8fcb0}} 
 \index{Solver@{Solver}!solve@{solve}}
 \index{solve@{solve}!Solver@{Solver}}
-\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ Solver\+::solve (\begin{DoxyParamCaption}\item[{int}]{N }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ $>$ Solver\+::solve (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{N }\end{DoxyParamCaption})}
 
 Runs the wave-\/function collapse algorithm, returning a solved 2-\/dimensional square \mbox{\hyperlink{classGrid}{Grid}} or throwing an exception if the algorithm fails. The grid returned is of dimensions NxN. 
 \begin{DoxyParams}{Parameters}
@@ -416,6 +418,24 @@ Runs the wave-\/function collapse algorithm, returning a solved 2-\/dimensional 
 \begin{DoxyReturn}{Returns}
 A solved grid 
 \end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & Indicates that the grid could not be solved. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classSolver_a889f4d7fb4caa5d53a5a54ef31592d13}\label{classSolver_a889f4d7fb4caa5d53a5a54ef31592d13}} 
+\index{Solver@{Solver}!solve@{solve}}
+\index{solve@{solve}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Solver\+::solve (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{N,  }\item[{\mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ \&}]{grid }\end{DoxyParamCaption})}
+
+Runs the wave-\/function collapse algorithm, solving in-\/place a 2-\/dimensional square \mbox{\hyperlink{classGrid}{Grid}} or throwing an exception if the algorithm fails. The grid modified is of dimensions NxN. 
+\begin{DoxyParams}{Parameters}
+{\em N} & The dimensions of the square grid. \\
+\hline
+{\em grid} & A grid to solve \\
+\hline
+\end{DoxyParams}
 
 \begin{DoxyExceptions}{Exceptions}
 {\em std\+::runtime\+\_\+error} & Indicates that the grid could not be solved. \\
