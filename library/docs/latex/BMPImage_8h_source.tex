@@ -113,8 +113,8 @@
 \DoxyCodeLine{241         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
 \DoxyCodeLine{242     \}}
 \DoxyCodeLine{243 }
-\DoxyCodeLine{244     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} x = 0; x < lhs.getWidth(); x++)}
-\DoxyCodeLine{245         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} y = 0; y < lhs.getHeight(); y++) \{}
+\DoxyCodeLine{244     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} x = 0; x < lhs.getWidth(); x++)}
+\DoxyCodeLine{245         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} y = 0; y < lhs.getHeight(); y++) \{}
 \DoxyCodeLine{246             \textcolor{keywordflow}{if} (lhs.getPixel(\{x, y\}) != rhs.getPixel(\{x, y\})) \{}
 \DoxyCodeLine{247                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
 \DoxyCodeLine{248             \}}
