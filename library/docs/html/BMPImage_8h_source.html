@@ -80,123 +80,75 @@ $(function() {
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;Position.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;FileType.h&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;Position.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;FileType.h&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> BYTE;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;Pixel.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> defaultHorizontalDPI = 96;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> defaultVerticalDPI = 96;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> defaultBitDepth = 32;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="conceptPixelType.html">   22</a></span><span class="keyword">concept </span><a class="code hl_concept" href="conceptPixelType.html">PixelType</a> = <span class="keyword">requires</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    T::Red; </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    T::Green; </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    T::Blue; </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    T::Alpha; </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classBMPImage.html">   26</a></span><span class="keyword">class </span><a class="code hl_class" href="classBMPImage.html">BMPImage</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structPixel.html">   34</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structPixel.html">Pixel</a> {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">int</span> count;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structPixel.html#a25700f39819fea43d244144cfeb19ee3">   41</a></span>    BYTE <a class="code hl_variable" href="structPixel.html#a25700f39819fea43d244144cfeb19ee3">Blue</a>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structPixel.html#a25b3da0327b05debc2851da433fce42f">   47</a></span>    BYTE <a class="code hl_variable" href="structPixel.html#a25b3da0327b05debc2851da433fce42f">Green</a>;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structPixel.html#a2a9517ac9601f28c51294a93ed2c8728">   53</a></span>    BYTE <a class="code hl_variable" href="structPixel.html#a2a9517ac9601f28c51294a93ed2c8728">Red</a>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structPixel.html#ab97afc36303b6967adead9ea01084762">   59</a></span>    BYTE <a class="code hl_variable" href="structPixel.html#ab97afc36303b6967adead9ea01084762">Alpha</a>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">template</span>&lt;PixelType T&gt;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structPixel.html#a59ebc25bda17bfed253c49eb31b58a63">   71</a></span>    <a class="code hl_struct" href="structPixel.html">Pixel</a>&amp; <a class="code hl_function" href="structPixel.html#a59ebc25bda17bfed253c49eb31b58a63">operator=</a>(<span class="keyword">const</span> T&amp; rhs) {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <a class="code hl_variable" href="structPixel.html#ab97afc36303b6967adead9ea01084762">Alpha</a> = rhs.Alpha;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_variable" href="structPixel.html#a25700f39819fea43d244144cfeb19ee3">Blue</a> = rhs.Blue;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_variable" href="structPixel.html#a25b3da0327b05debc2851da433fce42f">Green</a> = rhs.Green;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <a class="code hl_variable" href="structPixel.html#a2a9517ac9601f28c51294a93ed2c8728">Red</a> = rhs.Red;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        count = 0;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>} <a class="code hl_struct" href="structPixel.html">Pixel</a>; </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">inline</span> <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_struct" href="structPixel.html">Pixel</a>&amp; lhs, <span class="keyword">const</span> <a class="code hl_struct" href="structPixel.html">Pixel</a>&amp; rhs) { </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordflow">return</span> lhs.Pixel::Blue == rhs.Pixel::Blue &amp;&amp; lhs.Pixel::Green == rhs.Pixel::Green &amp;&amp; lhs.<a class="code hl_variable" href="structPixel.html#a2a9517ac9601f28c51294a93ed2c8728">Red</a> == rhs.<a class="code hl_variable" href="structPixel.html#a2a9517ac9601f28c51294a93ed2c8728">Red</a> &amp;&amp; lhs.<a class="code hl_variable" href="structPixel.html#ab97afc36303b6967adead9ea01084762">Alpha</a> == rhs.<a class="code hl_variable" href="structPixel.html#ab97afc36303b6967adead9ea01084762">Alpha</a>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>std::ostream&amp; operator&lt;&lt;(std::ostream &amp;os, <span class="keyword">const</span> <a class="code hl_struct" href="structPixel.html">Pixel</a> &amp;p);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">/* DEFAULT CONSTANTS */</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keyword">constexpr</span> <a class="code hl_struct" href="structPixel.html">Pixel</a> defaultPixel = {</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    0,</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    255,</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    255,</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    255,</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    0</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>};</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> defaultHorizontalDPI = 96;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> defaultVerticalDPI = 96;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> defaultBitDepth = 32;</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classBMPImage.html">  130</a></span><span class="keyword">class </span><a class="code hl_class" href="classBMPImage.html">BMPImage</a> {</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <a class="code hl_function" href="classBMPImage.html#a4f403c17cd09de70d082009ff7650318">BMPImage</a>();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_function" href="classBMPImage.html#a4f403c17cd09de70d082009ff7650318">BMPImage</a>();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_function" href="classBMPImage.html#a4f403c17cd09de70d082009ff7650318">BMPImage</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initWidth, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initHeight);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_function" href="classBMPImage.html#a4f403c17cd09de70d082009ff7650318">BMPImage</a>(std::string filename);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classBMPImage.html#a623be82b65beb90e120ac6c1f3650f8c">   55</a></span>    <a class="code hl_function" href="classBMPImage.html#a623be82b65beb90e120ac6c1f3650f8c">~BMPImage</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">/* Size */</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classBMPImage.html#ab7689d4b96f5d98d002f895ca3f6ecbe">getWidth</a>() const noexcept;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classBMPImage.html#ad710995d044bd0c7f6481a1ec3d3c947">getHeight</a>() const noexcept;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBMPImage.html#a5e5dc46dd01696614bb951623901ee47">setSize</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> NewWidth , <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> NewHeight);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="comment">/* Pixel */</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <a class="code hl_struct" href="structPixel.html">Pixel</a> <a class="code hl_function" href="classBMPImage.html#a386ec4889d5c7bdc230cd28fa5317383">getPixel</a>(<a class="code hl_struct" href="structPosition.html">Position</a> pos) const;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBMPImage.html#a92650178f0de80f97ef6b718af90e058">setPixel</a>(<a class="code hl_struct" href="structPosition.html">Position</a> pos, <a class="code hl_struct" href="structPixel.html">Pixel</a> newPixel);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBMPImage.html#a976c087c6d6d5ad9f793f112e90d00db">exportToFile</a>(std::<span class="keywordtype">string</span> filename, FileType type) const;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>private:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="comment">/* PIXELS */</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    std::vector&lt;std::vector&lt;<a class="code hl_struct" href="structPixel.html">Pixel</a>&gt;&gt; pixels;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="comment">/* METADATA */</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">int</span> bitDepth;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">int</span> verticalDPI, horizontalDPI;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="comment">/* HELPERS */</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    inline <span class="keywordtype">bool</span> checkPosition(<a class="code hl_struct" href="structPosition.html">Position</a> pos) const;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>};</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>inline <span class="keywordtype">bool</span> operator==(const <a class="code hl_class" href="classBMPImage.html">BMPImage</a>&amp; lhs, const <a class="code hl_class" href="classBMPImage.html">BMPImage</a>&amp; rhs)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>{</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordflow">if</span> (lhs.getWidth() != rhs.getWidth() || lhs.getHeight() != rhs.getHeight()) {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_function" href="classBMPImage.html#a4f403c17cd09de70d082009ff7650318">BMPImage</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initWidth, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initHeight);</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_function" href="classBMPImage.html#a4f403c17cd09de70d082009ff7650318">BMPImage</a>(std::string filename);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="classBMPImage.html#a623be82b65beb90e120ac6c1f3650f8c">  159</a></span>    <a class="code hl_function" href="classBMPImage.html#a623be82b65beb90e120ac6c1f3650f8c">~BMPImage</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="comment">/* Size */</span></div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classBMPImage.html#ab7689d4b96f5d98d002f895ca3f6ecbe">getWidth</a>() const noexcept;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classBMPImage.html#ad710995d044bd0c7f6481a1ec3d3c947">getHeight</a>() const noexcept;</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBMPImage.html#a5e5dc46dd01696614bb951623901ee47">setSize</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> NewWidth , <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> NewHeight);</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="comment">/* Pixel */</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <a class="code hl_struct" href="structPixel.html">Pixel</a> <a class="code hl_function" href="classBMPImage.html#a386ec4889d5c7bdc230cd28fa5317383">getPixel</a>(<a class="code hl_struct" href="structPosition.html">Position</a> pos) const;</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBMPImage.html#a92650178f0de80f97ef6b718af90e058">setPixel</a>(<a class="code hl_struct" href="structPosition.html">Position</a> pos, <a class="code hl_struct" href="structPixel.html">Pixel</a> newPixel);</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBMPImage.html#a976c087c6d6d5ad9f793f112e90d00db">exportToFile</a>(std::<span class="keywordtype">string</span> filename, FileType type) const;</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>private:</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="comment">/* PIXELS */</span></div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    std::vector&lt;std::vector&lt;<a class="code hl_struct" href="structPixel.html">Pixel</a>&gt;&gt; pixels;</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="comment">/* METADATA */</span></div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="keywordtype">int</span> bitDepth;</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordtype">int</span> verticalDPI, horizontalDPI;</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="comment">/* HELPERS */</span></div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    inline <span class="keywordtype">bool</span> checkPosition(<a class="code hl_struct" href="structPosition.html">Position</a> pos) const;</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>};</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>inline <span class="keywordtype">bool</span> operator==(const <a class="code hl_class" href="classBMPImage.html">BMPImage</a>&amp; lhs, const <a class="code hl_class" href="classBMPImage.html">BMPImage</a>&amp; rhs)</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>{</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordflow">if</span> (lhs.getWidth() != rhs.getWidth() || lhs.getHeight() != rhs.getHeight()) {</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    }</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x = 0; x &lt; lhs.getWidth(); x++)</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y = 0; y &lt; lhs.getHeight(); y++) {</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>            <span class="keywordflow">if</span> (lhs.getPixel({x, y}) != rhs.getPixel({x, y})) {</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            }</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        }</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>}</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
-<div class="ttc" id="aclassBMPImage_html"><div class="ttname"><a href="classBMPImage.html">BMPImage</a></div><div class="ttdoc">The BMPImage class.</div><div class="ttdef"><b>Definition:</b> BMPImage.h:130</div></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x = 0; x &lt; lhs.getWidth(); x++)</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y = 0; y &lt; lhs.getHeight(); y++) {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keywordflow">if</span> (lhs.getPixel({x, y}) != rhs.getPixel({x, y})) {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>}</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="ttc" id="aclassBMPImage_html"><div class="ttname"><a href="classBMPImage.html">BMPImage</a></div><div class="ttdoc">The BMPImage class.</div><div class="ttdef"><b>Definition:</b> BMPImage.h:26</div></div>
 <div class="ttc" id="aclassBMPImage_html_a386ec4889d5c7bdc230cd28fa5317383"><div class="ttname"><a href="classBMPImage.html#a386ec4889d5c7bdc230cd28fa5317383">BMPImage::getPixel</a></div><div class="ttdeci">Pixel getPixel(Position pos) const</div><div class="ttdoc">Get the Pixel object at some position.</div><div class="ttdef"><b>Definition:</b> BMPImage.cpp:103</div></div>
 <div class="ttc" id="aclassBMPImage_html_a4f403c17cd09de70d082009ff7650318"><div class="ttname"><a href="classBMPImage.html#a4f403c17cd09de70d082009ff7650318">BMPImage::BMPImage</a></div><div class="ttdeci">BMPImage()</div><div class="ttdoc">Construct a new BMPImage object.</div><div class="ttdef"><b>Definition:</b> BMPImage.cpp:19</div></div>
 <div class="ttc" id="aclassBMPImage_html_a5e5dc46dd01696614bb951623901ee47"><div class="ttname"><a href="classBMPImage.html#a5e5dc46dd01696614bb951623901ee47">BMPImage::setSize</a></div><div class="ttdeci">void setSize(unsigned int NewWidth, unsigned int NewHeight)</div><div class="ttdoc">Set the Size of the image. The added positions will be filled with defaultPixel.</div><div class="ttdef"><b>Definition:</b> BMPImage.cpp:96</div></div>
@@ -205,13 +157,7 @@ $(function() {
 <div class="ttc" id="aclassBMPImage_html_a976c087c6d6d5ad9f793f112e90d00db"><div class="ttname"><a href="classBMPImage.html#a976c087c6d6d5ad9f793f112e90d00db">BMPImage::exportToFile</a></div><div class="ttdeci">void exportToFile(std::string filename, FileType type) const</div><div class="ttdoc">Export this object to a file of specified type.</div><div class="ttdef"><b>Definition:</b> BMPImage.cpp:119</div></div>
 <div class="ttc" id="aclassBMPImage_html_ab7689d4b96f5d98d002f895ca3f6ecbe"><div class="ttname"><a href="classBMPImage.html#ab7689d4b96f5d98d002f895ca3f6ecbe">BMPImage::getWidth</a></div><div class="ttdeci">unsigned int getWidth() const noexcept</div><div class="ttdoc">Get the width.</div><div class="ttdef"><b>Definition:</b> BMPImage.cpp:90</div></div>
 <div class="ttc" id="aclassBMPImage_html_ad710995d044bd0c7f6481a1ec3d3c947"><div class="ttname"><a href="classBMPImage.html#ad710995d044bd0c7f6481a1ec3d3c947">BMPImage::getHeight</a></div><div class="ttdeci">unsigned int getHeight() const noexcept</div><div class="ttdoc">Get the height.</div><div class="ttdef"><b>Definition:</b> BMPImage.cpp:93</div></div>
-<div class="ttc" id="aconceptPixelType_html"><div class="ttname"><a href="conceptPixelType.html">PixelType</a></div><div class="ttdoc">The concept for pixel-like objects. It requires the type to contain RGBA properties/members.</div><div class="ttdef"><b>Definition:</b> BMPImage.h:22</div></div>
-<div class="ttc" id="astructPixel_html"><div class="ttname"><a href="structPixel.html">Pixel</a></div><div class="ttdoc">The struct for storing pixels in BMP. Supports up to 32-bit colors.</div><div class="ttdef"><b>Definition:</b> BMPImage.h:34</div></div>
-<div class="ttc" id="astructPixel_html_a25700f39819fea43d244144cfeb19ee3"><div class="ttname"><a href="structPixel.html#a25700f39819fea43d244144cfeb19ee3">Pixel::Blue</a></div><div class="ttdeci">BYTE Blue</div><div class="ttdoc">Blue value.</div><div class="ttdef"><b>Definition:</b> BMPImage.h:41</div></div>
-<div class="ttc" id="astructPixel_html_a25b3da0327b05debc2851da433fce42f"><div class="ttname"><a href="structPixel.html#a25b3da0327b05debc2851da433fce42f">Pixel::Green</a></div><div class="ttdeci">BYTE Green</div><div class="ttdoc">Green value.</div><div class="ttdef"><b>Definition:</b> BMPImage.h:47</div></div>
-<div class="ttc" id="astructPixel_html_a2a9517ac9601f28c51294a93ed2c8728"><div class="ttname"><a href="structPixel.html#a2a9517ac9601f28c51294a93ed2c8728">Pixel::Red</a></div><div class="ttdeci">BYTE Red</div><div class="ttdoc">Red value.</div><div class="ttdef"><b>Definition:</b> BMPImage.h:53</div></div>
-<div class="ttc" id="astructPixel_html_a59ebc25bda17bfed253c49eb31b58a63"><div class="ttname"><a href="structPixel.html#a59ebc25bda17bfed253c49eb31b58a63">Pixel::operator=</a></div><div class="ttdeci">Pixel &amp; operator=(const T &amp;rhs)</div><div class="ttdoc">Overload the = operator to support assignment from pixel-like objects.</div><div class="ttdef"><b>Definition:</b> BMPImage.h:71</div></div>
-<div class="ttc" id="astructPixel_html_ab97afc36303b6967adead9ea01084762"><div class="ttname"><a href="structPixel.html#ab97afc36303b6967adead9ea01084762">Pixel::Alpha</a></div><div class="ttdeci">BYTE Alpha</div><div class="ttdoc">Alpha value.</div><div class="ttdef"><b>Definition:</b> BMPImage.h:59</div></div>
+<div class="ttc" id="astructPixel_html"><div class="ttname"><a href="structPixel.html">Pixel</a></div><div class="ttdoc">The struct for storing pixels in BMP. Supports up to 32-bit colors.</div><div class="ttdef"><b>Definition:</b> Pixel.h:30</div></div>
 <div class="ttc" id="astructPosition_html"><div class="ttname"><a href="structPosition.html">Position</a></div><div class="ttdef"><b>Definition:</b> Position.h:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

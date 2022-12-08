@@ -14,12 +14,12 @@ void ExtractorTester::testExtractor() {
 	
 	TileData tile1;
 
-	e.extractPNG(&width, &height, &filename, &pixels);
-	e.extractTileset(width, height, 5, 1, pixels, &tiles);
+	e.extractPNG(width, height, filename, pixels);
+	e.extractTileset(width, height, 5, 1, pixels, tiles);
 	
 	int counter = 1;
 	
-	for(std::vector<TileData>::iterator it = tiles.begin(); it != tiles.end(); ++it){
+	for(auto it = tiles.begin(); it != tiles.end(); ++it){
 		std::cout << counter << ": " << it->width << ", " << it->height << std::endl;
 		
         std::string name = dir + "/tiles/New" + std::to_string(counter) + ".png";
