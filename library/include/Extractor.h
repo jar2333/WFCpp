@@ -1,6 +1,7 @@
 #pragma once
 
-#include <BMPImage.h>
+#include <Pixel.h>
+
 #include <vector>
 #include <string>
 
@@ -24,15 +25,20 @@ class TileData {
 
 class Extractor {
 	public: 
-		int extractPNG(unsigned int* width, unsigned int* height, std::string* filename, std::vector<Pixel>* pixels);	
-		int extractBMP(unsigned int* width, unsigned int* height, std::string* filename, std::vector<Pixel>* pixels);
-		int extractTileset(unsigned int width, unsigned int height, unsigned int Horizontal, unsigned int Vertical, std::vector<Pixel> pixels, std::vector<TileData>* tiles);
-		int tileFormation(std::vector<Pixel>* pixels, TileData* tile, unsigned int width, unsigned int height);
+		int extractPNG(unsigned int& width, unsigned int& height, const std::string& filename, std::vector<Pixel>& pixels);	
+		int extractBMP(unsigned int& width, unsigned int& height, const std::string& filename, std::vector<Pixel>& pixels);
+
+		int extractTileset(unsigned int width, unsigned int height, unsigned int horizontal, unsigned int vertical, const std::vector<Pixel>& pixels, std::vector<TileData>& tiles);
+
+ 		static int encodePNG(unsigned int width, unsigned int height, const std::string& filename, const std::vector<Pixel>& pixels);
+
+	private:
+
+		int tileFormation(const std::vector<Pixel>& pixels, TileData& tile, unsigned int width, unsigned int height);
+
 		int setConstraints(TileData tile, std::vector<TileData> tileList);
 		int tileCompare(TileData tile1, TileData tile2);
 		int sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, unsigned int length, Side side);
 
-        static int encodePNG(unsigned int width, unsigned int height, std::string filename, std::vector<Pixel> pixels);
-	private: 
 		int stuff;
 };
