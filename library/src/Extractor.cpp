@@ -5,18 +5,23 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <cstdlib>
 
-int Extractor::tileFormation(const std::vector<Pixel>& pixels, TileData& tile, unsigned int width, unsigned int height){
+int Extractor::tileFormation(const std::vector<Pixel>& pixels, TileData& tile, unsigned int width, unsigned int height, int id){
 	std::vector<Pixel> north;
 	std::vector<Pixel> south;
 	std::vector<Pixel> east;
 	std::vector<Pixel> west;
 	
-	
 	tile.pixels = pixels;
 	tile.width = width;
 	tile.height = height;
+	tile.id = id;
 
+	tile.northConstraints.insert(std::pair<int,std::vector<int>> (id, std::vector<int>())); 
+	tile.southConstraints.insert(std::pair<int,std::vector<int>> (id, std::vector<int>())); 
+	tile.eastConstraints.insert(std::pair<int,std::vector<int>> (id, std::vector<int>())); 
+	tile.westConstraints.insert(std::pair<int,std::vector<int>> (id, std::vector<int>())); 
 
 	// std::vector<Pixel>::iterator it = pixels.begin();
 	auto it = pixels.begin();
@@ -58,19 +63,109 @@ int Extractor::tileFormation(const std::vector<Pixel>& pixels, TileData& tile, u
 	return 1;
 }
 
-int Extractor::setConstraints(TileData tile, std::vector<TileData> tileList){
+int Extractor::setConstraints(std::vector<TileData>& tileList){
+	std::vector<TileData>::iterator it1 = tileList.begin();
+
+	
+	for(std::vector<TileData>::iterator it1 = tileList.begin(); it1 != tileList.end(); ++it1){
+		for(std::vector<TileData>::iterator it2 = tileList.begin(); it2 != tileList.end(); ++it2){
+			if(it1->id != it2->id){
+				Extractor::tileCompare(*it1, *it2);
+				std::cout << "setConstraints\n";
+			}
+		}
+	}
+	
 	
 	return 1;
 }
 
-int Extractor::tileCompare(TileData tile1, TileData tile2){
-	
-	return 0;
+int Extractor::tileCompare(TileData& tile1, TileData& tile2){
+	int length = tile1.width;
+	int length2 = tile2.width;
+
+	Side sides[4] = {north, south, east, west};
+
+	for(int i = 0; i < 4; i++){
+		switch(sides[i]){
+			case north:
+				if(Extractor::sideCompare(tile1.north, tile2.south, length)){
+					tile1.northConstraints[tile1.id].push_back(tile2.id);	
+					tile2.southConstraints[tile2.id].push_back(tile1.id);	
+				}
+				break;
+			case south:
+				if(Extractor::sideCompare(tile1.south, tile2.north, length)){
+					tile1.southConstraints[tile1.id].push_back(tile2.id);	
+					tile2.northConstraints[tile2.id].push_back(tile1.id);	
+				}
+				break;
+			case east: 
+				if(Extractor::sideCompare(tile1.east, tile2.west, length)){
+					tile1.eastConstraints[tile1.id].push_back(tile2.id);	
+					tile2.westConstraints[tile2.id].push_back(tile1.id);	
+				}
+				break;
+			case west:
+				if(Extractor::sideCompare(tile1.west, tile2.east, length)){
+					tile1.westConstraints[tile1.id].push_back(tile2.id);	
+					tile2.eastConstraints[tile2.id].push_back(tile1.id);	
+				}
+				break;
+		}
+		std::cout << "tileCompare\n";
+	}	
+
+	return 1;
 }
 
-int Extractor::sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, unsigned int length, Side side){
+bool Extractor::sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, unsigned int length){
+	int pixelCorrectness = 0;
+	int r,g,b,r2,g2,b2;
+	double rDif, gDif, bDif, avgPixelDif;
+	double avgTotalDif = 0;
+
+	std::vector<Pixel>::iterator it1 = side1.begin();
+	std::vector<Pixel>::iterator it2 = side2.begin();
 	
-	return 1;
+	for(int i = 0; i < length; i++){
+		r = (int) it1->Red;
+		g = (int) it1->Green;
+		b = (int) it1->Blue;
+		r2 = (int) it2->Red;
+		g2 = (int) it2->Green;
+		b2 = (int) it2->Blue;
+		rDif = abs(r - r2)/255.0;
+		gDif = abs(g - g2)/255.0;
+		bDif = abs(b - b2)/255.0;
+		avgPixelDif = (rDif + gDif + bDif)/3; 
+		avgTotalDif += avgPixelDif;
+	
+		std::cout << i << std::endl;	
+		std::cout << (int) it1->Red << " " << (int) it2->Red << std::endl;
+		std::cout << (int) it1->Green << " " << (int) it2->Green << std::endl;
+		std::cout << (int) it1->Blue << " " << (int) it2->Blue << std::endl;
+
+
+		++it1;
+		++it2;
+	}
+	
+	avgTotalDif = avgTotalDif / length;
+	
+
+	
+
+	std::cout << rDif << " ";
+	std::cout << gDif << " ";
+	std::cout << bDif << " ";
+	std::cout << avgTotalDif << ":sideCompare\n";
+	
+	if(avgTotalDif >= comparisonMetric){
+		return true;
+	}
+
+	return false;
 }
 
 int Extractor::extractPNG(unsigned int& width, unsigned int& height, const std::string& filename, std::vector<Pixel>& pixels) {
@@ -174,7 +269,8 @@ int Extractor::extractTileset(unsigned int width, unsigned int height, unsigned 
 				tilePixels.push_back(*it);
 				widthCounter++;
 			}
-			e.tileFormation(tilePixels, t, newWidth, newHeight);
+			e.tileFormation(tilePixels, t, newWidth, newHeight, idCount);
+			idCount++;
 			tiles.push_back(t);
 			tilePixels.clear();
 			widthCounter = 0;
