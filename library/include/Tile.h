@@ -7,6 +7,14 @@
 #include <string>
 #include <memory>
 
+
+/**
+ * @class Tile
+ * @brief The Tile class
+ * 
+ * This class is a wrapper for a BMPImage, to be used in the context of a @ref Grid and @ref Solver
+ * 
+ */
 class Tile {
 
 public:
@@ -14,6 +22,10 @@ public:
     Tile() = default;
     ~Tile() = default;
 
+    /**
+    * @brief Constructor for initializing with image data
+    * @throws ivalid_argument Image must be square
+    */
     Tile(const std::shared_ptr<BMPImage> img)
     {
         if (img->getHeight() != img->getWidth())
@@ -22,16 +34,30 @@ public:
         image = img;
     }
 
+    /**
+    * @brief Gets tile's size in pixels
+    * @return the pixel size
+    */
     unsigned int getSize() const
     {
         return size;
     }
     
+    /**
+    * @brief Gets tile's image data
+    * 
+    * @return the image data
+    */
     std::shared_ptr<BMPImage> getImageData() const
     {
         return image;
     }
 
+    /**
+    * @brief Enumerates all positions in the image.
+    * 
+    * @return all pixel positions
+    */
     std::vector<Position> enumeratePosition() const
     {
         std::vector<Position> res;
