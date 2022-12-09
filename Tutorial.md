@@ -2,7 +2,7 @@
 
 ## Solver tutorial
 
-This brief tutorial covers how to use the Solver module to invoke the WFC algorithm. We will use it to tile a grid with strings, which will function as our set of tiles. We include the necessary headers:
+This brief tutorial covers how to use the Solver module to invoke the WFC algorithm. We will use it to effectively tile a grid with strings, which will function as our set of tiles. We include the necessary headers:
 
 ```c++
 #include <Solver.h>
