@@ -77,56 +77,78 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">enum</span> Side { north, south, east, west };</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classTileData.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTileData.html">TileData</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>: </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">int</span> id;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, height;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        std::vector&lt;Pixel&gt; pixels;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        std::vector&lt;Pixel&gt; north;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        std::vector&lt;Pixel&gt; south;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        std::vector&lt;Pixel&gt; east;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        std::vector&lt;Pixel&gt; west;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        std::map&lt;int, std::vector&lt;int&gt;&gt; northConstraints;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        std::map&lt;int, std::vector&lt;int&gt;&gt; southConstraints;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::map&lt;int, std::vector&lt;int&gt;&gt; westConstraints;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::map&lt;int, std::vector&lt;int&gt;&gt; eastConstraints;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classExtractor.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classExtractor.html">Extractor</a> {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordtype">int</span> idCount;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">double</span> comparisonMetric;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">int</span> extractPNG(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; height, <span class="keyword">const</span> std::string&amp; filename, std::vector&lt;Pixel&gt;&amp; pixels); </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">int</span> extractBMP(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; height, <span class="keyword">const</span> std::string&amp; filename, std::vector&lt;Pixel&gt;&amp; pixels);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">int</span> extractTileset(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> horizontal, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vertical, <span class="keyword">const</span> std::vector&lt;Pixel&gt;&amp; pixels, std::vector&lt;TileData&gt;&amp; tiles);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> encodePNG(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height, <span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> std::vector&lt;Pixel&gt;&amp; pixels);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">int</span> setConstraints(std::vector&lt;TileData&gt;&amp; tileList);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classExtractor.html">Extractor</a>(){</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            idCount = 1;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            comparisonMetric = .1;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">int</span> tileFormation(<span class="keyword">const</span> std::vector&lt;Pixel&gt;&amp; pixels, <a class="code" href="classTileData.html">TileData</a>&amp; tile, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">int</span> tileCompare(<a class="code" href="classTileData.html">TileData</a>&amp; tile1, <a class="code" href="classTileData.html">TileData</a>&amp; tile2);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">bool</span> sideCompare(std::vector&lt;Pixel&gt; side1, std::vector&lt;Pixel&gt; side2, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">int</span> stuff;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="ttc" id="aclassExtractor_html"><div class="ttname"><a href="classExtractor.html">Extractor</a></div><div class="ttdef"><b>Definition:</b> Extractor.h:28</div></div>
-<div class="ttc" id="aclassTileData_html"><div class="ttname"><a href="classTileData.html">TileData</a></div><div class="ttdef"><b>Definition:</b> Extractor.h:11</div></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">enum</span> Side { north, south, east, west };</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classTileData.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTileData.html">TileData</a> {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">public</span>: </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">int</span> id;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, height;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        std::vector&lt;Pixel&gt; pixels;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        std::vector&lt;Pixel&gt; north;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        std::vector&lt;Pixel&gt; south;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        std::vector&lt;Pixel&gt; east;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        std::vector&lt;Pixel&gt; west;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        std::map&lt;int, std::set&lt;int&gt;&gt; northConstraints;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        std::map&lt;int, std::set&lt;int&gt;&gt; southConstraints;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        std::map&lt;int, std::set&lt;int&gt;&gt; westConstraints;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        std::map&lt;int, std::set&lt;int&gt;&gt; eastConstraints;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classExtractor.html">   89</a></span>&#160;<span class="keyword">class </span><a class="code" href="classExtractor.html">Extractor</a> {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordtype">int</span> idCount;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">double</span> comparisonMetric;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classExtractor.html#a69851712777c17592219308f4c2723b6">extractPNG</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; height, <span class="keyword">const</span> std::string&amp; filename, std::vector&lt;Pixel&gt;&amp; pixels); </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classExtractor.html#aa2dfdbd9677b113b9d6db18810023d53">extractBMP</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; height, <span class="keyword">const</span> std::string&amp; filename, std::vector&lt;Pixel&gt;&amp; pixels);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classExtractor.html#a7996cb26dd5ff6d35d1505a5580205dd">extractTileset</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> horizontal, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vertical, <span class="keyword">const</span> std::vector&lt;Pixel&gt;&amp; pixels, std::vector&lt;TileData&gt;&amp; tiles);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classExtractor.html#af368de6960d95b0cf034234c2ada1f5f">encodePNG</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height, <span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> std::vector&lt;Pixel&gt;&amp; pixels);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classExtractor.html#ac8e9b5f85bcdf56dc6b2edb5bebd3809">setConstraints</a>(std::vector&lt;TileData&gt;&amp; tileList);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        </div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="classExtractor.html#a2726e6a94c51c2b2dbc518199d054103">  157</a></span>&#160;        <a class="code" href="classExtractor.html#a2726e6a94c51c2b2dbc518199d054103">Extractor</a>(){</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            idCount = 1;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            comparisonMetric = .8;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        }</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classExtractor.html#a62d4ffc438254c5661c4a60d1d2d4928">  169</a></span>&#160;        <a class="code" href="classExtractor.html#a62d4ffc438254c5661c4a60d1d2d4928">Extractor</a>(<span class="keywordtype">double</span> metric){</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            idCount = 1;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            <span class="keywordflow">if</span>(metric &gt; 1){</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                metric = 1;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <span class="keywordflow">if</span>(metric &lt; 0){</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                metric = 0;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            comparisonMetric = metric;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keywordtype">int</span> tileFormation(<span class="keyword">const</span> std::vector&lt;Pixel&gt;&amp; pixels, <a class="code" href="classTileData.html">TileData</a>&amp; tile, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordtype">int</span> tileCompare(<a class="code" href="classTileData.html">TileData</a>&amp; tile1, <a class="code" href="classTileData.html">TileData</a>&amp; tile2);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordtype">bool</span> sideCompare(std::vector&lt;Pixel&gt; side1, std::vector&lt;Pixel&gt; side2, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;};</div>
+<div class="ttc" id="aclassExtractor_html"><div class="ttname"><a href="classExtractor.html">Extractor</a></div><div class="ttdoc">The Extractor Class.</div><div class="ttdef"><b>Definition:</b> Extractor.h:89</div></div>
+<div class="ttc" id="aclassExtractor_html_a2726e6a94c51c2b2dbc518199d054103"><div class="ttname"><a href="classExtractor.html#a2726e6a94c51c2b2dbc518199d054103">Extractor::Extractor</a></div><div class="ttdeci">Extractor()</div><div class="ttdef"><b>Definition:</b> Extractor.h:157</div></div>
+<div class="ttc" id="aclassExtractor_html_a62d4ffc438254c5661c4a60d1d2d4928"><div class="ttname"><a href="classExtractor.html#a62d4ffc438254c5661c4a60d1d2d4928">Extractor::Extractor</a></div><div class="ttdeci">Extractor(double metric)</div><div class="ttdef"><b>Definition:</b> Extractor.h:169</div></div>
+<div class="ttc" id="aclassExtractor_html_a69851712777c17592219308f4c2723b6"><div class="ttname"><a href="classExtractor.html#a69851712777c17592219308f4c2723b6">Extractor::extractPNG</a></div><div class="ttdeci">int extractPNG(unsigned int &amp;width, unsigned int &amp;height, const std::string &amp;filename, std::vector&lt; Pixel &gt; &amp;pixels)</div><div class="ttdef"><b>Definition:</b> Extractor.cpp:173</div></div>
+<div class="ttc" id="aclassExtractor_html_a7996cb26dd5ff6d35d1505a5580205dd"><div class="ttname"><a href="classExtractor.html#a7996cb26dd5ff6d35d1505a5580205dd">Extractor::extractTileset</a></div><div class="ttdeci">int extractTileset(unsigned int width, unsigned int height, unsigned int horizontal, unsigned int vertical, const std::vector&lt; Pixel &gt; &amp;pixels, std::vector&lt; TileData &gt; &amp;tiles)</div><div class="ttdef"><b>Definition:</b> Extractor.cpp:240</div></div>
+<div class="ttc" id="aclassExtractor_html_aa2dfdbd9677b113b9d6db18810023d53"><div class="ttname"><a href="classExtractor.html#aa2dfdbd9677b113b9d6db18810023d53">Extractor::extractBMP</a></div><div class="ttdeci">int extractBMP(unsigned int &amp;width, unsigned int &amp;height, const std::string &amp;filename, std::vector&lt; Pixel &gt; &amp;pixels)</div><div class="ttdef"><b>Definition:</b> Extractor.cpp:216</div></div>
+<div class="ttc" id="aclassExtractor_html_ac8e9b5f85bcdf56dc6b2edb5bebd3809"><div class="ttname"><a href="classExtractor.html#ac8e9b5f85bcdf56dc6b2edb5bebd3809">Extractor::setConstraints</a></div><div class="ttdeci">int setConstraints(std::vector&lt; TileData &gt; &amp;tileList)</div><div class="ttdef"><b>Definition:</b> Extractor.cpp:66</div></div>
+<div class="ttc" id="aclassExtractor_html_af368de6960d95b0cf034234c2ada1f5f"><div class="ttname"><a href="classExtractor.html#af368de6960d95b0cf034234c2ada1f5f">Extractor::encodePNG</a></div><div class="ttdeci">static int encodePNG(unsigned int width, unsigned int height, const std::string &amp;filename, const std::vector&lt; Pixel &gt; &amp;pixels)</div><div class="ttdef"><b>Definition:</b> Extractor.cpp:286</div></div>
+<div class="ttc" id="aclassTileData_html"><div class="ttname"><a href="classTileData.html">TileData</a></div><div class="ttdoc">Tile Data Class.</div><div class="ttdef"><b>Definition:</b> Extractor.h:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

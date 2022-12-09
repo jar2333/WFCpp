@@ -69,6 +69,11 @@ $(function() {
 <div class="title">TileData Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="classTile.html">Tile</a> Data Class.  
+ <a href="classTileData.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Extractor_8h_source.html">Extractor.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -96,20 +101,25 @@ std::vector&lt; <a class="el" href="structPixel.html">Pixel</a> &gt;&#160;</td><
 <tr class="memitem:abc6e59683c92aea427bbc863a9e3253a"><td class="memItemLeft" align="right" valign="top"><a id="abc6e59683c92aea427bbc863a9e3253a"></a>
 std::vector&lt; <a class="el" href="structPixel.html">Pixel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>west</b></td></tr>
 <tr class="separator:abc6e59683c92aea427bbc863a9e3253a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca28627cfcda96b9810458ed4d6656bb"><td class="memItemLeft" align="right" valign="top"><a id="aca28627cfcda96b9810458ed4d6656bb"></a>
-std::map&lt; int, std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>northConstraints</b></td></tr>
-<tr class="separator:aca28627cfcda96b9810458ed4d6656bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71b83b93fe049e4c8891e090016dc772"><td class="memItemLeft" align="right" valign="top"><a id="a71b83b93fe049e4c8891e090016dc772"></a>
-std::map&lt; int, std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>southConstraints</b></td></tr>
-<tr class="separator:a71b83b93fe049e4c8891e090016dc772"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a72d68a7dea80b035d12f0126668c06"><td class="memItemLeft" align="right" valign="top"><a id="a6a72d68a7dea80b035d12f0126668c06"></a>
-std::map&lt; int, std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>westConstraints</b></td></tr>
-<tr class="separator:a6a72d68a7dea80b035d12f0126668c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6093e1b2f22617e7765288818edaad85"><td class="memItemLeft" align="right" valign="top"><a id="a6093e1b2f22617e7765288818edaad85"></a>
-std::map&lt; int, std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>eastConstraints</b></td></tr>
-<tr class="separator:a6093e1b2f22617e7765288818edaad85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b5ace17edaf0a07c4114e07c73c263f"><td class="memItemLeft" align="right" valign="top"><a id="a6b5ace17edaf0a07c4114e07c73c263f"></a>
+std::map&lt; int, std::set&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>northConstraints</b></td></tr>
+<tr class="separator:a6b5ace17edaf0a07c4114e07c73c263f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a6819107f419bc7294fecf200b768a8"><td class="memItemLeft" align="right" valign="top"><a id="a2a6819107f419bc7294fecf200b768a8"></a>
+std::map&lt; int, std::set&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>southConstraints</b></td></tr>
+<tr class="separator:a2a6819107f419bc7294fecf200b768a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ea96049d0fe7f66eaf6d087044e479f"><td class="memItemLeft" align="right" valign="top"><a id="a0ea96049d0fe7f66eaf6d087044e479f"></a>
+std::map&lt; int, std::set&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>westConstraints</b></td></tr>
+<tr class="separator:a0ea96049d0fe7f66eaf6d087044e479f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeafa279f272b050cd289a5ae9f582d4"><td class="memItemLeft" align="right" valign="top"><a id="abeafa279f272b050cd289a5ae9f582d4"></a>
+std::map&lt; int, std::set&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>eastConstraints</b></td></tr>
+<tr class="separator:abeafa279f272b050cd289a5ae9f582d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classTile.html">Tile</a> Data Class. </p>
+<dl class="section author"><dt>Author</dt><dd>Ricardo Figueroa</dd></dl>
+<p>Contains all the required <a class="el" href="classTileData.html" title="Tile Data Class.">TileData</a> retrieved through the extraction. Most of the names are self explanitory. Id, width, height, pixels... The different sides (north, south, east, west) however refer to the list of pixels that encompase those sides for the tile. The side constraints however, contain a set of ids mapped to the id of the tile. <br  />
+ </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="Extractor_8h_source.html">Extractor.h</a></li>
 </ul>
 </div><!-- contents -->

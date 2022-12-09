@@ -1,25 +1,33 @@
 \hypertarget{classExtractor}{}\doxysection{Extractor Class Reference}
 \label{classExtractor}\index{Extractor@{Extractor}}
+
+
+The \mbox{\hyperlink{classExtractor}{Extractor}} Class.  
+
+
+
+
+{\ttfamily \#include $<$Extractor.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classExtractor_a69851712777c17592219308f4c2723b6}\label{classExtractor_a69851712777c17592219308f4c2723b6}} 
-int {\bfseries extract\+PNG} (unsigned int \&width, unsigned int \&height, const std\+::string \&filename, std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels)
+int \mbox{\hyperlink{classExtractor_a69851712777c17592219308f4c2723b6}{extract\+PNG}} (unsigned int \&width, unsigned int \&height, const std\+::string \&filename, std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels)
 \item 
-\mbox{\Hypertarget{classExtractor_aa2dfdbd9677b113b9d6db18810023d53}\label{classExtractor_aa2dfdbd9677b113b9d6db18810023d53}} 
-int {\bfseries extract\+BMP} (unsigned int \&width, unsigned int \&height, const std\+::string \&filename, std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels)
+int \mbox{\hyperlink{classExtractor_aa2dfdbd9677b113b9d6db18810023d53}{extract\+BMP}} (unsigned int \&width, unsigned int \&height, const std\+::string \&filename, std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels)
 \item 
-\mbox{\Hypertarget{classExtractor_a7996cb26dd5ff6d35d1505a5580205dd}\label{classExtractor_a7996cb26dd5ff6d35d1505a5580205dd}} 
-int {\bfseries extract\+Tileset} (unsigned int width, unsigned int height, unsigned int horizontal, unsigned int vertical, const std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels, std\+::vector$<$ \mbox{\hyperlink{classTileData}{Tile\+Data}} $>$ \&tiles)
+int \mbox{\hyperlink{classExtractor_a7996cb26dd5ff6d35d1505a5580205dd}{extract\+Tileset}} (unsigned int width, unsigned int height, unsigned int horizontal, unsigned int vertical, const std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels, std\+::vector$<$ \mbox{\hyperlink{classTileData}{Tile\+Data}} $>$ \&tiles)
 \item 
-\mbox{\Hypertarget{classExtractor_ac8e9b5f85bcdf56dc6b2edb5bebd3809}\label{classExtractor_ac8e9b5f85bcdf56dc6b2edb5bebd3809}} 
-int {\bfseries set\+Constraints} (std\+::vector$<$ \mbox{\hyperlink{classTileData}{Tile\+Data}} $>$ \&tile\+List)
+int \mbox{\hyperlink{classExtractor_ac8e9b5f85bcdf56dc6b2edb5bebd3809}{set\+Constraints}} (std\+::vector$<$ \mbox{\hyperlink{classTileData}{Tile\+Data}} $>$ \&tile\+List)
+\item 
+\mbox{\hyperlink{classExtractor_a2726e6a94c51c2b2dbc518199d054103}{Extractor}} ()
+\item 
+\mbox{\hyperlink{classExtractor_a62d4ffc438254c5661c4a60d1d2d4928}{Extractor}} (double metric)
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classExtractor_af368de6960d95b0cf034234c2ada1f5f}\label{classExtractor_af368de6960d95b0cf034234c2ada1f5f}} 
-static int {\bfseries encode\+PNG} (unsigned int width, unsigned int height, const std\+::string \&filename, const std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels)
+static int \mbox{\hyperlink{classExtractor_af368de6960d95b0cf034234c2ada1f5f}{encode\+PNG}} (unsigned int width, unsigned int height, const std\+::string \&filename, const std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -30,6 +38,151 @@ int {\bfseries id\+Count}
 \mbox{\Hypertarget{classExtractor_a80043dae78ae0cf609fb83b98d6e2fac}\label{classExtractor_a80043dae78ae0cf609fb83b98d6e2fac}} 
 double {\bfseries comparison\+Metric}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classExtractor}{Extractor}} Class. 
+
+\begin{DoxyAuthor}{Author}
+Ricardo Figueroa
+\end{DoxyAuthor}
+This class provides support for the Wave Function Collapse algorithm by making available png and bitmap extraction and encoding for tiles and tilesets. Tilesets are usually formatted in a X by X image file, so the extractor takes said image file and extracts all necessary information, i.\+e, pixel data, width and height.
+
+There existed many methods by which to expand the extractor class. As a result of time constraints png and bmp are the only filetypes available for extraction. But by introducing more libraries to the class it can be possible to expand to a larger range of filetypes, that said, the most common ones have been chosen for the class.
+
+Using both lode\+PNG and Easy\+BMP, extraction and encoding was made much easier. Allowing for simple to use API that abstract these processes.
+
+Extraction for both PNG and BMP consists of acquiring the RGBA values of each pixel. Ranging from 0 to 255 for each. They are placed in a vector of \mbox{\hyperlink{structPixel}{Pixel}} type that is meant to be the generalized structure for all extractions (space for appending functionality)
+
+Encoding for both PNG and BMP consists of taking this generalized structure and encoding through their respective support libraries.
+
+The vectors of pixels as described above are then processed by extract\+Tileset, which is the function that creates the required piece for both the \mbox{\hyperlink{classSolver}{Solver}} and \mbox{\hyperlink{classSynthesizer}{Synthesizer}} (a vector of \mbox{\hyperlink{classTileData}{Tile\+Data}}). Given that the pixels themselves aren\textquotesingle{}t organized in \mbox{\hyperlink{classTile}{Tile}} form.
+
+Once the \mbox{\hyperlink{classTileData}{Tile\+Data}} is extracted it can then be automatically be set\+Constraints based on a comparison metric. This is highly basic at the moment, the metric being a int meant to represent a percentage from 0 to 1.\+0. The difference in tile sides is calculated and compared to this metric to decide whether the tiles are accepted as constraints. This can be expanded on by changing the metric to some AI driven metric. Knowing what differernce in pixels is acceptable is hard to measure through simple arithmatic so for now it is just an option availble to the user.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{structPixel}{Pixel}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classExtractor_a2726e6a94c51c2b2dbc518199d054103}\label{classExtractor_a2726e6a94c51c2b2dbc518199d054103}} 
+\index{Extractor@{Extractor}!Extractor@{Extractor}}
+\index{Extractor@{Extractor}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{Extractor()}{Extractor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Extractor\+::\+Extractor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor for the \mbox{\hyperlink{classExtractor}{Extractor}}. \mbox{\Hypertarget{classExtractor_a62d4ffc438254c5661c4a60d1d2d4928}\label{classExtractor_a62d4ffc438254c5661c4a60d1d2d4928}} 
+\index{Extractor@{Extractor}!Extractor@{Extractor}}
+\index{Extractor@{Extractor}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{Extractor()}{Extractor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Extractor\+::\+Extractor (\begin{DoxyParamCaption}\item[{double}]{metric }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor for the \mbox{\hyperlink{classExtractor}{Extractor}}, allows for metric initialization.
+
+
+\begin{DoxyParams}{Parameters}
+{\em metric} & The metric the user is allowed to implement. Max at 1, min at 0 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classExtractor_af368de6960d95b0cf034234c2ada1f5f}\label{classExtractor_af368de6960d95b0cf034234c2ada1f5f}} 
+\index{Extractor@{Extractor}!encodePNG@{encodePNG}}
+\index{encodePNG@{encodePNG}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{encodePNG()}{encodePNG()}}
+{\footnotesize\ttfamily int Extractor\+::encode\+PNG (\begin{DoxyParamCaption}\item[{unsigned int}]{width,  }\item[{unsigned int}]{height,  }\item[{const std\+::string \&}]{filename,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&}]{pixels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Encodes a vector of pixels into a PNG file at the filename provided.
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & The width of the file being created \\
+\hline
+{\em height} & The height of the file being created \\
+\hline
+{\em filename} & The filename of the file being created \\
+\hline
+{\em pixels} & The pixels used to created the file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExtractor_aa2dfdbd9677b113b9d6db18810023d53}\label{classExtractor_aa2dfdbd9677b113b9d6db18810023d53}} 
+\index{Extractor@{Extractor}!extractBMP@{extractBMP}}
+\index{extractBMP@{extractBMP}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{extractBMP()}{extractBMP()}}
+{\footnotesize\ttfamily int Extractor\+::extract\+BMP (\begin{DoxyParamCaption}\item[{unsigned int \&}]{width,  }\item[{unsigned int \&}]{height,  }\item[{const std\+::string \&}]{filename,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&}]{pixels }\end{DoxyParamCaption})}
+
+Extracts the pixel data from a BMP file. 
+\begin{DoxyParams}{Parameters}
+{\em width} & A reference to width that gets updated on easy\+BMP extraction \\
+\hline
+{\em height} & A reference to height that gets updated on easy\+BMP extraction \\
+\hline
+{\em filename} & A reference to filename that is used to retrieve the desired file \\
+\hline
+{\em pixels} & The pixel data of a file\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{structPixel}{Pixel}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classExtractor_a69851712777c17592219308f4c2723b6}\label{classExtractor_a69851712777c17592219308f4c2723b6}} 
+\index{Extractor@{Extractor}!extractPNG@{extractPNG}}
+\index{extractPNG@{extractPNG}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{extractPNG()}{extractPNG()}}
+{\footnotesize\ttfamily int Extractor\+::extract\+PNG (\begin{DoxyParamCaption}\item[{unsigned int \&}]{width,  }\item[{unsigned int \&}]{height,  }\item[{const std\+::string \&}]{filename,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&}]{pixels }\end{DoxyParamCaption})}
+
+Extracts the pixel data from a PNG file. 
+\begin{DoxyParams}{Parameters}
+{\em width} & A reference to width that gets updated on lode\+PNG extraction \\
+\hline
+{\em height} & A reference to height that gets updated on lode\+PNG extraction \\
+\hline
+{\em filename} & A reference to filename that is used to retrieve the desired file \\
+\hline
+{\em pixels} & The pixel data of a file\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{structPixel}{Pixel}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classExtractor_a7996cb26dd5ff6d35d1505a5580205dd}\label{classExtractor_a7996cb26dd5ff6d35d1505a5580205dd}} 
+\index{Extractor@{Extractor}!extractTileset@{extractTileset}}
+\index{extractTileset@{extractTileset}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{extractTileset()}{extractTileset()}}
+{\footnotesize\ttfamily int Extractor\+::extract\+Tileset (\begin{DoxyParamCaption}\item[{unsigned int}]{width,  }\item[{unsigned int}]{height,  }\item[{unsigned int}]{horizontal,  }\item[{unsigned int}]{vertical,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&}]{pixels,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classTileData}{Tile\+Data}} $>$ \&}]{tiles }\end{DoxyParamCaption})}
+
+Extracts tiles from a vector of pixels.
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & The width of the file that extracted the pixels referenced in \\
+\hline
+{\em height} & The height of the file that extracted the pixels referenced in \\
+\hline
+{\em horizontal} & The maximum number of tiles on the tileset horizontally \\
+\hline
+{\em vertical} & The maxumum number of tiles on the tilset vertically \\
+\hline
+{\em pixels} & A reference to the pixels that will be extracted \\
+\hline
+{\em tiles} & A reference to the tile vector that will be appended to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExtractor_ac8e9b5f85bcdf56dc6b2edb5bebd3809}\label{classExtractor_ac8e9b5f85bcdf56dc6b2edb5bebd3809}} 
+\index{Extractor@{Extractor}!setConstraints@{setConstraints}}
+\index{setConstraints@{setConstraints}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{setConstraints()}{setConstraints()}}
+{\footnotesize\ttfamily int Extractor\+::set\+Constraints (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classTileData}{Tile\+Data}} $>$ \&}]{tile\+List }\end{DoxyParamCaption})}
+
+Set the constraints for each tile on a tile\+List based on the tiles from that tile\+List.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile\+List} & A vector of tiles to apply constraints to \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

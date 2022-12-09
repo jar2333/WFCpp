@@ -1,5 +1,14 @@
 \hypertarget{classTileData}{}\doxysection{Tile\+Data Class Reference}
 \label{classTileData}\index{TileData@{TileData}}
+
+
+\mbox{\hyperlink{classTile}{Tile}} Data Class.  
+
+
+
+
+{\ttfamily \#include $<$Extractor.\+h$>$}
+
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,19 +36,28 @@ std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ {\bfseries east}
 \mbox{\Hypertarget{classTileData_abc6e59683c92aea427bbc863a9e3253a}\label{classTileData_abc6e59683c92aea427bbc863a9e3253a}} 
 std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ {\bfseries west}
 \item 
-\mbox{\Hypertarget{classTileData_aca28627cfcda96b9810458ed4d6656bb}\label{classTileData_aca28627cfcda96b9810458ed4d6656bb}} 
-std\+::map$<$ int, std\+::vector$<$ int $>$ $>$ {\bfseries north\+Constraints}
+\mbox{\Hypertarget{classTileData_a6b5ace17edaf0a07c4114e07c73c263f}\label{classTileData_a6b5ace17edaf0a07c4114e07c73c263f}} 
+std\+::map$<$ int, std\+::set$<$ int $>$ $>$ {\bfseries north\+Constraints}
 \item 
-\mbox{\Hypertarget{classTileData_a71b83b93fe049e4c8891e090016dc772}\label{classTileData_a71b83b93fe049e4c8891e090016dc772}} 
-std\+::map$<$ int, std\+::vector$<$ int $>$ $>$ {\bfseries south\+Constraints}
+\mbox{\Hypertarget{classTileData_a2a6819107f419bc7294fecf200b768a8}\label{classTileData_a2a6819107f419bc7294fecf200b768a8}} 
+std\+::map$<$ int, std\+::set$<$ int $>$ $>$ {\bfseries south\+Constraints}
 \item 
-\mbox{\Hypertarget{classTileData_a6a72d68a7dea80b035d12f0126668c06}\label{classTileData_a6a72d68a7dea80b035d12f0126668c06}} 
-std\+::map$<$ int, std\+::vector$<$ int $>$ $>$ {\bfseries west\+Constraints}
+\mbox{\Hypertarget{classTileData_a0ea96049d0fe7f66eaf6d087044e479f}\label{classTileData_a0ea96049d0fe7f66eaf6d087044e479f}} 
+std\+::map$<$ int, std\+::set$<$ int $>$ $>$ {\bfseries west\+Constraints}
 \item 
-\mbox{\Hypertarget{classTileData_a6093e1b2f22617e7765288818edaad85}\label{classTileData_a6093e1b2f22617e7765288818edaad85}} 
-std\+::map$<$ int, std\+::vector$<$ int $>$ $>$ {\bfseries east\+Constraints}
+\mbox{\Hypertarget{classTileData_abeafa279f272b050cd289a5ae9f582d4}\label{classTileData_abeafa279f272b050cd289a5ae9f582d4}} 
+std\+::map$<$ int, std\+::set$<$ int $>$ $>$ {\bfseries east\+Constraints}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classTile}{Tile}} Data Class. 
+
+\begin{DoxyAuthor}{Author}
+Ricardo Figueroa
+\end{DoxyAuthor}
+Contains all the required \mbox{\hyperlink{classTileData}{Tile\+Data}} retrieved through the extraction. Most of the names are self explanitory. Id, width, height, pixels... The different sides (north, south, east, west) however refer to the list of pixels that encompase those sides for the tile. The side constraints however, contain a set of ids mapped to the id of the tile. ~\newline
+ 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

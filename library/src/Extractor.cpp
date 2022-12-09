@@ -18,10 +18,10 @@ int Extractor::tileFormation(const std::vector<Pixel>& pixels, TileData& tile, u
 	tile.height = height;
 	tile.id = id;
 
-	tile.northConstraints.insert(std::pair<int,std::vector<int>> (id, std::vector<int>())); 
-	tile.southConstraints.insert(std::pair<int,std::vector<int>> (id, std::vector<int>())); 
-	tile.eastConstraints.insert(std::pair<int,std::vector<int>> (id, std::vector<int>())); 
-	tile.westConstraints.insert(std::pair<int,std::vector<int>> (id, std::vector<int>())); 
+	tile.northConstraints.insert(std::pair<int,std::set<int>> (id, std::set<int>())); 
+	tile.southConstraints.insert(std::pair<int,std::set<int>> (id, std::set<int>())); 
+	tile.eastConstraints.insert(std::pair<int,std::set<int>> (id, std::set<int>())); 
+	tile.westConstraints.insert(std::pair<int,std::set<int>> (id, std::set<int>())); 
 
 	// std::vector<Pixel>::iterator it = pixels.begin();
 	auto it = pixels.begin();
@@ -71,7 +71,6 @@ int Extractor::setConstraints(std::vector<TileData>& tileList){
 		for(std::vector<TileData>::iterator it2 = tileList.begin(); it2 != tileList.end(); ++it2){
 			if(it1->id != it2->id){
 				Extractor::tileCompare(*it1, *it2);
-				std::cout << "setConstraints\n";
 			}
 		}
 	}
@@ -90,37 +89,35 @@ int Extractor::tileCompare(TileData& tile1, TileData& tile2){
 		switch(sides[i]){
 			case north:
 				if(Extractor::sideCompare(tile1.north, tile2.south, length)){
-					tile1.northConstraints[tile1.id].push_back(tile2.id);	
-					tile2.southConstraints[tile2.id].push_back(tile1.id);	
+					tile1.northConstraints[tile1.id].insert(tile2.id);	
+					tile2.southConstraints[tile2.id].insert(tile1.id);	
 				}
 				break;
 			case south:
 				if(Extractor::sideCompare(tile1.south, tile2.north, length)){
-					tile1.southConstraints[tile1.id].push_back(tile2.id);	
-					tile2.northConstraints[tile2.id].push_back(tile1.id);	
+					tile1.southConstraints[tile1.id].insert(tile2.id);	
+					tile2.northConstraints[tile2.id].insert(tile1.id);	
 				}
 				break;
 			case east: 
 				if(Extractor::sideCompare(tile1.east, tile2.west, length)){
-					tile1.eastConstraints[tile1.id].push_back(tile2.id);	
-					tile2.westConstraints[tile2.id].push_back(tile1.id);	
+					tile1.eastConstraints[tile1.id].insert(tile2.id);	
+					tile2.westConstraints[tile2.id].insert(tile1.id);	
 				}
 				break;
 			case west:
 				if(Extractor::sideCompare(tile1.west, tile2.east, length)){
-					tile1.westConstraints[tile1.id].push_back(tile2.id);	
-					tile2.eastConstraints[tile2.id].push_back(tile1.id);	
+					tile1.westConstraints[tile1.id].insert(tile2.id);	
+					tile2.eastConstraints[tile2.id].insert(tile1.id);	
 				}
 				break;
 		}
-		std::cout << "tileCompare\n";
 	}	
 
 	return 1;
 }
 
 bool Extractor::sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, unsigned int length){
-	int pixelCorrectness = 0;
 	int r,g,b,r2,g2,b2;
 	double rDif, gDif, bDif, avgPixelDif;
 	double avgTotalDif = 0;
@@ -141,11 +138,10 @@ bool Extractor::sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, 
 		avgPixelDif = (rDif + gDif + bDif)/3; 
 		avgTotalDif += avgPixelDif;
 	
-		std::cout << i << std::endl;	
-		std::cout << (int) it1->Red << " " << (int) it2->Red << std::endl;
-		std::cout << (int) it1->Green << " " << (int) it2->Green << std::endl;
-		std::cout << (int) it1->Blue << " " << (int) it2->Blue << std::endl;
-
+		//std::cout << i << std::endl;	
+		//std::cout << (int) it1->Red << " " << (int) it2->Red << std::endl;
+		//std::cout << (int) it1->Green << " " << (int) it2->Green << std::endl;
+		//std::cout << (int) it1->Blue << " " << (int) it2->Blue << std::endl;
 
 		++it1;
 		++it2;
@@ -155,15 +151,21 @@ bool Extractor::sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, 
 	
 
 	
+	double comparison = 1 - avgTotalDif;
 
-	std::cout << rDif << " ";
-	std::cout << gDif << " ";
-	std::cout << bDif << " ";
-	std::cout << avgTotalDif << ":sideCompare\n";
+	//std::cout << rDif << " ";
+	//std::cout << gDif << " ";
+	//std::cout << bDif << " ";
 	
-	if(avgTotalDif >= comparisonMetric){
+	//std::cout << avgTotalDif << " " << comparison <<  ":sideCompare\n";
+
+
+	if(comparison >= comparisonMetric){
+		//std::cout << "true" << std::endl;
 		return true;
 	}
+	
+	//std::cout << "false" << std::endl;
 
 	return false;
 }
