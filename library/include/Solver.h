@@ -35,7 +35,6 @@ struct std::hash<std::pair<size_t, Direction>> {
   }
 };
 
-
 /**
 * @class Solver
 * @brief The Solver class
@@ -339,6 +338,12 @@ private:
   std::unordered_set<TileKey> getAdjacencies(TileKey k, Direction d);
   std::vector<TileKey> getPossibleTiles(Position p);
 
-
 };
+
+/**
+* @brief the default Grid type
+* 
+* The grid specialization which is utilized by the Solver. This alias should be used for succientness.
+*/
+typedef Grid<Solver::TileKey> SolverGrid; 
 

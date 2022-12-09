@@ -11,7 +11,7 @@ std::shared_ptr<BMPImage> generateBMPByPixel(unsigned int size, Pixel pixel)
     return img;
 }
 
-std::shared_ptr<Grid<Solver::TileKey>> generateCompleteGrid()
+std::shared_ptr<SolverGrid> generateCompleteGrid()
 {
     auto img1 = generateBMPByPixel(3, {0, 255, 255, 255, 255}); // white
     auto img2 = generateBMPByPixel(3, {0, 0, 0, 0, 255});       // black
@@ -26,7 +26,7 @@ std::shared_ptr<Grid<Solver::TileKey>> generateCompleteGrid()
     tileMap[Solver::TileKey(2)] = tile2;
 
 
-    auto grid = std::make_shared<Grid<Solver::TileKey>> (3, tileMap);
+    auto grid = std::make_shared<SolverGrid> (3, tileMap);
 
 
     for (const auto pos : grid->enumeratePosition()) {

@@ -21,7 +21,7 @@ const std::string assetDir = std::string(std::filesystem::current_path()) + "/te
 
 std::shared_ptr<BMPImage> generateBMPByPixel(unsigned int size, Pixel pixel);
 
-std::shared_ptr<Grid<Solver::TileKey>> generateCompleteGrid();
+std::shared_ptr<SolverGrid> generateCompleteGrid();
 
 class SynthesizerTester
 {
@@ -37,7 +37,7 @@ class SynthesizerTester
 
     private:
         Synthesizer syn;
-        std::shared_ptr<Grid<Solver::TileKey>> grid;
+        std::shared_ptr<SolverGrid> grid;
         BMPImage sampleImage;
         BMPImage sampleImageRt;
 };

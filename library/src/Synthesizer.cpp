@@ -5,14 +5,14 @@
 #include <memory>
 #include <utility>
 
-void Synthesizer::exportGridToFile(const Grid<Solver::TileKey>& grid, std::string exportPath, FileType type)
+void Synthesizer::exportGridToFile(const SolverGrid& grid, std::string exportPath, FileType type)
 {
     auto resImage = exportGridToImage(grid);
 
     resImage->exportToFile(exportPath, type);
 }
 
-std::shared_ptr<BMPImage> Synthesizer::exportGridToImage(const Grid<Solver::TileKey>& grid)
+std::shared_ptr<BMPImage> Synthesizer::exportGridToImage(const SolverGrid& grid)
 {
     unsigned int gridDimension = grid.getDimension();
     unsigned int tileSize = grid.getTile(Position {0, 0})->getSize();

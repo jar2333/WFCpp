@@ -38,7 +38,7 @@ public:
      * @param exportPath The path for the exported image.
      * @param type The format for the image.
      */
-    void exportGridToFile(const Grid<Solver::TileKey>& grid, std::string exportPath, FileType type);
+    void exportGridToFile(const SolverGrid& grid, std::string exportPath, FileType type);
 
     /**
      * @brief Export a completed @ref Grid to a @ref BMPImage.
@@ -46,7 +46,7 @@ public:
      * @param grid A completed grid of tiles
      * @return std::shared_ptr<BMPImage> Caller gets the ownership of a smart pointer to the result image.
      */
-    std::shared_ptr<BMPImage> exportGridToImage(const Grid<Solver::TileKey>& grid);
+    std::shared_ptr<BMPImage> exportGridToImage(const SolverGrid& grid);
      
     /**
      * @brief Initialize a real time image for step by step images.
