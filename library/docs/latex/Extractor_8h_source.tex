@@ -8,43 +8,69 @@
 \DoxyCodeLine{4 }
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{enum} Side \{ north, south, east, west \};}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <set>}}
 \DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classTileData}{TileData}} \{}
-\DoxyCodeLine{11     \textcolor{keyword}{public}: }
-\DoxyCodeLine{12         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, height;}
-\DoxyCodeLine{13         std::vector<Pixel> pixels;}
-\DoxyCodeLine{14         }
-\DoxyCodeLine{15         std::vector<Pixel> north;}
-\DoxyCodeLine{16         std::vector<Pixel> south;}
-\DoxyCodeLine{17         std::vector<Pixel> east;}
-\DoxyCodeLine{18         std::vector<Pixel> west;}
-\DoxyCodeLine{19         }
-\DoxyCodeLine{20         std::vector<TileData> northConstraints;}
-\DoxyCodeLine{21         std::vector<TileData> southConstraints;}
-\DoxyCodeLine{22         std::vector<TileData> westConstraints;}
-\DoxyCodeLine{23         std::vector<TileData> eastConstraints;}
-\DoxyCodeLine{24 \};}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classExtractor}{Extractor}} \{}
-\DoxyCodeLine{27     \textcolor{keyword}{public}: }
-\DoxyCodeLine{28         \textcolor{keywordtype}{int} extractPNG(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& height, \textcolor{keyword}{const} std::string\& filename, std::vector<Pixel>\& pixels); }
-\DoxyCodeLine{29         \textcolor{keywordtype}{int} extractBMP(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& height, \textcolor{keyword}{const} std::string\& filename, std::vector<Pixel>\& pixels);}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31         \textcolor{keywordtype}{int} extractTileset(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} horizontal, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} vertical, \textcolor{keyword}{const} std::vector<Pixel>\& pixels, std::vector<TileData>\& tiles);}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33         \textcolor{keyword}{static} \textcolor{keywordtype}{int} encodePNG(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, \textcolor{keyword}{const} std::string\& filename, \textcolor{keyword}{const} std::vector<Pixel>\& pixels);}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35     \textcolor{keyword}{private}:}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37         \textcolor{keywordtype}{int} tileFormation(\textcolor{keyword}{const} std::vector<Pixel>\& pixels, \mbox{\hyperlink{classTileData}{TileData}}\& tile, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height);}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39         \textcolor{keywordtype}{int} setConstraints(\mbox{\hyperlink{classTileData}{TileData}} tile, std::vector<TileData> tileList);}
-\DoxyCodeLine{40         \textcolor{keywordtype}{int} tileCompare(\mbox{\hyperlink{classTileData}{TileData}} tile1, \mbox{\hyperlink{classTileData}{TileData}} tile2);}
-\DoxyCodeLine{41         \textcolor{keywordtype}{int} sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length, Side side);}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43         \textcolor{keywordtype}{int} stuff;}
-\DoxyCodeLine{44 \};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{enum} Side \{ north, south, east, west \};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classTileData}{TileData}} \{}
+\DoxyCodeLine{28     \textcolor{keyword}{public}: }
+\DoxyCodeLine{29         \textcolor{keywordtype}{int} id;}
+\DoxyCodeLine{30         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, height;}
+\DoxyCodeLine{31         std::vector<Pixel> pixels;}
+\DoxyCodeLine{32         }
+\DoxyCodeLine{33         std::vector<Pixel> north;}
+\DoxyCodeLine{34         std::vector<Pixel> south;}
+\DoxyCodeLine{35         std::vector<Pixel> east;}
+\DoxyCodeLine{36         std::vector<Pixel> west;}
+\DoxyCodeLine{37         }
+\DoxyCodeLine{38         std::map<int, std::set<int>> northConstraints;}
+\DoxyCodeLine{39         std::map<int, std::set<int>> southConstraints;}
+\DoxyCodeLine{40         std::map<int, std::set<int>> westConstraints;}
+\DoxyCodeLine{41         std::map<int, std::set<int>> eastConstraints;}
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{89 \textcolor{keyword}{class }\mbox{\hyperlink{classExtractor}{Extractor}} \{}
+\DoxyCodeLine{90     \textcolor{keyword}{public}:}
+\DoxyCodeLine{91             \textcolor{keywordtype}{int} idCount;}
+\DoxyCodeLine{92         \textcolor{keywordtype}{double} comparisonMetric;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{104         \textcolor{keywordtype}{int} \mbox{\hyperlink{classExtractor_a69851712777c17592219308f4c2723b6}{extractPNG}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& height, \textcolor{keyword}{const} std::string\& filename, std::vector<Pixel>\& pixels);   }
+\DoxyCodeLine{105         }
+\DoxyCodeLine{116         \textcolor{keywordtype}{int} \mbox{\hyperlink{classExtractor_aa2dfdbd9677b113b9d6db18810023d53}{extractBMP}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& height, \textcolor{keyword}{const} std::string\& filename, std::vector<Pixel>\& pixels);}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{130         \textcolor{keywordtype}{int} \mbox{\hyperlink{classExtractor_a7996cb26dd5ff6d35d1505a5580205dd}{extractTileset}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} horizontal, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} vertical, \textcolor{keyword}{const} std::vector<Pixel>\& pixels, std::vector<TileData>\& tiles);}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{142         \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{classExtractor_af368de6960d95b0cf034234c2ada1f5f}{encodePNG}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, \textcolor{keyword}{const} std::string\& filename, \textcolor{keyword}{const} std::vector<Pixel>\& pixels);}
+\DoxyCodeLine{143         }
+\DoxyCodeLine{151         \textcolor{keywordtype}{int} \mbox{\hyperlink{classExtractor_ac8e9b5f85bcdf56dc6b2edb5bebd3809}{setConstraints}}(std::vector<TileData>\& tileList);}
+\DoxyCodeLine{152         }
+\DoxyCodeLine{157         \mbox{\hyperlink{classExtractor_a2726e6a94c51c2b2dbc518199d054103}{Extractor}}()\{}
+\DoxyCodeLine{158             idCount = 1;}
+\DoxyCodeLine{159             comparisonMetric = .8;}
+\DoxyCodeLine{160         \}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{169         \mbox{\hyperlink{classExtractor_a62d4ffc438254c5661c4a60d1d2d4928}{Extractor}}(\textcolor{keywordtype}{double} metric)\{}
+\DoxyCodeLine{170             idCount = 1;}
+\DoxyCodeLine{171             \textcolor{keywordflow}{if}(metric > 1)\{}
+\DoxyCodeLine{172                 metric = 1;}
+\DoxyCodeLine{173             \}}
+\DoxyCodeLine{174             \textcolor{keywordflow}{if}(metric < 0)\{}
+\DoxyCodeLine{175                 metric = 0;}
+\DoxyCodeLine{176             \}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178             comparisonMetric = metric;}
+\DoxyCodeLine{179         \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181     \textcolor{keyword}{private}:}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{194         \textcolor{keywordtype}{int} tileFormation(\textcolor{keyword}{const} std::vector<Pixel>\& pixels, \mbox{\hyperlink{classTileData}{TileData}}\& tile, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{204         \textcolor{keywordtype}{int} tileCompare(\mbox{\hyperlink{classTileData}{TileData}}\& tile1, \mbox{\hyperlink{classTileData}{TileData}}\& tile2);}
+\DoxyCodeLine{205         }
+\DoxyCodeLine{214         \textcolor{keywordtype}{bool} sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length);}
+\DoxyCodeLine{215 \};}
 
 \end{DoxyCode}
