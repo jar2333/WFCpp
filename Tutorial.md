@@ -16,8 +16,8 @@ This brief tutorial covers how to use the Solver module to invoke the WFC algori
 ```
 
 Then, we specify a vector of strings as our tiles:
+- Dirt tiles
 - Grass tiles
-- Grass to sky transition tiles
 - Sky tiles
 - Bird tiles
 
