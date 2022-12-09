@@ -39,20 +39,20 @@ void SolverTester::testSolver() {
     solver.addAdjacencyConstraint(3, Direction::LEFT, {2,3});
     solver.addAdjacencyConstraint(3, Direction::RIGHT, {2,3});
 
-    // solver.setInitialConstraint({1,0}, {1});
+    solver.setInitialConstraint({1,0}, {1});
 
-    solver.registerOnCollapse([&tiles](const Solver::TileKey& k, Position p){
+    solver.registerOnCollapse([&tiles](const auto& k, Position p){
         auto [i, j] = p;
         std::cout << "Collapse! at Position: (" << i << ", " << j << "), tile: " << tiles[k] << std::endl;
     });
 
-    solver.registerOnPropagate([](const std::vector<Solver::TileKey>& k, Position p){
+    solver.registerOnPropagate([](const auto& k, Position p){
         auto [i, j] = p;
         std::cout << "Propagate! at Position: (" << i << ", " << j << "), ";
         print(k, "tiles: ");
     });
 
-    size_t gridSize = 2;
+    size_t gridSize = 4;
 
     std::cout << "Solving grid:\n";
     SolverGrid grid;

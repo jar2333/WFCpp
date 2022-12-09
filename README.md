@@ -9,7 +9,7 @@ Dependencies:
 - [LCov](https://ltp.sourceforge.net/coverage/lcov.php) extension to gcov coverage tester
 
 
-To build (library, documentation, and tests) assumming the root directory is the working directory:
+To build (library, documentation, and test executable) assumming the root directory is the working directory:
 ```bash
 cmake --build ./build --config Debug --target all --
 ```
@@ -19,15 +19,12 @@ A list of all targets that can be used instead of `all`
 - `wfcpp` to compile WFCpp as a static library (part of `all`).
 - `main.exe` to compile test executable (part of `all`).
 - `doc` to build Doxygen documentation for WFCpp (part of `all`).
-- `coverage` to build LCov coverage report for test executable (running of test executable required beforehand).
-- `run` to run test executable (IO not possible, manual run preferred).
+- `run` to run test executable (IO not possible, currently okay, builds `main.exe` target).
+- `coverage` to build LCov coverage report for test executable (builds `run` target).
 - `EasyBMP` to compile EasyBMP as a static library (part of `all`).
 - `lodepng` to compile lodepng as a static library (part of `all`).
 
-Alternative way to run tests and build coverage report:
+Since it is not part of the `all` target, remember that to build the coverage report for the test executable, use:
 ```bash
-cd build
-make run
-make coverage
+cmake --build ./build --target coverage
 ```
-`make run` runs the test program, and `make coverage` builds the coverage report based on the last test run.

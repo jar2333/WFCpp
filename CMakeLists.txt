@@ -4,6 +4,13 @@ project(wfcpp-project VERSION 0.0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+#very flimsy but it works so whatever
+add_custom_target(run
+  COMMAND ${CMAKE_SOURCE_DIR}/build/test/main.exe
+  WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+)
+add_dependencies(run main.exe)
+
 set(IS_DEBUG_BUILD CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 # Indication to the code that this is a debug build
@@ -28,13 +35,9 @@ if (${IS_DEBUG_BUILD})
         COMMAND ${GENHTML} --demangle-cpp -o ${COVERAGE_REPORT_DIR} ${COVERAGE_INFO_FILE}
     )
 
-endif()
+    add_dependencies(coverage run)
 
-#very flimsy but it works so whatever
-add_custom_target(run
-  COMMAND ${CMAKE_SOURCE_DIR}/build/test/main.exe
-  WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
-)
+endif()
 
 add_subdirectory(test)
 add_subdirectory(library)
