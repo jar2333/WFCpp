@@ -39,121 +39,119 @@
 \DoxyCodeLine{35   \}}
 \DoxyCodeLine{36 \};}
 \DoxyCodeLine{37 }
-\DoxyCodeLine{38 }
-\DoxyCodeLine{74 \textcolor{keyword}{class }\mbox{\hyperlink{classSolver}{Solver}} \{}
-\DoxyCodeLine{75 \textcolor{keyword}{public}:}
-\DoxyCodeLine{76 }
-\DoxyCodeLine{80   \textcolor{keyword}{typedef} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{TileKey}};}
-\DoxyCodeLine{81 }
-\DoxyCodeLine{82   \textcolor{keyword}{typedef} std::function<std::vector<TileKey>::const\_iterator(\textcolor{keyword}{const} std::vector<TileKey>\&)> CollapseBehavior;}
-\DoxyCodeLine{83 }
-\DoxyCodeLine{84   \textcolor{keyword}{typedef} std::function<void(\textcolor{keyword}{const} \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{TileKey}}\&, \mbox{\hyperlink{structPosition}{Position}})> CollapseCallback;}
-\DoxyCodeLine{85   \textcolor{keyword}{typedef} std::function<void(\textcolor{keyword}{const} std::vector<TileKey>\&, \mbox{\hyperlink{structPosition}{Position}})> PropagateCallback;}
-\DoxyCodeLine{86 }
-\DoxyCodeLine{91   \textcolor{keyword}{typedef} \textcolor{keyword}{typename} std::list<CollapseCallback>::iterator \mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{CollapseCallbackCookie}};}
-\DoxyCodeLine{92 }
-\DoxyCodeLine{97   \textcolor{keyword}{typedef} \textcolor{keyword}{typename} std::list<PropagateCallback>::iterator \mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{PropagateCallbackCookie}};}
-\DoxyCodeLine{98 }
-\DoxyCodeLine{104   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{105   \mbox{\hyperlink{classSolver_ab9943f77531798a2f6ce24b8281d71a3}{Solver}}(\textcolor{keyword}{const} std::vector<T>\& tiles, \textcolor{keywordtype}{int} seed=0): seed(seed) \{}
-\DoxyCodeLine{106     \textcolor{keywordflow}{for} (\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{TileKey}} k = 0; k < tiles.size(); k++) \{}
-\DoxyCodeLine{107       this-\/>tiles.push\_back(k);}
-\DoxyCodeLine{108     \}}
-\DoxyCodeLine{109   \}}
-\DoxyCodeLine{110 }
-\DoxyCodeLine{116   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{117   \mbox{\hyperlink{classSolver_a7b00bb931fe601491c521d6176cf77b5}{Solver}}(\textcolor{keyword}{const} std::map<TileKey, T>\& tiles, \textcolor{keywordtype}{int} seed=0): seed(seed) \{}
-\DoxyCodeLine{118     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} [k, \_] : tiles) \{}
-\DoxyCodeLine{119       this-\/>tiles.push\_back(k);}
-\DoxyCodeLine{120     \}}
-\DoxyCodeLine{121   \}}
-\DoxyCodeLine{122 }
-\DoxyCodeLine{123   \textcolor{comment}{/*}}
-\DoxyCodeLine{124 \textcolor{comment}{   SOLVER API}}
-\DoxyCodeLine{125 \textcolor{comment}{  */}}
-\DoxyCodeLine{126 }
-\DoxyCodeLine{131   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_a34198a1963bea018d0d7096dd36e3653}{setSeed}}(\textcolor{keywordtype}{int} seed);}
-\DoxyCodeLine{132 }
-\DoxyCodeLine{137   \textcolor{keywordtype}{int} \mbox{\hyperlink{classSolver_a010ed819d6b21696564a5cc5cd5e2cbb}{getSeed}}();}
-\DoxyCodeLine{138   }
-\DoxyCodeLine{146   std::shared\_ptr<Grid<TileKey>> \mbox{\hyperlink{classSolver_a7d7406c53eecaf19b82b312791d8fcb0}{solve}}(\textcolor{keywordtype}{size\_t} N);}
-\DoxyCodeLine{147 }
-\DoxyCodeLine{155   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_a7d7406c53eecaf19b82b312791d8fcb0}{solve}}(\textcolor{keywordtype}{size\_t} N, \mbox{\hyperlink{classGrid}{Grid<TileKey>}}\& grid);}
-\DoxyCodeLine{156 }
-\DoxyCodeLine{157   \textcolor{comment}{/*}}
-\DoxyCodeLine{158 \textcolor{comment}{   CONSTRAINT INTERFACE/API}}
-\DoxyCodeLine{159 \textcolor{comment}{   Set the solver constraints using this specified interface}}
-\DoxyCodeLine{160 \textcolor{comment}{  */}}
-\DoxyCodeLine{161 }
-\DoxyCodeLine{178   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_ae9e645865467108124343029fcd91504}{addAdjacencyConstraint}}(TileKey t, Direction d, TileKey neighbor);}
-\DoxyCodeLine{179 }
-\DoxyCodeLine{190   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_ac103dc80c8f2e6b8f96d6890c7e0f1e8}{removeAdjacencyConstraint}}(TileKey t, Direction d, TileKey neighbor);}
-\DoxyCodeLine{191 }
-\DoxyCodeLine{203   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_ae9e645865467108124343029fcd91504}{addAdjacencyConstraint}}(TileKey t, Direction d, std::initializer\_list<TileKey> neighbors);}
-\DoxyCodeLine{204 }
-\DoxyCodeLine{216   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_ac103dc80c8f2e6b8f96d6890c7e0f1e8}{removeAdjacencyConstraint}}(TileKey t, Direction d, std::initializer\_list<TileKey> neighbors);}
-\DoxyCodeLine{217 }
-\DoxyCodeLine{232   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_a30173570fd36893e302f9313fe030937}{setInitialConstraint}}(\mbox{\hyperlink{structPosition}{Position}} p, TileKey possibility);}
-\DoxyCodeLine{233 }
-\DoxyCodeLine{242   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_a30173570fd36893e302f9313fe030937}{setInitialConstraint}}(\mbox{\hyperlink{structPosition}{Position}} p, std::initializer\_list<TileKey> possibilities);}
-\DoxyCodeLine{243   }
-\DoxyCodeLine{244   \textcolor{comment}{/*}}
-\DoxyCodeLine{245 \textcolor{comment}{   CALLBACK INTERFACE/API}}
-\DoxyCodeLine{246 \textcolor{comment}{  */}}
-\DoxyCodeLine{247  }
-\DoxyCodeLine{259   \mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{CollapseCallbackCookie}} \mbox{\hyperlink{classSolver_aa21bdaffa17e0ef52e78ce64f2046b5b}{registerOnCollapse}}(CollapseCallback callback);}
-\DoxyCodeLine{260 }
-\DoxyCodeLine{268   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_acbca26de9fca6d061d0478dda6cc64f1}{deregisterOnCollapse}}(\mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{CollapseCallbackCookie}} cookie);}
-\DoxyCodeLine{269 }
-\DoxyCodeLine{281   \mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{PropagateCallbackCookie}} \mbox{\hyperlink{classSolver_aed54210e84c73fff7fb4f2be1e965457}{registerOnPropagate}}(PropagateCallback callback);}
-\DoxyCodeLine{282 }
-\DoxyCodeLine{290   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_acbca26de9fca6d061d0478dda6cc64f1}{deregisterOnCollapse}}(\mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{PropagateCallbackCookie}} cookie);}
-\DoxyCodeLine{291 }
-\DoxyCodeLine{292   \textcolor{comment}{/*}}
-\DoxyCodeLine{293 \textcolor{comment}{   COLLAPSE INTERFACE}}
-\DoxyCodeLine{294 \textcolor{comment}{  */}}
+\DoxyCodeLine{73 \textcolor{keyword}{class }\mbox{\hyperlink{classSolver}{Solver}} \{}
+\DoxyCodeLine{74 \textcolor{keyword}{public}:}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{79   \textcolor{keyword}{typedef} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{TileKey}};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81   \textcolor{keyword}{typedef} std::function<std::vector<TileKey>::const\_iterator(\textcolor{keyword}{const} std::vector<TileKey>\&)> CollapseBehavior;}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83   \textcolor{keyword}{typedef} std::function<void(\textcolor{keyword}{const} \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{TileKey}}\&, \mbox{\hyperlink{structPosition}{Position}})> CollapseCallback;}
+\DoxyCodeLine{84   \textcolor{keyword}{typedef} std::function<void(\textcolor{keyword}{const} std::vector<TileKey>\&, \mbox{\hyperlink{structPosition}{Position}})> PropagateCallback;}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{90   \textcolor{keyword}{typedef} \textcolor{keyword}{typename} std::list<CollapseCallback>::iterator \mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{CollapseCallbackCookie}};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{96   \textcolor{keyword}{typedef} \textcolor{keyword}{typename} std::list<PropagateCallback>::iterator \mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{PropagateCallbackCookie}};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{103   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{104   \mbox{\hyperlink{classSolver_ab9943f77531798a2f6ce24b8281d71a3}{Solver}}(\textcolor{keyword}{const} std::vector<T>\& tiles, \textcolor{keywordtype}{int} seed=0): seed(seed) \{}
+\DoxyCodeLine{105     \textcolor{keywordflow}{for} (\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{TileKey}} k = 0; k < tiles.size(); k++) \{}
+\DoxyCodeLine{106       this-\/>tiles.push\_back(k);}
+\DoxyCodeLine{107     \}}
+\DoxyCodeLine{108   \}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{115   \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{116   \mbox{\hyperlink{classSolver_a7b00bb931fe601491c521d6176cf77b5}{Solver}}(\textcolor{keyword}{const} std::map<TileKey, T>\& tiles, \textcolor{keywordtype}{int} seed=0): seed(seed) \{}
+\DoxyCodeLine{117     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} [k, \_] : tiles) \{}
+\DoxyCodeLine{118       this-\/>tiles.push\_back(k);}
+\DoxyCodeLine{119     \}}
+\DoxyCodeLine{120   \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122   \textcolor{comment}{/*}}
+\DoxyCodeLine{123 \textcolor{comment}{   SOLVER API}}
+\DoxyCodeLine{124 \textcolor{comment}{  */}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{130   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_a34198a1963bea018d0d7096dd36e3653}{setSeed}}(\textcolor{keywordtype}{int} seed);}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{136   \textcolor{keywordtype}{int} \mbox{\hyperlink{classSolver_a010ed819d6b21696564a5cc5cd5e2cbb}{getSeed}}();}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{145   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_a889f4d7fb4caa5d53a5a54ef31592d13}{solve}}(\textcolor{keywordtype}{size\_t} N, \mbox{\hyperlink{classGrid}{Grid<TileKey>}}\& grid);}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147   \textcolor{comment}{/*}}
+\DoxyCodeLine{148 \textcolor{comment}{   CONSTRAINT INTERFACE/API}}
+\DoxyCodeLine{149 \textcolor{comment}{   Set the solver constraints using this specified interface}}
+\DoxyCodeLine{150 \textcolor{comment}{  */}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{168   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_ae9e645865467108124343029fcd91504}{addAdjacencyConstraint}}(TileKey t, Direction d, TileKey neighbor);}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{180   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_ac103dc80c8f2e6b8f96d6890c7e0f1e8}{removeAdjacencyConstraint}}(TileKey t, Direction d, TileKey neighbor);}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{193   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_ae9e645865467108124343029fcd91504}{addAdjacencyConstraint}}(TileKey t, Direction d, std::initializer\_list<TileKey> neighbors);}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{206   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_ac103dc80c8f2e6b8f96d6890c7e0f1e8}{removeAdjacencyConstraint}}(TileKey t, Direction d, std::initializer\_list<TileKey> neighbors);}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{222   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_a30173570fd36893e302f9313fe030937}{setInitialConstraint}}(\mbox{\hyperlink{structPosition}{Position}} p, TileKey possibility);}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{232   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_a30173570fd36893e302f9313fe030937}{setInitialConstraint}}(\mbox{\hyperlink{structPosition}{Position}} p, std::initializer\_list<TileKey> possibilities);}
+\DoxyCodeLine{233   }
+\DoxyCodeLine{234   \textcolor{comment}{/*}}
+\DoxyCodeLine{235 \textcolor{comment}{   CALLBACK INTERFACE/API}}
+\DoxyCodeLine{236 \textcolor{comment}{  */}}
+\DoxyCodeLine{237  }
+\DoxyCodeLine{249   \mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{CollapseCallbackCookie}} \mbox{\hyperlink{classSolver_aa21bdaffa17e0ef52e78ce64f2046b5b}{registerOnCollapse}}(CollapseCallback callback);}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{258   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_acbca26de9fca6d061d0478dda6cc64f1}{deregisterOnCollapse}}(\mbox{\hyperlink{classSolver_abc55f3b23ccda7c353df7abfb678f150}{CollapseCallbackCookie}} cookie);}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{271   \mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{PropagateCallbackCookie}} \mbox{\hyperlink{classSolver_aed54210e84c73fff7fb4f2be1e965457}{registerOnPropagate}}(PropagateCallback callback);}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{280   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_acbca26de9fca6d061d0478dda6cc64f1}{deregisterOnCollapse}}(\mbox{\hyperlink{classSolver_ace4c0aafb91c3db2531d97fe61d8afb7}{PropagateCallbackCookie}} cookie);}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282   \textcolor{comment}{/*}}
+\DoxyCodeLine{283 \textcolor{comment}{   COLLAPSE INTERFACE}}
+\DoxyCodeLine{284 \textcolor{comment}{  */}}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{293   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_a8b11638a34e8929a126607edbb125898}{setCollapseBehaviour}}(std::optional<CollapseBehavior> b);}
+\DoxyCodeLine{294 }
 \DoxyCodeLine{295 }
-\DoxyCodeLine{303   \textcolor{keywordtype}{void} \mbox{\hyperlink{classSolver_a8b11638a34e8929a126607edbb125898}{setCollapseBehaviour}}(std::optional<CollapseBehavior> b);}
-\DoxyCodeLine{304 }
-\DoxyCodeLine{305 }
-\DoxyCodeLine{306 \textcolor{keyword}{private}:}
-\DoxyCodeLine{307   \textcolor{keyword}{typedef} std::pair<TileKey, Direction> Side;}
-\DoxyCodeLine{308 }
-\DoxyCodeLine{309   \textcolor{comment}{/* INITIAL */}}
-\DoxyCodeLine{310   \textcolor{keywordtype}{int} seed;}
-\DoxyCodeLine{311   std::vector<TileKey> tiles;}
-\DoxyCodeLine{312 }
-\DoxyCodeLine{313   \textcolor{comment}{/* CONSTRAINTS */}}
-\DoxyCodeLine{314   std::unordered\_map<Side, std::unordered\_set<TileKey>> adjacency\_constraints;}
-\DoxyCodeLine{315   std::unordered\_map<Position, std::unordered\_set<TileKey>> initial\_constraints;}
-\DoxyCodeLine{316 }
-\DoxyCodeLine{317   \textcolor{comment}{/* BEHAVIOURS */}}
-\DoxyCodeLine{318   CollapseBehavior collapse\_behavior = \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{319 }
-\DoxyCodeLine{320   \textcolor{comment}{/* CALLBACKS */}}
-\DoxyCodeLine{321   std::list<CollapseCallback> collapse\_callbacks;}
-\DoxyCodeLine{322   std::list<PropagateCallback> propagate\_callbacks;}
-\DoxyCodeLine{323 }
-\DoxyCodeLine{324   \textcolor{comment}{/* ALGORITHM */}}
-\DoxyCodeLine{325   std::unordered\_map<Position, std::vector<TileKey>> grid;}
-\DoxyCodeLine{326   \textcolor{keywordtype}{size\_t} N;}
-\DoxyCodeLine{327 }
-\DoxyCodeLine{328   \textcolor{keywordtype}{void} initializeGrid(\textcolor{keywordtype}{size\_t} N);}
-\DoxyCodeLine{329   \textcolor{keywordtype}{void} processInitialConstraints() ;}
-\DoxyCodeLine{330   \textcolor{keywordtype}{bool} isCollapsed();}
-\DoxyCodeLine{331   \textcolor{keywordtype}{bool} isContradiction();}
-\DoxyCodeLine{332   \textcolor{keywordtype}{void} iterate();}
-\DoxyCodeLine{333   \mbox{\hyperlink{structPosition}{Position}} getMinEntropyCoordinates();}
-\DoxyCodeLine{334   \textcolor{keywordtype}{void} collapseAt(\mbox{\hyperlink{structPosition}{Position}} p);}
-\DoxyCodeLine{335   \textcolor{keywordtype}{void} propagate(\mbox{\hyperlink{structPosition}{Position}} p);}
-\DoxyCodeLine{336   \textcolor{keywordtype}{bool} propagateAt(\mbox{\hyperlink{structPosition}{Position}} current, \mbox{\hyperlink{structPosition}{Position}} neighbor); \textcolor{comment}{//returns true if neighbor's possible tiles decrease}}
-\DoxyCodeLine{337   std::vector<Position> getNeighbors(\mbox{\hyperlink{structPosition}{Position}} p);}
-\DoxyCodeLine{338   std::vector<TileKey>::const\_iterator collapseRandom(\textcolor{keyword}{const} std::vector<TileKey>\& tiles);}
-\DoxyCodeLine{339   std::unordered\_set<TileKey> getAdjacencies(TileKey k, Direction d);}
-\DoxyCodeLine{340   std::vector<TileKey> getPossibleTiles(\mbox{\hyperlink{structPosition}{Position}} p);}
-\DoxyCodeLine{341 }
-\DoxyCodeLine{342 }
-\DoxyCodeLine{343 \};}
-\DoxyCodeLine{344 }
+\DoxyCodeLine{296 \textcolor{keyword}{private}:}
+\DoxyCodeLine{297   \textcolor{keyword}{typedef} std::pair<TileKey, Direction> Side;}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299   \textcolor{comment}{/* INITIAL */}}
+\DoxyCodeLine{300   \textcolor{keywordtype}{int} seed;}
+\DoxyCodeLine{301   std::vector<TileKey> tiles;}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303   \textcolor{comment}{/* CONSTRAINTS */}}
+\DoxyCodeLine{304   std::unordered\_map<Side, std::unordered\_set<TileKey>> adjacency\_constraints;}
+\DoxyCodeLine{305   std::unordered\_map<Position, std::unordered\_set<TileKey>> initial\_constraints;}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307   \textcolor{comment}{/* BEHAVIOURS */}}
+\DoxyCodeLine{308   CollapseBehavior collapse\_behavior = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310   \textcolor{comment}{/* CALLBACKS */}}
+\DoxyCodeLine{311   std::list<CollapseCallback> collapse\_callbacks;}
+\DoxyCodeLine{312   std::list<PropagateCallback> propagate\_callbacks;}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314   \textcolor{comment}{/* ALGORITHM */}}
+\DoxyCodeLine{315   std::unordered\_map<Position, std::vector<TileKey>> grid;}
+\DoxyCodeLine{316   \textcolor{keywordtype}{size\_t} N;}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318   \textcolor{keywordtype}{void} initializeGrid(\textcolor{keywordtype}{size\_t} N);}
+\DoxyCodeLine{319   \textcolor{keywordtype}{void} processInitialConstraints() ;}
+\DoxyCodeLine{320   \textcolor{keywordtype}{bool} isCollapsed();}
+\DoxyCodeLine{321   \textcolor{keywordtype}{bool} isContradiction();}
+\DoxyCodeLine{322   \textcolor{keywordtype}{void} iterate();}
+\DoxyCodeLine{323   \mbox{\hyperlink{structPosition}{Position}} getMinEntropyCoordinates();}
+\DoxyCodeLine{324   \textcolor{keywordtype}{void} collapseAt(\mbox{\hyperlink{structPosition}{Position}} p);}
+\DoxyCodeLine{325   \textcolor{keywordtype}{void} propagate(\mbox{\hyperlink{structPosition}{Position}} p);}
+\DoxyCodeLine{326   \textcolor{keywordtype}{bool} propagateAt(\mbox{\hyperlink{structPosition}{Position}} current, \mbox{\hyperlink{structPosition}{Position}} neighbor); \textcolor{comment}{//returns true if neighbor's possible tiles decrease}}
+\DoxyCodeLine{327   std::vector<Position> getNeighbors(\mbox{\hyperlink{structPosition}{Position}} p);}
+\DoxyCodeLine{328   std::vector<TileKey>::const\_iterator collapseRandom(\textcolor{keyword}{const} std::vector<TileKey>\& tiles);}
+\DoxyCodeLine{329   std::unordered\_set<TileKey> getAdjacencies(TileKey k, Direction d);}
+\DoxyCodeLine{330   std::vector<TileKey> getPossibleTiles(\mbox{\hyperlink{structPosition}{Position}} p);}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332 \};}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{339 \textcolor{keyword}{typedef} \mbox{\hyperlink{classGrid}{Grid<Solver::TileKey>}} \mbox{\hyperlink{classGrid}{SolverGrid}}; }
+\DoxyCodeLine{340 }
 
 \end{DoxyCode}

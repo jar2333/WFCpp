@@ -113,140 +113,138 @@ $(function() {
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  }</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classSolver.html">   74</a></span><span class="keyword">class </span><a class="code hl_class" href="classSolver.html">Solver</a> {</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">   80</a></span>  <span class="keyword">typedef</span> <span class="keywordtype">size_t</span> <a class="code hl_typedef" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a>;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keyword">typedef</span> std::function&lt;std::vector&lt;TileKey&gt;::const_iterator(<span class="keyword">const</span> std::vector&lt;TileKey&gt;&amp;)&gt; CollapseBehavior;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <span class="keyword">typedef</span> std::function&lt;void(<span class="keyword">const</span> <a class="code hl_typedef" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a>&amp;, <a class="code hl_struct" href="structPosition.html">Position</a>)&gt; CollapseCallback;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keyword">typedef</span> std::function&lt;void(<span class="keyword">const</span> std::vector&lt;TileKey&gt;&amp;, <a class="code hl_struct" href="structPosition.html">Position</a>)&gt; PropagateCallback;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classSolver.html#abc55f3b23ccda7c353df7abfb678f150">   91</a></span>  <span class="keyword">typedef</span> <span class="keyword">typename</span> std::list&lt;CollapseCallback&gt;::iterator <a class="code hl_typedef" href="classSolver.html#abc55f3b23ccda7c353df7abfb678f150">CollapseCallbackCookie</a>;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classSolver.html#ace4c0aafb91c3db2531d97fe61d8afb7">   97</a></span>  <span class="keyword">typedef</span> <span class="keyword">typename</span> std::list&lt;PropagateCallback&gt;::iterator <a class="code hl_typedef" href="classSolver.html#ace4c0aafb91c3db2531d97fe61d8afb7">PropagateCallbackCookie</a>;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classSolver.html#ab9943f77531798a2f6ce24b8281d71a3">  105</a></span>  <a class="code hl_function" href="classSolver.html#ab9943f77531798a2f6ce24b8281d71a3">Solver</a>(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; tiles, <span class="keywordtype">int</span> seed=0): seed(seed) {</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a> k = 0; k &lt; tiles.size(); k++) {</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>      this-&gt;tiles.push_back(k);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  }</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classSolver.html#a7b00bb931fe601491c521d6176cf77b5">  117</a></span>  <a class="code hl_function" href="classSolver.html#a7b00bb931fe601491c521d6176cf77b5">Solver</a>(<span class="keyword">const</span> std::map&lt;TileKey, T&gt;&amp; tiles, <span class="keywordtype">int</span> seed=0): seed(seed) {</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> [k, _] : tiles) {</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      this-&gt;tiles.push_back(k);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  }</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>  <span class="comment">/*</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">   SOLVER API</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">  */</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#a34198a1963bea018d0d7096dd36e3653">setSeed</a>(<span class="keywordtype">int</span> seed);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classSolver.html#a010ed819d6b21696564a5cc5cd5e2cbb">getSeed</a>();</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>  std::shared_ptr&lt;Grid&lt;TileKey&gt;&gt; <a class="code hl_function" href="classSolver.html#a7d7406c53eecaf19b82b312791d8fcb0">solve</a>(<span class="keywordtype">size_t</span> N);</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#a7d7406c53eecaf19b82b312791d8fcb0">solve</a>(<span class="keywordtype">size_t</span> N, <a class="code hl_class" href="classGrid.html">Grid&lt;TileKey&gt;</a>&amp; grid);</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  <span class="comment">/*</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">   CONSTRAINT INTERFACE/API</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">   Set the solver constraints using this specified interface</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">  */</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#ae9e645865467108124343029fcd91504">addAdjacencyConstraint</a>(TileKey t, Direction d, TileKey neighbor);</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#ac103dc80c8f2e6b8f96d6890c7e0f1e8">removeAdjacencyConstraint</a>(TileKey t, Direction d, TileKey neighbor);</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#ae9e645865467108124343029fcd91504">addAdjacencyConstraint</a>(TileKey t, Direction d, std::initializer_list&lt;TileKey&gt; neighbors);</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#ac103dc80c8f2e6b8f96d6890c7e0f1e8">removeAdjacencyConstraint</a>(TileKey t, Direction d, std::initializer_list&lt;TileKey&gt; neighbors);</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#a30173570fd36893e302f9313fe030937">setInitialConstraint</a>(<a class="code hl_struct" href="structPosition.html">Position</a> p, TileKey possibility);</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#a30173570fd36893e302f9313fe030937">setInitialConstraint</a>(<a class="code hl_struct" href="structPosition.html">Position</a> p, std::initializer_list&lt;TileKey&gt; possibilities);</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>  </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>  <span class="comment">/*</span></div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment">   CALLBACK INTERFACE/API</span></div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment">  */</span></div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>  <a class="code hl_typedef" href="classSolver.html#abc55f3b23ccda7c353df7abfb678f150">CollapseCallbackCookie</a> <a class="code hl_function" href="classSolver.html#aa21bdaffa17e0ef52e78ce64f2046b5b">registerOnCollapse</a>(CollapseCallback callback);</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#acbca26de9fca6d061d0478dda6cc64f1">deregisterOnCollapse</a>(<a class="code hl_typedef" href="classSolver.html#abc55f3b23ccda7c353df7abfb678f150">CollapseCallbackCookie</a> cookie);</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>  <a class="code hl_typedef" href="classSolver.html#ace4c0aafb91c3db2531d97fe61d8afb7">PropagateCallbackCookie</a> <a class="code hl_function" href="classSolver.html#aed54210e84c73fff7fb4f2be1e965457">registerOnPropagate</a>(PropagateCallback callback);</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#acbca26de9fca6d061d0478dda6cc64f1">deregisterOnCollapse</a>(<a class="code hl_typedef" href="classSolver.html#ace4c0aafb91c3db2531d97fe61d8afb7">PropagateCallbackCookie</a> cookie);</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>  <span class="comment">/*</span></div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="comment">   COLLAPSE INTERFACE</span></div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="comment">  */</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classSolver.html">   73</a></span><span class="keyword">class </span><a class="code hl_class" href="classSolver.html">Solver</a> {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">   79</a></span>  <span class="keyword">typedef</span> <span class="keywordtype">size_t</span> <a class="code hl_typedef" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <span class="keyword">typedef</span> std::function&lt;std::vector&lt;TileKey&gt;::const_iterator(<span class="keyword">const</span> std::vector&lt;TileKey&gt;&amp;)&gt; CollapseBehavior;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <span class="keyword">typedef</span> std::function&lt;void(<span class="keyword">const</span> <a class="code hl_typedef" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a>&amp;, <a class="code hl_struct" href="structPosition.html">Position</a>)&gt; CollapseCallback;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <span class="keyword">typedef</span> std::function&lt;void(<span class="keyword">const</span> std::vector&lt;TileKey&gt;&amp;, <a class="code hl_struct" href="structPosition.html">Position</a>)&gt; PropagateCallback;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classSolver.html#abc55f3b23ccda7c353df7abfb678f150">   90</a></span>  <span class="keyword">typedef</span> <span class="keyword">typename</span> std::list&lt;CollapseCallback&gt;::iterator <a class="code hl_typedef" href="classSolver.html#abc55f3b23ccda7c353df7abfb678f150">CollapseCallbackCookie</a>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classSolver.html#ace4c0aafb91c3db2531d97fe61d8afb7">   96</a></span>  <span class="keyword">typedef</span> <span class="keyword">typename</span> std::list&lt;PropagateCallback&gt;::iterator <a class="code hl_typedef" href="classSolver.html#ace4c0aafb91c3db2531d97fe61d8afb7">PropagateCallbackCookie</a>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classSolver.html#ab9943f77531798a2f6ce24b8281d71a3">  104</a></span>  <a class="code hl_function" href="classSolver.html#ab9943f77531798a2f6ce24b8281d71a3">Solver</a>(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; tiles, <span class="keywordtype">int</span> seed=0): seed(seed) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">TileKey</a> k = 0; k &lt; tiles.size(); k++) {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>      this-&gt;tiles.push_back(k);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classSolver.html#a7b00bb931fe601491c521d6176cf77b5">  116</a></span>  <a class="code hl_function" href="classSolver.html#a7b00bb931fe601491c521d6176cf77b5">Solver</a>(<span class="keyword">const</span> std::map&lt;TileKey, T&gt;&amp; tiles, <span class="keywordtype">int</span> seed=0): seed(seed) {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> [k, _] : tiles) {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>      this-&gt;tiles.push_back(k);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>  <span class="comment">/*</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">   SOLVER API</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">  */</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#a34198a1963bea018d0d7096dd36e3653">setSeed</a>(<span class="keywordtype">int</span> seed);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classSolver.html#a010ed819d6b21696564a5cc5cd5e2cbb">getSeed</a>();</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#a889f4d7fb4caa5d53a5a54ef31592d13">solve</a>(<span class="keywordtype">size_t</span> N, <a class="code hl_class" href="classGrid.html">Grid&lt;TileKey&gt;</a>&amp; grid);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>  <span class="comment">/*</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">   CONSTRAINT INTERFACE/API</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">   Set the solver constraints using this specified interface</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">  */</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#ae9e645865467108124343029fcd91504">addAdjacencyConstraint</a>(TileKey t, Direction d, TileKey neighbor);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#ac103dc80c8f2e6b8f96d6890c7e0f1e8">removeAdjacencyConstraint</a>(TileKey t, Direction d, TileKey neighbor);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#ae9e645865467108124343029fcd91504">addAdjacencyConstraint</a>(TileKey t, Direction d, std::initializer_list&lt;TileKey&gt; neighbors);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#ac103dc80c8f2e6b8f96d6890c7e0f1e8">removeAdjacencyConstraint</a>(TileKey t, Direction d, std::initializer_list&lt;TileKey&gt; neighbors);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#a30173570fd36893e302f9313fe030937">setInitialConstraint</a>(<a class="code hl_struct" href="structPosition.html">Position</a> p, TileKey possibility);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#a30173570fd36893e302f9313fe030937">setInitialConstraint</a>(<a class="code hl_struct" href="structPosition.html">Position</a> p, std::initializer_list&lt;TileKey&gt; possibilities);</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>  </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>  <span class="comment">/*</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment">   CALLBACK INTERFACE/API</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment">  */</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>  <a class="code hl_typedef" href="classSolver.html#abc55f3b23ccda7c353df7abfb678f150">CollapseCallbackCookie</a> <a class="code hl_function" href="classSolver.html#aa21bdaffa17e0ef52e78ce64f2046b5b">registerOnCollapse</a>(CollapseCallback callback);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#acbca26de9fca6d061d0478dda6cc64f1">deregisterOnCollapse</a>(<a class="code hl_typedef" href="classSolver.html#abc55f3b23ccda7c353df7abfb678f150">CollapseCallbackCookie</a> cookie);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>  <a class="code hl_typedef" href="classSolver.html#ace4c0aafb91c3db2531d97fe61d8afb7">PropagateCallbackCookie</a> <a class="code hl_function" href="classSolver.html#aed54210e84c73fff7fb4f2be1e965457">registerOnPropagate</a>(PropagateCallback callback);</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#acbca26de9fca6d061d0478dda6cc64f1">deregisterOnCollapse</a>(<a class="code hl_typedef" href="classSolver.html#ace4c0aafb91c3db2531d97fe61d8afb7">PropagateCallbackCookie</a> cookie);</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>  <span class="comment">/*</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="comment">   COLLAPSE INTERFACE</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="comment">  */</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#a8b11638a34e8929a126607edbb125898">setCollapseBehaviour</a>(std::optional&lt;CollapseBehavior&gt; b);</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
 <div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSolver.html#a8b11638a34e8929a126607edbb125898">setCollapseBehaviour</a>(std::optional&lt;CollapseBehavior&gt; b);</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>  <span class="keyword">typedef</span> std::pair&lt;TileKey, Direction&gt; Side;</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>  <span class="comment">/* INITIAL */</span></div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>  <span class="keywordtype">int</span> seed;</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>  std::vector&lt;TileKey&gt; tiles;</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>  <span class="comment">/* CONSTRAINTS */</span></div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>  std::unordered_map&lt;Side, std::unordered_set&lt;TileKey&gt;&gt; adjacency_constraints;</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>  std::unordered_map&lt;Position, std::unordered_set&lt;TileKey&gt;&gt; initial_constraints;</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>  <span class="comment">/* BEHAVIOURS */</span></div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>  CollapseBehavior collapse_behavior = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>  <span class="comment">/* CALLBACKS */</span></div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>  std::list&lt;CollapseCallback&gt; collapse_callbacks;</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>  std::list&lt;PropagateCallback&gt; propagate_callbacks;</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>  <span class="comment">/* ALGORITHM */</span></div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>  std::unordered_map&lt;Position, std::vector&lt;TileKey&gt;&gt; grid;</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>  <span class="keywordtype">size_t</span> N;</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>  <span class="keywordtype">void</span> initializeGrid(<span class="keywordtype">size_t</span> N);</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>  <span class="keywordtype">void</span> processInitialConstraints() ;</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>  <span class="keywordtype">bool</span> isCollapsed();</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>  <span class="keywordtype">bool</span> isContradiction();</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>  <span class="keywordtype">void</span> iterate();</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>  <a class="code hl_struct" href="structPosition.html">Position</a> getMinEntropyCoordinates();</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>  <span class="keywordtype">void</span> collapseAt(<a class="code hl_struct" href="structPosition.html">Position</a> p);</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>  <span class="keywordtype">void</span> propagate(<a class="code hl_struct" href="structPosition.html">Position</a> p);</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>  <span class="keywordtype">bool</span> propagateAt(<a class="code hl_struct" href="structPosition.html">Position</a> current, <a class="code hl_struct" href="structPosition.html">Position</a> neighbor); <span class="comment">//returns true if neighbor&#39;s possible tiles decrease</span></div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>  std::vector&lt;Position&gt; getNeighbors(<a class="code hl_struct" href="structPosition.html">Position</a> p);</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>  std::vector&lt;TileKey&gt;::const_iterator collapseRandom(<span class="keyword">const</span> std::vector&lt;TileKey&gt;&amp; tiles);</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>  std::unordered_set&lt;TileKey&gt; getAdjacencies(TileKey k, Direction d);</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>  std::vector&lt;TileKey&gt; getPossibleTiles(<a class="code hl_struct" href="structPosition.html">Position</a> p);</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>};</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>  <span class="keyword">typedef</span> std::pair&lt;TileKey, Direction&gt; Side;</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>  <span class="comment">/* INITIAL */</span></div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>  <span class="keywordtype">int</span> seed;</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>  std::vector&lt;TileKey&gt; tiles;</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>  <span class="comment">/* CONSTRAINTS */</span></div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>  std::unordered_map&lt;Side, std::unordered_set&lt;TileKey&gt;&gt; adjacency_constraints;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>  std::unordered_map&lt;Position, std::unordered_set&lt;TileKey&gt;&gt; initial_constraints;</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>  <span class="comment">/* BEHAVIOURS */</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>  CollapseBehavior collapse_behavior = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>  <span class="comment">/* CALLBACKS */</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>  std::list&lt;CollapseCallback&gt; collapse_callbacks;</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>  std::list&lt;PropagateCallback&gt; propagate_callbacks;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>  <span class="comment">/* ALGORITHM */</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>  std::unordered_map&lt;Position, std::vector&lt;TileKey&gt;&gt; grid;</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>  <span class="keywordtype">size_t</span> N;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>  <span class="keywordtype">void</span> initializeGrid(<span class="keywordtype">size_t</span> N);</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>  <span class="keywordtype">void</span> processInitialConstraints() ;</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>  <span class="keywordtype">bool</span> isCollapsed();</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>  <span class="keywordtype">bool</span> isContradiction();</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>  <span class="keywordtype">void</span> iterate();</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>  <a class="code hl_struct" href="structPosition.html">Position</a> getMinEntropyCoordinates();</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>  <span class="keywordtype">void</span> collapseAt(<a class="code hl_struct" href="structPosition.html">Position</a> p);</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>  <span class="keywordtype">void</span> propagate(<a class="code hl_struct" href="structPosition.html">Position</a> p);</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>  <span class="keywordtype">bool</span> propagateAt(<a class="code hl_struct" href="structPosition.html">Position</a> current, <a class="code hl_struct" href="structPosition.html">Position</a> neighbor); <span class="comment">//returns true if neighbor&#39;s possible tiles decrease</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>  std::vector&lt;Position&gt; getNeighbors(<a class="code hl_struct" href="structPosition.html">Position</a> p);</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>  std::vector&lt;TileKey&gt;::const_iterator collapseRandom(<span class="keyword">const</span> std::vector&lt;TileKey&gt;&amp; tiles);</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>  std::unordered_set&lt;TileKey&gt; getAdjacencies(TileKey k, Direction d);</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>  std::vector&lt;TileKey&gt; getPossibleTiles(<a class="code hl_struct" href="structPosition.html">Position</a> p);</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>};</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span><span class="keyword">typedef</span> <a class="code hl_class" href="classGrid.html">Grid&lt;Solver::TileKey&gt;</a> <a class="code hl_class" href="classGrid.html">SolverGrid</a>; </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
 <div class="ttc" id="aclassGrid_html"><div class="ttname"><a href="classGrid.html">Grid</a></div><div class="ttdef"><b>Definition:</b> Grid.h:11</div></div>
-<div class="ttc" id="aclassSolver_html"><div class="ttname"><a href="classSolver.html">Solver</a></div><div class="ttdoc">The Solver class.</div><div class="ttdef"><b>Definition:</b> Solver.h:74</div></div>
+<div class="ttc" id="aclassSolver_html"><div class="ttname"><a href="classSolver.html">Solver</a></div><div class="ttdoc">The Solver class.</div><div class="ttdef"><b>Definition:</b> Solver.h:73</div></div>
 <div class="ttc" id="aclassSolver_html_a010ed819d6b21696564a5cc5cd5e2cbb"><div class="ttname"><a href="classSolver.html#a010ed819d6b21696564a5cc5cd5e2cbb">Solver::getSeed</a></div><div class="ttdeci">int getSeed()</div><div class="ttdoc">Get the seed for the random number generator.</div><div class="ttdef"><b>Definition:</b> Solver.cpp:14</div></div>
-<div class="ttc" id="aclassSolver_html_a30173570fd36893e302f9313fe030937"><div class="ttname"><a href="classSolver.html#a30173570fd36893e302f9313fe030937">Solver::setInitialConstraint</a></div><div class="ttdeci">void setInitialConstraint(Position p, TileKey possibility)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:64</div></div>
+<div class="ttc" id="aclassSolver_html_a30173570fd36893e302f9313fe030937"><div class="ttname"><a href="classSolver.html#a30173570fd36893e302f9313fe030937">Solver::setInitialConstraint</a></div><div class="ttdeci">void setInitialConstraint(Position p, TileKey possibility)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:66</div></div>
 <div class="ttc" id="aclassSolver_html_a34198a1963bea018d0d7096dd36e3653"><div class="ttname"><a href="classSolver.html#a34198a1963bea018d0d7096dd36e3653">Solver::setSeed</a></div><div class="ttdeci">void setSeed(int seed)</div><div class="ttdoc">Set the seed for the random number generator.</div><div class="ttdef"><b>Definition:</b> Solver.cpp:9</div></div>
-<div class="ttc" id="aclassSolver_html_a624d11307b449d2e13dee24ec5170eed"><div class="ttname"><a href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">Solver::TileKey</a></div><div class="ttdeci">size_t TileKey</div><div class="ttdef"><b>Definition:</b> Solver.h:80</div></div>
-<div class="ttc" id="aclassSolver_html_a7b00bb931fe601491c521d6176cf77b5"><div class="ttname"><a href="classSolver.html#a7b00bb931fe601491c521d6176cf77b5">Solver::Solver</a></div><div class="ttdeci">Solver(const std::map&lt; TileKey, T &gt; &amp;tiles, int seed=0)</div><div class="ttdef"><b>Definition:</b> Solver.h:117</div></div>
-<div class="ttc" id="aclassSolver_html_a7d7406c53eecaf19b82b312791d8fcb0"><div class="ttname"><a href="classSolver.html#a7d7406c53eecaf19b82b312791d8fcb0">Solver::solve</a></div><div class="ttdeci">std::shared_ptr&lt; Grid&lt; TileKey &gt; &gt; solve(size_t N)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:18</div></div>
-<div class="ttc" id="aclassSolver_html_a8b11638a34e8929a126607edbb125898"><div class="ttname"><a href="classSolver.html#a8b11638a34e8929a126607edbb125898">Solver::setCollapseBehaviour</a></div><div class="ttdeci">void setCollapseBehaviour(std::optional&lt; CollapseBehavior &gt; b)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:94</div></div>
-<div class="ttc" id="aclassSolver_html_aa21bdaffa17e0ef52e78ce64f2046b5b"><div class="ttname"><a href="classSolver.html#aa21bdaffa17e0ef52e78ce64f2046b5b">Solver::registerOnCollapse</a></div><div class="ttdeci">CollapseCallbackCookie registerOnCollapse(CollapseCallback callback)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:76</div></div>
-<div class="ttc" id="aclassSolver_html_ab9943f77531798a2f6ce24b8281d71a3"><div class="ttname"><a href="classSolver.html#ab9943f77531798a2f6ce24b8281d71a3">Solver::Solver</a></div><div class="ttdeci">Solver(const std::vector&lt; T &gt; &amp;tiles, int seed=0)</div><div class="ttdef"><b>Definition:</b> Solver.h:105</div></div>
-<div class="ttc" id="aclassSolver_html_abc55f3b23ccda7c353df7abfb678f150"><div class="ttname"><a href="classSolver.html#abc55f3b23ccda7c353df7abfb678f150">Solver::CollapseCallbackCookie</a></div><div class="ttdeci">std::list&lt; CollapseCallback &gt;::iterator CollapseCallbackCookie</div><div class="ttdef"><b>Definition:</b> Solver.h:91</div></div>
-<div class="ttc" id="aclassSolver_html_ac103dc80c8f2e6b8f96d6890c7e0f1e8"><div class="ttname"><a href="classSolver.html#ac103dc80c8f2e6b8f96d6890c7e0f1e8">Solver::removeAdjacencyConstraint</a></div><div class="ttdeci">void removeAdjacencyConstraint(TileKey t, Direction d, TileKey neighbor)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:46</div></div>
-<div class="ttc" id="aclassSolver_html_acbca26de9fca6d061d0478dda6cc64f1"><div class="ttname"><a href="classSolver.html#acbca26de9fca6d061d0478dda6cc64f1">Solver::deregisterOnCollapse</a></div><div class="ttdeci">void deregisterOnCollapse(CollapseCallbackCookie cookie)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:80</div></div>
-<div class="ttc" id="aclassSolver_html_ace4c0aafb91c3db2531d97fe61d8afb7"><div class="ttname"><a href="classSolver.html#ace4c0aafb91c3db2531d97fe61d8afb7">Solver::PropagateCallbackCookie</a></div><div class="ttdeci">std::list&lt; PropagateCallback &gt;::iterator PropagateCallbackCookie</div><div class="ttdef"><b>Definition:</b> Solver.h:97</div></div>
-<div class="ttc" id="aclassSolver_html_ae9e645865467108124343029fcd91504"><div class="ttname"><a href="classSolver.html#ae9e645865467108124343029fcd91504">Solver::addAdjacencyConstraint</a></div><div class="ttdeci">void addAdjacencyConstraint(TileKey t, Direction d, TileKey neighbor)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:42</div></div>
-<div class="ttc" id="aclassSolver_html_aed54210e84c73fff7fb4f2be1e965457"><div class="ttname"><a href="classSolver.html#aed54210e84c73fff7fb4f2be1e965457">Solver::registerOnPropagate</a></div><div class="ttdeci">PropagateCallbackCookie registerOnPropagate(PropagateCallback callback)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:86</div></div>
-<div class="ttc" id="astructPosition_html"><div class="ttname"><a href="structPosition.html">Position</a></div><div class="ttdef"><b>Definition:</b> Position.h:7</div></div>
+<div class="ttc" id="aclassSolver_html_a624d11307b449d2e13dee24ec5170eed"><div class="ttname"><a href="classSolver.html#a624d11307b449d2e13dee24ec5170eed">Solver::TileKey</a></div><div class="ttdeci">size_t TileKey</div><div class="ttdef"><b>Definition:</b> Solver.h:79</div></div>
+<div class="ttc" id="aclassSolver_html_a7b00bb931fe601491c521d6176cf77b5"><div class="ttname"><a href="classSolver.html#a7b00bb931fe601491c521d6176cf77b5">Solver::Solver</a></div><div class="ttdeci">Solver(const std::map&lt; TileKey, T &gt; &amp;tiles, int seed=0)</div><div class="ttdef"><b>Definition:</b> Solver.h:116</div></div>
+<div class="ttc" id="aclassSolver_html_a889f4d7fb4caa5d53a5a54ef31592d13"><div class="ttname"><a href="classSolver.html#a889f4d7fb4caa5d53a5a54ef31592d13">Solver::solve</a></div><div class="ttdeci">void solve(size_t N, Grid&lt; TileKey &gt; &amp;grid)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:24</div></div>
+<div class="ttc" id="aclassSolver_html_a8b11638a34e8929a126607edbb125898"><div class="ttname"><a href="classSolver.html#a8b11638a34e8929a126607edbb125898">Solver::setCollapseBehaviour</a></div><div class="ttdeci">void setCollapseBehaviour(std::optional&lt; CollapseBehavior &gt; b)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:96</div></div>
+<div class="ttc" id="aclassSolver_html_aa21bdaffa17e0ef52e78ce64f2046b5b"><div class="ttname"><a href="classSolver.html#aa21bdaffa17e0ef52e78ce64f2046b5b">Solver::registerOnCollapse</a></div><div class="ttdeci">CollapseCallbackCookie registerOnCollapse(CollapseCallback callback)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:78</div></div>
+<div class="ttc" id="aclassSolver_html_ab9943f77531798a2f6ce24b8281d71a3"><div class="ttname"><a href="classSolver.html#ab9943f77531798a2f6ce24b8281d71a3">Solver::Solver</a></div><div class="ttdeci">Solver(const std::vector&lt; T &gt; &amp;tiles, int seed=0)</div><div class="ttdef"><b>Definition:</b> Solver.h:104</div></div>
+<div class="ttc" id="aclassSolver_html_abc55f3b23ccda7c353df7abfb678f150"><div class="ttname"><a href="classSolver.html#abc55f3b23ccda7c353df7abfb678f150">Solver::CollapseCallbackCookie</a></div><div class="ttdeci">std::list&lt; CollapseCallback &gt;::iterator CollapseCallbackCookie</div><div class="ttdef"><b>Definition:</b> Solver.h:90</div></div>
+<div class="ttc" id="aclassSolver_html_ac103dc80c8f2e6b8f96d6890c7e0f1e8"><div class="ttname"><a href="classSolver.html#ac103dc80c8f2e6b8f96d6890c7e0f1e8">Solver::removeAdjacencyConstraint</a></div><div class="ttdeci">void removeAdjacencyConstraint(TileKey t, Direction d, TileKey neighbor)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:48</div></div>
+<div class="ttc" id="aclassSolver_html_acbca26de9fca6d061d0478dda6cc64f1"><div class="ttname"><a href="classSolver.html#acbca26de9fca6d061d0478dda6cc64f1">Solver::deregisterOnCollapse</a></div><div class="ttdeci">void deregisterOnCollapse(CollapseCallbackCookie cookie)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:82</div></div>
+<div class="ttc" id="aclassSolver_html_ace4c0aafb91c3db2531d97fe61d8afb7"><div class="ttname"><a href="classSolver.html#ace4c0aafb91c3db2531d97fe61d8afb7">Solver::PropagateCallbackCookie</a></div><div class="ttdeci">std::list&lt; PropagateCallback &gt;::iterator PropagateCallbackCookie</div><div class="ttdef"><b>Definition:</b> Solver.h:96</div></div>
+<div class="ttc" id="aclassSolver_html_ae9e645865467108124343029fcd91504"><div class="ttname"><a href="classSolver.html#ae9e645865467108124343029fcd91504">Solver::addAdjacencyConstraint</a></div><div class="ttdeci">void addAdjacencyConstraint(TileKey t, Direction d, TileKey neighbor)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:44</div></div>
+<div class="ttc" id="aclassSolver_html_aed54210e84c73fff7fb4f2be1e965457"><div class="ttname"><a href="classSolver.html#aed54210e84c73fff7fb4f2be1e965457">Solver::registerOnPropagate</a></div><div class="ttdeci">PropagateCallbackCookie registerOnPropagate(PropagateCallback callback)</div><div class="ttdef"><b>Definition:</b> Solver.cpp:88</div></div>
+<div class="ttc" id="astructPosition_html"><div class="ttname"><a href="structPosition.html">Position</a></div><div class="ttdoc">The struct for storing grid coordinates. Overloads == operator in the usual manner.</div><div class="ttdef"><b>Definition:</b> Position.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

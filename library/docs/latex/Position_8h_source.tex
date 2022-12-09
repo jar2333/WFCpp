@@ -8,28 +8,28 @@
 \DoxyCodeLine{4 }
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstddef>}}
 \DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{struct }\mbox{\hyperlink{structPosition}{Position}} \{}
-\DoxyCodeLine{8     \textcolor{keywordtype}{size\_t} x;}
-\DoxyCodeLine{9     \textcolor{keywordtype}{size\_t} y;}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11     Direction getDirection(\mbox{\hyperlink{structPosition}{Position}} other) \{}
-\DoxyCodeLine{12       \textcolor{keywordflow}{if} (other.x > x)}
-\DoxyCodeLine{13         \textcolor{keywordflow}{return} Direction::RIGHT;}
-\DoxyCodeLine{14       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (other.x < x)}
-\DoxyCodeLine{15         \textcolor{keywordflow}{return} Direction::LEFT;}
-\DoxyCodeLine{16       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (other.y > y)}
-\DoxyCodeLine{17         \textcolor{keywordflow}{return} Direction::UP;}
-\DoxyCodeLine{18       \textcolor{keywordflow}{else}}
-\DoxyCodeLine{19         \textcolor{keywordflow}{return} Direction::DOWN;}
-\DoxyCodeLine{20     \}}
-\DoxyCodeLine{21 \};}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator <(\textcolor{keyword}{const} \mbox{\hyperlink{structPosition}{Position}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structPosition}{Position}}\& rhs)\{}
-\DoxyCodeLine{24     \textcolor{keywordflow}{return} lhs.x >= rhs.x ? lhs.y < rhs.y : \textcolor{keyword}{true};}
-\DoxyCodeLine{25 \}}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{structPosition}{Position}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structPosition}{Position}}\& rhs) \{ }
-\DoxyCodeLine{28     \textcolor{keywordflow}{return} lhs.x == rhs.x \&\& lhs.y == rhs.y;}
-\DoxyCodeLine{29 \}}
+\DoxyCodeLine{11 \textcolor{keyword}{struct }\mbox{\hyperlink{structPosition}{Position}} \{}
+\DoxyCodeLine{12     \textcolor{keywordtype}{size\_t} x;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{size\_t} y;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{22     Direction \mbox{\hyperlink{structPosition_a3a9ee66ce899e081d9c1975e64a59321}{getDirection}}(\mbox{\hyperlink{structPosition}{Position}} other) \{}
+\DoxyCodeLine{23       \textcolor{keywordflow}{if} (other.x > x)}
+\DoxyCodeLine{24         \textcolor{keywordflow}{return} Direction::RIGHT;}
+\DoxyCodeLine{25       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (other.x < x)}
+\DoxyCodeLine{26         \textcolor{keywordflow}{return} Direction::LEFT;}
+\DoxyCodeLine{27       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (other.y > y)}
+\DoxyCodeLine{28         \textcolor{keywordflow}{return} Direction::UP;}
+\DoxyCodeLine{29       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{30         \textcolor{keywordflow}{return} Direction::DOWN;}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32 \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator <(\textcolor{keyword}{const} \mbox{\hyperlink{structPosition}{Position}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structPosition}{Position}}\& rhs)\{}
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} lhs.x >= rhs.x ? lhs.y < rhs.y : \textcolor{keyword}{true};}
+\DoxyCodeLine{36 \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{structPosition}{Position}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structPosition}{Position}}\& rhs) \{ }
+\DoxyCodeLine{39     \textcolor{keywordflow}{return} lhs.x == rhs.x \&\& lhs.y == rhs.y;}
+\DoxyCodeLine{40 \}}
 
 \end{DoxyCode}

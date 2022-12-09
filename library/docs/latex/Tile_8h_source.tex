@@ -11,51 +11,52 @@
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#include <memory>}}
 \DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classTile}{Tile}} \{}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{keyword}{public}:}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14     \mbox{\hyperlink{classTile}{Tile}}() = \textcolor{keywordflow}{default};}
-\DoxyCodeLine{15     \mbox{\hyperlink{classTile}{\string~Tile}}() = \textcolor{keywordflow}{default};}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \mbox{\hyperlink{classTile}{Tile}}(\textcolor{keyword}{const} std::shared\_ptr<BMPImage> img)}
-\DoxyCodeLine{18     \{}
-\DoxyCodeLine{19         \textcolor{keywordflow}{if} (img-\/>getHeight() != img-\/>getWidth())}
-\DoxyCodeLine{20             \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}Image must be square. "{}});}
-\DoxyCodeLine{21         size = img-\/>getHeight();}
-\DoxyCodeLine{22         image = img;}
-\DoxyCodeLine{23     \}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{classTile}{Tile}} \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \mbox{\hyperlink{classTile}{Tile}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{23     \mbox{\hyperlink{classTile}{\string~Tile}}() = \textcolor{keywordflow}{default};}
 \DoxyCodeLine{24 }
-\DoxyCodeLine{25     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} getSize()\textcolor{keyword}{ const}}
-\DoxyCodeLine{26 \textcolor{keyword}{    }\{}
-\DoxyCodeLine{27         \textcolor{keywordflow}{return} size;}
-\DoxyCodeLine{28     \}}
-\DoxyCodeLine{29     }
-\DoxyCodeLine{30     std::shared\_ptr<BMPImage> getImageData()\textcolor{keyword}{ const}}
-\DoxyCodeLine{31 \textcolor{keyword}{    }\{}
-\DoxyCodeLine{32         \textcolor{keywordflow}{return} image;}
-\DoxyCodeLine{33     \}}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35     std::vector<Position> enumeratePosition()\textcolor{keyword}{ const}}
-\DoxyCodeLine{36 \textcolor{keyword}{    }\{}
-\DoxyCodeLine{37         std::vector<Position> res;}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < size; i++)}
-\DoxyCodeLine{40             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} j = 0; j < size; j++) \{}
-\DoxyCodeLine{41                 \mbox{\hyperlink{structPosition}{Position}} pos = \{j, i\};}
-\DoxyCodeLine{42                 res.push\_back(pos);}
-\DoxyCodeLine{43             \}}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45         \textcolor{keywordflow}{return} res;}
-\DoxyCodeLine{46     \}}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48 \textcolor{keyword}{private}:}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50     std::string filePath;}
-\DoxyCodeLine{51     \textcolor{comment}{// TODO: add other variables}}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{53     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} size;}
-\DoxyCodeLine{54     std::shared\_ptr<BMPImage> image;}
-\DoxyCodeLine{55 \};}
+\DoxyCodeLine{29     \mbox{\hyperlink{classTile_a73a966367fe675d19107235240dc2310}{Tile}}(\textcolor{keyword}{const} std::shared\_ptr<BMPImage> img)}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31         \textcolor{keywordflow}{if} (img-\/>getHeight() != img-\/>getWidth())}
+\DoxyCodeLine{32             \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}Image must be square. "{}});}
+\DoxyCodeLine{33         size = img-\/>getHeight();}
+\DoxyCodeLine{34         image = img;}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classTile_ad0be80b70ee5b5f4c2a14c9113630912}{getSize}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{42 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{43         \textcolor{keywordflow}{return} size;}
+\DoxyCodeLine{44     \}}
+\DoxyCodeLine{45     }
+\DoxyCodeLine{51     std::shared\_ptr<BMPImage> \mbox{\hyperlink{classTile_a4667286f740415a877d011c05e12b4bc}{getImageData}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{52 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{53         \textcolor{keywordflow}{return} image;}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{61     std::vector<Position> \mbox{\hyperlink{classTile_a4dd9c500022f83a6be3018f942c9c0f7}{enumeratePosition}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{62 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{63         std::vector<Position> res;}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < size; i++)}
+\DoxyCodeLine{66             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} j = 0; j < size; j++) \{}
+\DoxyCodeLine{67                 \mbox{\hyperlink{structPosition}{Position}} pos = \{j, i\};}
+\DoxyCodeLine{68                 res.push\_back(pos);}
+\DoxyCodeLine{69             \}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71         \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{keyword}{private}:}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     std::string filePath;}
+\DoxyCodeLine{77     \textcolor{comment}{// TODO: add other variables}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} size;}
+\DoxyCodeLine{80     std::shared\_ptr<BMPImage> image;}
+\DoxyCodeLine{81 \};}
 
 \end{DoxyCode}

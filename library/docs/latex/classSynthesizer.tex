@@ -16,9 +16,9 @@ The \mbox{\hyperlink{classSynthesizer}{Synthesizer}} class.
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classSynthesizer}{Synthesizer}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classSynthesizer_ab6db47137628f952658c54393a5b0b02}{$\sim$\+Synthesizer}} ()=default
 \begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classSynthesizer}{Synthesizer}} object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classSynthesizer_a009f52510346543046daaaf42d4c3b52}{export\+Grid\+To\+File}} (const \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Solver\+::\+Tile\+Key}} $>$ \&grid, std\+::string export\+Path, File\+Type type)
+void \mbox{\hyperlink{classSynthesizer_a6de59469533ef39e7cfe87c39efe65cf}{export\+Grid\+To\+File}} (const \mbox{\hyperlink{classGrid}{Solver\+Grid}} \&grid, std\+::string export\+Path, File\+Type type)
 \begin{DoxyCompactList}\small\item\em Export a completed \mbox{\hyperlink{classGrid}{Grid}} to a file of the specified format. \end{DoxyCompactList}\item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ \mbox{\hyperlink{classSynthesizer_adfa5fc11c54bff2692c28f4eb5366e3b}{export\+Grid\+To\+Image}} (const \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Solver\+::\+Tile\+Key}} $>$ \&grid)
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ \mbox{\hyperlink{classSynthesizer_aa1dc15ff093f1aafc14c7ab2fbfc3f87}{export\+Grid\+To\+Image}} (const \mbox{\hyperlink{classGrid}{Solver\+Grid}} \&grid)
 \begin{DoxyCompactList}\small\item\em Export a completed \mbox{\hyperlink{classGrid}{Grid}} to a \mbox{\hyperlink{classBMPImage}{BMPImage}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSynthesizer_abb8be08e44bfd6b22f2c0d82f262e980}{init\+Real\+Time\+Image}} (unsigned int n)
 \begin{DoxyCompactList}\small\item\em Initialize a real time image for step by step images. If there is an existing real time image, this function would clear the existing one. \end{DoxyCompactList}\item 
@@ -78,11 +78,11 @@ Destroy the \mbox{\hyperlink{classSynthesizer}{Synthesizer}} object.
 
 Clear the current real time image. 
 
-\mbox{\Hypertarget{classSynthesizer_a009f52510346543046daaaf42d4c3b52}\label{classSynthesizer_a009f52510346543046daaaf42d4c3b52}} 
+\mbox{\Hypertarget{classSynthesizer_a6de59469533ef39e7cfe87c39efe65cf}\label{classSynthesizer_a6de59469533ef39e7cfe87c39efe65cf}} 
 \index{Synthesizer@{Synthesizer}!exportGridToFile@{exportGridToFile}}
 \index{exportGridToFile@{exportGridToFile}!Synthesizer@{Synthesizer}}
 \doxysubsubsection{\texorpdfstring{exportGridToFile()}{exportGridToFile()}}
-{\footnotesize\ttfamily void Synthesizer\+::export\+Grid\+To\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Solver\+::\+Tile\+Key}} $>$ \&}]{grid,  }\item[{std\+::string}]{export\+Path,  }\item[{File\+Type}]{type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Synthesizer\+::export\+Grid\+To\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGrid}{Solver\+Grid}} \&}]{grid,  }\item[{std\+::string}]{export\+Path,  }\item[{File\+Type}]{type }\end{DoxyParamCaption})}
 
 
 
@@ -97,11 +97,11 @@ Export a completed \mbox{\hyperlink{classGrid}{Grid}} to a file of the specified
 {\em type} & The format for the image. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classSynthesizer_adfa5fc11c54bff2692c28f4eb5366e3b}\label{classSynthesizer_adfa5fc11c54bff2692c28f4eb5366e3b}} 
+\mbox{\Hypertarget{classSynthesizer_aa1dc15ff093f1aafc14c7ab2fbfc3f87}\label{classSynthesizer_aa1dc15ff093f1aafc14c7ab2fbfc3f87}} 
 \index{Synthesizer@{Synthesizer}!exportGridToImage@{exportGridToImage}}
 \index{exportGridToImage@{exportGridToImage}!Synthesizer@{Synthesizer}}
 \doxysubsubsection{\texorpdfstring{exportGridToImage()}{exportGridToImage()}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ Synthesizer\+::export\+Grid\+To\+Image (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Solver\+::\+Tile\+Key}} $>$ \&}]{grid }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ Synthesizer\+::export\+Grid\+To\+Image (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGrid}{Solver\+Grid}} \&}]{grid }\end{DoxyParamCaption})}
 
 
 

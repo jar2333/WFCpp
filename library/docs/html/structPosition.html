@@ -76,11 +76,16 @@ $(function() {
   <div class="headertitle"><div class="title">Position Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The struct for storing grid coordinates. Overloads == operator in the usual manner.  
+ <a href="structPosition.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Position_8h_source.html">Position.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3a9ee66ce899e081d9c1975e64a59321"><td class="memItemLeft" align="right" valign="top"><a id="a3a9ee66ce899e081d9c1975e64a59321" name="a3a9ee66ce899e081d9c1975e64a59321"></a>
-Direction&#160;</td><td class="memItemRight" valign="bottom"><b>getDirection</b> (<a class="el" href="structPosition.html">Position</a> other)</td></tr>
+<tr class="memitem:a3a9ee66ce899e081d9c1975e64a59321"><td class="memItemLeft" align="right" valign="top">Direction&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPosition.html#a3a9ee66ce899e081d9c1975e64a59321">getDirection</a> (<a class="el" href="structPosition.html">Position</a> other)</td></tr>
+<tr class="memdesc:a3a9ee66ce899e081d9c1975e64a59321"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method for determining to what direction of the current <a class="el" href="structPosition.html" title="The struct for storing grid coordinates. Overloads == operator in the usual manner.">Position</a> any other <a class="el" href="structPosition.html" title="The struct for storing grid coordinates. Overloads == operator in the usual manner.">Position</a> is.  <a href="structPosition.html#a3a9ee66ce899e081d9c1975e64a59321">More...</a><br /></td></tr>
 <tr class="separator:a3a9ee66ce899e081d9c1975e64a59321"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -92,6 +97,45 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>x</b></td></tr>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 <tr class="separator:a5edee13009fd7ddd7d86ca143e032b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >The struct for storing grid coordinates. Overloads == operator in the usual manner. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3a9ee66ce899e081d9c1975e64a59321" name="a3a9ee66ce899e081d9c1975e64a59321"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a9ee66ce899e081d9c1975e64a59321">&#9670;&#160;</a></span>getDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Direction Position::getDirection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPosition.html">Position</a>&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A method for determining to what direction of the current <a class="el" href="structPosition.html" title="The struct for storing grid coordinates. Overloads == operator in the usual manner.">Position</a> any other <a class="el" href="structPosition.html" title="The struct for storing grid coordinates. Overloads == operator in the usual manner.">Position</a> is. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The other position </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the direction from the current position that the other position is located in </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Direction </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/<a class="el" href="Position_8h_source.html">Position.h</a></li>
 </ul>

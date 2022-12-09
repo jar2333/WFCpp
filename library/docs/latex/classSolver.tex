@@ -38,8 +38,6 @@ void \mbox{\hyperlink{classSolver_a34198a1963bea018d0d7096dd36e3653}{set\+Seed}}
 \begin{DoxyCompactList}\small\item\em Set the seed for the random number generator. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classSolver_a010ed819d6b21696564a5cc5cd5e2cbb}{get\+Seed}} ()
 \begin{DoxyCompactList}\small\item\em Get the seed for the random number generator. \end{DoxyCompactList}\item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ $>$ \mbox{\hyperlink{classSolver_a7d7406c53eecaf19b82b312791d8fcb0}{solve}} (size\+\_\+t N)
-\item 
 void \mbox{\hyperlink{classSolver_a889f4d7fb4caa5d53a5a54ef31592d13}{solve}} (size\+\_\+t N, \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ \&grid)
 \item 
 void \mbox{\hyperlink{classSolver_ae9e645865467108124343029fcd91504}{add\+Adjacency\+Constraint}} (\mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} t, Direction d, \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} neighbor)
@@ -404,29 +402,10 @@ Set the seed for the random number generator.
 {\em seed} & the seed \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classSolver_a7d7406c53eecaf19b82b312791d8fcb0}\label{classSolver_a7d7406c53eecaf19b82b312791d8fcb0}} 
-\index{Solver@{Solver}!solve@{solve}}
-\index{solve@{solve}!Solver@{Solver}}
-\doxysubsubsection{\texorpdfstring{solve()}{solve()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ $>$ Solver\+::solve (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{N }\end{DoxyParamCaption})}
-
-Runs the wave-\/function collapse algorithm, returning a solved 2-\/dimensional square \mbox{\hyperlink{classGrid}{Grid}} or throwing an exception if the algorithm fails. The grid returned is of dimensions NxN. 
-\begin{DoxyParams}{Parameters}
-{\em N} & The dimensions of the square grid. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-A solved grid 
-\end{DoxyReturn}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::runtime\+\_\+error} & Indicates that the grid could not be solved. \\
-\hline
-\end{DoxyExceptions}
 \mbox{\Hypertarget{classSolver_a889f4d7fb4caa5d53a5a54ef31592d13}\label{classSolver_a889f4d7fb4caa5d53a5a54ef31592d13}} 
 \index{Solver@{Solver}!solve@{solve}}
 \index{solve@{solve}!Solver@{Solver}}
-\doxysubsubsection{\texorpdfstring{solve()}{solve()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
 {\footnotesize\ttfamily void Solver\+::solve (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{N,  }\item[{\mbox{\hyperlink{classGrid}{Grid}}$<$ \mbox{\hyperlink{classSolver_a624d11307b449d2e13dee24ec5170eed}{Tile\+Key}} $>$ \&}]{grid }\end{DoxyParamCaption})}
 
 Runs the wave-\/function collapse algorithm, solving in-\/place a 2-\/dimensional square \mbox{\hyperlink{classGrid}{Grid}} or throwing an exception if the algorithm fails. The grid modified is of dimensions NxN. 

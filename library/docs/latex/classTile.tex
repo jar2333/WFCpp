@@ -1,20 +1,90 @@
 \hypertarget{classTile}{}\doxysection{Tile Class Reference}
 \label{classTile}\index{Tile@{Tile}}
+
+
+The \mbox{\hyperlink{classTile}{Tile}} class.  
+
+
+
+
+{\ttfamily \#include $<$Tile.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classTile_a73a966367fe675d19107235240dc2310}{Tile}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ img)
+\begin{DoxyCompactList}\small\item\em Constructor for initializing with image data. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classTile_ad0be80b70ee5b5f4c2a14c9113630912}{get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Gets tile\textquotesingle{}s size in pixels. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ \mbox{\hyperlink{classTile_a4667286f740415a877d011c05e12b4bc}{get\+Image\+Data}} () const
+\begin{DoxyCompactList}\small\item\em Gets tile\textquotesingle{}s image data. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structPosition}{Position}} $>$ \mbox{\hyperlink{classTile_a4dd9c500022f83a6be3018f942c9c0f7}{enumerate\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Enumerates all positions in the image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classTile}{Tile}} class. 
+
+This class is a wrapper for a \mbox{\hyperlink{classBMPImage}{BMPImage}}, to be used in the context of a \mbox{\hyperlink{classGrid}{Grid}} and \mbox{\hyperlink{classSolver}{Solver}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classTile_a73a966367fe675d19107235240dc2310}\label{classTile_a73a966367fe675d19107235240dc2310}} 
-{\bfseries Tile} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ img)
-\item 
-\mbox{\Hypertarget{classTile_ad0be80b70ee5b5f4c2a14c9113630912}\label{classTile_ad0be80b70ee5b5f4c2a14c9113630912}} 
-unsigned int {\bfseries get\+Size} () const
-\item 
-\mbox{\Hypertarget{classTile_a4667286f740415a877d011c05e12b4bc}\label{classTile_a4667286f740415a877d011c05e12b4bc}} 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ {\bfseries get\+Image\+Data} () const
-\item 
+\index{Tile@{Tile}!Tile@{Tile}}
+\index{Tile@{Tile}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{Tile()}{Tile()}}
+{\footnotesize\ttfamily Tile\+::\+Tile (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$}]{img }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for initializing with image data. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em ivalid\+\_\+argument} & Image must be square \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classTile_a4dd9c500022f83a6be3018f942c9c0f7}\label{classTile_a4dd9c500022f83a6be3018f942c9c0f7}} 
-std\+::vector$<$ \mbox{\hyperlink{structPosition}{Position}} $>$ {\bfseries enumerate\+Position} () const
-\end{DoxyCompactItemize}
+\index{Tile@{Tile}!enumeratePosition@{enumeratePosition}}
+\index{enumeratePosition@{enumeratePosition}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{enumeratePosition()}{enumeratePosition()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structPosition}{Position}} $>$ Tile\+::enumerate\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Enumerates all positions in the image. 
+
+\begin{DoxyReturn}{Returns}
+all pixel positions 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTile_a4667286f740415a877d011c05e12b4bc}\label{classTile_a4667286f740415a877d011c05e12b4bc}} 
+\index{Tile@{Tile}!getImageData@{getImageData}}
+\index{getImageData@{getImageData}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{getImageData()}{getImageData()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classBMPImage}{BMPImage}} $>$ Tile\+::get\+Image\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets tile\textquotesingle{}s image data. 
+
+\begin{DoxyReturn}{Returns}
+the image data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTile_ad0be80b70ee5b5f4c2a14c9113630912}\label{classTile_ad0be80b70ee5b5f4c2a14c9113630912}} 
+\index{Tile@{Tile}!getSize@{getSize}}
+\index{getSize@{getSize}!Tile@{Tile}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily unsigned int Tile\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets tile\textquotesingle{}s size in pixels. 
+
+\begin{DoxyReturn}{Returns}
+the pixel size 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

@@ -75,22 +75,150 @@ $(function() {
   <div class="headertitle"><div class="title">Tile Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="classTile.html" title="The Tile class.">Tile</a> class.  
+ <a href="classTile.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Tile_8h_source.html">Tile.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a73a966367fe675d19107235240dc2310"><td class="memItemLeft" align="right" valign="top"><a id="a73a966367fe675d19107235240dc2310" name="a73a966367fe675d19107235240dc2310"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tile</b> (const std::shared_ptr&lt; <a class="el" href="classBMPImage.html">BMPImage</a> &gt; img)</td></tr>
+<tr class="memitem:a73a966367fe675d19107235240dc2310"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTile.html#a73a966367fe675d19107235240dc2310">Tile</a> (const std::shared_ptr&lt; <a class="el" href="classBMPImage.html">BMPImage</a> &gt; img)</td></tr>
+<tr class="memdesc:a73a966367fe675d19107235240dc2310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for initializing with image data.  <a href="classTile.html#a73a966367fe675d19107235240dc2310">More...</a><br /></td></tr>
 <tr class="separator:a73a966367fe675d19107235240dc2310"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0be80b70ee5b5f4c2a14c9113630912"><td class="memItemLeft" align="right" valign="top"><a id="ad0be80b70ee5b5f4c2a14c9113630912" name="ad0be80b70ee5b5f4c2a14c9113630912"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getSize</b> () const</td></tr>
+<tr class="memitem:ad0be80b70ee5b5f4c2a14c9113630912"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTile.html#ad0be80b70ee5b5f4c2a14c9113630912">getSize</a> () const</td></tr>
+<tr class="memdesc:ad0be80b70ee5b5f4c2a14c9113630912"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets tile's size in pixels.  <a href="classTile.html#ad0be80b70ee5b5f4c2a14c9113630912">More...</a><br /></td></tr>
 <tr class="separator:ad0be80b70ee5b5f4c2a14c9113630912"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4667286f740415a877d011c05e12b4bc"><td class="memItemLeft" align="right" valign="top"><a id="a4667286f740415a877d011c05e12b4bc" name="a4667286f740415a877d011c05e12b4bc"></a>
-std::shared_ptr&lt; <a class="el" href="classBMPImage.html">BMPImage</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getImageData</b> () const</td></tr>
+<tr class="memitem:a4667286f740415a877d011c05e12b4bc"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classBMPImage.html">BMPImage</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTile.html#a4667286f740415a877d011c05e12b4bc">getImageData</a> () const</td></tr>
+<tr class="memdesc:a4667286f740415a877d011c05e12b4bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets tile's image data.  <a href="classTile.html#a4667286f740415a877d011c05e12b4bc">More...</a><br /></td></tr>
 <tr class="separator:a4667286f740415a877d011c05e12b4bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dd9c500022f83a6be3018f942c9c0f7"><td class="memItemLeft" align="right" valign="top"><a id="a4dd9c500022f83a6be3018f942c9c0f7" name="a4dd9c500022f83a6be3018f942c9c0f7"></a>
-std::vector&lt; <a class="el" href="structPosition.html">Position</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>enumeratePosition</b> () const</td></tr>
+<tr class="memitem:a4dd9c500022f83a6be3018f942c9c0f7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structPosition.html">Position</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTile.html#a4dd9c500022f83a6be3018f942c9c0f7">enumeratePosition</a> () const</td></tr>
+<tr class="memdesc:a4dd9c500022f83a6be3018f942c9c0f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates all positions in the image.  <a href="classTile.html#a4dd9c500022f83a6be3018f942c9c0f7">More...</a><br /></td></tr>
 <tr class="separator:a4dd9c500022f83a6be3018f942c9c0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >The <a class="el" href="classTile.html" title="The Tile class.">Tile</a> class. </p>
+<p >This class is a wrapper for a <a class="el" href="classBMPImage.html" title="The BMPImage class.">BMPImage</a>, to be used in the context of a <a class="el" href="classGrid.html">Grid</a> and <a class="el" href="classSolver.html">Solver</a> </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a73a966367fe675d19107235240dc2310" name="a73a966367fe675d19107235240dc2310"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73a966367fe675d19107235240dc2310">&#9670;&#160;</a></span>Tile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tile::Tile </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classBMPImage.html">BMPImage</a> &gt;&#160;</td>
+          <td class="paramname"><em>img</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor for initializing with image data. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ivalid_argument</td><td>Image must be square </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4dd9c500022f83a6be3018f942c9c0f7" name="a4dd9c500022f83a6be3018f942c9c0f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dd9c500022f83a6be3018f942c9c0f7">&#9670;&#160;</a></span>enumeratePosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structPosition.html">Position</a> &gt; Tile::enumeratePosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enumerates all positions in the image. </p>
+<dl class="section return"><dt>Returns</dt><dd>all pixel positions </dd></dl>
+
+</div>
+</div>
+<a id="a4667286f740415a877d011c05e12b4bc" name="a4667286f740415a877d011c05e12b4bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4667286f740415a877d011c05e12b4bc">&#9670;&#160;</a></span>getImageData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classBMPImage.html">BMPImage</a> &gt; Tile::getImageData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets tile's image data. </p>
+<dl class="section return"><dt>Returns</dt><dd>the image data </dd></dl>
+
+</div>
+</div>
+<a id="ad0be80b70ee5b5f4c2a14c9113630912" name="ad0be80b70ee5b5f4c2a14c9113630912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0be80b70ee5b5f4c2a14c9113630912">&#9670;&#160;</a></span>getSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Tile::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets tile's size in pixels. </p>
+<dl class="section return"><dt>Returns</dt><dd>the pixel size </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/<a class="el" href="Tile_8h_source.html">Tile.h</a></li>
 </ul>

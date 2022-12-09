@@ -1,11 +1,19 @@
 \hypertarget{structPosition}{}\doxysection{Position Struct Reference}
 \label{structPosition}\index{Position@{Position}}
+
+
+The struct for storing grid coordinates. Overloads == operator in the usual manner.  
+
+
+
+
+{\ttfamily \#include $<$Position.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structPosition_a3a9ee66ce899e081d9c1975e64a59321}\label{structPosition_a3a9ee66ce899e081d9c1975e64a59321}} 
-Direction {\bfseries get\+Direction} (\mbox{\hyperlink{structPosition}{Position}} other)
-\end{DoxyCompactItemize}
+Direction \mbox{\hyperlink{structPosition_a3a9ee66ce899e081d9c1975e64a59321}{get\+Direction}} (\mbox{\hyperlink{structPosition}{Position}} other)
+\begin{DoxyCompactList}\small\item\em A method for determining to what direction of the current \mbox{\hyperlink{structPosition}{Position}} any other \mbox{\hyperlink{structPosition}{Position}} is. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,6 +23,35 @@ size\+\_\+t {\bfseries x}
 \mbox{\Hypertarget{structPosition_a5edee13009fd7ddd7d86ca143e032b15}\label{structPosition_a5edee13009fd7ddd7d86ca143e032b15}} 
 size\+\_\+t {\bfseries y}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The struct for storing grid coordinates. Overloads == operator in the usual manner. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structPosition_a3a9ee66ce899e081d9c1975e64a59321}\label{structPosition_a3a9ee66ce899e081d9c1975e64a59321}} 
+\index{Position@{Position}!getDirection@{getDirection}}
+\index{getDirection@{getDirection}!Position@{Position}}
+\doxysubsubsection{\texorpdfstring{getDirection()}{getDirection()}}
+{\footnotesize\ttfamily Direction Position\+::get\+Direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPosition}{Position}}}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A method for determining to what direction of the current \mbox{\hyperlink{structPosition}{Position}} any other \mbox{\hyperlink{structPosition}{Position}} is. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the direction from the current position that the other position is located in 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Direction 
+\end{DoxySeeAlso}
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
