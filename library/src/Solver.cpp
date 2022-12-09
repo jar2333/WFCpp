@@ -15,13 +15,15 @@ typedef Solver::TileKey TileKey;
     return seed;
   }
 
-  std::shared_ptr<Grid<TileKey>> Solver::solve(size_t N) {
-    auto g = std::make_shared<Grid<TileKey>>(N);
-    this->solve(N, *g);
-    return g;
-  }
+  // std::shared_ptr<Grid<TileKey>> Solver::solve(size_t N) {
+  //   auto g = std::make_shared<Grid<TileKey>>(N);
+  //   this->solve(N, *g);
+  //   return g;
+  // }
 
   void Solver::solve(size_t N, Grid<TileKey>& grid) {
+    grid.setDimension(N);
+
     initializeGrid(N);
 
     while (!isCollapsed()) {

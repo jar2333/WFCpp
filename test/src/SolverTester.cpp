@@ -54,11 +54,14 @@ void SolverTester::testSolver() {
 
     size_t gridSize = 2;
 
-    auto grid = solver.solve(gridSize);
+    std::cout << "Solving grid:\n";
+    SolverGrid grid;
+    solver.solve(gridSize, grid);
 
+    std::cout << "Printing solved grid:\n";
     for (size_t i = 0; i < gridSize; i++) {
       for (size_t j = 0; j < gridSize; j++) {
-        std::cout << "Position: (" << i << ", " << j << "), tile: " << tiles[grid->getKey({i, j})] << std::endl;
+        std::cout << "Position: (" << i << ", " << j << "), tile: " << tiles[grid.getKey({i, j})] << std::endl;
       }
     }
 

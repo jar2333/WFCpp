@@ -134,15 +134,6 @@ public:
   * @return the seed
   */
   int getSeed();
-  
-  /**
-  * Runs the wave-function collapse algorithm, returning a solved 2-dimensional square Grid or throwing an exception if the algorithm fails.
-  * The grid returned is of dimensions NxN.
-  * @param N The dimensions of the square grid. 
-  * @return A solved grid
-  * @throws std::runtime_error Indicates that the grid could not be solved. 
-  */
-  std::shared_ptr<Grid<TileKey>> solve(size_t N);
 
   /**
   * Runs the wave-function collapse algorithm, solving in-place a 2-dimensional square Grid or throwing an exception if the algorithm fails.
