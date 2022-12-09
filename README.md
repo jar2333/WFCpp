@@ -33,3 +33,5 @@ Summary coverage rate for current test executable:
   lines......: 89.9% (665 of 740 lines)
   functions..: 86.9% (93 of 107 functions)
   branches...: no data found
+
+To use this library, the easiest method is to use CMake for your project, and add a `target_link_libraries` command to your CMakeLists.txt file. CMake will ensure that you can access the library's headers by using angle bracket includes such as `#include <Solver.h>`. Alternatively, one can always build `libwfcpp.a` to link with using the `wfcpp` target, and copy-paste the library's headers to your own project. This is inadvisable but nontheless entirely possible.
