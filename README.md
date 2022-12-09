@@ -28,3 +28,8 @@ Since it is not part of the `all` target, remember that to build the coverage re
 ```bash
 cmake --build ./build --target coverage
 ```
+
+Summary coverage rate for current test executable:
+  lines......: 89.9% (665 of 740 lines)
+  functions..: 86.9% (93 of 107 functions)
+  branches...: no data found
