@@ -27,8 +27,9 @@ A list of all targets that can be used instead of `all`
 
 Since it is not part of the `all` target, remember that to build the coverage report for the test executable, use:
 ```bash
-cmake --build ./build --target coverage
+cmake --build ./build --config Debug --target coverage
 ```
+The `--config Debug` flag is required to build `coverage`.
 
 To use this library, the easiest method is to use CMake for your project, and add a `target_link_libraries` command to your CMakeLists.txt file. CMake will ensure that you can access the library's headers by using angle bracket includes such as `#include <Solver.h>`. Alternatively, one can always build `libwfcpp.a` to link with using the `wfcpp` target, and copy-paste the library's headers to your own project. This is inadvisable but nontheless entirely possible.
 
