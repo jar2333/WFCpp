@@ -26,8 +26,9 @@ A list of all targets that can be used instead of `all`
 
 Since it is not part of the `all` target, remember that to build the coverage report for the test executable, use:
 ```bash
-cmake --build ./build --target coverage
+cmake --build ./build --config Debug --target coverage
 ```
+The `--config Debug` flag is required to build `coverage`.
 
 Summary coverage rate for current test executable:
   lines......: 89.9% (665 of 740 lines)
