@@ -88,8 +88,6 @@ class TileData {
 
 class Extractor {
 	public:
-	        int idCount;
-		double comparisonMetric;
 
 		/**
 		 * Extracts the pixel data from a PNG file.
@@ -101,7 +99,7 @@ class Extractor {
 		 * @see Pixel
 		 */ 
 
-		int extractPNG(unsigned int& width, unsigned int& height, const std::string& filename, std::vector<Pixel>& pixels);	
+		void extractPNG(unsigned int& width, unsigned int& height, const std::string& filename, std::vector<Pixel>& pixels);	
 		
 		/**
 		 * Extracts the pixel data from a BMP file.
@@ -113,7 +111,7 @@ class Extractor {
 		 * @see Pixel
 		 */ 
 
-		int extractBMP(unsigned int& width, unsigned int& height, const std::string& filename, std::vector<Pixel>& pixels);
+		void extractBMP(unsigned int& width, unsigned int& height, const std::string& filename, std::vector<Pixel>& pixels);
 
 		/**
 		 * Extracts tiles from a vector of pixels. 
@@ -130,6 +128,16 @@ class Extractor {
 		int extractTileset(unsigned int width, unsigned int height, unsigned int horizontal, unsigned int vertical, const std::vector<Pixel>& pixels, std::vector<TileData>& tiles);
 
 		/**
+		 * Econdes a vecotr of tiles using encodePNG
+		 *
+		 * @param tiles The vector of tiles being encoded
+		 * @param assetName name of asset and folder
+		 * */
+
+		void encodeTilesetPNG(std::vector<TileData>& tiles, std::string assetName);
+		
+		
+		/**
 		 * Encodes a vector of pixels into a PNG file at the filename provided.
 		 * 
 		 * @param width The width of the file being created
@@ -138,8 +146,8 @@ class Extractor {
 		 * @param pixels The pixels used to created the file
 		 * 
 		 * */
-		
- 		static int encodePNG(unsigned int width, unsigned int height, const std::string& filename, const std::vector<Pixel>& pixels);
+
+ 		static void encodePNG(unsigned int width, unsigned int height, const std::string& filename, const std::vector<Pixel>& pixels);
 		
 		/**
 		 * Set the constraints for each tile on a tileList based on the tiles
@@ -150,6 +158,73 @@ class Extractor {
 
 		int setConstraints(std::vector<TileData>& tileList);
 		
+		/**
+		 * Setter function for comparisonMetric
+		 * 
+		 * @param m Input for comparisonMetric
+		 * */ 
+
+		void setComparisonMetric(double m);
+	
+		/**
+		 *
+		 * Directory setter for dumping extractions relative to current directory
+		 *
+		 *@param dir Directory
+		 * */ 
+
+		void setDumpDirectoryRelative(std::string dir);
+
+		/**
+		 *
+		 * Directory setter for dumping assets
+		 *
+		 *@param dir Directory
+		 * */ 
+		
+		void setDumpDirectoryAbsolute(std::string dir);
+		
+		/**
+		 *
+		 * Directory setter for acquiring assets relative to current directory
+		 *
+		 *@param dir Directory
+		 * */ 
+
+		void setAssetDirectoryRelative(std::string dir);
+
+		/**
+		 *
+		 * Directory setter for acquiring assets
+		 *
+		 *@param dir Directory
+		 * */ 
+
+		void setAssetDirectoryAbsolute(std::string dir);	
+
+		/**
+		 * Print function for the two directories
+		 * */
+
+		void printDirectories();
+		
+		
+		/**
+		 * Print function for constraints of a vector of tiles
+		 * 
+		 * @param tile TileVector for printing
+		 *  */
+
+		void printConstraintsV(std::vector<TileData> tiles);
+	
+		/**
+		 * Print function for constraints of a tile
+		 * 
+		 * @param tile Tile for printing
+		 *  */
+
+		void printConstraints(TileData tile);
+
 		/**
 		 * Default constructor for the Extractor.
 		 * */
@@ -179,6 +254,12 @@ class Extractor {
 		}
 
 	private:
+
+	        int idCount;
+		double comparisonMetric;
+		std::string aDir;
+		std::string dDir;
+
 
 		/**
 		 * A function for abstraction of tile extraction. Given an empty tile 
@@ -212,4 +293,6 @@ class Extractor {
 		 * */
 
 		bool sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, unsigned int length);
-};
+
+}
+;
