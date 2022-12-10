@@ -5,14 +5,14 @@ int main() {
     ExtractorTester exTester;
 	exTester.runAll();
 
-   // SolverTester solTester;
-//	solTester.runAll();
+    SolverTester solTester;
+	solTester.runAll();
 
-    //BMPImageTester imgTester;
-    //imgTester.runAll();
+    BMPImageTester imgTester;
+    imgTester.runAll();
 
-    //SynthesizerTester synTester;
-    //synTester.runAll();
+    SynthesizerTester synTester;
+    synTester.runAll();
 
     return 0;
 }

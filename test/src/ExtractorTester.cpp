@@ -7,13 +7,13 @@ void ExtractorTester::testExtractor() {
 	unsigned int width, height;
 	int horizontal, vertical;
 
-	std::string assetsLocation = "/../../test/assets";
-	std::string assetsDump = "/../../test/assets/tiles";
+	std::string assetsLocation = "/test/assets";
+	std::string assetsDump = "/test/assets/tiles";
 	
 	//std::string assetName = "/Grass";
 	std::string assetName;
 
-	std::cout << "Enter the name of the Tile/Tileset you wish to extract: ";
+	std::cout << "Enter the name of the rectangular Tile/Tileset you wish to extract (Tower, Grass): ";
 	std::cin >> assetName;
 	std::cout << std::endl;
 	assetName = "/" + assetName;
