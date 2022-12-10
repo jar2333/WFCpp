@@ -12,7 +12,7 @@ The struct for storing pixels in BMP. Supports up to 32-\/bit colors.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$Pixel\+Type T$>$ }\\\mbox{\hyperlink{structPixel}{Pixel}} \& \mbox{\hyperlink{structPixel_a5c17b4fdcbc0239073065acc7ec7486a}{operator=}} (const T \&rhs)
+{\footnotesize template$<$\mbox{\hyperlink{conceptPixelType}{Pixel\+Type}} T$>$ }\\\mbox{\hyperlink{structPixel}{Pixel}} \& \mbox{\hyperlink{structPixel_a59ebc25bda17bfed253c49eb31b58a63}{operator=}} (const T \&rhs)
 \begin{DoxyCompactList}\small\item\em Overload the = operator to support assignment from pixel-\/like objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -20,16 +20,12 @@ The struct for storing pixels in BMP. Supports up to 32-\/bit colors.
 \mbox{\Hypertarget{structPixel_a889aeaad67df7207719e465c51207916}\label{structPixel_a889aeaad67df7207719e465c51207916}} 
 int {\bfseries count}
 \item 
-\mbox{\Hypertarget{structPixel_a25700f39819fea43d244144cfeb19ee3}\label{structPixel_a25700f39819fea43d244144cfeb19ee3}} 
 BYTE \mbox{\hyperlink{structPixel_a25700f39819fea43d244144cfeb19ee3}{Blue}}
 \begin{DoxyCompactList}\small\item\em Blue value. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{structPixel_a25b3da0327b05debc2851da433fce42f}\label{structPixel_a25b3da0327b05debc2851da433fce42f}} 
 BYTE \mbox{\hyperlink{structPixel_a25b3da0327b05debc2851da433fce42f}{Green}}
 \begin{DoxyCompactList}\small\item\em Green value. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{structPixel_a2a9517ac9601f28c51294a93ed2c8728}\label{structPixel_a2a9517ac9601f28c51294a93ed2c8728}} 
 BYTE \mbox{\hyperlink{structPixel_a2a9517ac9601f28c51294a93ed2c8728}{Red}}
 \begin{DoxyCompactList}\small\item\em Red value. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{structPixel_ab97afc36303b6967adead9ea01084762}\label{structPixel_ab97afc36303b6967adead9ea01084762}} 
 BYTE \mbox{\hyperlink{structPixel_ab97afc36303b6967adead9ea01084762}{Alpha}}
 \begin{DoxyCompactList}\small\item\em Alpha value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -37,13 +33,15 @@ BYTE \mbox{\hyperlink{structPixel_ab97afc36303b6967adead9ea01084762}{Alpha}}
 \doxysubsection{Detailed Description}
 The struct for storing pixels in BMP. Supports up to 32-\/bit colors. 
 
+
+
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{structPixel_a5c17b4fdcbc0239073065acc7ec7486a}\label{structPixel_a5c17b4fdcbc0239073065acc7ec7486a}} 
+\mbox{\Hypertarget{structPixel_a59ebc25bda17bfed253c49eb31b58a63}\label{structPixel_a59ebc25bda17bfed253c49eb31b58a63}} 
 \index{Pixel@{Pixel}!operator=@{operator=}}
 \index{operator=@{operator=}!Pixel@{Pixel}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
-{\footnotesize\ttfamily template$<$Pixel\+Type T$>$ \\
-\mbox{\hyperlink{structPixel}{Pixel}}\& Pixel\+::operator= (\begin{DoxyParamCaption}\item[{const T \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{conceptPixelType}{Pixel\+Type}} T$>$ \\
+\mbox{\hyperlink{structPixel}{Pixel}} \& Pixel\+::operator= (\begin{DoxyParamCaption}\item[{const T \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -63,8 +61,51 @@ Overload the = operator to support assignment from pixel-\/like objects.
 \mbox{\hyperlink{structPixel}{Pixel}}\&
 \end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
-Pixel\+Type 
+\mbox{\hyperlink{conceptPixelType}{Pixel\+Type}} 
 \end{DoxySeeAlso}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structPixel_ab97afc36303b6967adead9ea01084762}\label{structPixel_ab97afc36303b6967adead9ea01084762}} 
+\index{Pixel@{Pixel}!Alpha@{Alpha}}
+\index{Alpha@{Alpha}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{Alpha}{Alpha}}
+{\footnotesize\ttfamily BYTE Pixel\+::\+Alpha}
+
+
+
+Alpha value. 
+
+\mbox{\Hypertarget{structPixel_a25700f39819fea43d244144cfeb19ee3}\label{structPixel_a25700f39819fea43d244144cfeb19ee3}} 
+\index{Pixel@{Pixel}!Blue@{Blue}}
+\index{Blue@{Blue}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{Blue}{Blue}}
+{\footnotesize\ttfamily BYTE Pixel\+::\+Blue}
+
+
+
+Blue value. 
+
+\mbox{\Hypertarget{structPixel_a25b3da0327b05debc2851da433fce42f}\label{structPixel_a25b3da0327b05debc2851da433fce42f}} 
+\index{Pixel@{Pixel}!Green@{Green}}
+\index{Green@{Green}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{Green}{Green}}
+{\footnotesize\ttfamily BYTE Pixel\+::\+Green}
+
+
+
+Green value. 
+
+\mbox{\Hypertarget{structPixel_a2a9517ac9601f28c51294a93ed2c8728}\label{structPixel_a2a9517ac9601f28c51294a93ed2c8728}} 
+\index{Pixel@{Pixel}!Red@{Red}}
+\index{Red@{Red}!Pixel@{Pixel}}
+\doxysubsubsection{\texorpdfstring{Red}{Red}}
+{\footnotesize\ttfamily BYTE Pixel\+::\+Red}
+
+
+
+Red value. 
+
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
