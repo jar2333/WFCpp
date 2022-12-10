@@ -36,9 +36,9 @@ To use this library, the easiest method is to use CMake for your project, and ad
 ## Statistics
 
 Summary coverage rate for current test executable:
-  lines......: 89.9% (665 of 740 lines)
-  functions..: 86.9% (93 of 107 functions)
-  branches...: no data found
+- lines......: 89.9% (665 of 740 lines)
+- functions..: 86.9% (93 of 107 functions)
+- branches...: no data found
 
 LoC: 740
 Number of functions: 107
