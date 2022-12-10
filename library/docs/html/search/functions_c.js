@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7ebmpimage_0',['~BMPImage',['../classBMPImage.html#a623be82b65beb90e120ac6c1f3650f8c',1,'BMPImage']]],
-  ['_7esynthesizer_1',['~Synthesizer',['../classSynthesizer.html#ab6db47137628f952658c54393a5b0b02',1,'Synthesizer']]]
+  ['tile_119',['Tile',['../classTile.html#a73a966367fe675d19107235240dc2310',1,'Tile']]]
 ];
