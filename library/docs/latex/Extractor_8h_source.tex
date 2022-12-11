@@ -34,43 +34,69 @@
 \DoxyCodeLine{44 }
 \DoxyCodeLine{89 \textcolor{keyword}{class }\mbox{\hyperlink{classExtractor}{Extractor}} \{}
 \DoxyCodeLine{90     \textcolor{keyword}{public}:}
-\DoxyCodeLine{91             \textcolor{keywordtype}{int} idCount;}
-\DoxyCodeLine{92         \textcolor{keywordtype}{double} comparisonMetric;}
-\DoxyCodeLine{93 }
-\DoxyCodeLine{104         \textcolor{keywordtype}{int} \mbox{\hyperlink{classExtractor_a69851712777c17592219308f4c2723b6}{extractPNG}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& height, \textcolor{keyword}{const} std::string\& filename, std::vector<Pixel>\& pixels);   }
-\DoxyCodeLine{105         }
-\DoxyCodeLine{116         \textcolor{keywordtype}{int} \mbox{\hyperlink{classExtractor_aa2dfdbd9677b113b9d6db18810023d53}{extractBMP}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& height, \textcolor{keyword}{const} std::string\& filename, std::vector<Pixel>\& pixels);}
-\DoxyCodeLine{117 }
-\DoxyCodeLine{130         \textcolor{keywordtype}{int} \mbox{\hyperlink{classExtractor_a7996cb26dd5ff6d35d1505a5580205dd}{extractTileset}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} horizontal, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} vertical, \textcolor{keyword}{const} std::vector<Pixel>\& pixels, std::vector<TileData>\& tiles);}
-\DoxyCodeLine{131 }
-\DoxyCodeLine{142         \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{classExtractor_af368de6960d95b0cf034234c2ada1f5f}{encodePNG}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, \textcolor{keyword}{const} std::string\& filename, \textcolor{keyword}{const} std::vector<Pixel>\& pixels);}
-\DoxyCodeLine{143         }
-\DoxyCodeLine{151         \textcolor{keywordtype}{int} \mbox{\hyperlink{classExtractor_ac8e9b5f85bcdf56dc6b2edb5bebd3809}{setConstraints}}(std::vector<TileData>\& tileList);}
-\DoxyCodeLine{152         }
-\DoxyCodeLine{157         \mbox{\hyperlink{classExtractor_a2726e6a94c51c2b2dbc518199d054103}{Extractor}}()\{}
-\DoxyCodeLine{158             idCount = 1;}
-\DoxyCodeLine{159             comparisonMetric = .8;}
-\DoxyCodeLine{160         \}}
-\DoxyCodeLine{161 }
-\DoxyCodeLine{169         \mbox{\hyperlink{classExtractor_a62d4ffc438254c5661c4a60d1d2d4928}{Extractor}}(\textcolor{keywordtype}{double} metric)\{}
-\DoxyCodeLine{170             idCount = 1;}
-\DoxyCodeLine{171             \textcolor{keywordflow}{if}(metric > 1)\{}
-\DoxyCodeLine{172                 metric = 1;}
-\DoxyCodeLine{173             \}}
-\DoxyCodeLine{174             \textcolor{keywordflow}{if}(metric < 0)\{}
-\DoxyCodeLine{175                 metric = 0;}
-\DoxyCodeLine{176             \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{102         \textcolor{keywordtype}{void} \mbox{\hyperlink{classExtractor_a6e87d0efe8723eb19af42225f2decc6d}{extractPNG}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& height, \textcolor{keyword}{const} std::string\& filename, std::vector<Pixel>\& pixels);  }
+\DoxyCodeLine{103         }
+\DoxyCodeLine{114         \textcolor{keywordtype}{void} \mbox{\hyperlink{classExtractor_adabc777cb60461053b56f2d53a9704a2}{extractBMP}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& height, \textcolor{keyword}{const} std::string\& filename, std::vector<Pixel>\& pixels);}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{128         \textcolor{keywordtype}{int} \mbox{\hyperlink{classExtractor_a7996cb26dd5ff6d35d1505a5580205dd}{extractTileset}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} horizontal, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} vertical, \textcolor{keyword}{const} std::vector<Pixel>\& pixels, std::vector<TileData>\& tiles);}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{137         \textcolor{keywordtype}{void} \mbox{\hyperlink{classExtractor_a868a888bd6b03eb9c9d07e81f91c8ec8}{encodeTilesetPNG}}(std::vector<TileData>\& tiles, std::string assetName);}
+\DoxyCodeLine{138         }
+\DoxyCodeLine{139         }
+\DoxyCodeLine{150         \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classExtractor_a5317038adbafe886bb393ef29c4e12be}{encodePNG}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, \textcolor{keyword}{const} std::string\& filename, \textcolor{keyword}{const} std::vector<Pixel>\& pixels);}
+\DoxyCodeLine{151         }
+\DoxyCodeLine{159         \textcolor{keywordtype}{int} \mbox{\hyperlink{classExtractor_ac8e9b5f85bcdf56dc6b2edb5bebd3809}{setConstraints}}(std::vector<TileData>\& tileList);}
+\DoxyCodeLine{160         }
+\DoxyCodeLine{167         \textcolor{keywordtype}{void} \mbox{\hyperlink{classExtractor_af35f3ceeb0ccc4791d4df63ddd025476}{setComparisonMetric}}(\textcolor{keywordtype}{double} m);}
+\DoxyCodeLine{168     }
+\DoxyCodeLine{176         \textcolor{keywordtype}{void} \mbox{\hyperlink{classExtractor_a2ce807da74ccb6bb17a44f94abb774c6}{setDumpDirectoryRelative}}(std::string dir);}
 \DoxyCodeLine{177 }
-\DoxyCodeLine{178             comparisonMetric = metric;}
-\DoxyCodeLine{179         \}}
-\DoxyCodeLine{180 }
-\DoxyCodeLine{181     \textcolor{keyword}{private}:}
-\DoxyCodeLine{182 }
-\DoxyCodeLine{194         \textcolor{keywordtype}{int} tileFormation(\textcolor{keyword}{const} std::vector<Pixel>\& pixels, \mbox{\hyperlink{classTileData}{TileData}}\& tile, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{185         \textcolor{keywordtype}{void} \mbox{\hyperlink{classExtractor_aaf41b05bc18e0e83e3855dfa1f6654d9}{setDumpDirectoryAbsolute}}(std::string dir);}
+\DoxyCodeLine{186         }
+\DoxyCodeLine{194         \textcolor{keywordtype}{void} \mbox{\hyperlink{classExtractor_a485004e8aa53730136b75f303a26740c}{setAssetDirectoryRelative}}(std::string dir);}
 \DoxyCodeLine{195 }
-\DoxyCodeLine{204         \textcolor{keywordtype}{int} tileCompare(\mbox{\hyperlink{classTileData}{TileData}}\& tile1, \mbox{\hyperlink{classTileData}{TileData}}\& tile2);}
-\DoxyCodeLine{205         }
-\DoxyCodeLine{214         \textcolor{keywordtype}{bool} sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length);}
-\DoxyCodeLine{215 \};}
+\DoxyCodeLine{203         \textcolor{keywordtype}{void} \mbox{\hyperlink{classExtractor_a4051e53c3e18b0a419dceb32eed8526f}{setAssetDirectoryAbsolute}}(std::string dir);   }
+\DoxyCodeLine{204 }
+\DoxyCodeLine{209         \textcolor{keywordtype}{void} \mbox{\hyperlink{classExtractor_a981d0f1843a7b7bea93a616939f0dc54}{printDirectories}}();}
+\DoxyCodeLine{210         }
+\DoxyCodeLine{211         }
+\DoxyCodeLine{218         \textcolor{keywordtype}{void} \mbox{\hyperlink{classExtractor_a2a738331241d85cb5e7bf9ed26ba28ed}{printConstraintsV}}(std::vector<TileData> tiles);}
+\DoxyCodeLine{219     }
+\DoxyCodeLine{226         \textcolor{keywordtype}{void} \mbox{\hyperlink{classExtractor_a42a34591eec5529b1dda53fbe04f3842}{printConstraints}}(\mbox{\hyperlink{classTileData}{TileData}} tile);}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{232         \mbox{\hyperlink{classExtractor_a2726e6a94c51c2b2dbc518199d054103}{Extractor}}()\{}
+\DoxyCodeLine{233             idCount = 1;}
+\DoxyCodeLine{234             comparisonMetric = .8;}
+\DoxyCodeLine{235         \}}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{244         \mbox{\hyperlink{classExtractor_a62d4ffc438254c5661c4a60d1d2d4928}{Extractor}}(\textcolor{keywordtype}{double} metric)\{}
+\DoxyCodeLine{245             idCount = 1;}
+\DoxyCodeLine{246             \textcolor{keywordflow}{if}(metric > 1)\{}
+\DoxyCodeLine{247                 metric = 1;}
+\DoxyCodeLine{248             \}}
+\DoxyCodeLine{249             \textcolor{keywordflow}{if}(metric < 0)\{}
+\DoxyCodeLine{250                 metric = 0;}
+\DoxyCodeLine{251             \}}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253             comparisonMetric = metric;}
+\DoxyCodeLine{254         \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256     \textcolor{keyword}{private}:}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258             \textcolor{keywordtype}{int} idCount;}
+\DoxyCodeLine{259         \textcolor{keywordtype}{double} comparisonMetric;}
+\DoxyCodeLine{260         std::string aDir;}
+\DoxyCodeLine{261         std::string dDir;}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263 }
+\DoxyCodeLine{275         \textcolor{keywordtype}{int} tileFormation(\textcolor{keyword}{const} std::vector<Pixel>\& pixels, \mbox{\hyperlink{classTileData}{TileData}}\& tile, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{285         \textcolor{keywordtype}{int} tileCompare(\mbox{\hyperlink{classTileData}{TileData}}\& tile1, \mbox{\hyperlink{classTileData}{TileData}}\& tile2);}
+\DoxyCodeLine{286         }
+\DoxyCodeLine{295         \textcolor{keywordtype}{bool} sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} length);}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297 \}}
+\DoxyCodeLine{298 ;}
 
 \end{DoxyCode}

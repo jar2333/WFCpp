@@ -12,13 +12,31 @@ The \mbox{\hyperlink{classExtractor}{Extractor}} Class.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{classExtractor_a69851712777c17592219308f4c2723b6}{extract\+PNG}} (unsigned int \&width, unsigned int \&height, const std\+::string \&filename, std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels)
+void \mbox{\hyperlink{classExtractor_a6e87d0efe8723eb19af42225f2decc6d}{extract\+PNG}} (unsigned int \&width, unsigned int \&height, const std\+::string \&filename, std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels)
 \item 
-int \mbox{\hyperlink{classExtractor_aa2dfdbd9677b113b9d6db18810023d53}{extract\+BMP}} (unsigned int \&width, unsigned int \&height, const std\+::string \&filename, std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels)
+void \mbox{\hyperlink{classExtractor_adabc777cb60461053b56f2d53a9704a2}{extract\+BMP}} (unsigned int \&width, unsigned int \&height, const std\+::string \&filename, std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels)
 \item 
 int \mbox{\hyperlink{classExtractor_a7996cb26dd5ff6d35d1505a5580205dd}{extract\+Tileset}} (unsigned int width, unsigned int height, unsigned int horizontal, unsigned int vertical, const std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels, std\+::vector$<$ \mbox{\hyperlink{classTileData}{Tile\+Data}} $>$ \&tiles)
 \item 
+void \mbox{\hyperlink{classExtractor_a868a888bd6b03eb9c9d07e81f91c8ec8}{encode\+Tileset\+PNG}} (std\+::vector$<$ \mbox{\hyperlink{classTileData}{Tile\+Data}} $>$ \&tiles, std\+::string asset\+Name)
+\item 
 int \mbox{\hyperlink{classExtractor_ac8e9b5f85bcdf56dc6b2edb5bebd3809}{set\+Constraints}} (std\+::vector$<$ \mbox{\hyperlink{classTileData}{Tile\+Data}} $>$ \&tile\+List)
+\item 
+void \mbox{\hyperlink{classExtractor_af35f3ceeb0ccc4791d4df63ddd025476}{set\+Comparison\+Metric}} (double m)
+\item 
+void \mbox{\hyperlink{classExtractor_a2ce807da74ccb6bb17a44f94abb774c6}{set\+Dump\+Directory\+Relative}} (std\+::string dir)
+\item 
+void \mbox{\hyperlink{classExtractor_aaf41b05bc18e0e83e3855dfa1f6654d9}{set\+Dump\+Directory\+Absolute}} (std\+::string dir)
+\item 
+void \mbox{\hyperlink{classExtractor_a485004e8aa53730136b75f303a26740c}{set\+Asset\+Directory\+Relative}} (std\+::string dir)
+\item 
+void \mbox{\hyperlink{classExtractor_a4051e53c3e18b0a419dceb32eed8526f}{set\+Asset\+Directory\+Absolute}} (std\+::string dir)
+\item 
+void \mbox{\hyperlink{classExtractor_a981d0f1843a7b7bea93a616939f0dc54}{print\+Directories}} ()
+\item 
+void \mbox{\hyperlink{classExtractor_a2a738331241d85cb5e7bf9ed26ba28ed}{print\+ConstraintsV}} (std\+::vector$<$ \mbox{\hyperlink{classTileData}{Tile\+Data}} $>$ tiles)
+\item 
+void \mbox{\hyperlink{classExtractor_a42a34591eec5529b1dda53fbe04f3842}{print\+Constraints}} (\mbox{\hyperlink{classTileData}{Tile\+Data}} tile)
 \item 
 \mbox{\hyperlink{classExtractor_a2726e6a94c51c2b2dbc518199d054103}{Extractor}} ()
 \item 
@@ -27,16 +45,7 @@ int \mbox{\hyperlink{classExtractor_ac8e9b5f85bcdf56dc6b2edb5bebd3809}{set\+Cons
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static int \mbox{\hyperlink{classExtractor_af368de6960d95b0cf034234c2ada1f5f}{encode\+PNG}} (unsigned int width, unsigned int height, const std\+::string \&filename, const std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels)
-\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classExtractor_ad10ca13d0a873848f1afe8e1494de295}\label{classExtractor_ad10ca13d0a873848f1afe8e1494de295}} 
-int {\bfseries id\+Count}
-\item 
-\mbox{\Hypertarget{classExtractor_a80043dae78ae0cf609fb83b98d6e2fac}\label{classExtractor_a80043dae78ae0cf609fb83b98d6e2fac}} 
-double {\bfseries comparison\+Metric}
+static void \mbox{\hyperlink{classExtractor_a5317038adbafe886bb393ef29c4e12be}{encode\+PNG}} (unsigned int width, unsigned int height, const std\+::string \&filename, const std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&pixels)
 \end{DoxyCompactItemize}
 
 
@@ -88,11 +97,11 @@ Constructor for the \mbox{\hyperlink{classExtractor}{Extractor}}, allows for met
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classExtractor_af368de6960d95b0cf034234c2ada1f5f}\label{classExtractor_af368de6960d95b0cf034234c2ada1f5f}} 
+\mbox{\Hypertarget{classExtractor_a5317038adbafe886bb393ef29c4e12be}\label{classExtractor_a5317038adbafe886bb393ef29c4e12be}} 
 \index{Extractor@{Extractor}!encodePNG@{encodePNG}}
 \index{encodePNG@{encodePNG}!Extractor@{Extractor}}
 \doxysubsubsection{\texorpdfstring{encodePNG()}{encodePNG()}}
-{\footnotesize\ttfamily int Extractor\+::encode\+PNG (\begin{DoxyParamCaption}\item[{unsigned int}]{width,  }\item[{unsigned int}]{height,  }\item[{const std\+::string \&}]{filename,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&}]{pixels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Extractor\+::encode\+PNG (\begin{DoxyParamCaption}\item[{unsigned int}]{width,  }\item[{unsigned int}]{height,  }\item[{const std\+::string \&}]{filename,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&}]{pixels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Encodes a vector of pixels into a PNG file at the filename provided.
 
@@ -107,11 +116,26 @@ Encodes a vector of pixels into a PNG file at the filename provided.
 {\em pixels} & The pixels used to created the file \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classExtractor_aa2dfdbd9677b113b9d6db18810023d53}\label{classExtractor_aa2dfdbd9677b113b9d6db18810023d53}} 
+\mbox{\Hypertarget{classExtractor_a868a888bd6b03eb9c9d07e81f91c8ec8}\label{classExtractor_a868a888bd6b03eb9c9d07e81f91c8ec8}} 
+\index{Extractor@{Extractor}!encodeTilesetPNG@{encodeTilesetPNG}}
+\index{encodeTilesetPNG@{encodeTilesetPNG}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{encodeTilesetPNG()}{encodeTilesetPNG()}}
+{\footnotesize\ttfamily void Extractor\+::encode\+Tileset\+PNG (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classTileData}{Tile\+Data}} $>$ \&}]{tiles,  }\item[{std\+::string}]{asset\+Name }\end{DoxyParamCaption})}
+
+Econdes a vecotr of tiles using encode\+PNG
+
+
+\begin{DoxyParams}{Parameters}
+{\em tiles} & The vector of tiles being encoded \\
+\hline
+{\em asset\+Name} & name of asset and folder \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExtractor_adabc777cb60461053b56f2d53a9704a2}\label{classExtractor_adabc777cb60461053b56f2d53a9704a2}} 
 \index{Extractor@{Extractor}!extractBMP@{extractBMP}}
 \index{extractBMP@{extractBMP}!Extractor@{Extractor}}
 \doxysubsubsection{\texorpdfstring{extractBMP()}{extractBMP()}}
-{\footnotesize\ttfamily int Extractor\+::extract\+BMP (\begin{DoxyParamCaption}\item[{unsigned int \&}]{width,  }\item[{unsigned int \&}]{height,  }\item[{const std\+::string \&}]{filename,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&}]{pixels }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Extractor\+::extract\+BMP (\begin{DoxyParamCaption}\item[{unsigned int \&}]{width,  }\item[{unsigned int \&}]{height,  }\item[{const std\+::string \&}]{filename,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&}]{pixels }\end{DoxyParamCaption})}
 
 Extracts the pixel data from a BMP file. 
 \begin{DoxyParams}{Parameters}
@@ -127,11 +151,11 @@ Extracts the pixel data from a BMP file.
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{structPixel}{Pixel}} 
 \end{DoxySeeAlso}
-\mbox{\Hypertarget{classExtractor_a69851712777c17592219308f4c2723b6}\label{classExtractor_a69851712777c17592219308f4c2723b6}} 
+\mbox{\Hypertarget{classExtractor_a6e87d0efe8723eb19af42225f2decc6d}\label{classExtractor_a6e87d0efe8723eb19af42225f2decc6d}} 
 \index{Extractor@{Extractor}!extractPNG@{extractPNG}}
 \index{extractPNG@{extractPNG}!Extractor@{Extractor}}
 \doxysubsubsection{\texorpdfstring{extractPNG()}{extractPNG()}}
-{\footnotesize\ttfamily int Extractor\+::extract\+PNG (\begin{DoxyParamCaption}\item[{unsigned int \&}]{width,  }\item[{unsigned int \&}]{height,  }\item[{const std\+::string \&}]{filename,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&}]{pixels }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Extractor\+::extract\+PNG (\begin{DoxyParamCaption}\item[{unsigned int \&}]{width,  }\item[{unsigned int \&}]{height,  }\item[{const std\+::string \&}]{filename,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structPixel}{Pixel}} $>$ \&}]{pixels }\end{DoxyParamCaption})}
 
 Extracts the pixel data from a PNG file. 
 \begin{DoxyParams}{Parameters}
@@ -170,6 +194,77 @@ Extracts tiles from a vector of pixels.
 {\em tiles} & A reference to the tile vector that will be appended to \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classExtractor_a42a34591eec5529b1dda53fbe04f3842}\label{classExtractor_a42a34591eec5529b1dda53fbe04f3842}} 
+\index{Extractor@{Extractor}!printConstraints@{printConstraints}}
+\index{printConstraints@{printConstraints}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{printConstraints()}{printConstraints()}}
+{\footnotesize\ttfamily void Extractor\+::print\+Constraints (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTileData}{Tile\+Data}}}]{tile }\end{DoxyParamCaption})}
+
+Print function for constraints of a tile
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile} & \mbox{\hyperlink{classTile}{Tile}} for printing \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExtractor_a2a738331241d85cb5e7bf9ed26ba28ed}\label{classExtractor_a2a738331241d85cb5e7bf9ed26ba28ed}} 
+\index{Extractor@{Extractor}!printConstraintsV@{printConstraintsV}}
+\index{printConstraintsV@{printConstraintsV}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{printConstraintsV()}{printConstraintsV()}}
+{\footnotesize\ttfamily void Extractor\+::print\+ConstraintsV (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classTileData}{Tile\+Data}} $>$}]{tiles }\end{DoxyParamCaption})}
+
+Print function for constraints of a vector of tiles
+
+
+\begin{DoxyParams}{Parameters}
+{\em tile} & Tile\+Vector for printing \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExtractor_a981d0f1843a7b7bea93a616939f0dc54}\label{classExtractor_a981d0f1843a7b7bea93a616939f0dc54}} 
+\index{Extractor@{Extractor}!printDirectories@{printDirectories}}
+\index{printDirectories@{printDirectories}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{printDirectories()}{printDirectories()}}
+{\footnotesize\ttfamily void Extractor\+::print\+Directories (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Print function for the two directories \mbox{\Hypertarget{classExtractor_a4051e53c3e18b0a419dceb32eed8526f}\label{classExtractor_a4051e53c3e18b0a419dceb32eed8526f}} 
+\index{Extractor@{Extractor}!setAssetDirectoryAbsolute@{setAssetDirectoryAbsolute}}
+\index{setAssetDirectoryAbsolute@{setAssetDirectoryAbsolute}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{setAssetDirectoryAbsolute()}{setAssetDirectoryAbsolute()}}
+{\footnotesize\ttfamily void Extractor\+::set\+Asset\+Directory\+Absolute (\begin{DoxyParamCaption}\item[{std\+::string}]{dir }\end{DoxyParamCaption})}
+
+Directory setter for acquiring assets
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & Directory \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExtractor_a485004e8aa53730136b75f303a26740c}\label{classExtractor_a485004e8aa53730136b75f303a26740c}} 
+\index{Extractor@{Extractor}!setAssetDirectoryRelative@{setAssetDirectoryRelative}}
+\index{setAssetDirectoryRelative@{setAssetDirectoryRelative}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{setAssetDirectoryRelative()}{setAssetDirectoryRelative()}}
+{\footnotesize\ttfamily void Extractor\+::set\+Asset\+Directory\+Relative (\begin{DoxyParamCaption}\item[{std\+::string}]{dir }\end{DoxyParamCaption})}
+
+Directory setter for acquiring assets relative to current directory
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & Directory \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExtractor_af35f3ceeb0ccc4791d4df63ddd025476}\label{classExtractor_af35f3ceeb0ccc4791d4df63ddd025476}} 
+\index{Extractor@{Extractor}!setComparisonMetric@{setComparisonMetric}}
+\index{setComparisonMetric@{setComparisonMetric}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{setComparisonMetric()}{setComparisonMetric()}}
+{\footnotesize\ttfamily void Extractor\+::set\+Comparison\+Metric (\begin{DoxyParamCaption}\item[{double}]{m }\end{DoxyParamCaption})}
+
+Setter function for comparison\+Metric
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Input for comparison\+Metric \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classExtractor_ac8e9b5f85bcdf56dc6b2edb5bebd3809}\label{classExtractor_ac8e9b5f85bcdf56dc6b2edb5bebd3809}} 
 \index{Extractor@{Extractor}!setConstraints@{setConstraints}}
 \index{setConstraints@{setConstraints}!Extractor@{Extractor}}
@@ -181,6 +276,32 @@ Set the constraints for each tile on a tile\+List based on the tiles from that t
 
 \begin{DoxyParams}{Parameters}
 {\em tile\+List} & A vector of tiles to apply constraints to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExtractor_aaf41b05bc18e0e83e3855dfa1f6654d9}\label{classExtractor_aaf41b05bc18e0e83e3855dfa1f6654d9}} 
+\index{Extractor@{Extractor}!setDumpDirectoryAbsolute@{setDumpDirectoryAbsolute}}
+\index{setDumpDirectoryAbsolute@{setDumpDirectoryAbsolute}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{setDumpDirectoryAbsolute()}{setDumpDirectoryAbsolute()}}
+{\footnotesize\ttfamily void Extractor\+::set\+Dump\+Directory\+Absolute (\begin{DoxyParamCaption}\item[{std\+::string}]{dir }\end{DoxyParamCaption})}
+
+Directory setter for dumping assets
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & Directory \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExtractor_a2ce807da74ccb6bb17a44f94abb774c6}\label{classExtractor_a2ce807da74ccb6bb17a44f94abb774c6}} 
+\index{Extractor@{Extractor}!setDumpDirectoryRelative@{setDumpDirectoryRelative}}
+\index{setDumpDirectoryRelative@{setDumpDirectoryRelative}!Extractor@{Extractor}}
+\doxysubsubsection{\texorpdfstring{setDumpDirectoryRelative()}{setDumpDirectoryRelative()}}
+{\footnotesize\ttfamily void Extractor\+::set\+Dump\+Directory\+Relative (\begin{DoxyParamCaption}\item[{std\+::string}]{dir }\end{DoxyParamCaption})}
+
+Directory setter for dumping extractions relative to current directory
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & Directory \\
 \hline
 \end{DoxyParams}
 

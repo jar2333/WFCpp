@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
+#include <filesystem>
 
 int Extractor::tileFormation(const std::vector<Pixel>& pixels, TileData& tile, unsigned int width, unsigned int height, int id){
 	std::vector<Pixel> north;
@@ -77,6 +78,91 @@ int Extractor::setConstraints(std::vector<TileData>& tileList){
 	
 	
 	return 1;
+}
+
+void Extractor::setComparisonMetric(double m){
+	comparisonMetric = m;
+}
+
+void Extractor::setAssetDirectoryAbsolute(std::string dir){
+	aDir = dir;
+}
+
+void Extractor::setAssetDirectoryRelative(std::string dir){
+	aDir = std::string(std::filesystem::current_path()) + dir;
+}
+
+void Extractor::setDumpDirectoryRelative(std::string dir){
+	dDir = std::string(std::filesystem::current_path()) + dir;
+}
+
+void Extractor::setDumpDirectoryAbsolute(std::string dir){
+	dDir = dir;
+}
+
+void Extractor::printDirectories(){
+	std::cout << "asset directory: " << aDir << std::endl;
+	std::cout << "dump directory: " << dDir << std::endl;
+	
+}
+
+void Extractor::printConstraintsV(std::vector<TileData> tiles){
+	for(auto i = tiles.begin(); i != tiles.end(); ++i){
+		Extractor::printConstraints(*i);
+
+	}
+
+}
+
+void Extractor::printConstraints(TileData tile){
+	int id = tile.id;
+	std::set<int>::iterator j;
+	int i = 0;	
+
+	while(i < 4){
+		switch(i){
+			
+			case 0:
+				j = tile.northConstraints[id].begin();
+				std::cout << tile.id << " north: ";
+				while(j != tile.northConstraints[id].end()){
+					std::cout << *j << ", ";
+					j++;
+				}
+				std::cout << std::endl; 
+				break;
+			case 1:
+				j = tile.southConstraints[id].begin();
+				std::cout << tile.id << " south: ";
+				while(j != tile.southConstraints[id].end()){
+					std::cout << *j << ", ";
+					j++;
+				}
+				std::cout << std::endl; 
+				break;
+			case 2:
+				j = tile.eastConstraints[id].begin();
+				std::cout << tile.id << " east: ";
+				while(j != tile.eastConstraints[id].end()){
+					std::cout << *j << ", ";
+					j++;
+				}
+				std::cout << std::endl; 
+				break;
+			case 3: 
+				j = tile.westConstraints[id].begin(); 
+				std::cout << tile.id << " west: ";
+				while(j != tile.westConstraints[id].end()){
+					std::cout << *j << ", ";
+					j++;
+				}
+				std::cout << std::endl << std::endl; 
+				break; 
+		}
+		i++;
+		
+	}
+
 }
 
 int Extractor::tileCompare(TileData& tile1, TileData& tile2){
@@ -170,17 +256,41 @@ bool Extractor::sideCompare(std::vector<Pixel> side1, std::vector<Pixel> side2, 
 	return false;
 }
 
-int Extractor::extractPNG(unsigned int& width, unsigned int& height, const std::string& filename, std::vector<Pixel>& pixels) {
+void Extractor::encodeTilesetPNG(std::vector<TileData>& tiles, std::string assetName){
+	int counter = 1;
+	int i = 0;
+	std::filesystem::create_directories(dDir + assetName);
+	std::filesystem::permissions(dDir + assetName, std::filesystem::perms::others_all | std::filesystem::perms::group_all | std::filesystem::perms::owner_all); 
+
+	for(auto it = tiles.begin(); it != tiles.end(); ++it){
+		//std::cout << counter << " width: " << it->width << std::endl;
+		//std::cout << counter << " height: " << it->height << std::endl;
+		
+		//e.printConstraints(*it);	
+
+        	std::string name = dDir + assetName + "/" + std::to_string(counter) + ".png";
+		//std::cout << name << std::endl;	
+		//encode here
+        	Extractor::encodePNG(it->width, it->height, name, it->pixels);
+	
+		counter++;
+    	}	
+
+}	
+
+void Extractor::extractPNG(unsigned int& width, unsigned int& height, const std::string& filename, std::vector<Pixel>& pixels) {
 	std::vector<unsigned char> image;
 	int counter = 1; 
 	int colorCounter = 1;
 	Pixel p;
+	
+	std::string dir = aDir + filename + ".png";	
 
-	unsigned error = lodepng::decode(image, width, height, filename);
+
+	unsigned error = lodepng::decode(image, width, height, dir);
 	
 	if(error){
 		std::cout << "decoder error" << error << ": " << lodepng_error_text(error) << std::endl;
-		return 0;
 	}
 
 	for(std::vector<unsigned char>::iterator it = image.begin() ; it != image.end(); ++it){
@@ -207,13 +317,11 @@ int Extractor::extractPNG(unsigned int& width, unsigned int& height, const std::
 		}
 
 	}
-	
-	return 1;
 
 
 }
 
-int Extractor::extractBMP(unsigned int& width, unsigned int& height, const std::string& filename, std::vector<Pixel>& pixels){
+void Extractor::extractBMP(unsigned int& width, unsigned int& height, const std::string& filename, std::vector<Pixel>& pixels){
 	BMP image;
 	image.ReadFromFile(filename.c_str()); 			
 
@@ -233,7 +341,6 @@ int Extractor::extractBMP(unsigned int& width, unsigned int& height, const std::
 		}
 	}
 	
-	return 1;
 }
 
 
@@ -283,7 +390,7 @@ int Extractor::extractTileset(unsigned int width, unsigned int height, unsigned 
 	return 1;
 }	
 
-int Extractor::encodePNG(unsigned int width, unsigned int height, const std::string& filename, const std::vector<Pixel>& pixels) {
+void Extractor::encodePNG(unsigned int width, unsigned int height, const std::string& filename, const std::vector<Pixel>& pixels) {
 	std::vector<unsigned char> image;
 	unsigned char r,g,b,a;
 
@@ -299,7 +406,4 @@ int Extractor::encodePNG(unsigned int width, unsigned int height, const std::str
 	}
 
 	lodepng::encode(filename, image, width, height);
-	
-	
-	return 1; 
 }

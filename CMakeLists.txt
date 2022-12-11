@@ -41,5 +41,5 @@ endif()
 
 add_subdirectory(test)
 add_subdirectory(library)
-add_subdirectory(demo)
+#add_subdirectory(demo)
 
