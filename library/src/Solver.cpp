@@ -113,7 +113,7 @@ typedef Solver::TileKey TileKey;
     for (size_t i = 0; i < N; i++) {
       for (size_t j = 0; j < N; j++) {
         Position p{i, j};
-        grid[p] = getPossibleTiles(p);
+        grid[p] = getInitialPossibleTiles(p);
       }
     }
 
@@ -203,10 +203,10 @@ typedef Solver::TileKey TileKey;
 
   //returns true if neighbor's possible tiles decrease
   bool Solver::propagateAt(Position current, Position neighbor) {
-    std::vector<TileKey>& neighbor_tiles = grid[neighbor];
-    size_t initial_amount = neighbor_tiles.size();
+    std::vector<TileKey>& neighbor_tiles = getPossibleTiles(neighbor);
+    std::vector<TileKey>& current_tiles  = getPossibleTiles(current);
 
-    std::vector<TileKey>& current_tiles = grid[current];
+    size_t initial_amount = neighbor_tiles.size();
 
     Direction d = current.getDirection(neighbor);
     
@@ -214,9 +214,7 @@ typedef Solver::TileKey TileKey;
     //add that to an overall set of permitted tiles, which is then used to remove any which are not in this set
     std::unordered_set<TileKey> allowed;
     for (TileKey k : current_tiles) {
-      
       auto adjacencies = getAdjacencies(k, d);
-      //print(adjacencies, "Adjacencies");
       for (TileKey a : adjacencies) {
         allowed.insert(a);
       }
@@ -273,7 +271,7 @@ typedef Solver::TileKey TileKey;
     return adjacencies;
   }
 
-  std::vector<TileKey> Solver::getPossibleTiles(Position p) {
+  std::vector<TileKey> Solver::getInitialPossibleTiles(Position p) {
     if (initial_constraints.contains(p)) {
       auto init = initial_constraints[p];
 
@@ -286,4 +284,8 @@ typedef Solver::TileKey TileKey;
       return possible_tiles;
     }
     return this->tiles;
+  }
+
+  std::vector<TileKey>& Solver::getPossibleTiles(Position p) {
+    return this->grid[p];
   }
