@@ -327,7 +327,8 @@ private:
   std::vector<Position> getNeighbors(Position p);
   std::vector<TileKey>::const_iterator collapseRandom(const std::vector<TileKey>& tiles);
   std::unordered_set<TileKey> getAdjacencies(TileKey k, Direction d);
-  std::vector<TileKey> getPossibleTiles(Position p);
+  std::vector<TileKey> getInitialPossibleTiles(Position p);
+  std::vector<TileKey>& getPossibleTiles(Position p);
 
 };
 
