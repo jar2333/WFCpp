@@ -39,5 +39,5 @@ Overall coverage rate:
   lines......: 91.0% (806 of 886 lines)
   functions..: 87.2% (102 of 117 functions)
 
-LoC: 740
-Number of functions: 107
+LoC: 886
+Number of functions: 117
