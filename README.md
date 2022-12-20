@@ -20,7 +20,7 @@ A list of all targets that can be used instead of `all`
 - `wfcpp` to compile WFCpp as a static library (part of `all`).
 - `main.exe` to compile test executable (part of `all`).
 - `doc` to build Doxygen documentation for WFCpp (part of `all`).
-- `run` to run test executable (IO not possible, currently okay, builds `main.exe` target).
+- `run` to run test executable (builds `main.exe` target).
 - `coverage` to build LCov coverage report for test executable (builds `run` target).
 - `EasyBMP` to compile EasyBMP as a static library (part of `all`).
 - `lodepng` to compile lodepng as a static library (part of `all`).
